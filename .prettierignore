@@ -1,0 +1,13 @@
+# sync with gitignore
+node_modules
+dist/
+build/
+
+.idea
+.DS_Store
+.DS_STORE
+.vscode
+coverage/
+yarn-error.log
+lerna-debug.log
+CHANGELOG.md

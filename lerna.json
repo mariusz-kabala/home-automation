@@ -1,0 +1,18 @@
+{
+    "version": "independent",
+    "useWorkspaces": true,
+    "npmClient": "yarn",
+    "packages": ["packages/*"],
+    "command": {
+      "publish": {
+        "allowBranch": "master",
+        "conventionalCommits": true,
+        "message": "chore: Bump versions",
+        "exact": true,
+        "yes": true,
+        "createRelease": "github",
+        "ignoreChanges": ["**/test/**", "**/*.test.*", "**/*.md", "**.md"],
+        "noCommitHooks": true
+      }
+    }
+  }

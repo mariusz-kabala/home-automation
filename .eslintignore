@@ -1,0 +1,6 @@
+dist
+*.d.ts
+node_modules
+config
+rollup.config.js
+jest.config.js
