@@ -23,11 +23,10 @@
   },
   "homepage": "https://github.com/mariusz-kabala/homeAutomation#readme",
   "devDependencies": {
-    "@types/bluebird": "^3.5.29",
     "@types/config": "^0.0.36",
     "@types/jest": "^24.0.25",
     "@types/node": "^13.1.2",
-    "@types/redis": "^2.8.14",
+    "@types/winston": "^2.4.4",
     "@typescript-eslint/eslint-plugin": "^2.14.0",
     "@typescript-eslint/parser": "^2.14.0",
     "concurrently": "^5.0.2",
@@ -54,5 +53,9 @@
     "rollup-plugin-typescript2": "^0.25.3",
     "ts-jest": "^24.2.0",
     "typescript": "^3.7.4"
+  },
+  "dependencies": {
+    "config": "^3.2.4",
+    "winston": "^3.2.1"
   }
 }
