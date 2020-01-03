@@ -1,22 +1,22 @@
 {
     "name": "@home/ws2mqtt",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "private": true,
     "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
     "main": "./dist/index.js",
     "scripts": {
-      "build": "rollup -c ../../rollup.config.js",
-      "build-declarations": "tsc --declaration --emitDeclarationOnly --out dist/index.d.ts",
-      "watch": "rollup -w -c ../../rollup.config.js",
-      "dev": "concurrently \"yarn workspace @home/ws2mqtt watch\" \"nodemon dist/index.js\"",
-      "start": "node dist/index.js",
-      "prepare": "yarn build && yarn build-declarations"
+        "build": "rollup -c ../../rollup.config.js",
+        "build-declarations": "tsc --declaration --emitDeclarationOnly --out dist/index.d.ts",
+        "watch": "rollup -w -c ../../rollup.config.js",
+        "dev": "concurrently \"yarn workspace @home/ws2mqtt watch\" \"nodemon dist/index.js\"",
+        "start": "node dist/index.js",
+        "prepare": "yarn build && yarn build-declarations"
     },
     "devDependencies": {
         "@types/ws": "6.0.4"
     },
     "dependencies": {
-        "ws": "^7.2.1",
-        "mqtt": "^3.0.0"
+        "mqtt": "^3.0.0",
+        "ws": "^7.2.1"
     }
-  }
+}
