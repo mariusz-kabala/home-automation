@@ -2,6 +2,7 @@
     "name": "@home/ws2mqtt",
     "version": "0.0.1",
     "private": true,
+    "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
     "main": "./dist/index.js",
     "scripts": {
       "build": "rollup -c ../../rollup.config.js",

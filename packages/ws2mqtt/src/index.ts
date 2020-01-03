@@ -1,15 +1,26 @@
 import WebSocket, { Data } from 'ws'
 import config from 'config'
 
+import { IWSSensorMsg } from './types'
+import { handleSensorMsg } from './handlers/sensors'
+import { handleLightMsg } from './handlers/lights'
+
 function start() {
   const wsConnectionStr = `ws://${config.get<string>('wsHost')}:${config.get<string>('wsPort')}`
-  console.log(wsConnectionStr)
+
   const ws = new WebSocket(wsConnectionStr)
 
   ws.onmessage = (wsMessage: { data: Data }) => {
-    const msg: any = JSON.parse(wsMessage.data as string)
+    const msg: IWSSensorMsg = JSON.parse(wsMessage.data as string)
 
-    console.log(msg)
+    switch (msg.r) {
+      case 'sensors':
+        return handleSensorMsg(msg)
+      case 'lights':
+        return handleLightMsg(msg)
+      default:
+        return
+    }
   }
 }
 
