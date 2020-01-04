@@ -1,0 +1,15 @@
+{
+    "name": "@home/logger",
+    "version": "0.0.1",
+    "private": true,
+    "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
+    "main": "./dist/index.js",
+    "scripts": {
+        "build": "rollup -c ../../rollup.config.js",
+        "build-declarations": "tsc --declaration --emitDeclarationOnly --out dist/index.d.ts",
+        "watch": "rollup -w -c ../../rollup.config.js",
+        "dev": "concurrently \"yarn workspace @home/logger watch\" \"nodemon dist/index.js\"",
+        "start": "node dist/index.js",
+        "prepare": "yarn build && yarn build-declarations"
+    }
+}
