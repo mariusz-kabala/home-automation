@@ -1,17 +1,10 @@
-import * as colors from 'colors/safe'
-import winston from 'winston'
-
-const colorsMap: { [key: string]: (str: string) => string } = {
-  debug: colors.blue,
-  error: colors.red,
-  info: colors.green,
-}
+import * as winston from 'winston'
 
 const { printf } = winston.format
 
-const myFormat = printf(({ level, message, module, timestamp }) => {
-  const levelDsc = colorsMap[level](`[${level.toUpperCase()}]:`.padEnd(9))
-  return `${timestamp} ${colors.yellow((module || 'unknown').padStart(20))} ${levelDsc} ${message}`
+const myFormat = printf(({ level, message, timestamp }) => {
+  const levelDsc = `[${level.toUpperCase()}]:`.padEnd(9)
+  return `${timestamp} ${levelDsc} ${message}`
 })
 
 export const logger = winston.createLogger({
