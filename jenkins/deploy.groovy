@@ -30,7 +30,6 @@ pipeline {
                         docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
                             sh "terraform init"
                             sh "terraform plan -out deploy.plan -var=\"tag=${version}\" -var=\"API_TOKEN=${DECONZ_API_TOKEN}\" -var=\"STATS_DB_USER=${STATS_DB_USER}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\"" 
-                            "
                             sh "terraform apply -auto-approve deploy.plan"
                         }
                     }
