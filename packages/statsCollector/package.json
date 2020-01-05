@@ -1,6 +1,6 @@
 {
     "name": "@home/stats-collector",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "private": true,
     "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
     "main": "./dist/index.js",
@@ -11,11 +11,9 @@
         "dev": "concurrently \"yarn workspace @home/stats-collector watch\" \"nodemon dist/index.js\"",
         "start": "node dist/index.js"
     },
-    "devDependencies": {
-    },
     "dependencies": {
-        "influx": "^5.5.1",
-        "@home/mqtt": "0.0.1",
-        "@home/logger": "0.0.1"
+        "@home/logger": "0.1.0",
+        "@home/mqtt": "0.1.0",
+        "influx": "^5.5.1"
     }
 }
