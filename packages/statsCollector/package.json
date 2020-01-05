@@ -9,7 +9,8 @@
         "build-declarations": "tsc --declaration --emitDeclarationOnly --out dist/index.d.ts",
         "watch": "rollup -w -c ../../rollup.config.js",
         "dev": "concurrently \"yarn workspace @home/stats-collector watch\" \"nodemon dist/index.js\"",
-        "start": "node dist/index.js"
+        "start": "node dist/index.js",
+        "prepare": "exit 0"
     },
     "devDependencies": {
     },
