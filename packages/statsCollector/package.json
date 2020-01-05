@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
     "name": "@home/stats-collector",
     "version": "0.0.1",
@@ -20,3 +21,24 @@
         "@home/logger": "0.0.1"
     }
 }
+=======
+{
+    "name": "@home/stats-collector",
+    "version": "0.1.0",
+    "private": true,
+    "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
+    "main": "./dist/index.js",
+    "scripts": {
+        "build": "rollup -c ../../rollup.config.js",
+        "build-declarations": "tsc --declaration --emitDeclarationOnly --out dist/index.d.ts",
+        "watch": "rollup -w -c ../../rollup.config.js",
+        "dev": "concurrently \"yarn workspace @home/stats-collector watch\" \"nodemon dist/index.js\"",
+        "start": "node dist/index.js"
+    },
+    "dependencies": {
+        "@home/logger": "0.1.0",
+        "@home/mqtt": "0.1.0",
+        "influx": "^5.5.1"
+    }
+}
+>>>>>>> a8349f7ac07e457418575f5a172db80791eea59e
