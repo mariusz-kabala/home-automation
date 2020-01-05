@@ -24,8 +24,7 @@
       "inlineSourceMap": true,
       "baseUrl": "./packages",
       "paths": {
-        "@bots/*": ["./*/src"],
-        "@libs/*": ["./*/src"]
+        "@home/*": ["packages/*/dist"]
       }
     },
     "include": ["packages/**/*", "./*.ts", "./__mocks__/*.ts"],
