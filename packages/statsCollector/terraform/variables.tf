@@ -5,6 +5,6 @@ variable "STATS_DB_USER" {}
 
 variable "STATS_DB_PASS" {}
 
-variable "DOCKER-REGISTRY-USERNAME" {}
+variable "DOCKER_REGISTRY_USERNAME" {}
 
-variable "DOCKER-REGISTRY-PASSWORD" {}
+variable "DOCKER_REGISTRY_PASSWORD" {}
