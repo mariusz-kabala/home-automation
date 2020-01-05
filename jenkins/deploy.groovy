@@ -9,6 +9,8 @@ pipeline {
         DECONZ_API_TOKEN = credentials('deCONZ')
         STATS_DB_USER = credentials('home-automation-stats-db-user')
         STATS_DB_PASS = credentials('home-automation-stats-db-pass')
+        DOCKER_REGISTRY_USERNAME = credentials('docker-registry-username')
+        DOCKER_REGISTRY_PASSWORD = credentials('docker-registry-password')
         CI = 'true'
         GIT_SSH_COMMAND = "ssh -o StrictHostKeyChecking=no"
     }
