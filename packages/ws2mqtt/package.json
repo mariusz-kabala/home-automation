@@ -9,8 +9,7 @@
         "build-declarations": "tsc --declaration --emitDeclarationOnly --out dist/index.d.ts",
         "watch": "rollup -w -c ../../rollup.config.js",
         "dev": "concurrently \"yarn workspace @home/ws2mqtt watch\" \"nodemon dist/index.js\"",
-        "start": "node dist/index.js",
-        "prepare": "yarn build && yarn build-declarations"
+        "start": "node dist/index.js"
     },
     "devDependencies": {
         "@types/ws": "6.0.4"
