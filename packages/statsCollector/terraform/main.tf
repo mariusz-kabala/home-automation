@@ -1,6 +1,6 @@
-resource "docker_container" "statsCollector" {
-  name  = "statsCollector"
-  image = "docker-registry.kabala.tech/home/statsCollector:${var.tag}"
+resource "docker_container" "statscollector" {
+  name  = "statscollector"
+  image = "docker-registry.kabala.tech/home/statscollector:${var.tag}"
   restart = "always"
   networks_advanced {
       name = "global"
