@@ -16,6 +16,7 @@ resource "docker_container" "bot" {
       "STATS_DB_PASS=${var.STATS_DB_PASS}",
       "TELEGRAM_TOKEN=${var.TELEGRAM_TOKEN}",
       "NODE_ENV=production",
-      "HTTP_PORT=9000"
+      "HTTP_PORT=9000",
+      "TELEGRAM_WEBHOOK_URL=https://home.kabala.tech/bots/hal900"
   ]
 }
