@@ -26,6 +26,11 @@ function start() {
       case 'lights':
         return handleLightMsg(msg)
       default:
+        logger.log({
+          traceId: uuid4(),
+          level: 'error',
+          message: `Not supported WS message: ${wsMessage.data}`,
+        })
         return
     }
   }
