@@ -6,8 +6,13 @@ import { logger } from '@home/logger'
 const uri = `http://${config.get<string>('dbUser')}:${config.get<string>('dbPass')}@${config.get<string>(
   'dbHost',
 )}:${config.get<string>('dbPort')}`
-export const influx = new Influx.InfluxDB(`${uri}/${config.get<string>('dbName')}`)
 
+logger.log({
+  level: 'info',
+  message: `Database uri ${uri}`
+})
+
+export const influx = new Influx.InfluxDB(`${uri}/${config.get<string>('dbName')}`)
 
 const sensorsMapper: {
   [key: string]: {
@@ -85,12 +90,21 @@ export function initSensors(bot: TelegramBot): void {
         message: `msg: ${msg.text} / query: ${query}`
     })
 
-    const data: any = await influx.query(query)
+    try {
+      const data: any = await influx.query(query)
 
-    if (data === null) {
-        bot.sendMessage(chatId, 'I do not have any data about that');
+      if (data === null) {
+          bot.sendMessage(chatId, 'I do not have any data about that');
+      }
+
+      bot.sendMessage(chatId, `Temperature ${device ? `from ${device}` : ''}: ${Math.round(data[0].mean)}C`)
+    } catch (err) {
+      logger.log({
+        level: 'error',
+        message: err
+      })
+
+      bot.sendMessage(chatId, 'An error occured, I was not able to collect data')
     }
-
-    bot.sendMessage(chatId, `Temperature ${device ? `from ${device}` : ''}: ${Math.round(data[0].mean)}C`)
   })
 }
