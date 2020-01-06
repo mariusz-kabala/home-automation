@@ -28,6 +28,42 @@ async function start() {
       }
     }
   })
+
+  subscribe('forecast/#', async (msg: any) => {
+    const {
+      name,
+      id,
+      visibility,
+      main: { temp, feels_like, temp_min, temp_max, pressure, humidity },
+      wind: { speed, deg },
+      clouds: { all },
+    } = msg
+    try {
+      await influx.writePoints([
+        {
+          measurement: 'forecast',
+          tags: { cityName: name, cityId: id },
+          fields: {
+            visibility,
+            temp,
+            feels_like,
+            temp_min,
+            temp_max,
+            pressure,
+            humidity,
+            windSpeed: speed,
+            windDeg: deg,
+            clouds: all,
+          },
+        },
+      ])
+    } catch (err) {
+      logger.log({
+        level: 'error',
+        message: err,
+      })
+    }
+  })
 }
 
 start()
