@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.2.0...@home/stats-collector@0.3.0) (2020-01-06)
+
+
+### Features
+
+* add hal9000 telegram bot ([25bccea](https://github.com/mariusz-kabala/homeAutomation/commit/25bccea8ccd87ff79edf045b1da7d18df8453306))
+
+
+
+
+
 # [0.2.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.1.2...@home/stats-collector@0.2.0) (2020-01-06)
 
 
