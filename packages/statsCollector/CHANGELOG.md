@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.1.2...@home/stats-collector@0.2.0) (2020-01-06)
+
+
+### Features
+
+* support forecast in statsCollector package ([0f54da8](https://github.com/mariusz-kabala/homeAutomation/commit/0f54da89574f031fc4cc93d03e7ed5cc1744ac73))
+
+
+
+
+
 ## [0.1.2](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.1.1...@home/stats-collector@0.1.2) (2020-01-06)
 
 **Note:** Version bump only for package @home/stats-collector
