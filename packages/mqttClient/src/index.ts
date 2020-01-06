@@ -54,3 +54,10 @@ export const subscribe = (topic: string, callback: ICallbackFunc): void => {
 export const all = (callback: ICallbackFunc): void => {
   subscribedToAll.push(callback)
 }
+
+export const publish = <T>(topic: string, payload: T | string): void => {
+  mqttClient.publish(
+    `${config.get<string>('mqttPrefix')}/${topic}`,
+    typeof payload !== 'string' ? JSON.stringify(payload) : payload,
+  )
+}

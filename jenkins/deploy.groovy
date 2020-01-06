@@ -11,6 +11,7 @@ pipeline {
         STATS_DB_PASS = credentials('home-automation-stats-db-pass')
         DOCKER_REGISTRY_USERNAME = credentials('docker-registry-username')
         DOCKER_REGISTRY_PASSWORD = credentials('docker-registry-password')
+        OPEN_WEATHER_API_KEY = credentials('open-weather-api-key')
         CI = 'true'
         GIT_SSH_COMMAND = "ssh -o StrictHostKeyChecking=no"
     }
@@ -23,7 +24,26 @@ pipeline {
                 }
             }
         }
-        stage ('Deploy') {
+        stage ('Deploy openWeather') {
+            when {
+                environment name: 'package', value: 'openWeather'
+            }
+            steps {
+                dir("packages/${env.package}/terraform") {
+                    script {
+                        docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
+                            sh "terraform init"
+                            sh "terraform plan -out deploy.plan -var=\"tag=${version}\" -var=\"OPEN_WEATHER_API_KEY=${OPEN_WEATHER_API_KEY}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\"" 
+                            sh "terraform apply -auto-approve deploy.plan"
+                        }
+                    }
+                }
+            }
+        }
+        stage ('Deploy statsCollector') {
+            when {
+                environment name: 'package', value: 'statsCollector'
+            }
             steps {
                 dir("packages/${env.package}/terraform") {
                     script {
