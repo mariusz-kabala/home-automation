@@ -20,7 +20,7 @@ const app = express()
 
 app.use(bodyParser.json())
 
-app.post(`/bots/hal900/${config.get<string>('telegramToken')}`, (req, res) => {
+app.post(`/bots/hal9000/${config.get<string>('telegramToken')}`, (req, res) => {
     bot.processUpdate(req.body)
     res.sendStatus(200)
 })
