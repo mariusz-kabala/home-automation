@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/bot@0.1.0...@home/bot@0.1.1) (2020-01-06)
+
+
+### Bug Fixes
+
+* add missing webhook_url variable ([5d62da8](https://github.com/mariusz-kabala/homeAutomation/commit/5d62da81dfbfbf3bf41d89d37567d31991ba8956))
+
+
+
+
+
 # 0.1.0 (2020-01-06)
 
 
