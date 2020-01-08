@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/ws2mqtt@0.3.1...@home/ws2mqtt@0.4.0) (2020-01-08)
+
+
+### Features
+
+* more logs and provide dns to docker container ([445b952](https://github.com/mariusz-kabala/homeAutomation/commit/445b952e5be5a04322a9af25c1242b1ed37868a6))
+
+
+
+
+
 ## [0.3.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/ws2mqtt@0.3.0...@home/ws2mqtt@0.3.1) (2020-01-08)
 
 
