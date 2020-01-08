@@ -1,9 +1,11 @@
 import fetch from 'node-fetch'
 import config from 'config'
 import cron from 'node-cron'
+import uuid4 from 'uuid'
 
 import { publish } from '@home/mqtt'
 import { logger } from '@home/logger'
+import { response } from 'express'
 
 export interface IWeather {
   id: number
@@ -47,6 +49,7 @@ export interface IForecast {
   id: number
   name: string
   cod: number
+  traceid?: string
 }
 
 const CITIES = ['Szczecin,PL', 'Sosnowiec,PL', 'Miechow,PL', 'Berlin,DE']
@@ -57,12 +60,18 @@ async function fetchWeather(city: string): Promise<IForecast> {
       'openWeatherAPIKey',
     )}&units=metric`,
   )
+
+  if (!request.ok) {
+    throw response
+  }
+
   const data: IForecast = await request.json()
 
   return data
 }
 
 function publishForecast(city: string, forecast: IForecast): void {
+  forecast.traceid = uuid4()
   publish(`forecast/${city}`, forecast)
 }
 
@@ -71,6 +80,11 @@ async function run() {
     try {
       const forecast = await fetchWeather(city)
       publishForecast(city, forecast)
+      logger.log({
+        level: 'info',
+        message: `Publishing a new forecast for ${city}`,
+        city,
+      })
     } catch (err) {
       logger.log({
         level: 'error',

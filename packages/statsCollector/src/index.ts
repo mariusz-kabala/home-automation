@@ -2,6 +2,7 @@ import { subscribe } from '@home/mqtt'
 import { logger } from '@home/logger'
 
 import { createDBIfNeeded, influx } from './clients/db'
+import { info } from 'winston'
 
 const SUPPORTED_TYPES = ['ZHALightLevel', 'ZHATemperature', 'ZHAPresence', 'ZHASwitch', 'ZHAHumidity', 'ZHAPressure']
 
@@ -20,6 +21,14 @@ async function start() {
             fields: state,
           },
         ])
+        logger.info({
+          level: info,
+          traceid: msg.traceid,
+          message: `Saving new measurement ${JSON.stringify(state)}`,
+          deviceId: id,
+          deviceName: name,
+          measurement: type,
+        })
       } catch (err) {
         logger.log({
           level: 'error',
@@ -57,6 +66,24 @@ async function start() {
           },
         },
       ])
+      logger.info({
+        level: info,
+        traceid: msg.traceid,
+        message: `Saving new forecast ${JSON.stringify({
+          visibility,
+          temp,
+          feels_like,
+          temp_min,
+          temp_max,
+          pressure,
+          humidity,
+          windSpeed: speed,
+          windDeg: deg,
+          clouds: all,
+        })}`,
+        cityName: name,
+        cityId: id,
+      })
     } catch (err) {
       logger.log({
         level: 'error',
