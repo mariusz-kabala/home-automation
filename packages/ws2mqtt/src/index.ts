@@ -18,6 +18,12 @@ function start() {
   ws.onmessage = (wsMessage: { data: Data }) => {
     const msg: IWSSensorMsg = JSON.parse(wsMessage.data as string)
 
+    logger.log({
+      level: 'info',
+      message: `New webSocket message ${wsMessage.data}`,
+      traceid: msg.uniqueid,
+    })
+
     switch (msg.r) {
       case 'sensors':
         return handleSensorMsg(msg)
@@ -27,6 +33,7 @@ function start() {
         logger.log({
           level: 'error',
           message: `Not supported WS message: ${wsMessage.data}`,
+          traceid: msg.uniqueid,
         })
         return
     }
