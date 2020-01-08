@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/ws2mqtt@0.3.0...@home/ws2mqtt@0.3.1) (2020-01-08)
+
+
+### Bug Fixes
+
+* fix broken dockerfile in ws2mqtt ([a2517b6](https://github.com/mariusz-kabala/homeAutomation/commit/a2517b60f28d45c71f0dd7a236ffacb805172b3f))
+
+
+
+
+
 # [0.3.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/ws2mqtt@0.2.0...@home/ws2mqtt@0.3.0) (2020-01-08)
 
 
