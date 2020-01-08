@@ -1,15 +1,13 @@
 import WebSocket, { Data } from 'ws'
 import config from 'config'
-import uuid4 from 'uuid'
+import { logger } from '@home/logger'
 
 import { IWSSensorMsg } from './types'
 import { handleSensorMsg } from './handlers/sensors'
 import { handleLightMsg } from './handlers/lights'
-import { logger } from './logger'
 
 function start() {
   logger.log({
-    traceId: uuid4(),
     level: 'info',
     message: 'Starting ws2mqtt',
   })
@@ -27,7 +25,6 @@ function start() {
         return handleLightMsg(msg)
       default:
         logger.log({
-          traceId: uuid4(),
           level: 'error',
           message: `Not supported WS message: ${wsMessage.data}`,
         })
@@ -37,7 +34,6 @@ function start() {
 
   ws.onerror = event => {
     logger.log({
-      traceId: uuid4(),
       level: 'error',
       message: `Websocket error: ${event.message} ${event.error}`,
     })

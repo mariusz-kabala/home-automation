@@ -87,13 +87,17 @@ export function initSensors(bot: TelegramBot): void {
 
     logger.log({
         level: 'info',
-        message: `msg: ${msg.text} / query: ${query}`
+        message: `New sensor msg: ${msg.text} / query: ${query}`
     })
 
     try {
       const data: any = await influx.query(query)
 
       if (data === null) {
+          logger.log({
+            level: 'info',
+            message: `No Data for query ${query} / msg: ${msg.text}`
+          })
           bot.sendMessage(chatId, 'I do not have any data about that');
       }
 

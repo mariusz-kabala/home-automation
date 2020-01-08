@@ -16,7 +16,8 @@
         "@types/ws": "6.0.4"
     },
     "dependencies": {
-        "mqtt": "^3.0.0",
+        "@home/logger": "0.1.1",
+        "@home/mqtt": "0.2.0",
         "ws": "^7.2.1"
     }
 }
