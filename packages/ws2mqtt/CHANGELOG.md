@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/ws2mqtt@0.2.0...@home/ws2mqtt@0.3.0) (2020-01-08)
+
+
+### Features
+
+* proper logging for ws2mqtt, reuse mqtt and logger package ([0f0fe14](https://github.com/mariusz-kabala/homeAutomation/commit/0f0fe14f1cd422cd14065fb6774dddc78373dc77))
+
+
+
+
+
 # [0.2.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/ws2mqtt@0.1.3...@home/ws2mqtt@0.2.0) (2020-01-06)
 
 

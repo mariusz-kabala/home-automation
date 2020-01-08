@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.3.0...@home/stats-collector@0.4.0) (2020-01-08)
+
+
+### Features
+
+* provide more logs ([9eb4e34](https://github.com/mariusz-kabala/homeAutomation/commit/9eb4e34dab9ba9d1868b8406f4f4479730eaf80d))
+
+
+
+
+
 # [0.3.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.2.0...@home/stats-collector@0.3.0) (2020-01-06)
 
 
