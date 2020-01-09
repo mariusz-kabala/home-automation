@@ -6,6 +6,7 @@ import config from 'config'
 export class TV {
   private device: any
   private deviceName: string
+  private subscriptions: Array<(() => void)> = []
 
   constructor(ipAddress: string, name: string) {
     this.device = lgtv2({
@@ -13,27 +14,50 @@ export class TV {
     })
     this.deviceName = name
 
-    this.subscribeToDeviceEvents()
-    this.subscribeToMqttEvents()
+    this.device.on('connect', () => {
+      publish(`tv/${this.deviceName}/status`, {isOn: true})
+
+      this.subscribeToDeviceEvents()
+      this.subscribeToMqttEvents()
+    })
+
+    this.device.on('error', (err: Error) => {
+      logger.log({
+        level: 'error',
+        message: `Connection error, device ${this.deviceName} / error: ${err}`,
+        device: this.deviceName,
+      })
+      this.unsubscribe()
+    })
   }
 
   public disconnect() {
     this.device.disconnect()
+    this.unsubscribe()
+    
     return Promise.resolve()
   }
 
+  private unsubscribe() {
+    this.subscriptions.forEach(sub => sub())
+  }
+
+  private subscribe(topic: string, callback: Function) {
+    this.subscriptions.push(subscribe(topic, callback))
+  }
+
   private subscribeToMqttEvents() {
-    subscribe(`tv/${this.deviceName}/sendNotification`, (msg: { message: string }) => {
+    this.subscribe(`tv/${this.deviceName}/sendNotification`, (msg: { message: string }) => {
       this.device.request('ssap://system.notifications/createToast', { message: msg.message })
     })
 
-    subscribe(`tv/${this.deviceName}/turnOff`, () => {
+    this.subscribe(`tv/${this.deviceName}/turnOff`, () => {
       this.device.request('ssap://system/turnOff', () => {
         this.device.disconnect()
       })
     })
 
-    subscribe(`tv/${this.deviceName}/lunchApp`, (msg: { app: string }) => {
+    this.subscribe(`tv/${this.deviceName}/lunchApp`, (msg: { app: string }) => {
       const apps = config.get<{
         [key: string]: string
       }>('apps')
@@ -49,6 +73,30 @@ export class TV {
       }
 
       this.device.request('ssap://system.launcher/launch', { id: apps[app] })
+    })
+
+    this.subscribe(`tv/${this.deviceName}/setMute`, (msg: { mute: boolean}) => {
+      this.device.request('ssap://audio/setMute', {mute: msg.mute})
+    })
+
+    this.subscribe(`tv/${this.deviceName}/setVolume`, (msg: { volume: number}) => {
+      this.device.request('ssap://audio/setVolume', {volume: msg.volume})
+    })
+
+    this.subscribe(`tv/${this.deviceName}/volumeUp`, () => {
+      this.device.request('ssap://audio/volumeUp')
+    })
+
+    this.subscribe(`tv/${this.deviceName}/volumeDown`, () => {
+      this.device.request('ssap://audio/volumeDown')
+    })
+
+    this.subscribe(`tv/${this.deviceName}/play`, () => {
+      this.device.request('ssap://media.controls/play')
+    })
+
+    this.subscribe(`tv/${this.deviceName}/pause`, () => {
+      this.device.request('ssap://media.controls/pause')
     })
   }
 

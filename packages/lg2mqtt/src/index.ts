@@ -29,30 +29,3 @@ async function checkIfDevicesAreReachable() {
 setInterval(checkIfDevicesAreReachable, 30000)
 
 checkIfDevicesAreReachable()
-
-// var lgtv = lgtv2({
-//   url: 'ws://192.168.0.151:3000',
-// })
-
-// lgtv.on('error', function(err: any) {
-//   console.log(err)
-// })
-
-// lgtv.on('connect', function() {
-//   console.log('connected')
-
-//   lgtv.request('ssap://system.notifications/createToast', {
-//     message: 'Temperatura w kuchni spadla pozniej 20C',
-//     persistent: true,
-//     noaction: false,
-//   })
-//   lgtv.request('ssap://com.webos.applicationManager/listLaunchPoints', (err: any, msg: any) => {
-//     console.log(err)
-//     for (const app of msg.launchPoints) {
-//       console.log(`${app.id} ${app.title}`)
-//     }
-//   })
-//   //   lgtv.request('ssap://com.webos.service.webappmanager')
-//   //   lgtv.request('ssap://media.controls/play')
-//   //   lgtv.request('ssap://system.launcher/launch', {id: 'hbogocev5'});
-// })

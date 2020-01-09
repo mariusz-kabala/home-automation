@@ -35,7 +35,7 @@ mqttClient.on('message', (topic: string, payload: string): void => {
   subscribedToAll.forEach(callback => callback(msg, topic))
 })
 
-export const subscribe = (topic: string, callback: ICallbackFunc): void => {
+export const subscribe = (topic: string, callback: ICallbackFunc): () => void => {
   topic = `${config.get<string>('mqttPrefix')}/${topic}`
 
   mqttClient.subscribe(topic)
@@ -48,7 +48,15 @@ export const subscribe = (topic: string, callback: ICallbackFunc): void => {
     subscriptions[topic] = []
   }
 
-  subscriptions[topic].push(callback)
+  const length = subscriptions[topic].push(callback)
+
+  return () => {
+    subscriptions[topic].splice(length - 1, 1)
+
+    if (subscriptions[topic].length === 0) {
+      mqttClient.unsubscribe(topic)
+    }
+  }
 }
 
 export const all = (callback: ICallbackFunc): void => {
