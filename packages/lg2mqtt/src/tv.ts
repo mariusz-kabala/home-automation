@@ -1,5 +1,5 @@
 import lgtv2 from 'lgtv2'
-import { publish, subscribe } from '@home/mqtt'
+import { publish, subscribe, ICallbackFunc } from '@home/mqtt'
 import { logger } from '@home/logger'
 import config from 'config'
 
@@ -45,7 +45,7 @@ export class TV {
     this.subscriptions.forEach(sub => sub())
   }
 
-  private subscribe(topic: string, callback: Function) {
+  private subscribe(topic: string, callback: ICallbackFunc) {
     this.subscriptions.push(subscribe(topic, callback))
   }
 
