@@ -1,4 +1,4 @@
-import mqtt from 'mqtt'
+import mqtt, { IClientPublishOptions } from 'mqtt'
 import config from 'config'
 import { logger } from '@home/logger'
 import MQTTPattern from 'mqtt-pattern'
@@ -35,13 +35,13 @@ mqttClient.on('message', (topic: string, payload: string): void => {
   subscribedToAll.forEach(callback => callback(msg, topic))
 })
 
-export const subscribe = (topic: string, callback: ICallbackFunc): () => void => {
+export const subscribe = (topic: string, callback: ICallbackFunc): (() => void) => {
   topic = `${config.get<string>('mqttPrefix')}/${topic}`
 
   mqttClient.subscribe(topic)
 
   if (typeof callback !== 'function') {
-    return
+    return () => null
   }
 
   if (!Array.isArray(subscriptions[topic])) {
@@ -63,9 +63,12 @@ export const all = (callback: ICallbackFunc): void => {
   subscribedToAll.push(callback)
 }
 
-export const publish = <T>(topic: string, payload: T | string): void => {
-  mqttClient.publish(
-    `${config.get<string>('mqttPrefix')}/${topic}`,
-    typeof payload !== 'string' ? JSON.stringify(payload) : payload,
-  )
+export const publish = <T>(
+  topic: string,
+  payload: T | string,
+  options: IClientPublishOptions = { qos: 0, retain: false },
+): void => {
+  const message = typeof payload !== 'string' ? JSON.stringify(payload) : payload
+
+  mqttClient.publish(`${config.get<string>('mqttPrefix')}/${topic}`, message, options)
 }

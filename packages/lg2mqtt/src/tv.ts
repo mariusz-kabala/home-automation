@@ -36,7 +36,8 @@ export class TV {
       this.device.disconnect()
       this.unsubscribe()
 
-      publish(`tv/${this.deviceName}/status`, {isOn: false}, () => resolve())
+      publish(`tv/${this.deviceName}/status`, {isOn: false}, { retain: true, qos: 0 })
+      resolve()
     })
   }
 

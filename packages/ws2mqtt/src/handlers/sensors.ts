@@ -28,5 +28,5 @@ export function handleSensorMsg(msg: IWSSensorMsg) {
     traceid: msg.uniqueid,
   }
 
-  publish(`sensors/${msg.id}`, data)
+  publish(`sensors/${msg.id}`, data, { retain: true, qos: 0 })
 }

@@ -19,6 +19,7 @@ async function checkIfDevicesAreReachable() {
     if (isDeviceReachable && !connected[device]) {
       connected[device] = new TV(deviceIP, device)
     } else if (!isDeviceReachable && connected[device]) {
+      // todo: use Promise.all to not wait for device
       await connected[device].disconnect()
 
       delete connected[device]
