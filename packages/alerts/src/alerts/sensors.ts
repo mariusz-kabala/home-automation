@@ -31,7 +31,6 @@ export function sensorsAlerts() {
           .update(
             JSON.stringify({
               name,
-              type: 'sensors',
               ...rule,
             }),
           )
