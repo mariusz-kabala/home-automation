@@ -32,10 +32,12 @@ export class TV {
   }
 
   public disconnect() {
-    this.device.disconnect()
-    this.unsubscribe()
-    
-    return Promise.resolve()
+    return new Promise(resolve => {
+      this.device.disconnect()
+      this.unsubscribe()
+
+      publish(`tv/${this.deviceName}/status`, {isOn: false}, () => resolve())
+    })
   }
 
   private unsubscribe() {
