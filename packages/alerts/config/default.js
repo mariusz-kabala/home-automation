@@ -4,7 +4,7 @@ dotenv.config()
 module.exports = {
   wsHost: process.env.WS_HOST,
   wsPort: process.env.WS_PORT,
-  rules: {
+  sensorRules: {
     'Bathroom Motion Sensor': [
       {
         field: 'temperature',
