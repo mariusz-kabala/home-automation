@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.4.0...@home/stats-collector@0.5.0) (2020-01-10)
+
+
+### Features
+
+* add ws2mqtt package ([7e51b7e](https://github.com/mariusz-kabala/homeAutomation/commit/7e51b7e0c25841579599e05f60d243b9bbd8451c))
+
+
+
+
+
 # [0.4.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.3.0...@home/stats-collector@0.4.0) (2020-01-08)
 
 

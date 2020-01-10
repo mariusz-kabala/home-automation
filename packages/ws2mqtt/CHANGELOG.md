@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/ws2mqtt@0.4.0...@home/ws2mqtt@0.5.0) (2020-01-10)
+
+
+### Bug Fixes
+
+* typo fix ([edf8c04](https://github.com/mariusz-kabala/homeAutomation/commit/edf8c041d957de2aad3ea4bd38095f2107c8c380))
+
+
+### Features
+
+* set retail: true for some of messages ([cc44633](https://github.com/mariusz-kabala/homeAutomation/commit/cc4463387cdafbb9087e23268ee2ead739f7e6ad))
+
+
+
+
+
 # [0.4.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/ws2mqtt@0.3.1...@home/ws2mqtt@0.4.0) (2020-01-08)
 
 

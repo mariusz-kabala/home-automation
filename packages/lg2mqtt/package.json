@@ -1,6 +1,6 @@
 {
     "name": "@home/lg2mqtt",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "private": true,
     "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
     "main": "./dist/index.js",
@@ -14,9 +14,7 @@
     },
     "dependencies": {
         "@home/logger": "0.1.1",
-        "@home/mqtt": "0.2.0",
+        "@home/mqtt": "0.3.0",
         "lgtv2": "^1.4.1"
     }
 }
-
-
