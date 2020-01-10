@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/lg2mqtt@0.1.0...@home/lg2mqtt@0.2.0) (2020-01-10)
+
+
+### Bug Fixes
+
+* proper docker container name ([57dee79](https://github.com/mariusz-kabala/homeAutomation/commit/57dee7990305b3af8648100beb39ae26294024b1))
+
+
+### Features
+
+* support for alerts ([a5e4a22](https://github.com/mariusz-kabala/homeAutomation/commit/a5e4a228ae2d45a38fe5e15304d07fba5e2591a4))
+
+
+
+
+
 # 0.1.0 (2020-01-10)
 
 
