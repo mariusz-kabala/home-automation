@@ -6,8 +6,6 @@ resource "docker_container" "alerts" {
       name = "global"
   }
   env = [
-      "WS_HOST=home.kabala.tech",
-      "WS_PORT=8081",
       "MQTT_HOST=home.kabala.tech",
       "MQTT_PORT=1883"
   ]
