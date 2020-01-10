@@ -65,6 +65,7 @@
     "colors": "^1.4.0",
     "config": "^3.2.4",
     "express": "^4.17.1",
+    "is-reachable": "^4.0.0",
     "mqtt": "^3.0.0",
     "mqtt-pattern": "^1.2.0",
     "node-fetch": "^2.6.0",

@@ -29,5 +29,5 @@ export function handleLightMsg(msg: IWSSensorMsg) {
     traceid: msg.uniqueid,
   }
 
-  publish(`lights/${msg.id}`, data)
+  publish(`lights/${msg.id}`, data, { retain: true, qos: 0 })
 }
