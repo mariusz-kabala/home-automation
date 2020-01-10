@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.4](https://github.com/mariusz-kabala/homeAutomation/compare/@home/alerts@0.1.3...@home/alerts@0.1.4) (2020-01-10)
+
+
+### Bug Fixes
+
+* create hash method ([f0cdea6](https://github.com/mariusz-kabala/homeAutomation/commit/f0cdea6aebe4e0366a7940a8036b060fa16d6144))
+
+
+
+
+
 ## [0.1.3](https://github.com/mariusz-kabala/homeAutomation/compare/@home/alerts@0.1.2...@home/alerts@0.1.3) (2020-01-10)
 
 
