@@ -27,6 +27,16 @@ const tvKeys = (() => {
   return keys
 })()
 
+function sentRecentAlert(device: TV) {
+  if (!lastNotSentAlert) {
+    return
+  }
+
+  device.showAlert(lastNotSentAlert)
+  clearLastNotSentAlertTimeout && clearTimeout(clearLastNotSentAlertTimeout)
+  lastNotSentAlert = undefined
+}
+
 async function checkIfDevicesAreReachable() {
   const devices = config.get<{
     [name: string]: string
@@ -38,6 +48,7 @@ async function checkIfDevicesAreReachable() {
 
     if (isDeviceReachable && !connected[device] && tvKeys[deviceIP]) {
       connected[device] = new TV(deviceIP, device, tvKeys[deviceIP])
+      lastNotSentAlert && sentRecentAlert(connected[device])
     } else if (!isDeviceReachable && connected[device]) {
       // todo: use Promise.all to not wait for device
       await connected[device].disconnect()
