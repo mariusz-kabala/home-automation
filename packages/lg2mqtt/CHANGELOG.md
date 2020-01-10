@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/lg2mqtt@0.2.0...@home/lg2mqtt@0.2.1) (2020-01-10)
+
+
+### Bug Fixes
+
+* fix alert caching system ([552eb0b](https://github.com/mariusz-kabala/homeAutomation/commit/552eb0b8b90891be8221ebbdf334746e27438902))
+
+
+
+
+
 # [0.2.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/lg2mqtt@0.1.0...@home/lg2mqtt@0.2.0) (2020-01-10)
 
 
