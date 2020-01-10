@@ -1,11 +1,16 @@
 import isReachable from 'is-reachable'
 import config from 'config'
+import { subscribe } from '@home/mqtt'
 
 import { TV } from './tv'
 
 const connected: {
   [key: string]: TV
 } = {}
+
+let lastNotSentAlert: string|undefined
+
+let clearLastNotSentAlertTimeout: NodeJS.Timeout|undefined
 
 const tvKeys = (() => {
   const keysStr = config.get<string>('tvKeys')
@@ -42,6 +47,26 @@ async function checkIfDevicesAreReachable() {
   }
 }
 
+function subscribeForAlerts() {
+  subscribe('alert/+', (msg: {alert: string}) => {
+    const connectedList: string[] = Object.keys(connected)
+
+    if (connectedList.length > 0) {
+      for (const device of connectedList) {
+        connected[device].showAlert(msg.alert)
+      }
+    } else {
+      typeof clearLastNotSentAlertTimeout !== 'undefined' && clearTimeout(clearLastNotSentAlertTimeout)
+
+      lastNotSentAlert = msg.alert
+      clearLastNotSentAlertTimeout = setTimeout(() => {
+        lastNotSentAlert = undefined
+      }, 900000) // 15min
+    }
+  })
+}
+
+subscribeForAlerts()
 setInterval(checkIfDevicesAreReachable, 30000)
 
 checkIfDevicesAreReachable()

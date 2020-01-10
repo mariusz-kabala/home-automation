@@ -33,6 +33,10 @@ export class TV {
     })
   }
 
+  public showAlert(message: string) {
+    this.device.request('ssap://system.notifications/createToast', { message })
+  }
+
   public disconnect() {
     return new Promise(resolve => {
       this.device.disconnect()
