@@ -1,5 +1,5 @@
 resource "docker_container" "lg2mqtt" {
-  name  = "alerts"
+  name  = "lg2mqtt"
   image = "docker-registry.kabala.tech/home/lg2mqtt:${var.tag}"
   restart = "always"
   networks_advanced {
