@@ -23,7 +23,7 @@ export function sensorsAlerts() {
     }
 
     for (const rule of sensorsRules[name]) {
-      if (state[rule.field] && !checkCondition(state[rule.field], rule.value, rule.condition)) {
+      if (state[rule.field] && checkCondition(state[rule.field], rule.value, rule.condition)) {
         const alertHash = createHash()
           .update(
             JSON.stringify({

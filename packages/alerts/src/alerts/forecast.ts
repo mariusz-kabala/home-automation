@@ -23,7 +23,7 @@ export function forecastAlerts() {
     }
 
     for (const rule of rules[name]) {
-      if (main[rule.field] && !checkCondition(main[rule.field], rule.value, rule.condition)) {
+      if (main[rule.field] && checkCondition(main[rule.field], rule.value, rule.condition)) {
         const alertHash = createHash()
           .update(
             JSON.stringify({
