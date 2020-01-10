@@ -1,11 +1,8 @@
 import config from 'config'
 import { IRule } from '../types'
-import { checkCondition } from '../helpers'
+import { checkCondition, hash } from '../helpers'
 import { subscribe, publish } from '@home/mqtt'
-import crypto from 'crypto'
 import { logger } from '@home/logger'
-
-const hash: crypto.Hash = crypto.createHash('sha1')
 
 const recentAlerts: {
   [key: string]: number
