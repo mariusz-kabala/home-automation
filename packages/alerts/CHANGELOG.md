@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.5](https://github.com/mariusz-kabala/homeAutomation/compare/@home/alerts@0.1.4...@home/alerts@0.1.5) (2020-01-10)
+
+
+### Bug Fixes
+
+* fix condition if statement ([0d893dc](https://github.com/mariusz-kabala/homeAutomation/commit/0d893dc3af10c2c83c2f35ee0c0c0b1ff4d7eaec))
+
+
+
+
+
 ## [0.1.4](https://github.com/mariusz-kabala/homeAutomation/compare/@home/alerts@0.1.3...@home/alerts@0.1.4) (2020-01-10)
 
 
