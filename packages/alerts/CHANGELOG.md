@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/alerts@0.1.0...@home/alerts@0.1.1) (2020-01-10)
+
+
+### Bug Fixes
+
+* proper alerts config ([5d84e56](https://github.com/mariusz-kabala/homeAutomation/commit/5d84e5605f6dad033a9a478bc1c8b41076f7ebd0))
+
+
+
+
+
 # 0.1.0 (2020-01-10)
 
 
