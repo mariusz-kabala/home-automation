@@ -2,6 +2,7 @@ const dotenv = require('dotenv')
 dotenv.config()
 
 module.exports = {
+    tvKeys: process.env.TV_KEYS,
     mqttHost: process.env.MQTT_HOST,
     mqttPort: process.env.MQTT_PORT,
     mqttPrefix: 'home',

@@ -8,9 +8,11 @@ export class TV {
   private deviceName: string
   private subscriptions: Array<(() => void)> = []
 
-  constructor(ipAddress: string, name: string) {
+  constructor(ipAddress: string, name: string, clientKey: string) {
     this.device = lgtv2({
       url: `ws://${ipAddress}:3000`,
+      clientKey,
+      saveKey: () => null,
     })
     this.deviceName = name
 
@@ -104,7 +106,7 @@ export class TV {
   }
 
   private subscribeToDeviceEvents() {
-    this.device('ssap://audio/getVolume', this.onVolumeChange)
+    this.device.on('ssap://audio/getVolume', this.onVolumeChange)
   }
 
   private onVolumeChange(err: Error | null, res: any) {

@@ -7,6 +7,21 @@ const connected: {
   [key: string]: TV
 } = {}
 
+const tvKeys = (() => {
+  const keysStr = config.get<string>('tvKeys')
+  const keys: {
+    [ip: string]: string
+  } = {}
+  const keysSplit = keysStr.split(';')
+
+  for (const key of keysSplit) {
+    const [ip, keyValue] = key.split(':')
+    keys[ip] = keyValue
+  }
+
+  return keys
+})()
+
 async function checkIfDevicesAreReachable() {
   const devices = config.get<{
     [name: string]: string
@@ -16,8 +31,8 @@ async function checkIfDevicesAreReachable() {
     const deviceIP = devices[device]
     const isDeviceReachable = await isReachable(`${deviceIP}:3000`, { timeout: 1000 })
 
-    if (isDeviceReachable && !connected[device]) {
-      connected[device] = new TV(deviceIP, device)
+    if (isDeviceReachable && !connected[device] && tvKeys[deviceIP]) {
+      connected[device] = new TV(deviceIP, device, tvKeys[deviceIP])
     } else if (!isDeviceReachable && connected[device]) {
       // todo: use Promise.all to not wait for device
       await connected[device].disconnect()
