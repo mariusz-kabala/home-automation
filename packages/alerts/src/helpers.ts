@@ -1,6 +1,6 @@
 import crypto from 'crypto'
 
-export const hash: crypto.Hash = crypto.createHash('sha1')
+export const createHash = (): crypto.Hash => crypto.createHash('sha1')
 
 export function checkCondition(
     value: number,

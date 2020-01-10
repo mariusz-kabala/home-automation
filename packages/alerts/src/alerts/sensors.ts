@@ -1,6 +1,6 @@
 import config from 'config'
 import { IRule } from '../types'
-import { checkCondition, hash } from '../helpers'
+import { checkCondition, createHash } from '../helpers'
 import { subscribe, publish } from '@home/mqtt'
 import { logger } from '@home/logger'
 
@@ -24,7 +24,7 @@ export function sensorsAlerts() {
 
     for (const rule of sensorsRules[name]) {
       if (state[rule.field] && !checkCondition(state[rule.field], rule.value, rule.condition)) {
-        const alertHash = hash
+        const alertHash = createHash()
           .update(
             JSON.stringify({
               name,
