@@ -73,9 +73,7 @@ pipeline {
         }
         stage ('Deploy') {
             when {
-                expression {
-                    env.deploy == 'true'
-                }
+                environment name: 'deploy', value: 'true'
             }
             steps {
                 script {

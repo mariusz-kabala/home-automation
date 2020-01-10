@@ -85,7 +85,7 @@ pipeline {
                     build job: '(HomeAutomation) Build', wait: false, parameters: [
                         string(name: 'ghprbActualCommit', value: "${ghprbActualCommit}"),
                         string(name: 'packages', value: "${env.packages}"),
-                        string(name: 'deploy', value: "v${env.deploy}"),
+                        string(name: 'deploy', value: "${env.deploy}"),
                     ]
                 }
             }
