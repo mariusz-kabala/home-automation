@@ -1,6 +1,7 @@
 import TelegramBot from 'node-telegram-bot-api'
 import config from 'config'
 import { initSensors } from './commands/sensors'
+import { initLgTv } from './commands/lgtv'
 import { logger } from '@home/logger'
 import express from 'express'
 import bodyParser from 'body-parser'
@@ -30,6 +31,7 @@ if (env === 'production') {
 }
 
 initSensors(bot)
+initLgTv(bot)
 
 logger.log({
     level: 'info',
@@ -40,5 +42,12 @@ app.listen(config.get<string>('httpPort'), () => {
     logger.log({
         level: 'info',
         message: `Express server is listening on port ${config.get<string>('httpPort')}`
+    })
+})
+
+bot.on('message', (msg) => {
+    logger.log({
+        level: 'info',
+        message: `New telegram message ${JSON.stringify(msg)}`
     })
 })

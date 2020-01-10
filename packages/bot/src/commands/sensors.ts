@@ -98,7 +98,8 @@ export function initSensors(bot: TelegramBot): void {
             level: 'info',
             message: `No Data for query ${query} / msg: ${msg.text}`
           })
-          bot.sendMessage(chatId, 'I do not have any data about that');
+          bot.sendMessage(chatId, 'I do not have any data about that')
+          return
       }
 
       bot.sendMessage(chatId, `Temperature ${device ? `from ${device}` : ''}: ${Math.round(data[0].mean)}C`)
