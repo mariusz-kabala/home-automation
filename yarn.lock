@@ -1402,6 +1402,13 @@
   dependencies:
     "@types/node" "*"
 
+"@types/wake_on_lan@^0.0.27":
+  version "0.0.27"
+  resolved "https://registry.yarnpkg.com/@types/wake_on_lan/-/wake_on_lan-0.0.27.tgz#5f8847a905cea755052c22fdafa96ac4eefd8489"
+  integrity sha1-X4hHqQXOp1UFLCL9r6lqxO79hIk=
+  dependencies:
+    "@types/node" "*"
+
 "@types/winston@^2.4.4":
   version "2.4.4"
   resolved "https://registry.yarnpkg.com/@types/winston/-/winston-2.4.4.tgz#48cc744b7b42fad74b9a2e8490e0112bd9a3d08d"
@@ -6862,11 +6869,6 @@ node-telegram-bot-api@^0.40.0:
     request "^2.83.0"
     request-promise "^4.2.2"
 
-node-wol@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/node-wol/-/node-wol-0.1.1.tgz#9be17fe8b799c5e00a6aad5c8936f43684e5e83d"
-  integrity sha1-m+F/6LeZxeAKaq1ciTb0NoTl6D0=
-
 nodemon@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-2.0.2.tgz#9c7efeaaf9b8259295a97e5d4585ba8f0cbe50b0"
@@ -9672,6 +9674,13 @@ w3c-hr-time@^1.0.1:
   integrity sha1-gqwr/2PZUOqeMYmlimViX+3xkEU=
   dependencies:
     browser-process-hrtime "^0.1.2"
+
+wake_on_lan@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/wake_on_lan/-/wake_on_lan-1.0.0.tgz#516519ee5ab41a652d79c8bd5704fce6ecd4cdb2"
+  integrity sha1-UWUZ7lq0GmUteci9VwT85uzUzbI=
+  dependencies:
+    minimist "^1.2.0"
 
 walker@^1.0.7, walker@~1.0.5:
   version "1.0.7"

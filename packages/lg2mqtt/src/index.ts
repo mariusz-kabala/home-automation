@@ -1,6 +1,6 @@
 import isReachable from 'is-reachable'
 import config from 'config'
-import wol from 'node-wol'
+import wol from 'wake_on_lan'
 import { subscribe } from '@home/mqtt'
 
 import { TV } from './tv'
@@ -110,13 +110,13 @@ function subscribeForWOL() {
       return
     }
 
-    wol.wake(mac, { address: ip },  (err: Error | null) => {
+    wol.wake(mac, (err: Error | null) => {
       if (err) {
         logger.log({
           level: 'error',
           message: `Can not turn on device ${device}, error ${err}`,
         })
-        return  
+        return
       }
 
       checkIfDevicesAreReachable()
