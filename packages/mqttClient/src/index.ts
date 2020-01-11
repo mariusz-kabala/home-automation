@@ -27,12 +27,16 @@ mqttClient.on('message', (topic: string, payload: string): void => {
   })
 
   const matchTopics = Object.keys(subscriptions).filter(sub => MQTTPattern.matches(sub, topic))
+  const topicArr = topic.split('/')
+  topicArr.shift()
+
+  const localTopic = topicArr.join('/')
 
   for (const sub of matchTopics) {
-    subscriptions[sub].forEach(callback => callback(msg, topic))
+    subscriptions[sub].forEach(callback => callback(msg, localTopic))
   }
 
-  subscribedToAll.forEach(callback => callback(msg, topic))
+  subscribedToAll.forEach(callback => callback(msg, localTopic))
 })
 
 export const subscribe = (topic: string, callback: ICallbackFunc): (() => void) => {

@@ -1,16 +1,22 @@
 import isReachable from 'is-reachable'
 import config from 'config'
+import wol from 'node-wol'
 import { subscribe } from '@home/mqtt'
 
 import { TV } from './tv'
+import { logger } from '@home/logger'
 
 const connected: {
   [key: string]: TV
 } = {}
 
-let lastNotSentAlert: string|undefined
+const devices = config.get<{
+  [name: string]: string
+}>('devices')
 
-let clearLastNotSentAlertTimeout: NodeJS.Timeout|undefined
+let lastNotSentAlert: string | undefined
+
+let clearLastNotSentAlertTimeout: NodeJS.Timeout | undefined
 
 const tvKeys = (() => {
   const keysStr = config.get<string>('tvKeys')
@@ -38,10 +44,6 @@ function sentRecentAlert(device: TV) {
 }
 
 async function checkIfDevicesAreReachable() {
-  const devices = config.get<{
-    [name: string]: string
-  }>('devices')
-
   for (const device of Object.keys(devices)) {
     const deviceIP = devices[device]
     const isDeviceReachable = await isReachable(`${deviceIP}:3000`, { timeout: 1000 })
@@ -59,7 +61,7 @@ async function checkIfDevicesAreReachable() {
 }
 
 function subscribeForAlerts() {
-  subscribe('alert/+', (msg: {alert: string}) => {
+  subscribe('alert/+', (msg: { alert: string }) => {
     const connectedList: string[] = Object.keys(connected)
 
     if (connectedList.length > 0) {
@@ -77,7 +79,58 @@ function subscribeForAlerts() {
   })
 }
 
+function subscribeForWOL() {
+  const macAddresses = config.get<{
+    [name: string]: string
+  }>('devicesMacAddresses')
+  subscribe('tv/+/turnOn', (_msg: null, topic: string) => {
+    const [, device] = topic.split('/')
+
+    logger.log({
+      level: 'info',
+      message: `Turning on device ${device}`,
+    })
+
+    if (connected[device]) {
+      logger.log({
+        level: 'info',
+        message: `Device ${device} already on, skipping WOL proccess`,
+      })
+      return
+    }
+
+    const mac = macAddresses[device]
+    const ip = devices[device]
+
+    if (!mac || !ip) {
+      logger.log({
+        level: 'error',
+        message: `Unknown mac address for device ${device}, can not turn on`,
+      })
+      return
+    }
+
+    wol.wake(mac, { address: ip },  (err: Error | null) => {
+      if (err) {
+        logger.log({
+          level: 'error',
+          message: `Can not turn on device ${device}, error ${err}`,
+        })
+        return  
+      }
+
+      checkIfDevicesAreReachable()
+    })
+  })
+}
+
 subscribeForAlerts()
+subscribeForWOL()
 setInterval(checkIfDevicesAreReachable, 30000)
 
 checkIfDevicesAreReachable()
+
+logger.log({
+  level: 'info',
+  message: 'Lg2mqtt started',
+})
