@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/lg2mqtt@0.2.1...@home/lg2mqtt@0.3.0) (2020-01-11)
+
+
+### Features
+
+* fix mqtt topic (drop prefix); add WOL for lgtv ([c08a3e3](https://github.com/mariusz-kabala/homeAutomation/commit/c08a3e3790ea511a77118057f225e5c79f0372ef))
+
+
+
+
+
 ## [0.2.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/lg2mqtt@0.2.0...@home/lg2mqtt@0.2.1) (2020-01-10)
 
 
