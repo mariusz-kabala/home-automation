@@ -2,12 +2,8 @@ resource "docker_container" "lg2mqtt" {
   name  = "lg2mqtt"
   image = "docker-registry.kabala.tech/home/lg2mqtt:${var.tag}"
   restart = "always"
-  networks_advanced {
-      name = "host"
-  }
-  networks_advanced {
-      name = "global"
-  }
+  network_mode = "host"
+  
   env = [
       "MQTT_HOST=home.kabala.tech",
       "MQTT_PORT=1883",
