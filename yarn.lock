@@ -6862,11 +6862,6 @@ node-telegram-bot-api@^0.40.0:
     request "^2.83.0"
     request-promise "^4.2.2"
 
-node-wol@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/node-wol/-/node-wol-0.1.1.tgz#9be17fe8b799c5e00a6aad5c8936f43684e5e83d"
-  integrity sha1-m+F/6LeZxeAKaq1ciTb0NoTl6D0=
-
 nodemon@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-2.0.2.tgz#9c7efeaaf9b8259295a97e5d4585ba8f0cbe50b0"
