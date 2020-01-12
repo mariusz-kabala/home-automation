@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/lg2mqtt@0.4.0...@home/lg2mqtt@0.4.1) (2020-01-12)
+
+
+### Bug Fixes
+
+* do not buffor not supported commands ([efe8f79](https://github.com/mariusz-kabala/homeAutomation/commit/efe8f79cb4e1941257c62302acd9e2188f3a6ca5))
+
+
+
+
+
 # [0.4.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/lg2mqtt@0.3.0...@home/lg2mqtt@0.4.0) (2020-01-12)
 
 

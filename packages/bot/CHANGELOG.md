@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/bot@0.4.1...@home/bot@0.5.0) (2020-01-12)
+
+
+### Features
+
+* better tv support ([4465858](https://github.com/mariusz-kabala/homeAutomation/commit/44658587f4d7ccf901d228160c84f35e36aa7a58))
+
+
+
+
+
 ## [0.4.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/bot@0.4.0...@home/bot@0.4.1) (2020-01-11)
 
 **Note:** Version bump only for package @home/bot
