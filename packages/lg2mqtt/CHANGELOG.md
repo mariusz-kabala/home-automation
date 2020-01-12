@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/lg2mqtt@0.4.1...@home/lg2mqtt@0.5.0) (2020-01-12)
+
+
+### Bug Fixes
+
+* use proper scope ([09ecfca](https://github.com/mariusz-kabala/homeAutomation/commit/09ecfca99f9fccedc8cf18b93ac42d757833853a))
+
+
+### Features
+
+* support device startup delay ([d0e906f](https://github.com/mariusz-kabala/homeAutomation/commit/d0e906f37a19ec5bc0cb1807f88dd698c7248988))
+
+
+
+
+
 ## [0.4.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/lg2mqtt@0.4.0...@home/lg2mqtt@0.4.1) (2020-01-12)
 
 
