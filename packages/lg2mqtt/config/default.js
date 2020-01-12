@@ -14,6 +14,10 @@ module.exports = {
     bedroom: '3C:CD:93:82:E1:F9',
     livingroom: 'A8:23:FE:0E:C0:1B',
   },
+  deviceStartUpDelay: {
+    bedroom: 5000, // 5 sec,
+    livingroom: 500 // 0.5 s
+  },
   apps: {
     youtube: 'youtube.leanback.v4',
     hbo: 'hbogocev5',

@@ -56,7 +56,10 @@ function sentRecentAlert(device: TV) {
 
 function flushBuffer(device: string, resolve?: () => void): any {
   if (!resolve) {
-    return new Promise(localResolve => flushBuffer(device, localResolve))
+    const delay = config.get<{
+      [device: string]: number
+    }>('deviceStartUpDelay')
+    return new Promise(localResolve => setTimeout(() => flushBuffer(device, localResolve), delay[device]))
   } else {
     const bmsg = buffor[device].shift()
 
