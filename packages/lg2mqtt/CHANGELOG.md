@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/lg2mqtt@0.3.0...@home/lg2mqtt@0.4.0) (2020-01-12)
+
+
+### Features
+
+* support command buffor in case of offline device ([#5](https://github.com/mariusz-kabala/homeAutomation/issues/5)) ([54bc53e](https://github.com/mariusz-kabala/homeAutomation/commit/54bc53e7fc10e8d0c6347b91c35ebc3ccbf0402d))
+
+
+
+
+
 # [0.3.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/lg2mqtt@0.2.1...@home/lg2mqtt@0.3.0) (2020-01-11)
 
 
