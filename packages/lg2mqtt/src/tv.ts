@@ -47,7 +47,7 @@ export class TV {
     })
   }
 
-  public runCommand(msg: any, topic: string) {
+  public runCommand = (msg: any, topic: string) => {
     const [, , command] = topic.split('/')
 
     switch (command) {
