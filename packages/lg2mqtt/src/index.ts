@@ -110,10 +110,11 @@ function subscribeForAlerts() {
 }
 
 function initBuffor() {
+  const ignoredCommands = ['status', 'turnOn', 'turnOff']
   subscribe('tv/+/+', (msg: any, topic: string) => {
-    const [, device] = topic.split('/')
+    const [, device, command] = topic.split('/')
 
-    if (connected[device]) {
+    if (connected[device] || ignoredCommands.includes(command)) {
       return
     }
 
