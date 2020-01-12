@@ -36,6 +36,34 @@ export function initLgTv(bot: TelegramBot): void {
     })
   })
 
+  bot.onText(/(.+)?(turn on|wlacz|włącz) tv(.+)?(in|w\ .+)?/g, async msg => {
+    if (!msg.text) {
+      return
+    }
+
+    const device = findDevice(msg.text)
+    const chatId = msg.chat.id
+
+    if (!device) {
+      logger.log({
+        level: 'error',
+        message: `Not able to find device in message: ${msg.text}`,
+      })
+
+      bot.sendMessage(chatId, "I don't know that device")
+      return
+    }
+
+    if (devicesStatus[device]) {
+      bot.sendMessage(chatId, 'According to my best knowledge this device is already on')
+      return
+    }
+
+    publish(`tv/${device}/turnOn`, {})
+
+    bot.sendMessage(chatId, 'done')
+  })
+
   bot.onText(/(.+)?(turn off|wylacz|wyłącz) tv(.+)?(in|w\ .+)?/g, async msg => {
     if (!msg.text) {
       return
@@ -82,11 +110,6 @@ export function initLgTv(bot: TelegramBot): void {
       return
     }
 
-    if (!devicesStatus[device]) {
-      bot.sendMessage(chatId, 'According to my best knowledge device is off, can not do it')
-      return
-    }
-
     publish(`tv/${device}/lunchApp`, { app: 'netflix' })
 
     bot.sendMessage(chatId, 'done')
@@ -110,11 +133,6 @@ export function initLgTv(bot: TelegramBot): void {
       return
     }
 
-    if (!devicesStatus[device]) {
-      bot.sendMessage(chatId, 'According to my best knowledge device is off, can not do it')
-      return
-    }
-
     publish(`tv/${device}/lunchApp`, { app: 'youtube' })
 
     bot.sendMessage(chatId, 'done')
@@ -135,11 +153,6 @@ export function initLgTv(bot: TelegramBot): void {
       })
 
       bot.sendMessage(chatId, "I don't know that device")
-      return
-    }
-
-    if (!devicesStatus[device]) {
-      bot.sendMessage(chatId, 'According to my best knowledge device is off, can not do it')
       return
     }
 
