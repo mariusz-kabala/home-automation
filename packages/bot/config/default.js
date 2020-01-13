@@ -13,5 +13,7 @@ module.exports = {
     dbName: 'home',
     mqttHost: process.env.MQTT_HOST,
     mqttPort: process.env.MQTT_PORT,
-    mqttPrefix: 'home'
+    mqttPrefix: 'home',
+    redisHost: process.env.REDIS_HOST,
+    redisPort: parseInt(process.env.REDIS_PORT || 6379, 10)
 }

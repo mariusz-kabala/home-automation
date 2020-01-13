@@ -19,6 +19,7 @@
         "@home/logger": "0.1.1",
         "@home/mqtt": "0.4.0",
         "influx": "^5.5.1",
-        "node-telegram-bot-api": "^0.40.0"
+        "node-telegram-bot-api": "^0.40.0",
+        "@home/redis": "0.0.1"
     }
 }
