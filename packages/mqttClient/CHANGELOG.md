@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/mqtt@0.4.0...@home/mqtt@0.5.0) (2020-01-13)
+
+
+### Features
+
+* stop logging mqtt messages ([2525be6](https://github.com/mariusz-kabala/homeAutomation/commit/2525be67b11b6fa19641e6a99a9dc336ac3c64f1))
+
+
+
+
+
 # [0.4.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/mqtt@0.3.0...@home/mqtt@0.4.0) (2020-01-11)
 
 

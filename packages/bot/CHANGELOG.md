@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/bot@0.5.1...@home/bot@0.6.0) (2020-01-13)
+
+
+### Features
+
+* basic support for hal9000 subscriptions ([695c62f](https://github.com/mariusz-kabala/homeAutomation/commit/695c62feb3cc54fc5062e57e61297ec334e36aaa))
+
+
+
+
+
 ## [0.5.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/bot@0.5.0...@home/bot@0.5.1) (2020-01-12)
 
 **Note:** Version bump only for package @home/bot
