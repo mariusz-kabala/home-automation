@@ -122,5 +122,21 @@ pipeline {
                 }
             }
         }
+        stage ('Deploy deviceDiscovery') {
+            when {
+                environment name: 'package', value: 'deviceDiscovery'
+            }
+            steps {
+                dir("packages/${env.package}/terraform") {
+                    script {
+                        docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
+                            sh "terraform init"
+                            sh "terraform plan -out deploy.plan -var=\"tag=${version}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\"" 
+                            sh "terraform apply -auto-approve deploy.plan"
+                        }
+                    }
+                }
+            }
+        }
     }
 }
