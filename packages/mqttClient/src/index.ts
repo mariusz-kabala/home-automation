@@ -1,6 +1,5 @@
 import mqtt, { IClientPublishOptions } from 'mqtt'
 import config from 'config'
-import { logger } from '@home/logger'
 import MQTTPattern from 'mqtt-pattern'
 
 type ICallbackFunc = (msg: any, topic: string) => void
@@ -20,11 +19,6 @@ mqttClient.on('message', (topic: string, payload: string): void => {
   } catch (err) {
     msg = payload
   }
-
-  logger.log({
-    level: 'info',
-    message: `New MQTT message: ${topic} ${payload}`,
-  })
 
   const matchTopics = Object.keys(subscriptions).filter(sub => MQTTPattern.matches(sub, topic))
   const topicArr = topic.split('/')
