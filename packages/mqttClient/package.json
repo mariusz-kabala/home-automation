@@ -11,7 +11,6 @@
         "prepare": "yarn build && yarn build-declarations"
     },
     "dependencies": {
-        "@home/logger": "0.1.1",
         "mqtt": "^3.0.0"
     }
 }
