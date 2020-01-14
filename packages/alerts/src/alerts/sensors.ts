@@ -33,7 +33,7 @@ export function sensorsAlerts() {
           )
           .digest('base64')
         const now = new Date()
-        const topic = `alert/${rule.level}`
+        const topic = `alert/sensors/${rule.level}`
 
         if (recentAlerts[alertHash] && recentAlerts[alertHash] + rule.timeout < now.getTime()) {
           logger.log({

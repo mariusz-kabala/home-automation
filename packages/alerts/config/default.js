@@ -78,6 +78,22 @@ module.exports = {
         timeout: 3600000, // 1h
       },
     ],
+    'pi2': [
+      {
+        field: 'TVOC',
+        condition: 'gt',
+        value: 300,
+        level: 'high',
+        alert: 'Alert: Pollution level in house is higher than 300 ppb'
+      },
+      {
+        field: 'eCO2',
+        condition: 'gt',
+        value: 800,
+        level: 'high',
+        alert: 'Alert: CO2 level is higher than 800 ppm. Consider to open the windows'
+      }
+    ]
   },
   forecastRules: {
     'Szczecin': [
@@ -112,5 +128,27 @@ module.exports = {
             alert: 'Warning: temperature in Berlin dropped below 0'
         },
     ]
-  }
+  },
+  watchedDevices: [
+    {
+      device: 'home-srv',
+      alertLevel: 'high'
+    },
+    {
+      device: 'pi2',
+      alertLevel: 'medium'
+    },
+    {
+      device: 'piHAT',
+      alertLevel: 'medium'
+    },
+    {
+      device: 'rockrobo',
+      alertLevel: 'medium'
+    },
+    {
+      device: 'openwrt',
+      alertLevel: 'medium'
+    }
+  ]
 }

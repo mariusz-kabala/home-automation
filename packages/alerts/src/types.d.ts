@@ -1,3 +1,5 @@
+import { alertLevels } from './enums'
+
 // eq - is equal to
 // ne - is not equal to
 // gt - is greater than
@@ -8,8 +10,13 @@ export interface IRule {
     field: string
     condition: 'eq' | 'ne' | 'gt' | 'ge' | 'lt' | 'le'
     value: number
-    level: 'low' | 'medium' | 'high'
+    level: alertLevels
     alert: string
     timeout: number
   }
+
+export interface IWatchedDevice {
+  level: alertLevels
+  device: string
+}
   

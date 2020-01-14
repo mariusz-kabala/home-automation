@@ -33,7 +33,7 @@ export function forecastAlerts() {
           )
           .digest('base64')
         const now = new Date()
-        const topic = `alert/${rule.level}`
+        const topic = `alert/forecast/${rule.level}`
 
         if (recentAlerts[alertHash] && recentAlerts[alertHash] + rule.timeout < now.getTime()) {
           logger.log({
