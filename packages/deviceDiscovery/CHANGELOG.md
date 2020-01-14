@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/device-discovery@0.2.0...@home/device-discovery@0.2.1) (2020-01-14)
+
+
+### Bug Fixes
+
+* adjust devices config ([4df1945](https://github.com/mariusz-kabala/homeAutomation/commit/4df19459ad2632428ac0800d540e5f7756bfd2a8))
+
+
+
+
+
 # [0.2.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/device-discovery@0.1.0...@home/device-discovery@0.2.0) (2020-01-14)
 
 
