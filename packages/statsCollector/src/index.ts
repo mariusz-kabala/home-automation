@@ -66,7 +66,7 @@ async function start() {
         },
       ])
       logger.info({
-        level: info,
+        level: 'info',
         traceid: msg.traceid,
         message: `Saving new forecast ${JSON.stringify({
           visibility,
