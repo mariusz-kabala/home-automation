@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.3](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.5.2...@home/stats-collector@0.5.3) (2020-01-14)
+
+
+### Bug Fixes
+
+* typo fix in statsCollector ([c12534b](https://github.com/mariusz-kabala/homeAutomation/commit/c12534bfa32f801eeb7878ec082e48f54056363c))
+
+
+
+
+
 ## [0.5.2](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.5.1...@home/stats-collector@0.5.2) (2020-01-13)
 
 **Note:** Version bump only for package @home/stats-collector
