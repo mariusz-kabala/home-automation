@@ -1,4 +1,4 @@
-import { alertLevels } from './enums'
+import { alertLevels } from '@home/commons'
 
 // eq - is equal to
 // ne - is not equal to

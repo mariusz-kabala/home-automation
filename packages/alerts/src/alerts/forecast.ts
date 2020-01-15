@@ -3,6 +3,7 @@ import { IRule } from '../types'
 import { checkCondition, createHash } from '../helpers'
 import { subscribe, publish } from '@home/mqtt'
 import { logger } from '@home/logger'
+import { alertTypes } from '@home/commons'
 
 const recentAlerts: {
   [key: string]: number
@@ -33,7 +34,7 @@ export function forecastAlerts() {
           )
           .digest('base64')
         const now = new Date()
-        const topic = `alert/forecast/${rule.level}`
+        const topic = `alert/${alertTypes.forecast}/${rule.level}`
 
         if (recentAlerts[alertHash] && recentAlerts[alertHash] + rule.timeout < now.getTime()) {
           logger.log({

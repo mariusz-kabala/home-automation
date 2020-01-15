@@ -2,6 +2,7 @@ import config from 'config'
 import { IWatchedDevice } from '../types'
 import { subscribe, publish } from '@home/mqtt'
 import { logger } from '@home/logger'
+import { alertTypes } from '@home/commons'
 
 const devicesToWatch = config.get<IWatchedDevice[]>('watchedDevices')
 const recentAlerts: {
@@ -21,7 +22,7 @@ export function deviceAvailabilityAlerts() {
       return // no alert for that device
     }
 
-    const pubTopic = `alert/deviceAvailability/${deviceName}/${alertDefinition.level}`
+    const pubTopic = `alert/${alertTypes.deviceAvailability}/${alertDefinition.level}`
     const alert = `Device ${deviceName} is offline`
 
     if (typeof recentAlerts[deviceName] === 'undefined') {
