@@ -17,12 +17,24 @@ export const influx = new Influx.InfluxDB(`${uri}/${config.get<string>('dbName')
 const sensorsMapper: {
   [key: string]: {
     field: string
-    measurement: string
+    measurement: string,
+    time: string
   }
 } = {
   temperature: {
     field: 'temperature',
     measurement: 'ZHATemperature',
+    time: '1h'
+  },
+  humidity: {
+    field: 'humidity',
+    measurement: 'ZHAHumidity',
+    time: '1h'
+  },
+  pressure: {
+    field: 'pressure',
+    measurement: 'ZHAPressure',
+    time: '3h'
   },
 }
 
@@ -48,16 +60,18 @@ function findDevice(message: string): string | undefined {
 }
 
 function queryBuilder(params: { type: string; device?: string; time?: string }): string {
-  const { type, device, time = '1h' } = params
+  const { type, device } = params
   const mapper = sensorsMapper[type]
-
+  
   if (!mapper) {
     throw new Error(`Type ${type} is not supported`)
   }
 
+  const timeRange = params.time ?? mapper.time
+
   let query = ` SELECT mean("${mapper.field}")`
 
-  if (type === 'temperature') {
+  if (['humidity', 'temperature'].includes(type)) {
     query += ' / 100'
   }
 
@@ -67,13 +81,13 @@ function queryBuilder(params: { type: string; device?: string; time?: string }):
     query += ` WHERE ("deviceName" = '${device}')`
   }
 
-  query += ` GROUP BY time(${time}) order by time desc limit 1`
+  query += ` GROUP BY time(${timeRange}) order by time desc limit 1`
 
   return query
 }
 
-export function initSensors(bot: TelegramBot): void {
-  bot.onText(/(.+)?(temperature|temperatura|temp)(.+)?(in|w\ .+)?/g, async (msg) => {
+function getSensorAnswerFunc(type: string, unit: string, bot: TelegramBot) {
+  return async (msg: TelegramBot.Message) => {
     if (!msg.text) {
       return
     }
@@ -81,7 +95,7 @@ export function initSensors(bot: TelegramBot): void {
     const chatId = msg.chat.id
     const device = findDevice(msg.text)
     const query = queryBuilder({
-        type: 'temperature',
+        type,
         device,
     })
 
@@ -102,7 +116,7 @@ export function initSensors(bot: TelegramBot): void {
           return
       }
 
-      bot.sendMessage(chatId, `Temperature ${device ? `from ${device}` : ''}: ${Math.round(data[0].mean)}C`)
+      bot.sendMessage(chatId, `${type.charAt(0).toUpperCase() + type.substring(1)} ${device ? `from ${device}` : ''}: ${Math.round(data[0].mean)}${unit}`)
     } catch (err) {
       logger.log({
         level: 'error',
@@ -111,5 +125,11 @@ export function initSensors(bot: TelegramBot): void {
 
       bot.sendMessage(chatId, 'An error occured, I was not able to collect data')
     }
-  })
+  }
+}
+
+export function initSensors(bot: TelegramBot): void {
+  bot.onText(/(.+)?(temperature|temperatura|temp)(.+)?(in|w\ .+)?/gi, getSensorAnswerFunc('temperature', 'C', bot))
+  bot.onText(/(.+)?(humidity|wilgotność|wilgotnosc)(.+)?(in|w\ .+)?/gi, getSensorAnswerFunc('humidity', '%', bot))
+  bot.onText(/(.+)?(pressure|cisnienie|ciśnienie)(.+)?(in|w\ .+)?/gi, getSensorAnswerFunc('pressure', 'hPa', bot))
 }
