@@ -36,7 +36,7 @@ export function initLgTv(bot: TelegramBot): void {
     })
   })
 
-  bot.onText(/(.+)?(pokaz|pokaż|show)(.+)?(status)(.+)?/g, async msg => {
+  bot.onText(/(.+)?(pokaz|pokaż|show)(.+)?(status)(.+)?/gi, async msg => {
     if (!msg.text || !msg.text.includes('tv')) {
       return
     }
@@ -51,7 +51,7 @@ export function initLgTv(bot: TelegramBot): void {
     )
   })
 
-  bot.onText(/(.+)?(turn on|wlacz|włącz) tv(.+)?(in|w\ .+)?/g, async msg => {
+  bot.onText(/(.+)?(turn on|wlacz|włącz) tv(.+)?(in|w\ .+)?/gi, async msg => {
     if (!msg.text) {
       return
     }
@@ -79,7 +79,7 @@ export function initLgTv(bot: TelegramBot): void {
     bot.sendMessage(chatId, 'done')
   })
 
-  bot.onText(/(.+)?(turn off|wylacz|wyłącz) tv(.+)?(in|w\ .+)?/g, async msg => {
+  bot.onText(/(.+)?(turn off|wylacz|wyłącz) tv(.+)?(in|w\ .+)?/gi, async msg => {
     if (!msg.text) {
       return
     }
@@ -107,7 +107,7 @@ export function initLgTv(bot: TelegramBot): void {
     bot.sendMessage(chatId, 'done')
   })
 
-  bot.onText(/(.+)?(turn on|wlacz|włącz) netflix(.+)?(in|w\ .+)?/g, async msg => {
+  bot.onText(/(.+)?(turn on|wlacz|włącz) netflix(.+)?(in|w\ .+)?/gi, async msg => {
     if (!msg.text) {
       return
     }
@@ -130,7 +130,7 @@ export function initLgTv(bot: TelegramBot): void {
     bot.sendMessage(chatId, 'done')
   })
 
-  bot.onText(/(.+)?(turn on|wlacz|włącz) youtube(.+)?(in|w\ .+)?/g, async msg => {
+  bot.onText(/(.+)?(turn on|wlacz|włącz) youtube(.+)?(in|w\ .+)?/gi, async msg => {
     if (!msg.text) {
       return
     }
@@ -153,7 +153,7 @@ export function initLgTv(bot: TelegramBot): void {
     bot.sendMessage(chatId, 'done')
   })
 
-  bot.onText(/(.+)?(turn on|wlacz|włącz) hbo(.+)?(in|w\ .+)?/g, async msg => {
+  bot.onText(/(.+)?(turn on|wlacz|włącz) hbo(.+)?(in|w\ .+)?/gi, async msg => {
     if (!msg.text) {
       return
     }
@@ -177,7 +177,7 @@ export function initLgTv(bot: TelegramBot): void {
   })
 
   bot.onText(
-    /(.+)?(stop|zatrzymaj|zastopuj)(.+)?(film|movie|video|music|netflix|hbo|tv)(.+)?(in|w\ .+)?/g,
+    /(.+)?(stop|zatrzymaj|zastopuj)(.+)?(film|movie|video|music|netflix|hbo|tv)(.+)?(in|w\ .+)?/gi,
     async msg => {
       if (!msg.text) {
         return
@@ -208,7 +208,7 @@ export function initLgTv(bot: TelegramBot): void {
   )
 
   bot.onText(
-    /(.+)?(resume|play|wznow|wznów)(.+)?(film|movie|video|music|netflix|hbo|tv)(.+)?(in|w\ .+)?/g,
+    /(.+)?(resume|play|wznow|wznów)(.+)?(film|movie|video|music|netflix|hbo|tv)(.+)?(in|w\ .+)?/gi,
     async msg => {
       if (!msg.text) {
         return
