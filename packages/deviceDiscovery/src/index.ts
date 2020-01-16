@@ -21,7 +21,9 @@ async function checkDevice(device: IDevice) {
     return isReachable(`${device.address}:${device.port}`)
   }
 
-  const result = await ping.promise.probe(device.address)
+  const result = await ping.promise.probe(device.address, {
+    timeout: 2
+  })
 
   return result.alive
 }
