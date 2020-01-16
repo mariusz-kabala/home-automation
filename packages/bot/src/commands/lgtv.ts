@@ -37,13 +37,18 @@ export function initLgTv(bot: TelegramBot): void {
   })
 
   bot.onText(/(.+)?(pokaz|pokaż|show)(.+)?(status)(.+)?/g, async msg => {
-      if (!msg.text || !msg.text.includes('tv')) {
-          return
-      }
+    if (!msg.text || !msg.text.includes('tv')) {
+      return
+    }
 
-      const chatId = msg.chat.id
+    const chatId = msg.chat.id
 
-      bot.sendMessage(chatId, Object.keys(devicesStatus).map(device => `${device}'s device is ${devicesStatus[device] ? 'on' : 'off'}`).join('\n'))
+    bot.sendMessage(
+      chatId,
+      Object.keys(devicesStatus)
+        .map(device => `${device}'s device is ${devicesStatus[device] ? 'on' : 'off'}`)
+        .join('\n'),
+    )
   })
 
   bot.onText(/(.+)?(turn on|wlacz|włącz) tv(.+)?(in|w\ .+)?/g, async msg => {
