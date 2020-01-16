@@ -2,6 +2,7 @@ import TelegramBot from 'node-telegram-bot-api'
 import config from 'config'
 import { initSensors } from './commands/sensors'
 import { initLgTv } from './commands/lgtv'
+import { initSubscribe } from './commands/subscribe'
 import { logger } from '@home/logger'
 import express from 'express'
 import bodyParser from 'body-parser'
@@ -32,6 +33,7 @@ if (env === 'production') {
 
 initSensors(bot)
 initLgTv(bot)
+initSubscribe(bot)
 
 logger.log({
     level: 'info',
