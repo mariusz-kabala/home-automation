@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.2](https://github.com/mariusz-kabala/homeAutomation/compare/@home/device-discovery@0.2.1...@home/device-discovery@0.2.2) (2020-01-16)
+
+
+### Bug Fixes
+
+* set timeout 2s for ping ([feca37b](https://github.com/mariusz-kabala/homeAutomation/commit/feca37b21395526456159db4c52cfbb5292112b9))
+
+
+
+
+
 ## [0.2.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/device-discovery@0.2.0...@home/device-discovery@0.2.1) (2020-01-14)
 
 

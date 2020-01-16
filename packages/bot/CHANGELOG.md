@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/bot@0.6.1...@home/bot@0.7.0) (2020-01-16)
+
+
+### Bug Fixes
+
+* add /i to all tv commands ([307a0ee](https://github.com/mariusz-kabala/homeAutomation/commit/307a0eea01e43e4186d923d9b37c7bb46591a22c))
+* remove console.log ([8ae7a85](https://github.com/mariusz-kabala/homeAutomation/commit/8ae7a858676c8b121bd0c8e46d4768f7a4377d64))
+
+
+### Features
+
+* add html formatting in tv responses ([5d889a0](https://github.com/mariusz-kabala/homeAutomation/commit/5d889a07583323786ec044112b8a2bf852362d12))
+* subscribe for alters in bot ([#7](https://github.com/mariusz-kabala/homeAutomation/issues/7)) ([a0416f7](https://github.com/mariusz-kabala/homeAutomation/commit/a0416f75cd3d982762cae57ae9e50e549fe3cffb))
+* support humidity and pressure readings ([7e50254](https://github.com/mariusz-kabala/homeAutomation/commit/7e502544a0d451725cfcbf1560d93e9ed742bd60))
+
+
+
+
+
 ## [0.6.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/bot@0.6.0...@home/bot@0.6.1) (2020-01-13)
 
 **Note:** Version bump only for package @home/bot

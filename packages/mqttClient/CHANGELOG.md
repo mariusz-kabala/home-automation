@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/mqtt@0.5.0...@home/mqtt@0.6.0) (2020-01-16)
+
+
+### Features
+
+* subscribe for alters in bot ([#7](https://github.com/mariusz-kabala/homeAutomation/issues/7)) ([a0416f7](https://github.com/mariusz-kabala/homeAutomation/commit/a0416f75cd3d982762cae57ae9e50e549fe3cffb))
+
+
+
+
+
 # [0.5.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/mqtt@0.4.0...@home/mqtt@0.5.0) (2020-01-13)
 
 

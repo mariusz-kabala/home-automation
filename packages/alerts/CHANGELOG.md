@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/alerts@0.1.8...@home/alerts@0.2.0) (2020-01-16)
+
+
+### Features
+
+* support device alerts, add sg30 alerts, use alert type prefix ([bca1405](https://github.com/mariusz-kabala/homeAutomation/commit/bca1405e77dab00d097f6a2abc9e8daffa63588a))
+* use commons in alerts package ([22460cd](https://github.com/mariusz-kabala/homeAutomation/commit/22460cd61a8031047afe4f5f5bedd5db717369f1))
+
+
+
+
+
 ## [0.1.8](https://github.com/mariusz-kabala/homeAutomation/compare/@home/alerts@0.1.7...@home/alerts@0.1.8) (2020-01-13)
 
 **Note:** Version bump only for package @home/alerts
