@@ -302,7 +302,7 @@ export function initSubscribe(bot: TelegramBot): void {
 
   subscribe('alerts/+/+', async (msg: {alert: string}, topic: string) => {
       const [, type, level] = topic.split('/')
-console.log(msg, topic)
+
       const subscribers = await getSubscribers({
           type,
           level
