@@ -46,8 +46,9 @@ export function initLgTv(bot: TelegramBot): void {
     bot.sendMessage(
       chatId,
       Object.keys(devicesStatus)
-        .map(device => `${device}'s device is ${devicesStatus[device] ? 'on' : 'off'}`)
+        .map(device => `<i>${device.charAt(0).toUpperCase() + device.substring(1)}'s</i> device is <b>${devicesStatus[device] ? 'on' : 'off'}</b>`)
         .join('\n'),
+        { parse_mode: 'HTML' }
     )
   })
 
@@ -70,7 +71,7 @@ export function initLgTv(bot: TelegramBot): void {
     }
 
     if (devicesStatus[device]) {
-      bot.sendMessage(chatId, 'According to my best knowledge this device is already on')
+      bot.sendMessage(chatId, 'According to my best knowledge this <b>device is already on</b>', { parse_mode: 'HTML' })
       return
     }
 
@@ -98,7 +99,7 @@ export function initLgTv(bot: TelegramBot): void {
     }
 
     if (!devicesStatus[device]) {
-      bot.sendMessage(chatId, 'According to my best knowledge this device is already off')
+      bot.sendMessage(chatId, 'According to my best knowledge this <b>device is already off</b>', { parse_mode: 'HTML' })
       return
     }
 
@@ -197,7 +198,7 @@ export function initLgTv(bot: TelegramBot): void {
       }
 
       if (!devicesStatus[device]) {
-        bot.sendMessage(chatId, 'According to my best knowledge device is off, can not do it')
+        bot.sendMessage(chatId, 'According to my best knowledge <b>device is off</b>, can not do it', { parse_mode: 'HTML' })
         return
       }
 
@@ -228,7 +229,7 @@ export function initLgTv(bot: TelegramBot): void {
       }
 
       if (!devicesStatus[device]) {
-        bot.sendMessage(chatId, 'According to my best knowledge device is off, can not do it')
+        bot.sendMessage(chatId, 'According to my best knowledge <b>device is off</b>, can not do it', { parse_mode: 'HTML' })
         return
       }
 
