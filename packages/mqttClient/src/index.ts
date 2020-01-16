@@ -19,7 +19,7 @@ const oneTimePromises: {
 } = {}
 
 const mqttClient = mqtt.connect(`mqtt://${config.get<string>('mqttHost')}:${config.get<string>('mqttPort')}`)
-console.log('chuj', `mqtt://${config.get<string>('mqttHost')}:${config.get<string>('mqttPort')}`)
+
 const getLocalTopic = (topic: string) => {
   const topicArr = topic.split('/')
   topicArr.shift()
@@ -70,24 +70,15 @@ const getTimeout = (id: string) => {
   }
 }
 
-mqttClient.on('error', err => {
-  console.log('error')
-  console.log(err)
-})
-
-mqttClient.on('connect', () => {
-  console.log('connected')
-})
-
 mqttClient.on('message', (topic: string, payload: string): void => {
   let msg: any
-console.log('on message!!!')
+
   try {
     msg = JSON.parse(payload)
   } catch (err) {
     msg = payload
   }
-console.log(topic, msg)
+
   const matchTopics = Object.keys(subscriptions).filter(sub => MQTTPattern.matches(sub, topic))
   const localTopic = getLocalTopic(topic)
 
@@ -118,7 +109,7 @@ export const get = <T>(params: {
   }
   timeout?: number
 }) => {
-  const { topic, timeout = 1500} = params
+  const { topic, timeout = 1500 } = params
   const subscriptionTopic = `${config.get<string>('mqttPrefix')}/${topic}`
 
   if (!oneTimePromises[subscriptionTopic]) {
