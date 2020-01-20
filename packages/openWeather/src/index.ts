@@ -5,7 +5,6 @@ import uuid4 from 'uuid'
 
 import { publish } from '@home/mqtt'
 import { logger } from '@home/logger'
-import { response } from 'express'
 
 export interface IWeather {
   id: number
@@ -62,7 +61,7 @@ async function fetchWeather(city: string): Promise<IForecast> {
   )
 
   if (!request.ok) {
-    throw response
+    throw request
   }
 
   const data: IForecast = await request.json()

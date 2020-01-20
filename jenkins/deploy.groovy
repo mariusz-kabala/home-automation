@@ -14,6 +14,8 @@ pipeline {
         OPEN_WEATHER_API_KEY = credentials('open-weather-api-key')
         HAL9000_TOKEN=credentials('telegram-hal900-token')
         TV_KEYS = credentials('tv-auth-keys')
+        AQICN_ORG_API_KEY = credentials('AQICN_ORG_API_KEY')
+        AIR_VISUAL_API_KEY = credentials('AIR_VISUAL_API_KEY')
         CI = 'true'
         GIT_SSH_COMMAND = "ssh -o StrictHostKeyChecking=no"
     }
@@ -132,6 +134,22 @@ pipeline {
                         docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
                             sh "terraform init"
                             sh "terraform plan -out deploy.plan -var=\"tag=${version}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\"" 
+                            sh "terraform apply -auto-approve deploy.plan"
+                        }
+                    }
+                }
+            }
+        }
+        stage ('Deploy pollutionReports') {
+            when {
+                environment name: 'package', value: 'pollutionReports'
+            }
+            steps {
+                dir("packages/${env.package}/terraform") {
+                    script {
+                        docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
+                            sh "terraform init"
+                            sh "terraform plan -out deploy.plan -var=\"tag=${version}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\" -var=\"AQICN_ORG_API_KEY=${AQICN_ORG_API_KEY}\" -var=\"AIR_VISUAL_API_KEY=${AIR_VISUAL_API_KEY}\"" 
                             sh "terraform apply -auto-approve deploy.plan"
                         }
                     }
