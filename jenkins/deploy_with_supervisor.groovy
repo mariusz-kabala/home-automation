@@ -26,7 +26,7 @@ pipeline {
             }
              steps {
                 script {
-                    dir("packages/${app}/deploy") {
+                    dir("packages/${package}/deploy") {
                         sshagent(['jenkins-local-ssh-key']) {
                             sh "ansible-playbook -i hosts playbook.yml -e 'SMART_PLUG_TV_KEY=${SMART_PLUG_TV_KEY} SMART_PLUG_3_KEY=${SMART_PLUG_3_KEY} SMART_PLUG_2_KEY=${SMART_PLUG_2_KEY} SMART_PLUG_1_KEY=${SMART_PLUG_1_KEY}'"
                         }
