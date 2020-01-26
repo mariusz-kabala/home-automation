@@ -1,0 +1,19 @@
+[program:homeAutomation-tuyaPlugs]
+environment = 
+    MQTT_HOST=192.168.0.109,
+    MQTT_PORT=1883,
+    SMART_PLUG_TV_KEY={{ SMART_PLUG_TV_KEY }},
+    SMART_PLUG_3_KEY={{ SMART_PLUG_3_KEY }},
+    SMART_PLUG_2_KEY={{ SMART_PLUG_2_KEY }},
+    SMART_PLUG_1_KEY={{ SMART_PLUG_1_KEY }}
+
+command=yarn workspace @home/tuya-plugs start
+directory=/opt/automation/tuyaPlugs/current
+autostart=true
+autorestart=true
+user=pi
+stderr_logfile=/var/log/homeAutomation-tuyaPlugs.err.log
+stdout_logfile=/var/log/homeAutomation-tuyaPlugs.out.log
+
+[supervisorctl]
+serverurl=unix:///var/run/supervisor.sock
