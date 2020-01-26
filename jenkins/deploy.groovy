@@ -16,6 +16,10 @@ pipeline {
         TV_KEYS = credentials('tv-auth-keys')
         AQICN_ORG_API_KEY = credentials('AQICN_ORG_API_KEY')
         AIR_VISUAL_API_KEY = credentials('AIR_VISUAL_API_KEY')
+        SMART_PLUG_TV_KEY = credentials('smart-plug-tv-key')
+        SMART_PLUG_3_KEY = credentials('smart-plug-3-key')
+        SMART_PLUG_2_KEY = credentials('smart-plug-2-key')
+        SMART_PLUG_1_KEY = credentials('smart-plug-1-key')
         CI = 'true'
         GIT_SSH_COMMAND = "ssh -o StrictHostKeyChecking=no"
     }
@@ -150,6 +154,22 @@ pipeline {
                         docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
                             sh "terraform init"
                             sh "terraform plan -out deploy.plan -var=\"tag=${version}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\" -var=\"AQICN_ORG_API_KEY=${AQICN_ORG_API_KEY}\" -var=\"AIR_VISUAL_API_KEY=${AIR_VISUAL_API_KEY}\"" 
+                            sh "terraform apply -auto-approve deploy.plan"
+                        }
+                    }
+                }
+            }
+        }
+        stage ('Deploy tuyaPlugs') {
+            when {
+                environment name: 'package', value: 'tuyaPlugs'
+            }
+            steps {
+                dir("packages/${env.package}/terraform") {
+                    script {
+                        docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
+                            sh "terraform init"
+                            sh "terraform plan -out deploy.plan -var=\"tag=${version}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\" -var=\"SMART_PLUG_TV_KEY=${SMART_PLUG_TV_KEY}\" -var=\"SMART_PLUG_3_KEY=${SMART_PLUG_3_KEY}\" -var=\"SMART_PLUG_2_KEY=${SMART_PLUG_2_KEY}\" -var=\"SMART_PLUG_1_KEY=${SMART_PLUG_1_KEY}\"" 
                             sh "terraform apply -auto-approve deploy.plan"
                         }
                     }
