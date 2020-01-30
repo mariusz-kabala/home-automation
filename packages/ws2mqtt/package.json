@@ -13,11 +13,14 @@
         "prepare": "exit 0"
     },
     "devDependencies": {
-        "@types/ws": "6.0.4"
+        "@types/ws": "6.0.4",
+        "@types/node-cron": "^2.0.2"
     },
     "dependencies": {
         "@home/logger": "0.1.1",
         "@home/mqtt": "0.6.0",
-        "ws": "^7.2.1"
+        "@home/deconz-api": "0.0.1",
+        "ws": "^7.2.1",
+        "node-cron": "^2.0.3"
     }
 }

@@ -1,44 +1,24 @@
-export interface IWSSensorMsg {
+export interface IWSBaseMsg {
   e: string
-  state: {
-    [key: string]: string | number
-  }
   id: string
   r: string
   t: string
   uniqueid: string
 }
 
-export interface ISensor {
-  config: {
-    [key: string]: boolean | number | string
-  }
-  ep?: number
-  etag: string
-  manufacturername: string
-  mode?: string
-  modelid: string
-  name: string
+export interface IWSSensorMsg extends IWSBaseMsg {
   state: {
-    [key: string]: boolean | number | string
+    [key: string]: string | number
   }
-  swversion: string
-  type: string
-  uniqueid: string
 }
 
-export interface ILight {
-    ctmax: number
-    ctmin: number
-    etag: string
-    hascolor: boolean
-    manufacturername: string
-    modelid: string
-    name: string
-    state: {
-        [key: string]: number|string|boolean|number[]
-    },
-    swversion: string
-    type: string
-    uniqueid: string
+export interface IWSGroupMsg extends IWSBaseMsg {
+  e: string,
+  id: string ,
+  r: string,
+  state:{
+    all_on: boolean,
+    any_on: boolean
+  },
+  t: string
 }
