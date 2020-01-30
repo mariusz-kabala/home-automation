@@ -8,7 +8,7 @@ const SUPPORTED_TYPES = ['ZHALightLevel', 'ZHATemperature', 'ZHAPresence', 'ZHAS
 async function start() {
   await createDBIfNeeded('home')
 
-  subscribe('sensors/#', async (msg: any) => {
+  subscribe('sensors/zigbee/#', async (msg: any) => {
     const { type, state, id, name } = msg
 
     if (SUPPORTED_TYPES.includes(type) && state) {
