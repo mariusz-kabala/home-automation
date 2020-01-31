@@ -15,24 +15,24 @@ function start() {
   const wsConnectionStr = `ws://${config.get<string>('wsHost')}:${config.get<string>('wsPort')}`
 
   const ws = new WebSocket(wsConnectionStr)
-  let pingTimeout: NodeJS.Timeout
+  // let pingTimeout: NodeJS.Timeout
 
-  function heartbeat() {
-    clearTimeout(pingTimeout)
+  // function heartbeat() {
+  //   clearTimeout(pingTimeout)
 
-    pingTimeout = setTimeout(() => {
-      ws.terminate()
-    }, 30000 + 1000)
-  }
+  //   pingTimeout = setTimeout(() => {
+  //     ws.terminate()
+  //   }, 30000 + 1000)
+  // }
 
-  ws.on('open', heartbeat)
-  ws.on('ping', heartbeat)
+  // ws.on('open', heartbeat)
+  // ws.on('ping', heartbeat)
   ws.on('close', () => {
     logger.log({
       level: 'error',
       message: 'Websocket connection has been closed',
     })
-    clearTimeout(pingTimeout)
+    // clearTimeout(pingTimeout)
   })
 
   ws.onmessage = (wsMessage: { data: Data }) => {
