@@ -50,6 +50,13 @@ export async function runAirVisual() {
         })
         continue
       }
+
+      logger.log({
+        level: 'info',
+        message: `New report: ${JSON.stringify(results)}`,
+        provider: 'airvisual',
+      })
+
       publishAirVisual(results)
     } catch (err) {
       logger.log({

@@ -49,6 +49,12 @@ export async function runAqicnorg() {
         continue
       }
 
+      logger.log({
+        level: 'info',
+        message: `New report: ${JSON.stringify(results)}`,
+        provider: 'aqicnorg',
+      })
+
       publishResults(results, location)
     } catch (err) {
       logger.log({

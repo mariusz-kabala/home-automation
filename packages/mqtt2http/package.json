@@ -15,6 +15,6 @@
     "dependencies": {
         "@home/logger": "0.1.1",
         "@home/mqtt": "0.6.0",
-        "@home/deconz-api": "0.0.1"
+        "@home/deconz-api": "0.1.1"
     }
 }

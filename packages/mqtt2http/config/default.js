@@ -6,5 +6,6 @@ module.exports = {
     apiHost: process.env.API_HOST,
     mqttHost: process.env.MQTT_HOST,
     mqttPort: process.env.MQTT_PORT,
-    mqttPrefix: 'home'
+    mqttPrefix: 'home',
+    namespace: 'zigbee'
 }
