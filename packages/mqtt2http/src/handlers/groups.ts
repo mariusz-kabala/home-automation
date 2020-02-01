@@ -45,14 +45,14 @@ async function turnOffGroup(id: string) {
   } catch (err) {
     logger.log({
       level: 'error',
-      message: `Error during turning on group ${id}: ${err}`,
+      message: `Error during turning off group ${id}: ${err}`,
     })
     return
   }
 
   logger.log({
     level: 'info',
-    message: `Group ${id} turned on`,
+    message: `Group ${id} turned off`,
   })
 }
 
@@ -98,7 +98,7 @@ async function changeGroupBrightness(id: string, increase = false) {
 
 export function subscribeForGroupsMessages() {
   subscribe(`${config.get<string>('namespace')}/groups/+/set`, async (msg: IGroupState, topic: string) => {
-    const [, , groupId] = topic
+    const [, , groupId] = topic.split('/')
 
     try {
         await setGroupState(groupId, msg)
@@ -117,7 +117,7 @@ export function subscribeForGroupsMessages() {
   })
 
   subscribe(`${config.get<string>('namespace')}/groups/+/toggle`, async (_msg, topic: string) => {
-    const [, , groupId] = topic
+    const [, , groupId] = topic.split('/')
 
     try {
         await setGroupState(groupId, {
@@ -138,25 +138,25 @@ export function subscribeForGroupsMessages() {
   })
 
   subscribe(`${config.get<string>('namespace')}/groups/+/turnOn`, (_msg, topic: string) => {
-    const [, , groupId] = topic
+    const [, , groupId] = topic.split('/')
 
     turnOnGroup(groupId)
   })
 
   subscribe(`${config.get<string>('namespace')}/groups/+/turnOff`, (_msg, topic: string) => {
-    const [, , groupId] = topic
+    const [, , groupId] = topic.split('/')
 
     turnOffGroup(groupId)
   })
 
   subscribe(`${config.get<string>('namespace')}/groups/+/dim`, (_msg, topic: string) => {
-    const [, , groupId] = topic
+    const [, , groupId] = topic.split('/')
 
     changeGroupBrightness(groupId, false)
   })
 
   subscribe(`${config.get<string>('namespace')}/groups/+/lighten`, (_msg, topic: string) => {
-    const [, , groupId] = topic
+    const [, , groupId] = topic.split('/')
 
     changeGroupBrightness(groupId, true)
   })
