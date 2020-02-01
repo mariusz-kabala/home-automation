@@ -22,13 +22,11 @@ function publishResults(response: IAqicnorgResponse, location: string) {
   publish(`aqicnorg/${location}`, {
     aqi: response.data.aqi,
     idx: response.data.idx,
-    iaqi: {
-      co: response.data.iaqi.co.v,
-      no2: response.data.iaqi.no2.v,
-      pm25: response.data.iaqi.pm25.v,
-      so2: response.data.iaqi.so2.v,
-      t: response.data.iaqi.p.v,
-    },
+    iaqiCO: response.data.iaqi.co.v,
+    iaqiNO2: response.data.iaqi.no2.v,
+    iaqiPM25: response.data.iaqi.pm25.v,
+    iaqiSO2: response.data.iaqi.so2.v,
+    iaqiP: response.data.iaqi.p.v,
     traceid: uuid4(),
   })
 }
