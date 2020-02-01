@@ -1,12 +1,13 @@
 import fetch from 'node-fetch'
 import config from 'config'
 import uuid4 from 'uuid'
-import { IAqicnorgResponse } from './types'
 import { publish } from '@home/mqtt'
 import { logger } from '@home/logger'
 
+import { IAqicnorgResponse } from './types'
+
 async function fetchResults(location: string) {
-  const request = await fetch(`https://api.waqi.info/feed/${location}/?token=${config.get<string>('aqicnorgAPIKey')}`)
+  const request = await fetch(`http://api.waqi.info/feed/${location}/?token=${config.get<string>('aqicnorgAPIKey')}`)
 
   if (!request.ok) {
     throw request
@@ -42,6 +43,7 @@ export async function runAqicnorg() {
       if (results.status !== 'ok') {
         logger.log({
           level: 'error',
+          provider: 'aqicnorg',
           message: `Invalid Aqicnorg response ${JSON.stringify(results)}`,
         })
         continue
@@ -51,7 +53,8 @@ export async function runAqicnorg() {
     } catch (err) {
       logger.log({
         level: 'error',
-        message: err,
+        provider: 'aqicnorg',
+        message: `Error while fetching pollution report for ${location}: ${err}`,
       })
     }
   }

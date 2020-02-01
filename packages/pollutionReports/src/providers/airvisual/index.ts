@@ -1,9 +1,10 @@
 import fetch from 'node-fetch'
 import config from 'config'
 import uuid4 from 'uuid'
-import { IAirVisualResponse } from './types'
 import { publish } from '@home/mqtt'
 import { logger } from '@home/logger'
+
+import { IAirVisualResponse } from './types'
 
 async function fetchAirVisualResults({ city, state, country }: { city: string; state: string; country: string }) {
   const request = await fetch(
@@ -44,6 +45,7 @@ export async function runAirVisual() {
       if (results.status !== 'success') {
         logger.log({
           level: 'error',
+          provider: 'airvisual',
           message: `Invalid AirVisual response ${JSON.stringify(results)}`,
         })
         continue
@@ -52,7 +54,8 @@ export async function runAirVisual() {
     } catch (err) {
       logger.log({
         level: 'error',
-        message: err,
+        provider: 'airvisual',
+        message: `Error while fetching pollution report for ${location}: ${err}`,
       })
     }
   }
