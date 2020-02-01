@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.3](https://github.com/mariusz-kabala/homeAutomation/compare/@home/pollution-reports@0.4.2...@home/pollution-reports@0.4.3) (2020-02-01)
+
+
+### Bug Fixes
+
+* pollution report format fix ([f56facb](https://github.com/mariusz-kabala/homeAutomation/commit/f56facbac07b006035a8d49a7816a6d854dea424))
+
+
+
+
+
 ## [0.4.2](https://github.com/mariusz-kabala/homeAutomation/compare/@home/pollution-reports@0.4.1...@home/pollution-reports@0.4.2) (2020-02-01)
 
 
