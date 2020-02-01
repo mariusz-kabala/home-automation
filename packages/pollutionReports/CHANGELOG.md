@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.2](https://github.com/mariusz-kabala/homeAutomation/compare/@home/pollution-reports@0.4.1...@home/pollution-reports@0.4.2) (2020-02-01)
+
+
+### Bug Fixes
+
+* pollution report api fixes ([6e0090f](https://github.com/mariusz-kabala/homeAutomation/commit/6e0090fd11ae826dce92ecc7adae58ffcdda42f1))
+
+
+
+
+
 ## [0.4.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/pollution-reports@0.4.0...@home/pollution-reports@0.4.1) (2020-02-01)
 
 **Note:** Version bump only for package @home/pollution-reports
