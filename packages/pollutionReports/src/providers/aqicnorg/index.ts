@@ -27,7 +27,7 @@ function publishResults(response: IAqicnorgResponse, location: string) {
       no2: response.data.iaqi.no2.v,
       pm25: response.data.iaqi.pm25.v,
       so2: response.data.iaqi.so2.v,
-      t: response.data.iaqi.t.v,
+      t: response.data.iaqi.p.v,
     },
     traceid: uuid4(),
   })

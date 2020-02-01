@@ -27,7 +27,7 @@ export interface IAqicnorgResponse {
       so2: {
         v: number
       }
-      t: {
+      p: {
         v: number
       }
     }
