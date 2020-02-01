@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.7.0...@home/stats-collector@0.7.1) (2020-02-01)
+
+**Note:** Version bump only for package @home/stats-collector
+
+
+
+
+
+# [0.7.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.6.0...@home/stats-collector@0.7.0) (2020-02-01)
+
+
+### Features
+
+* support new services in stats collector ([37928eb](https://github.com/mariusz-kabala/homeAutomation/commit/37928ebef802a15bcdeee0edbd7281eb7676af67))
+
+
+
+
+
+# [0.6.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.5.4...@home/stats-collector@0.6.0) (2020-01-30)
+
+
+### Features
+
+* support new topic ([548cfbd](https://github.com/mariusz-kabala/homeAutomation/commit/548cfbd108c58bfe51205304f347986dc7ec5de4))
+
+
+
+
+
 ## [0.5.4](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.5.3...@home/stats-collector@0.5.4) (2020-01-16)
 
 **Note:** Version bump only for package @home/stats-collector

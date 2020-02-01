@@ -59,6 +59,6 @@ export const fetchSensorDetails = (id: string) => fetchJSON<void, ISensor>(`${AP
 
 export const fetchLights = () => fetchJSON<void, { [lightId: string]: ILight }>(`${API_URL}/lights`)
 
-export const fetchLightDetails = (id: string) => fetchJSON<void, ILight>(`${API_URL}/light/${id}`)
+export const fetchLightDetails = (id: string) => fetchJSON<void, ILight>(`${API_URL}/lights/${id}`)
 
 export * from './models'

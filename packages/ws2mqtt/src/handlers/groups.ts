@@ -19,14 +19,21 @@ async function fetchGroupsDetails() {
 }
 
 function publishGroupsInfo(initial = false) {
-  fetchGroupsDetails().then(groups => {
-    publish(`${config.get<string>('namespace')}/groups`, groups, { retain: true, qos: 0 })
-    if (initial) {
-      for (const id of Object.keys(groups)) {
-        publish(`${config.get<string>('namespace')}/groups/${id}`, groups[id], { retain: true, qos: 0 })
+  fetchGroupsDetails()
+    .then(groups => {
+      publish(`${config.get<string>('namespace')}/groups`, groups, { retain: true, qos: 0 })
+      if (initial) {
+        for (const id of Object.keys(groups)) {
+          publish(`${config.get<string>('namespace')}/groups/${id}`, groups[id], { retain: true, qos: 0 })
+        }
       }
-    }
-  })
+    })
+    .catch(err => {
+      logger.log({
+        level: 'error',
+        message: `Can not fetch info about groups ${err}`,
+      })
+    })
 }
 
 publishGroupsInfo(true)
@@ -36,9 +43,16 @@ cron.schedule('*/5 * * * *', publishGroupsInfo)
 export function handleGroupMsg(msg: IWSGroupMsg) {
   switch (msg.e) {
     case 'changed':
-      return fetchGroupDetails(msg.id).then(group =>
-        publish(`${config.get<string>('namespace')}/groups/${group.id}`, group, { retain: true, qos: 0 }),
-      )
+      return fetchGroupDetails(msg.id)
+        .then(group =>
+          publish(`${config.get<string>('namespace')}/groups/${group.id}`, group, { retain: true, qos: 0 }),
+        )
+        .catch(err => {
+          logger.log({
+            level: 'error',
+            message: `Can not fetch info about group ${msg.id} / ${err}`,
+          })
+        })
     case 'added':
       return publishGroupsInfo()
     default:
