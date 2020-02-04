@@ -1,5 +1,6 @@
 import { influx, queryBuilder } from '@home/influxdb-client'
 import { rooms, environmentalSensors, conditionLevels, roomToSensorsMapper, IConditionReport } from '@home/commons'
+
 import { checkHumidity, checkTemperature, checkPressure, checkTVOC, checkECO2 } from './helpers'
 
 function checkConditions(room: rooms, sensor: environmentalSensors): IConditionReport {
@@ -9,6 +10,10 @@ function checkConditions(room: rooms, sensor: environmentalSensors): IConditionR
     [environmentalSensors.humidity]: conditionLevels.good,
     [environmentalSensors.eco2]: conditionLevels.good,
     [environmentalSensors.tvoc]: conditionLevels.good,
+  }
+
+  for (const sensor of Object.keys(report)) {
+    //   const value = @todo: finished here
   }
 
   return report
