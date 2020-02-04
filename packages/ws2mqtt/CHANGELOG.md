@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.2](https://github.com/mariusz-kabala/homeAutomation/compare/@home/ws2mqtt@0.6.1...@home/ws2mqtt@0.6.2) (2020-02-01)
+
+**Note:** Version bump only for package @home/ws2mqtt
+
+
+
+
+
+## [0.6.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/ws2mqtt@0.6.0...@home/ws2mqtt@0.6.1) (2020-01-31)
+
+
+### Bug Fixes
+
+* api fixes, and better error handling ([47cacfd](https://github.com/mariusz-kabala/homeAutomation/commit/47cacfdef5b396394a31ed34a727a270bbfa6c95))
+
+
+
+
+
+# [0.6.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/ws2mqtt@0.5.3...@home/ws2mqtt@0.6.0) (2020-01-30)
+
+
+### Features
+
+* BREAKING CHANGE: better support for ws messages ([8983f91](https://github.com/mariusz-kabala/homeAutomation/commit/8983f91280af9cfda402da224b96d437606938c1))
+
+
+
+
+
 ## [0.5.3](https://github.com/mariusz-kabala/homeAutomation/compare/@home/ws2mqtt@0.5.2...@home/ws2mqtt@0.5.3) (2020-01-16)
 
 **Note:** Version bump only for package @home/ws2mqtt

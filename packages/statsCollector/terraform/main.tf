@@ -16,4 +16,7 @@ resource "docker_container" "statscollector" {
       "STATS_DB_USER=${var.STATS_DB_USER}",
       "STATS_DB_PASS=${var.STATS_DB_PASS}"
   ]
+   dns = [
+    "192.168.0.10"
+  ]
 }

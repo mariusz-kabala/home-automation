@@ -7,6 +7,7 @@ resource "docker_container" "ws2mqtt" {
   }
   env = [
       "WS_HOST=home.kabala.tech",
+      "API_HOST=home.kabala.tech",
       "WS_PORT=8081",
       "API_TOKEN=${var.API_TOKEN}",
       "MQTT_HOST=home.kabala.tech",
