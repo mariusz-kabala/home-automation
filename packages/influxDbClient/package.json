@@ -12,6 +12,7 @@
     },
     "dependencies": {
         "@home/logger": "0.1.1",
+        "@home/commons": "0.1.0",
         "influx": "^5.5.1"
     }
 }
