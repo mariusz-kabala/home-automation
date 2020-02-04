@@ -1,35 +1,40 @@
 import crypto from 'crypto'
+
 import { conditionLevels, normalizeValue } from '@home/commons'
 
 export function checkHumidity(level: number): conditionLevels {
-    const value = normalizeValue(level)
-    if (value <= 55 && value >= 45) {
-        return conditionLevels.ideal
-    }
+  const value = normalizeValue(level)
+  if (value <= 55 && value >= 45) {
+    return conditionLevels.ideal
+  }
 
-    if (value <= 60 && value >= 30) {
-        return conditionLevels.good
-    }
+  if (value <= 60 && value >= 30) {
+    return conditionLevels.good
+  }
 
-    return conditionLevels.bad
+  return conditionLevels.bad
 }
 
 export function checkTemperature(level: number): conditionLevels {
-    const value = normalizeValue(level)
+  const value = normalizeValue(level)
 
-    if (value <= 23 && value >= 21) {
-        return conditionLevels.ideal
-    }
+  if (value <= 23 && value >= 21) {
+    return conditionLevels.ideal
+  }
 
-    if (value <= 24 && value >= 20) {
-        return conditionLevels.good
-    }
+  if (value <= 24 && value >= 20) {
+    return conditionLevels.good
+  }
 
-    return conditionLevels.bad
+  return conditionLevels.bad
 }
 
 export function checkPressure(value: number): conditionLevels {
   if (value < 980) {
+    return conditionLevels.bad
+  }
+
+  if (value > 1020) {
     return conditionLevels.bad
   }
 
@@ -63,23 +68,24 @@ export function checkECO2(value: number): conditionLevels {
 export const createHash = (): crypto.Hash => crypto.createHash('sha1')
 
 export function checkCondition(
-    value: number,
-    expectedValue: number,
-    condition: 'eq' | 'ne' | 'gt' | 'ge' | 'lt' | 'le',
-  ): boolean {
-    switch (condition) {
-      case 'eq':
-        return value == expectedValue
-      case 'ne':
-        return value != expectedValue
-      case 'gt':
-        return value > expectedValue
-      case 'ge':
-        return value >= expectedValue
-      case 'lt':
-        return value < expectedValue
-      case 'le':
-        return value <= expectedValue
-    }
+  value: number,
+  expectedValue: number,
+  condition: 'eq' | 'ne' | 'gt' | 'ge' | 'lt' | 'le',
+): boolean {
+  switch (condition) {
+    case 'eq':
+      return value === expectedValue
+    case 'ne':
+      return value !== expectedValue
+    case 'gt':
+      return value > expectedValue
+    case 'ge':
+      return value >= expectedValue
+    case 'lt':
+      return value < expectedValue
+    case 'le':
+      return value <= expectedValue
+    default:
+      return false
   }
-  
+}
