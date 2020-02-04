@@ -1,12 +1,21 @@
 import config from 'config'
 import { subscribe, publish } from '@home/mqtt'
 import { logger } from '@home/logger'
-import { IDevice } from './types'
+// eslint-disable-next-line
 import isReachable from 'is-reachable'
 import ping from 'ping'
 
+import { IDevice } from './types'
+
 const devices = config.get<IDevice[]>('devices')
-let connectedToRouter: string[] = [] 
+let connectedToRouter: string[] = []
+
+function isConnectedToRouter(device: IDevice) {
+  if (!device.mac) {
+    return false
+  }
+  return connectedToRouter.includes(device.mac.toLowerCase())
+}
 
 const timeIntervals: {
   [device: string]: NodeJS.Timeout
@@ -22,17 +31,10 @@ async function checkDevice(device: IDevice) {
   }
 
   const result = await ping.promise.probe(device.address, {
-    timeout: 2
+    timeout: 2,
   })
 
   return result.alive
-}
-
-function isConnectedToRouter(device: IDevice) {
-  if (!device.mac) {
-    return false
-  }
-  return connectedToRouter.includes(device.mac.toLowerCase())
 }
 
 function getCheckDeviceFunc(device: IDevice) {
@@ -41,7 +43,7 @@ function getCheckDeviceFunc(device: IDevice) {
 
     logger.log({
       level: 'info',
-      message: `Device ${device.name} is ${status ? 'online' : 'offline'}`
+      message: `Device ${device.name} is ${status ? 'online' : 'offline'}`,
     })
 
     publish(`devices/${device.name}/status`, { isReachable: status }, { retain: true, qos: 1 })
@@ -60,11 +62,11 @@ function initSubscriptions() {
     const device = devices.find(d => d.name === deviceName)
 
     if (!device) {
-        logger.log({
-            level: 'error',
-            message: `Can not check device ${deviceName}, device is unknown`
-        })
-        return
+      logger.log({
+        level: 'error',
+        message: `Can not check device ${deviceName}, device is unknown`,
+      })
+      return
     }
 
     const checker = getCheckDeviceFunc(device)
@@ -72,10 +74,10 @@ function initSubscriptions() {
     await checker()
   })
 
-  subscribe('openwrt/clients', async (msg: string[]) => {
+  subscribe('openwrt/clients', (msg: string[]) => {
     logger.log({
       level: 'info',
-      message: `List of connected router devices: ${JSON.stringify(msg)}`
+      message: `List of connected router devices: ${JSON.stringify(msg)}`,
     })
     connectedToRouter = msg.map(mac => mac.toLowerCase())
   })
@@ -91,8 +93,7 @@ initIntervals()
 initSubscriptions()
 start()
 
-
 logger.log({
-    level: 'info',
-    message: 'Device Discovery service started'
+  level: 'info',
+  message: 'Device Discovery service started',
 })

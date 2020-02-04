@@ -1,5 +1,6 @@
 import fetch, { RequestInit, Response } from 'node-fetch'
 import config from 'config'
+
 import { IGroupState, IGroup, ISensor, ILight } from './models'
 
 interface IParams<T> {
