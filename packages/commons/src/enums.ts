@@ -3,7 +3,6 @@ export enum rooms {
     livingroom = 'livingroom',
     bedroom = 'bedroom',
     hallway = 'hallway',
-    gym = 'gym',
     bathroom = 'bathroom'
 }
 
