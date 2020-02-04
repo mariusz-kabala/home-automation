@@ -1,0 +1,72 @@
+---
+    - hosts: pi4
+    
+      vars:
+        - ansible_ssh_common_args: "-o StrictHostKeyChecking=no"
+        - homeDir: /home/pi
+        - app: tuyaPlugs
+        - project_path: /opt/automation/tuyaPlugs
+        - repo: homeAutomation
+        - account: mariusz-kabala
+        - privateKey: ~/.ssh/id_rsa
+    
+      tasks:
+        - name: Set variables
+          set_fact:
+            release_path: "{{ project_path }}/releases/{{ lookup('pipe','date +%Y%m%d%H%M%S') }}"
+            current_path: "{{ project_path }}/current"
+            supervisor_config_path: "homeAutomation_{{ app }}.conf"
+            local_copy_path: "~/{{ repo }}"
+    
+        - name: Retrieve current release folder
+          command: readlink -f current
+          register: current_release_path
+          ignore_errors: yes
+          args:
+            chdir: "{{ project_path }}"
+          
+        - name: Create new folder
+          file:
+            dest={{ release_path }}
+            mode=0755
+            recurse=yes
+            state=directory
+
+        - name: Copy supervisor config to remote
+          become: yes
+          template: src=supervisor.j2 dest=/etc/supervisor/conf.d/{{ supervisor_config_path }}
+
+        - name: Clone the repository
+          local_action: git repo="git@github.com:{{account}}/{{repo}}.git" dest={{local_copy_path}}
+
+        - name: Copy application code to remote
+          copy: src={{local_copy_path}}/ dest={{release_path}} mode=0600
+    
+        - name: Install dependencies
+          command: yarn install
+          args:
+            chdir: "{{ release_path }}"
+
+        - name: Prepare application
+          command: yarn workspaces run prepare
+          args:
+            chdir: "{{ release_path }}"
+
+        - name: Build application
+          command: yarn workspace @home/tuya-plugs build
+          args:
+            chdir: "{{ release_path }}"
+    
+        - name: Update symlink
+          file:
+            src={{ release_path }}
+            dest={{ current_path }}
+            state=link
+        
+        - name: Restart the app
+          become: yes
+          supervisorctl:
+            name: homeAutomation-{{app}}
+            state: restarted
+            config: /etc/supervisor/conf.d/{{ supervisor_config_path }}
+      

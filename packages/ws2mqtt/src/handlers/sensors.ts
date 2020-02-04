@@ -1,32 +1,60 @@
 import { logger } from '@home/logger'
 import { publish } from '@home/mqtt'
+import { fetchSensors, fetchSensorDetails } from '@home/deconz-api'
+import config from 'config'
 
-import { fetchSensors, ISensorsResponse } from '../api'
-import { IWSSensorMsg, ISensor } from '../types'
+import { IWSSensorMsg } from '../types'
 
-let sensors: ISensorsResponse = {}
+function publishSensorsInfo() {
+  fetchSensors().then(response => {
+    for (const id of Object.keys(response)) {
+      publish(`${config.get<string>('namespace')}/sensors/${id}`, response[id], { retain: true, qos: 0 })
+    }
+  })
+}
 
-fetchSensors().then(response => (sensors = response))
+function publishSensorDetails(id: string) {
+  fetchSensorDetails(id).then(sensor =>
+    publish(`${config.get<string>('namespace')}/sensors/${id}`, sensor, { retain: true, qos: 0 }),
+  )
+}
+
+publishSensorsInfo()
+
+const eventsMapper: { [key: string]: string } = {
+  buttonevent: 'press',
+  dark: 'isDark',
+  daylight: 'isDaylight',
+  presence: 'isPresence',
+}
+
+function publishEvents(id: string, state: { [key: string]: string | number }) {
+  for (const field of Object.keys(eventsMapper)) {
+    if (typeof state[field] !== 'undefined') {
+      const event = eventsMapper[field]
+
+      publish(`${config.get<string>('namespace')}/sensors/${id}/${event}`, state[field], { retain: true, qos: 0 })
+    }
+  }
+}
 
 export function handleSensorMsg(msg: IWSSensorMsg) {
-  if (!sensors[msg.id]) {
-    logger.log({
-      traceid: msg.uniqueid,
-      level: 'error',
-      message: `Not supported sensor, WS message won't be publish ${JSON.stringify(msg)}`,
-    })
-    return
-  }
-  const sensor: ISensor = sensors[msg.id]
-  const data = {
-    id: msg.id,
-    name: sensor.name,
-    manufacturername: sensor.manufacturername,
-    modelid: sensor.modelid,
-    type: sensor.type,
-    state: msg.state,
-    traceid: msg.uniqueid,
-  }
+  switch (msg.e) {
+    case 'added':
+      return publishSensorDetails(msg.id)
 
-  publish(`sensors/${msg.id}`, data, { retain: true, qos: 0 })
+    case 'changed':
+      publishSensorDetails(msg.id)
+      if (msg.state) {
+        return publishEvents(msg.id, msg.state)
+      }
+      break
+
+    default:
+      return logger.log({
+        traceid: msg.uniqueid,
+        level: 'error',
+        message: `Not supported light message: ${JSON.stringify(msg)}`,
+      })
+  }
 }
