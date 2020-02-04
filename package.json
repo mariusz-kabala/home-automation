@@ -1,79 +1,99 @@
 {
-  "name": "homeautomation",
-  "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
-  "private": true,
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "lerna clean --yes && rimraf dist packages/*/dist packages/*/build node_modules"
-  },
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mariusz-kabala/homeAutomation.git"
-  },
-  "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/mariusz-kabala/homeAutomation/issues"
-  },
-  "homepage": "https://github.com/mariusz-kabala/homeAutomation#readme",
-  "devDependencies": {
-    "@types/bluebird": "^3.5.29",
-    "@types/body-parser": "^1.17.1",
-    "@types/config": "^0.0.36",
-    "@types/express": "^4.17.2",
-    "@types/jest": "^24.0.25",
-    "@types/node": "^13.1.2",
-    "@types/node-fetch": "^2.5.4",
-    "@types/redis": "^2.8.14",
-    "@types/uuid": "^3.4.6",
-    "@types/winston": "^2.4.4",
-    "@typescript-eslint/eslint-plugin": "^2.14.0",
-    "@typescript-eslint/parser": "^2.14.0",
-    "concurrently": "^5.0.2",
-    "dotenv": "^8.2.0",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.9.0",
-    "eslint-formatter-friendly": "^7.0.0",
-    "eslint-plugin-import": "^2.19.1",
-    "eslint-plugin-jest": "^23.2.0",
-    "eslint-plugin-prettier": "^3.1.2",
-    "husky": "^3.1.0",
-    "jest": "^24.9.0",
-    "jest-fetch-mock": "^3.0.1",
-    "lerna": "^3.20.1",
-    "lint-staged": "^9.5.0",
-    "nodemon": "^2.0.2",
-    "prettier": "^1.19.1",
-    "replace-in-file": "^5.0.2",
-    "rimraf": "^3.0.0",
-    "rollup": "^1.27.14",
-    "rollup-plugin-auto-external": "^2.0.0",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-builtins": "^2.1.2",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-typescript2": "^0.25.3",
-    "ts-jest": "^24.2.0",
-    "typescript": "^3.7.4"
-  },
-  "dependencies": {
-    "bluebird": "^3.7.2",
-    "body-parser": "^1.19.0",
-    "colors": "^1.4.0",
-    "config": "^3.2.4",
-    "express": "^4.17.1",
-    "is-reachable": "^4.0.0",
-    "mqtt": "^3.0.0",
-    "mqtt-pattern": "^1.2.0",
-    "node-fetch": "^2.6.0",
-    "redis": "^2.8.0",
-    "uuid": "^3.3.3",
-    "winston": "^3.2.1"
-  }
+	"name": "homeautomation",
+	"version": "0.0.1",
+	"description": "",
+	"main": "index.js",
+	"private": true,
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"clean": "lerna clean --yes && rimraf dist packages/*/dist packages/*/build node_modules"
+	},
+	"workspaces": {
+		"packages": [
+			"packages/*"
+		]
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/mariusz-kabala/homeAutomation.git"
+	},
+	"author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/mariusz-kabala/homeAutomation/issues"
+	},
+	"engines": {
+		"node": "12",
+		"yarn": "1"
+	},
+	"homepage": "https://github.com/mariusz-kabala/homeAutomation#readme",
+	"devDependencies": {
+		"@types/bluebird": "^3.5.29",
+		"@types/body-parser": "^1.17.1",
+		"@types/config": "^0.0.36",
+		"@types/express": "^4.17.2",
+		"@types/jest": "^24.0.25",
+		"@types/node": "^13.1.2",
+		"@types/node-fetch": "^2.5.4",
+		"@types/redis": "^2.8.14",
+		"@types/uuid": "^3.4.6",
+		"@types/winston": "^2.4.4",
+		"@typescript-eslint/eslint-plugin": "^2.14.0",
+		"@typescript-eslint/parser": "^2.14.0",
+		"concurrently": "^5.0.2",
+		"dotenv": "^8.2.0",
+		"eslint": "^6.8.0",
+		"eslint-config-prettier": "^6.9.0",
+		"eslint-formatter-friendly": "^7.0.0",
+		"eslint-plugin-import": "^2.19.1",
+		"eslint-plugin-jest": "^23.2.0",
+		"eslint-plugin-prettier": "^3.1.2",
+		"husky": "^4.2.1",
+		"jest": "^24.9.0",
+		"jest-fetch-mock": "^3.0.1",
+		"lerna": "^3.20.1",
+		"lint-staged": "^10.0.2",
+		"nodemon": "^2.0.2",
+		"prettier": "^1.19.1",
+		"replace-in-file": "^5.0.2",
+		"rimraf": "^3.0.0",
+		"rollup": "^1.27.14",
+		"rollup-plugin-auto-external": "^2.0.0",
+		"rollup-plugin-commonjs": "^10.1.0",
+		"rollup-plugin-node-builtins": "^2.1.2",
+		"rollup-plugin-node-resolve": "^5.2.0",
+		"rollup-plugin-typescript2": "^0.25.3",
+		"ts-jest": "^24.2.0",
+		"typescript": "^3.7.4"
+	},
+	"dependencies": {
+		"bluebird": "^3.7.2",
+		"body-parser": "^1.19.0",
+		"colors": "^1.4.0",
+		"config": "^3.2.4",
+		"express": "^4.17.1",
+		"is-reachable": "^4.0.0",
+		"mqtt": "^3.0.0",
+		"mqtt-pattern": "^1.2.0",
+		"node-fetch": "^2.6.0",
+		"redis": "^2.8.0",
+		"uuid": "^3.3.3",
+		"winston": "^3.2.1"
+	},
+	"lint-staged": {
+		"**/*/CHANGELOG.md": [
+			"bash -c 'echo \"Do not change CHANGELOG.md files manually\" && exit 1'"
+		],
+		"*.{js,jsx,ts,tsx}": [
+			"eslint --fix"
+		],
+		"*.{json,css,scss,md,js,jsx,ts,tsx}": [
+			"prettier --write"
+		]
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	}
 }
