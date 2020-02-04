@@ -1,0 +1,18 @@
+{
+    "name": "@home/influxdb-client",
+    "version": "0.0.1",
+    "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
+    "main": "dist/index.js",
+    "module": "dist/index.esm.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "rollup -c ../../rollup.config.js",
+        "build-declarations": "tsc --declaration --emitDeclarationOnly --out dist/index.d.ts && node ../../scripts/fixDeclaration.js",
+        "prepare": "yarn build && yarn build-declarations"
+    },
+    "dependencies": {
+        "@home/logger": "0.1.1",
+        "@home/commons": "0.1.0",
+        "influx": "^5.5.1"
+    }
+}

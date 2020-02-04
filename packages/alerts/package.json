@@ -15,6 +15,7 @@
     "dependencies": {
         "@home/commons": "0.1.0",
         "@home/logger": "0.1.1",
-        "@home/mqtt": "0.6.0"
+        "@home/mqtt": "0.6.0",
+        "@home/influxdb-client": "0.0.1"
     }
 }
