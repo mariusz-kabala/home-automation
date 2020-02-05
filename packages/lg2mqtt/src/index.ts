@@ -1,12 +1,14 @@
+// eslint-disable-next-line import/default
 import isReachable from 'is-reachable'
 import config from 'config'
 import { subscribe, publish } from '@home/mqtt'
+import { logger } from '@home/logger'
 
 import { TV } from './tv'
-import { logger } from '@home/logger'
 
 interface IBufforMsg {
   topic: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   msg: any
   time: number
 }
@@ -54,6 +56,7 @@ function sentRecentAlert(device: TV) {
   lastNotSentAlert = undefined
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function flushBuffer(device: string, resolve?: () => void): any {
   if (!resolve) {
     const delay = config.get<{
@@ -114,6 +117,7 @@ function subscribeForAlerts() {
 
 function initBuffor() {
   const ignoredCommands = ['status', 'turnOn', 'turnOff']
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   subscribe('tv/+/+', (msg: any, topic: string) => {
     const [, device, command] = topic.split('/')
 
@@ -129,7 +133,13 @@ function initBuffor() {
       time: now,
     })
 
-    publish(`tv/${device}/turnOn`, {})
+    switch (device) {
+      case 'livingroom':
+        return publish(`wot/livingroomTV`, null)
+
+      default:
+        return publish(`tv/${device}/turnOn`, {})
+    }
   })
 }
 
