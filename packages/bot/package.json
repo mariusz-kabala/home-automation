@@ -1,6 +1,6 @@
 {
     "name": "@home/bot",
-    "version": "0.7.1",
+    "version": "0.7.2",
     "private": true,
     "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
     "main": "./dist/index.js",
@@ -16,7 +16,7 @@
         "@types/node-telegram-bot-api": "^0.40.1"
     },
     "dependencies": {
-        "@home/commons": "0.1.0",
+        "@home/commons": "0.1.1",
         "@home/logger": "0.1.1",
         "@home/mqtt": "0.6.0",
         "@home/redis": "0.2.0",

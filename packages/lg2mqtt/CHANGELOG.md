@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.3](https://github.com/mariusz-kabala/homeAutomation/compare/@home/lg2mqtt@0.5.2...@home/lg2mqtt@0.5.3) (2020-02-05)
+
+
+### Bug Fixes
+
+* use proper topic to turn on tv in livingroom ([ea201e4](https://github.com/mariusz-kabala/homeAutomation/commit/ea201e4e18a25eb41cdae0b4c4426e2c0ecb9b50))
+
+
+
+
+
 ## [0.5.2](https://github.com/mariusz-kabala/homeAutomation/compare/@home/lg2mqtt@0.5.1...@home/lg2mqtt@0.5.2) (2020-01-16)
 
 **Note:** Version bump only for package @home/lg2mqtt
