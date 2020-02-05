@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "test": "jest",
+    "gen:flow:graph": "mmdc -i ./docs/flow.mmd -o ./docs/flow.png -w 1280 -H 1024",
     "clean": "lerna clean --yes && rimraf dist packages/*/dist packages/*/build node_modules"
   },
   "workspaces": {
@@ -53,6 +54,7 @@
     "jest-fetch-mock": "^3.0.1",
     "lerna": "^3.20.1",
     "lint-staged": "^10.0.2",
+    "mermaid.cli": "^0.5.1",
     "nodemon": "^2.0.2",
     "prettier": "^1.19.1",
     "replace-in-file": "^5.0.2",

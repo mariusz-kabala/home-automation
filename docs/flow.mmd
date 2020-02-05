@@ -1,0 +1,20 @@
+graph TD
+    Hue[PhilipsHue] --> |Zigbee| deconz
+    XaiomiSensors --> |Zigbee| deconz
+    deconz --> |Websocket| Ws2Mqtt
+    Ws2Mqtt --> MQTT{MQTT}
+    Mqtt2Http --> |HTTP| deconz
+    MQTT --> Mqtt2Http
+    MQTT --> |sensors/zigbee/#|statsCollector
+    MQTT --> |forecast/#|statsCollector
+    MQTT --> |airvisual/+|statsCollector
+    MQTT --> |aqicnorg/+|statsCollector
+    MQTT --> |tuyaPlugs/+/status|statsCollector
+    statsCollector --> |HTTP|InfluxDB
+    InfluxDB --> Grafana
+    tuyaPlugs --> |tuyaPlugs/+/status|MQTT
+    SmartPlugs --> |tcp/udp|tuyaPlugs
+    MQTT --> |tuyaPlugs/+/turnOn|tuyaPlugs
+    MQTT --> |tuyaPlugs/+/turnOff|tuyaPlugs
+    openWeather --> |HTTP|api.openweathermap.org
+    openWeather --> |forecast/+|MQTT
