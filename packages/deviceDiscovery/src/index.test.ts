@@ -1,6 +1,5 @@
 import { subscribe, publish, getSubscriptions } from '@home/mqtt'
-// import isReachable from 'is-reachable'
-// import ping from 'ping'
+import ping from 'ping'
 
 jest.useFakeTimers()
 
@@ -13,7 +12,13 @@ jest.mock('is-reachable', () => ({
 
 jest.mock('ping', () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: {
+    promise: {
+      probe: jest.fn().mockImplementation(() => ({
+        alive: false,
+      })),
+    },
+  },
 }))
 
 jest.mock('config', () => ({
@@ -75,6 +80,7 @@ describe('Device Discovery service', () => {
     expect(clientsCallback).toBeInstanceOf(Function)
 
     clientsCallback(['48:BF:6B:09:66:B2'])
+    ;(publish as jest.Mock).mockClear()
 
     await checkStatusCallback(null, 'devices/weronika-phone/checkStatus')
 
@@ -101,5 +107,15 @@ describe('Device Discovery service', () => {
       },
       { qos: 1, retain: true },
     )
+  })
+
+  it('Should check status of devices', async () => {
+    ;(ping.promise.probe as jest.Mock).mockClear()
+    ;(publish as jest.Mock).mockClear()
+
+    await jest.runOnlyPendingTimers()
+
+    expect(ping.promise.probe).toBeCalled()
+    expect(publish).toBeCalledTimes(2)
   })
 })
