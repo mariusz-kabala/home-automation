@@ -101,40 +101,40 @@ export function subscribeForGroupsMessages() {
     const [, , groupId] = topic.split('/')
 
     try {
-        await setGroupState(groupId, msg)
-      } catch (err) {
-        logger.log({
-          level: 'error',
-          message: `Error during chaning group state ${groupId}: ${err}`,
-        })
-        return
-      }
-    
+      await setGroupState(groupId, msg)
+    } catch (err) {
       logger.log({
-        level: 'info',
-        message: `Group ${groupId} state changed ${JSON.stringify(msg)}`,
+        level: 'error',
+        message: `Error during chaning group state ${groupId}: ${err}`,
       })
+      return
+    }
+
+    logger.log({
+      level: 'info',
+      message: `Group ${groupId} state changed ${JSON.stringify(msg)}`,
+    })
   })
 
   subscribe(`${config.get<string>('namespace')}/groups/+/toggle`, async (_msg, topic: string) => {
     const [, , groupId] = topic.split('/')
 
     try {
-        await setGroupState(groupId, {
-          [GroupStateFields.toggle]: true,
-        })
-      } catch (err) {
-        logger.log({
-          level: 'error',
-          message: `Error during toggling group ${groupId}: ${err}`,
-        })
-        return
-      }
-    
-      logger.log({
-        level: 'info',
-        message: `Group ${groupId} toggled`,
+      await setGroupState(groupId, {
+        [GroupStateFields.toggle]: true,
       })
+    } catch (err) {
+      logger.log({
+        level: 'error',
+        message: `Error during toggling group ${groupId}: ${err}`,
+      })
+      return
+    }
+
+    logger.log({
+      level: 'info',
+      message: `Group ${groupId} toggled`,
+    })
   })
 
   subscribe(`${config.get<string>('namespace')}/groups/+/turnOn`, (_msg, topic: string) => {

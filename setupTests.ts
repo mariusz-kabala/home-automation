@@ -13,11 +13,19 @@ jest.mock('@home/logger', () => ({
   },
 }))
 
-// eslint-disable-next-line no-var
-var subscriptions: { [key: string]: Function[] }
+let subscriptions: { [key: string]: Function[] }
 
 jest.mock('@home/mqtt', () => ({
-  getSubscriptions: () => subscriptions,
+  clearSubscriptions: () => {
+    subscriptions = {}
+  },
+  getSubscriptions: (topic?: string) => {
+    if (!topic) {
+      return subscriptions
+    }
+
+    return subscriptions[topic]
+  },
   subscribe: jest.fn().mockImplementation((topic: string, callback: Function) => {
     if (subscriptions === undefined) {
       subscriptions = {}
