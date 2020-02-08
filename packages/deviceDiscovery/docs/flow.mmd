@@ -1,0 +1,7 @@
+graph TD
+    DeviceDiscovery --> |ping| Device1
+    DeviceDiscovery --> |port 3000| Device2
+    DeviceDiscovery --> |devices/device1/status| MQTT
+    DeviceDiscovery --> |devices/device2/status| MQTT
+    OpenWRT --> |openwrt/clients| MQTT
+    MQTT --> |openwrt/clients|DeviceDiscovery
