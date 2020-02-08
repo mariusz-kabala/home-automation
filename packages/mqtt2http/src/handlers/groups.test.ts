@@ -1,4 +1,4 @@
-import { subscribe, publish, getSubscriptions, clearSubscriptions } from '@home/mqtt'
+import { subscribe, getSubscriptions, clearSubscriptions } from '@home/mqtt'
 import { setGroupState, fetchGroupDetails } from '@home/deconz-api'
 import waitForExpect from 'wait-for-expect'
 

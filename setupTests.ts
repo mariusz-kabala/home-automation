@@ -39,3 +39,5 @@ jest.mock('@home/mqtt', () => ({
   }),
   publish: jest.fn(),
 }))
+
+require('jest-fetch-mock').enableMocks()
