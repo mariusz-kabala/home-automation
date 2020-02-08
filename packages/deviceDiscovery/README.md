@@ -1,5 +1,7 @@
 # DeviceDiscovery Service
 
+![flow](https://raw.githubusercontent.com/mariusz-kabala/home-automation/master/packages/deviceDiscovery/docs/flow.png "Flow")
+
 Simple service that checks if devices (ar services) are available in local network
 
 It subscribes for updates from OpenWRT router that contains list of connected devices; **topic**:
