@@ -1500,9 +1500,9 @@
     "@types/request" "*"
 
 "@types/node@*", "@types/node@>= 8", "@types/node@^13.1.2":
-  version "13.1.2"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.1.2.tgz#fe94285bf5e0782e1a9e5a8c482b1c34465fa385"
-  integrity sha512-B8emQA1qeKerqd1dmIsQYnXi+mmAzTB7flExjmy5X1aVAKFNNNDubkavwR13kR6JnpeLp3aLoJhwn9trWPAyFQ==
+  version "13.7.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.7.0.tgz#b417deda18cf8400f278733499ad5547ed1abec4"
+  integrity sha512-GnZbirvmqZUzMgkFn70c74OQpTTUcCzlhQliTzYjQMqg+hVKcDnxdL19Ne3UdYzdMA/+W3eb646FWn/ZaT1NfQ==
 
 "@types/parse-json@^4.0.0":
   version "4.0.0"
@@ -1572,11 +1572,9 @@
   integrity sha512-XLD/llTSB6EBe3thkN+/I0L+yCTB6sjrcVovQdx2Cnl6N6bTzHmwe/J8mWnsXFgxLrj/emzdv8IR4evKYG2qxQ==
 
 "@types/uuid@^3.4.6":
-  version "3.4.6"
-  resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-3.4.6.tgz#d2c4c48eb85a757bf2927f75f939942d521e3016"
-  integrity sha512-cCdlC/1kGEZdEglzOieLDYBxHsvEOIg7kp/2FYyVR9Pxakq+Qf/inL3RKQ+PA8gOlI/NnL+fXmQH12nwcGzsHw==
-  dependencies:
-    "@types/node" "*"
+  version "3.4.7"
+  resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-3.4.7.tgz#51d42247473bc00e38cc8dfaf70d936842a36c03"
+  integrity sha512-C2j2FWgQkF1ru12SjZJyMaTPxs/f6n90+5G5qNakBxKXjTBc/YTSelHh4Pz1HUDwxFXD9WvpQhOGCDC+/Y4mIQ==
 
 "@types/winston@^2.4.4":
   version "2.4.4"
@@ -1585,10 +1583,10 @@
   dependencies:
     winston "*"
 
-"@types/ws@6.0.4":
-  version "6.0.4"
-  resolved "https://registry.yarnpkg.com/@types/ws/-/ws-6.0.4.tgz#7797707c8acce8f76d8c34b370d4645b70421ff1"
-  integrity sha512-PpPrX7SZW9re6+Ha8ojZG4Se8AZXgf0GK6zmfqEuCsY49LFDNXO3SByp44X3dFEqtB73lkCDAdUazhAjVPiNwg==
+"@types/ws@7.2.1":
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/@types/ws/-/ws-7.2.1.tgz#b800f2b8aee694e2b581113643e20d79dd3b8556"
+  integrity sha512-UEmRNbXFGvfs/sLncf01GuVv6U1mZP3Df0iXWx4kUlikJxbFyFADp95mDn1XDTE2mXpzzoHcKlfFcbytLq4vaA==
   dependencies:
     "@types/node" "*"
 
@@ -3717,12 +3715,11 @@ eslint-plugin-import@^2.19.1:
     resolve "^1.12.0"
 
 eslint-plugin-jest@^23.6.0:
-  version "23.6.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-23.6.0.tgz#508b32f80d44058c8c01257c0ee718cfbd521e9d"
-  integrity sha512-GH8AhcFXspOLqak7fqnddLXEJsrFyvgO8Bm60SexvKSn1+3rWYESnCiWUOCUcBTprNSDSE4CtAZdM4EyV6gPPw==
+  version "23.7.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-23.7.0.tgz#84d5603b6e745b59898cb6750df6a44782a39b04"
+  integrity sha512-zkiyGlvJeHNjAEz8FaIxTXNblJJ/zj3waNbYbgflK7K6uy0cpE5zJBt/JpJtOBGM/UGkC6BqsQ4n0y7kQ2HA8w==
   dependencies:
     "@typescript-eslint/experimental-utils" "^2.5.0"
-    micromatch "^4.0.2"
 
 eslint-plugin-prettier@^3.1.2:
   version "3.1.2"
@@ -8589,9 +8586,9 @@ rollup-pluginutils@^2.8.1:
     estree-walker "^0.6.1"
 
 rollup@^1.27.14:
-  version "1.27.14"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.27.14.tgz#940718d5eec1a6887e399aa0089944bae5c4f377"
-  integrity sha512-DuDjEyn8Y79ALYXMt+nH/EI58L5pEw5HU9K38xXdRnxQhvzUTI/nxAawhkAHUQeudANQ//8iyrhVRHJBuR6DSQ==
+  version "1.31.0"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.31.0.tgz#e2a87212e96aa7850f3eb53fdd02cf89f2d2fe9a"
+  integrity sha512-9C6ovSyNeEwvuRuUUmsTpJcXac1AwSL1a3x+O5lpmQKZqi5mmrjauLeqIjvREC+yNRR8fPdzByojDng+af3nVw==
   dependencies:
     "@types/estree" "*"
     "@types/node" "*"
