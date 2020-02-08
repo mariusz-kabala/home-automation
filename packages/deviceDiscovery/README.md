@@ -1,6 +1,6 @@
 # DeviceDiscovery Service
 
-[flow]: https://github.com/mariusz-kabala/home-automation/packages/deviceDiscovery/dosc/flow.png "Flow"
+[flow]: https://raw.githubusercontent.com/mariusz-kabala/home-automation/master/packages/deviceDiscovery/docs/flow.png "Flow"
 
 Simple service that checks if devices (ar services) are available in local network
 
