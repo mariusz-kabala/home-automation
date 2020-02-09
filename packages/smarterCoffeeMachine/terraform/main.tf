@@ -1,6 +1,6 @@
 resource "docker_container" "smarterCoffeeMachine" {
   name  = "smarterCoffeeMachine"
-  image = "docker-registry.kabala.tech/home/smarterCoffeeMachine:${var.tag}"
+  image = "docker-registry.kabala.tech/home/smartercoffeemachine:${var.tag}"
   restart = "always"
   networks_advanced {
       name = "global"
