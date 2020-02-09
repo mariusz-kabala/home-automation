@@ -1,5 +1,8 @@
-import { subscribe } from '@home/mqtt'
+import { subscribe, publish } from '@home/mqtt'
 import { logger } from '@home/logger'
+// eslint-disable-next-line import/default
+import isReachable from 'is-reachable'
+import config from 'config'
 
 import { enableWarming, brewOn, brewOff } from './coffeeMachine'
 
@@ -17,6 +20,22 @@ function init() {
   subscribe('smarterCoffeeMachine/brewOff', () => {
     brewOff()
   })
+
+  setInterval(() => {
+    if (!isReachable(`${config.get<string>('ipAddress')}:${config.get<number>('port')}`)) {
+      publish('smarterCoffeeMachine/status', { isOn: false }, { retain: true, qos: 2 })
+
+      logger.log({
+        level: 'error',
+        message: 'Coffee machine is offline',
+      })
+    } else {
+      logger.log({
+        level: 'info',
+        message: 'Coffee machine is reachable',
+      })
+    }
+  }, 150000) // 2,5min
 }
 
 logger.log({

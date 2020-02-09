@@ -69,7 +69,7 @@ function handleCoffeeMachineResponse(this: { client: net.Socket }, response: num
       return
     }
 
-    publish('smarterCoffeeMachine/status', status)
+    publish('smarterCoffeeMachine/status', status, { retain: true, qos: 2 })
 
     oldStatus = status
 
