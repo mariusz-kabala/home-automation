@@ -2,7 +2,7 @@
 
 Bridge between MQTT and Dresden Elektronik deCONZ (over HTTP) - https://phoscon.de/en/raspbee
 
-![device](https://raw.githubusercontent.com/mariusz-kabala/home-automation/master/packages/mqtt2http/docs/zigbee.png)
+![device](https://raw.githubusercontent.com/mariusz-kabala/home-automation/master/packages/mqtt2http/docs/zigbee.jpg)
 
 # FLOW:
 
