@@ -176,16 +176,16 @@ pipeline {
                 }
             }
         }
-        stage ('Deploy tuyaPlugs') {
+        stage ('Deploy smarterCoffeeMachine') {
             when {
-                environment name: 'package', value: 'tuyaPlugs'
+                environment name: 'package', value: 'smarterCoffeeMachine'
             }
             steps {
                 dir("packages/${env.package}/terraform") {
                     script {
                         docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
                             sh "terraform init"
-                            sh "terraform plan -out deploy.plan -var=\"tag=${version}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\" -var=\"SMART_PLUG_TV_KEY=${SMART_PLUG_TV_KEY}\" -var=\"SMART_PLUG_3_KEY=${SMART_PLUG_3_KEY}\" -var=\"SMART_PLUG_2_KEY=${SMART_PLUG_2_KEY}\" -var=\"SMART_PLUG_1_KEY=${SMART_PLUG_1_KEY}\"" 
+                            sh "terraform plan -out deploy.plan -var=\"tag=${version}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\"" 
                             sh "terraform apply -auto-approve deploy.plan"
                         }
                     }
