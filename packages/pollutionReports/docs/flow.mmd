@@ -1,0 +1,8 @@
+graph TD
+    pollutionReports --> |http| api.airvisual.com
+    pollutionReports --> |http| api.waqi.info
+    pollutionReports --> |airvisual/$city| MQTT
+    pollutionReports --> |aqicnorg/$city| MQTT
+    MQTT --> statsCollector
+    statsCollector --> InfluxDB
+    InfluxDB --> Grafana

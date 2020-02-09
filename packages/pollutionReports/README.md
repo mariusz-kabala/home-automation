@@ -1,5 +1,7 @@
 # PollutionReports (@home/pollution-reports)
 
+![flow](https://raw.githubusercontent.com/mariusz-kabala/home-automation/master/packages/pollutionReports/docs/flow.png)
+
 Collects pollution reports from 2 providers:
 
 - api.airvisual.com
@@ -7,7 +9,7 @@ Collects pollution reports from 2 providers:
 
 ### MQTT Topics:
 
-#### `home/airvisual/${city}`
+#### `airvisual/${city}`
 
 ```
 {
@@ -39,7 +41,7 @@ Collects pollution reports from 2 providers:
 }
 ```
 
-#### `home/aqicnorg/${city}`
+#### `aqicnorg/${city}`
 
 ```
 {
