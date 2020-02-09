@@ -1,0 +1,7 @@
+sequenceDiagram
+    MQTT->>+LG2MQTT: tv/livingroomTV/turnOn
+    LG2MQTT-->>-MQTT: wot/livingroomTV
+    MQTT->>+WONService: wot/livingroomTV
+    WONService->>+livingroomTV: Wake on LAN Magic Package
+    LG2MQTT->>+livingroomTV: websocket connect on port :3000
+    LG2MQTT->>+MQTT: tv/livingroomTV/status

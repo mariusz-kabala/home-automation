@@ -1,9 +1,11 @@
+/* eslint-disable no-invalid-this */
 import lgtv2 from 'lgtv2'
 import { publish, subscribe, ICallbackFunc } from '@home/mqtt'
 import { logger } from '@home/logger'
 import config from 'config'
 
 export class TV {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private device: any
   private deviceName: string
   private subscriptions: Array<() => void> = []
@@ -47,6 +49,7 @@ export class TV {
     })
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public runCommand = (msg: any, topic: string) => {
     const [, , command] = topic.split('/')
 
@@ -128,6 +131,7 @@ export class TV {
     this.device.on('ssap://audio/getVolume', this.onVolumeChange)
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private onVolumeChange(err: Error | null, res: any) {
     if (err) {
       logger.log({
@@ -143,7 +147,7 @@ export class TV {
     }
 
     if (res.changed.indexOf('muted') !== -1) {
-      publish(`tv/${this.deviceName}/muted`, { volume: res.muted })
+      publish(`tv/${this.deviceName}/muted`, { muted: res.muted })
     }
   }
 }
