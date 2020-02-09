@@ -8,7 +8,7 @@ Bridge to communicate with LG Smart TVs
 
 ### Subscriptions:
 
-- `home/tv/${deviceName}/sendNotification` - Display a notification tooltip on TV screen
+- `tv/${deviceName}/sendNotification` - Display a notification tooltip on TV screen
 
   **Payload**:
 
@@ -18,8 +18,8 @@ Bridge to communicate with LG Smart TVs
   }
   ```
 
-- `home/tv/${deviceName}/turnOff` - Turns off the TV (_no payload_)
-- `home/tv/${deviceName}/lunchApp` - Lunch an app on TV
+- `tv/${deviceName}/turnOff` - Turns off the TV (_no payload_)
+- `tv/${deviceName}/lunchApp` - Lunch an app on TV
   **Payload**:
   ```
   {
@@ -40,24 +40,24 @@ Bridge to communicate with LG Smart TVs
       hdmi3: 'com.webos.app.hdmi3',
   }
   ```
-- `home/tv/${deviceName}/setMute` - Mutes / unmutes the TV
+- `tv/${deviceName}/setMute` - Mutes / unmutes the TV
   **Payload**:
   ```
   {
       mute: boolean
   }
   ```
-- `home/tv/${deviceName}/setVolume` - Changes the volume
+- `tv/${deviceName}/setVolume` - Changes the volume
   **Payload**:
   ```
   {
       volume: number
   }
   ```
-- `home/tv/${deviceName}/volumeUp` - _No payload_
-- `home/tv/${deviceName}/volumeDown` - _No payload_
-- `home/tv/${deviceName}/play` - _No payload_
-- `home/tv/${deviceName}/pause` - _No payload_
+- `tv/${deviceName}/volumeUp` - _No payload_
+- `tv/${deviceName}/volumeDown` - _No payload_
+- `tv/${deviceName}/play` - _No payload_
+- `tv/${deviceName}/pause` - _No payload_
 
 - Alerts
 

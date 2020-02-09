@@ -1,6 +1,6 @@
 graph TD
     TV --> |ssap://audio/getVolume| LG2MQTT
-    LG2MQTT --> |home/tv/deviceName/volume| MQTT
+    LG2MQTT --> |tv/deviceName/volume| MQTT
     LG2MQTT --> |tv/deviceName/muted| MQTT
-    MQTT --> |home/tv/deviceName/sendNotification| LG2MQTT
+    MQTT --> |tv/deviceName/sendNotification| LG2MQTT
     LG2MQTT --> |ssap://system.notifications/createToast| TV
