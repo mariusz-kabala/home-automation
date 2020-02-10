@@ -2,6 +2,9 @@
 
 Monorepo which contains my home automation services. Each service defined in this repo runs in a docker container on my Raspberry Pi 4. I'm using MQTT to communicate between services and storage data. Check README files inside packages to know more about services in this repo
 
+![flow](https://raw.githubusercontent.com/mariusz-kabala/home-automation/master/docs/flow.png 'Flow')
+_todo: create a more readable graph :)_
+
 ## REQUIREMENTS
 
 This repo uses yarn workspaces, requires `yarn 1.21+` and `nodejs v12`
