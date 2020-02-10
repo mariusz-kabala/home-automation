@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/smarter-coffee-machine@0.1.0...@home/smarter-coffee-machine@0.2.0) (2020-02-09)
+
+
+### Features
+
+* check every 2.5min status of device ([71488c0](https://github.com/mariusz-kabala/homeAutomation/commit/71488c07a2544263720bfb8e29abadb7e1a20b79))
+
+
+
+
+
 # 0.1.0 (2020-02-09)
 
 
