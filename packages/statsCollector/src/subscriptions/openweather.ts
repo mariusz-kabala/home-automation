@@ -1,39 +1,11 @@
+/* eslint-disable @typescript-eslint/camelcase */
 import { subscribe } from '@home/mqtt'
 import { logger } from '@home/logger'
+
 import { influx } from '../clients/db'
 
-const SUPPORTED_TYPES = ['ZHALightLevel', 'ZHATemperature', 'ZHAPresence', 'ZHASwitch', 'ZHAHumidity', 'ZHAPressure']
-
 export function subscribeForOpenWeatherReports() {
-  subscribe('sensors/zigbee/#', async (msg: any) => {
-    const { type, state, id, name } = msg
-
-    if (SUPPORTED_TYPES.includes(type) && state) {
-      try {
-        await influx.writePoints([
-          {
-            measurement: type,
-            tags: { deviceId: id, deviceName: name },
-            fields: state,
-          },
-        ])
-        logger.info({
-          level: 'info',
-          traceid: msg.traceid,
-          message: `Saving new measurement ${JSON.stringify(state)}`,
-          deviceId: id,
-          deviceName: name,
-          measurement: type,
-        })
-      } catch (err) {
-        logger.log({
-          level: 'error',
-          message: err,
-        })
-      }
-    }
-  })
-
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   subscribe('forecast/#', async (msg: any) => {
     const {
       name,
