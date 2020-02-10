@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.2](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.7.1...@home/stats-collector@0.7.2) (2020-02-10)
+
+
+### Bug Fixes
+
+* use proper zigbee topic ([d739309](https://github.com/mariusz-kabala/homeAutomation/commit/d73930915f889a69732ffda01b22f29cafbf1276))
+
+
+
+
+
 ## [0.7.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.7.0...@home/stats-collector@0.7.1) (2020-02-01)
 
 **Note:** Version bump only for package @home/stats-collector
