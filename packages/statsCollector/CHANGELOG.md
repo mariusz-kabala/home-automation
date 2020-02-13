@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.7.2...@home/stats-collector@0.8.0) (2020-02-13)
+
+
+### Features
+
+* add support for reports from esp32 ([fed61ad](https://github.com/mariusz-kabala/homeAutomation/commit/fed61adf1978f0a17bdb5abfcad27c7fbb6a394f))
+
+
+
+
+
 ## [0.7.2](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.7.1...@home/stats-collector@0.7.2) (2020-02-10)
 
 
