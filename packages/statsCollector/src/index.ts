@@ -5,6 +5,7 @@ import { subscribeForPollutionReports } from './subscriptions/pollutionReports'
 import { subscribeForOpenWeatherReports } from './subscriptions/openweather'
 import { subscribeForPlugReports } from './subscriptions/tuyaPlugs'
 import { subscribeForZigbeeSensors } from './subscriptions/zigbee'
+import { subscribeForPlantsReports } from './subscriptions/esp32Plants'
 
 async function start() {
   await createDBIfNeeded('home')
@@ -18,6 +19,7 @@ async function start() {
   subscribeForOpenWeatherReports()
   subscribeForPlugReports()
   subscribeForZigbeeSensors()
+  subscribeForPlantsReports()
 }
 
 start()

@@ -1,8 +1,10 @@
 import { subscribe } from '@home/mqtt'
 import { logger } from '@home/logger'
+
 import { influx } from '../clients/db'
 
 export function subscribeForPlugReports() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   subscribe('tuyaPlugs/+/status', async (msg: any, topic: string) => {
     const [, device] = topic.split('/')
 
