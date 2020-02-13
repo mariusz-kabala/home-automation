@@ -64,7 +64,7 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-typescript2": "^0.25.3",
+    "rollup-plugin-typescript2": "^0.26.0",
     "ts-jest": "^25.2.0",
     "typescript": "^3.7.4",
     "wait-for-expect": "^3.0.2"
