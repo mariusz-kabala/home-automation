@@ -14,7 +14,7 @@
     },
     "devDependencies": {
         "@types/node-cron": "^2.0.2",
-        "@types/ws": "7.2.1"
+        "@types/ws": "7.2.2"
     },
     "dependencies": {
         "@home/deconz-api": "0.1.5",
