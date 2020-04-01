@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/mqtt@0.6.0...@home/mqtt@0.6.1) (2020-04-01)
+
+
+### Bug Fixes
+
+* proper import from uuid ([e7f9795](https://github.com/mariusz-kabala/homeAutomation/commit/e7f979535feede1f3e1f4f3983df4bb5ac428e0d))
+
+
+
+
+
 # [0.6.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/mqtt@0.5.0...@home/mqtt@0.6.0) (2020-01-16)
 
 
