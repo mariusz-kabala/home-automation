@@ -1,7 +1,7 @@
 import fetch from 'node-fetch'
 import config from 'config'
 import cron from 'node-cron'
-import uuid4 from 'uuid'
+import { v4 as uuid4 } from 'uuid'
 import { publish } from '@home/mqtt'
 import { logger } from '@home/logger'
 
