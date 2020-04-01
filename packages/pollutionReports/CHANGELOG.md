@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.11](https://github.com/mariusz-kabala/homeAutomation/compare/@home/pollution-reports@0.4.10...@home/pollution-reports@0.4.11) (2020-04-01)
+
+
+### Bug Fixes
+
+* proper uuid import ([bc97740](https://github.com/mariusz-kabala/homeAutomation/commit/bc97740a58155c2eaaf1b3806c4a8b79fc5e311f))
+
+
+
+
+
 ## [0.4.10](https://github.com/mariusz-kabala/homeAutomation/compare/@home/pollution-reports@0.4.9...@home/pollution-reports@0.4.10) (2020-04-01)
 
 **Note:** Version bump only for package @home/pollution-reports
