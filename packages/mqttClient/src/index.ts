@@ -1,8 +1,9 @@
 import mqtt, { IClientPublishOptions } from 'mqtt'
 import config from 'config'
 import MQTTPattern from 'mqtt-pattern'
-import uuid4 from 'uuid'
+import { v4 as uuid4 } from 'uuid'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type ICallbackFunc = (msg: any, topic: string) => void
 
 const subscriptions: {
@@ -39,6 +40,7 @@ const cancelSubscriptionIfNeeded = (topic: string) => {
   mqttClient.unsubscribe(topic)
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const resolveOneTimePromises = (topic: string, msg: any) => {
   const matchTopics = Object.keys(oneTimePromises).filter(sub => MQTTPattern.matches(sub, topic))
 
@@ -71,6 +73,7 @@ const getTimeout = (id: string) => {
 }
 
 mqttClient.on('message', (topic: string, payload: string): void => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let msg: any
 
   try {
