@@ -1,6 +1,6 @@
 {
     "name": "@home/open-weather",
-    "version": "0.3.5",
+    "version": "0.3.6",
     "private": true,
     "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
     "main": "./dist/index.js",
@@ -14,7 +14,7 @@
     },
     "dependencies": {
         "@home/logger": "0.1.1",
-        "@home/mqtt": "0.6.2",
+        "@home/mqtt": "0.6.3",
         "node-cron": "^2.0.3"
     },
     "devDependencies": {
