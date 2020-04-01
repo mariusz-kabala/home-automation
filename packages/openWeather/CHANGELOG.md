@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.8](https://github.com/mariusz-kabala/homeAutomation/compare/@home/open-weather@0.3.7...@home/open-weather@0.3.8) (2020-04-01)
+
+
+### Bug Fixes
+
+* proper uuid import ([dca3a1d](https://github.com/mariusz-kabala/homeAutomation/commit/dca3a1d48f9ab7fe732bb16314e9d0b02ae660f9))
+
+
+
+
+
 ## [0.3.7](https://github.com/mariusz-kabala/homeAutomation/compare/@home/open-weather@0.3.6...@home/open-weather@0.3.7) (2020-04-01)
 
 **Note:** Version bump only for package @home/open-weather
