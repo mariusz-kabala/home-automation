@@ -3,7 +3,7 @@ resource "docker_container" "statscollector" {
   image = "docker-registry.kabala.tech/home/statscollector:${var.tag}"
   restart = "always"
   networks_advanced {
-      name = "host"
+      name = "global"
   }
   env = [
       "WS_HOST=home.kabala.tech",
