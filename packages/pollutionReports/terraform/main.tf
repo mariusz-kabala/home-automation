@@ -5,10 +5,14 @@ resource "docker_container" "pollutionReports" {
   networks_advanced {
       name = "global"
   }
+  dns = [
+    "192.168.0.37",
+    "192.168.0.10"
+  ]
   env = [
       "AQICN_ORG_API_KEY=${var.AQICN_ORG_API_KEY}",
       "AIR_VISUAL_API_KEY=${var.AIR_VISUAL_API_KEY}",
-      "MQTT_HOST=home.kabala.tech",
+      "MQTT_HOST=mqtt.kabala.tech",
       "MQTT_PORT=1883"
   ]
 }

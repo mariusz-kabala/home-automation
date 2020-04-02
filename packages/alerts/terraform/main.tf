@@ -6,10 +6,11 @@ resource "docker_container" "alerts" {
       name = "global"
   }
   env = [
-      "MQTT_HOST=home.kabala.tech",
+      "MQTT_HOST=mqtt.kabala.tech",
       "MQTT_PORT=1883"
   ]
   dns = [
-    "192.168.0.10"
+    "192.168.0.10",
+    "192.168.0.37"
   ]
 }

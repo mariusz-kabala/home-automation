@@ -6,17 +6,18 @@ resource "docker_container" "statscollector" {
       name = "global"
   }
   env = [
-      "WS_HOST=home.kabala.tech",
+      "WS_HOST=deconz.kabala.tech",
       "WS_PORT=8081",
       "API_TOKEN=${var.API_TOKEN}",
-      "MQTT_HOST=home.kabala.tech",
+      "MQTT_HOST=mqtt.kabala.tech",
       "MQTT_PORT=1883",
-      "STATS_DB_HOST=192.168.0.185",
+      "STATS_DB_HOST=home.kabala.tech",
       "STATS_DB_PORT=8086",
       "STATS_DB_USER=${var.STATS_DB_USER}",
       "STATS_DB_PASS=${var.STATS_DB_PASS}"
   ]
-   dns = [
+  dns = [
+    "192.168.0.37",
     "192.168.0.10"
   ]
 }

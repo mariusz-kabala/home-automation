@@ -5,11 +5,12 @@ resource "docker_container" "lg2mqtt" {
   network_mode = "host"
   
   env = [
-      "MQTT_HOST=home.kabala.tech",
+      "MQTT_HOST=mqtt.kabala.tech",
       "MQTT_PORT=1883",
       "TV_KEYS=${var.TV_KEYS}"
   ]
   dns = [
-    "192.168.0.10"
+    "192.168.0.10",
+    "192.168.0.37"
   ]
 }
