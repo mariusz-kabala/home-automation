@@ -7,9 +7,11 @@ import mqtt from 'mqtt'
 import ws from 'websocket-stream'
 import { logger } from '@home/logger'
 
+import { authUser } from './helpers/auth'
+
 const instance = aedes({
-  authenticate: (_client, _username, _password, callback) => {
-    callback(null, true)
+  authenticate: async (_client, jwt, _, callback) => {
+    callback(null, await authUser(jwt))
   },
 })
 const mqttServer = net.createServer(instance.handle)
