@@ -84,7 +84,8 @@
     "node-fetch": "^2.6.0",
     "redis": "^3.0.2",
     "uuid": "^3.3.3",
-    "winston": "^3.2.1"
+    "winston": "^3.2.1",
+    "morgan": "^1.10.0"
   },
   "peerDependencies": {
     "@types/express-serve-static-core": "4.17.5",

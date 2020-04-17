@@ -1,4 +1,4 @@
-import express, { Request, Response } from 'express'
+import express, { Request, Response, NextFunction } from 'express'
 import bodyParser from 'body-parser'
 import { logger } from '@home/logger'
 import mongoose from '@home/mongoose-client'
@@ -7,6 +7,7 @@ import connectRedis from 'connect-redis'
 import { redisClient } from '@home/redis'
 import cookieParser from 'cookie-parser'
 import config from 'config'
+import morgan from 'morgan'
 
 import { initPassport } from './controllers/passport'
 import { initJWT } from './controllers/jwt'
@@ -35,6 +36,11 @@ mongoose.connection.on('error', err => {
 })
 
 app.disable('x-powered-by')
+app.use(morgan('combined'))
+app.use((_: Request, res: Response, next: NextFunction) => {
+  res.set('x-app', 'home-auth-service')
+  next()
+})
 app.use(bodyParser.json())
 app.use(cookieParser(config.get<string>('sessionSecret')))
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
