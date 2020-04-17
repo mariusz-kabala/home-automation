@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/auth-service@0.1.0...@home/auth-service@0.1.1) (2020-04-17)
+
+
+### Bug Fixes
+
+* pass user object to request ([acdbd55](https://github.com/mariusz-kabala/homeAutomation/commit/acdbd5548b85a86518297798a3073860d45fb5ac))
+
+
+
+
+
 # 0.1.0 (2020-04-17)
 
 
