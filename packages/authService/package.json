@@ -1,6 +1,6 @@
 {
   "name": "@home/auth-service",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -14,30 +14,30 @@
     "prepare": "exit 0"
   },
   "dependencies": {
+    "@home/mongoose-client": "0.1.0",
+    "@home/redis": "0.3.0",
     "body-parser": "^1.19.0",
-    "@home/mongoose-client": "0.0.1",
-    "@home/redis": "0.2.0",
-    "morgan": "^1.10.0",
-    "passport": "^0.4.1",
-    "passport-google-oauth": "^2.0.0",
-    "passport-github": "^1.1.0",
-    "mongoose-unique-validator": "^2.0.3",
+    "connect-redis": "^4.0.4",
+    "express-session": "^1.17.0",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.9",
     "mongoose-findorcreate": "^3.0.0",
-    "jsonwebtoken": "^8.5.1",
-    "express-session": "^1.17.0",
-    "connect-redis": "^4.0.4"
+    "mongoose-unique-validator": "^2.0.3",
+    "morgan": "^1.10.0",
+    "passport": "^0.4.1",
+    "passport-github": "^1.1.0",
+    "passport-google-oauth": "^2.0.0"
   },
   "devDependencies": {
     "@types/body-parser": "^1.17.0",
-    "@types/morgan": "^1.9.0",
-    "@types/mongoose-unique-validator": "^1.0.3",
-    "@types/passport": "^1.0.3",
-    "@types/passport-google-oauth": "^1.0.41",
-    "@types/mongoose": "^5.7.10",
-    "@types/passport-github": "^1.1.5",
-    "@types/jsonwebtoken": "^8.3.9",
+    "@types/connect-redis": "^0.0.13",
     "@types/express-session": "^1.17.0",
-    "@types/connect-redis": "^0.0.13"
+    "@types/jsonwebtoken": "^8.3.9",
+    "@types/mongoose": "^5.7.10",
+    "@types/mongoose-unique-validator": "^1.0.3",
+    "@types/morgan": "^1.9.0",
+    "@types/passport": "^1.0.3",
+    "@types/passport-github": "^1.1.5",
+    "@types/passport-google-oauth": "^1.0.41"
   }
 }

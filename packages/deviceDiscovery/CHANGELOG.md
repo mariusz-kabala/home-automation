@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.12](https://github.com/mariusz-kabala/homeAutomation/compare/@home/device-discovery@0.2.11...@home/device-discovery@0.2.12) (2020-04-17)
+
+**Note:** Version bump only for package @home/device-discovery
+
+
+
+
+
 ## [0.2.11](https://github.com/mariusz-kabala/homeAutomation/compare/@home/device-discovery@0.2.10...@home/device-discovery@0.2.11) (2020-04-02)
 
 **Note:** Version bump only for package @home/device-discovery

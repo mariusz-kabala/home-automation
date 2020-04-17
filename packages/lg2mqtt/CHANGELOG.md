@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.11](https://github.com/mariusz-kabala/homeAutomation/compare/@home/lg2mqtt@0.5.10...@home/lg2mqtt@0.5.11) (2020-04-17)
+
+**Note:** Version bump only for package @home/lg2mqtt
+
+
+
+
+
 ## [0.5.10](https://github.com/mariusz-kabala/homeAutomation/compare/@home/lg2mqtt@0.5.9...@home/lg2mqtt@0.5.10) (2020-04-02)
 
 **Note:** Version bump only for package @home/lg2mqtt

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.8](https://github.com/mariusz-kabala/homeAutomation/compare/@home/bot@0.7.7...@home/bot@0.7.8) (2020-04-17)
+
+**Note:** Version bump only for package @home/bot
+
+
+
+
+
 ## [0.7.7](https://github.com/mariusz-kabala/homeAutomation/compare/@home/bot@0.7.6...@home/bot@0.7.7) (2020-04-02)
 
 **Note:** Version bump only for package @home/bot

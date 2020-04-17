@@ -1,6 +1,6 @@
 {
     "name": "@home/redis",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
     "main": "dist/index.js",
     "module": "dist/index.esm.js",
