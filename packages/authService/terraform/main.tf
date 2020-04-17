@@ -8,8 +8,8 @@ resource "docker_container" "authService" {
   env = [
       "MQTT_HOST=mqtt.kabala.tech",
       "MQTT_PORT=1883",
-      "DB_HOST=redis",
-      "REDIS_HOST=mongo",
+      "DB_HOST=mongo",
+      "REDIS_HOST=redis",
       "GOOGLE_CONSUMER_KEY=${var.GOOGLE_CONSUMER_KEY}",
       "GOOGLE_CONSUMER_SECRET=${var.GOOGLE_CONSUMER_SECRET}",
       "GITHUB_CLIENT_ID=${var.GITHUB_CLIENT_ID}",
