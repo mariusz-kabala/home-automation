@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/auth-service@0.1.1...@home/auth-service@0.2.0) (2020-04-17)
+
+
+### Features
+
+* add logger to auth service ([bbffbf9](https://github.com/mariusz-kabala/homeAutomation/commit/bbffbf9f5bc298eba69bb421115d5fa892a4f682))
+
+
+
+
+
 ## [0.1.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/auth-service@0.1.0...@home/auth-service@0.1.1) (2020-04-17)
 
 
