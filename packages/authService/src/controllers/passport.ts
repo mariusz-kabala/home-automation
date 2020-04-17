@@ -164,6 +164,8 @@ export function initPassport(app: Express) {
         return onFailure(req, res)
       }
 
+      req.user = user
+
       return onSuccess(req, res)
     })(req, res, next)
   })
@@ -185,6 +187,8 @@ export function initPassport(app: Express) {
       if (!user) {
         return onFailure(req, res)
       }
+
+      req.user = user
 
       return onSuccess(req, res)
     })(req, res, next)
