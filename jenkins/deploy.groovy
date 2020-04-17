@@ -20,6 +20,13 @@ pipeline {
         SMART_PLUG_3_KEY = credentials('smart-plug-3-key')
         SMART_PLUG_2_KEY = credentials('smart-plug-2-key')
         SMART_PLUG_1_KEY = credentials('smart-plug-1-key')
+        GOOGLE_CONSUMER_KEY = credentials('HOME_GOOGLE_CONSUMER_KEY')
+        GOOGLE_CONSUMER_SECRET = credentials('HOME_GOOGLE_CONSUMER_SECRET')
+        GITHUB_CLIENT_ID = credentials('HOME_GITHUB_CLIENT_ID')
+        GITHUB_CLIENT_SECRET = credentials('HOME_GITHUB_CLIENT_SECRET')
+        JWT_SECRET = credentials('HOME_JWT_SECRET')
+        JWT_REFRESH_TOKEN_SECRET = credentials('HOME_JWT_REFRESH_TOKEN_SECRET')
+        SESSION_SECRET = credentials('HOME_SESSION_SECRET')
         CI = 'true'
         GIT_SSH_COMMAND = "ssh -o StrictHostKeyChecking=no"
     }
@@ -186,6 +193,22 @@ pipeline {
                         docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
                             sh "terraform init"
                             sh "terraform plan -out deploy.plan -var=\"tag=${version}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\"" 
+                            sh "terraform apply -auto-approve deploy.plan"
+                        }
+                    }
+                }
+            }
+        }
+        stage ('Deploy Auth Service') {
+            when {
+                environment name: 'package', value: 'authService'
+            }
+            steps {
+                dir("packages/${env.package}/terraform") {
+                    script {
+                        docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
+                            sh "terraform init"
+                            sh "terraform plan -out deploy.plan -var=\"tag=${version}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\" -var=\"GOOGLE_CONSUMER_KEY=${GOOGLE_CONSUMER_KEY}\" -var=\"GOOGLE_CONSUMER_SECRET=${GOOGLE_CONSUMER_SECRET}\" -var=\"GITHUB_CLIENT_ID=${GITHUB_CLIENT_ID}\" -var=\"GITHUB_CLIENT_SECRET=${GITHUB_CLIENT_SECRET}\" -var=\"JWT_SECRET=${JWT_SECRET}\" -var=\"JWT_REFRESH_TOKEN_SECRET=${JWT_REFRESH_TOKEN_SECRET}\" -var=\"SESSION_SECRET=${SESSION_SECRET}\"" 
                             sh "terraform apply -auto-approve deploy.plan"
                         }
                     }

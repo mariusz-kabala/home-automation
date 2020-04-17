@@ -4,7 +4,7 @@ import MQTTPattern from 'mqtt-pattern'
 import { v4 as uuid4 } from 'uuid'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type ICallbackFunc = (msg: any, topic: string) => void
+type ICallbackFunc = (msg: any, topic: string, mqttPackage: mqtt.IPacket) => void
 
 const subscriptions: {
   [topic: string]: ICallbackFunc[]
@@ -72,7 +72,7 @@ const getTimeout = (id: string) => {
   }
 }
 
-mqttClient.on('message', (topic: string, payload: string): void => {
+mqttClient.on('message', (topic: string, payload: string, mqttPackage: mqtt.IPacket): void => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let msg: any
 
@@ -86,10 +86,10 @@ mqttClient.on('message', (topic: string, payload: string): void => {
   const localTopic = getLocalTopic(topic)
 
   for (const sub of matchTopics) {
-    subscriptions[sub].forEach(callback => callback(msg, localTopic))
+    subscriptions[sub].forEach(callback => callback(msg, localTopic, mqttPackage))
   }
 
-  subscribedToAll.forEach(callback => callback(msg, localTopic))
+  subscribedToAll.forEach(callback => callback(msg, localTopic, mqttPackage))
 
   resolveOneTimePromises(topic, msg)
 })

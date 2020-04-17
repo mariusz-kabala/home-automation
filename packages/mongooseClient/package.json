@@ -1,0 +1,21 @@
+{
+  "name": "@home/mongoose-client",
+  "version": "0.0.1",
+  "description": "",
+  "author": "Mariusz Kabała",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rollup -c ../../rollup.config.js",
+    "build-declarations": "tsc --declaration --emitDeclarationOnly --out dist/index.d.ts && node ../../scripts/fixDeclaration.js",
+    "prepare": "yarn build && yarn build-declarations"
+  },
+  "dependencies": {
+    "@home/logger": "0.1.1",
+    "mongoose": "^5.9.9"
+  },
+  "devDependencies": {
+    "@types/mongoose": "^5.7.10"
+  }
+}
