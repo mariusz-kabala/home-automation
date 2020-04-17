@@ -10,6 +10,8 @@ const {
   DB_HOST,
   JWT_SECRET,
   JWT_REFRESH_TOKEN_SECRET,
+  SESSION_SECRET,
+  REDIS_HOST,
 } = process.env
 
 module.exports = {
@@ -21,10 +23,13 @@ module.exports = {
   appDomain: APP_DOMAIN,
   dbHost: DB_HOST,
   dbName: 'homeAuthService',
+  redisHost: REDIS_HOST,
+  redisPort: 6379,
   users: ['mariusz@kabala.waw.pl'],
   admins: ['mariusz@kabala.waw.pl'],
   secret: JWT_SECRET,
   refreshTokenSecret: JWT_REFRESH_TOKEN_SECRET,
   tokenLife: 900,
   refreshTokenLife: 86400,
+  sessionSecret: SESSION_SECRET,
 }

@@ -1,16 +1,47 @@
 import passport from 'passport'
-import { Express } from 'express'
+import { Express, Request, Response } from 'express'
 import config from 'config'
 import { logger } from '@home/logger'
 import { OAuth2Strategy as GoogleStrategy } from 'passport-google-oauth'
 import { Strategy as GitHubStrategy } from 'passport-github'
 
+import { redirectTo } from '../middlewares/redirectTo'
 import userModel, { IUser } from '../models/user'
-
-import { authenticate } from './authenticate'
+import { authenticate } from '../helpers/authenticate'
 
 const canLogin = (emailAddress: string): boolean => config.get<string[]>('users').includes(emailAddress)
 const isAdmin = (emailAddress: string): boolean => config.get<string[]>('admins').includes(emailAddress)
+
+const onSuccess = async (req: Request, res: Response) => {
+  const tokens = await authenticate(req.user as IUser)
+
+  if (tokens === null) {
+    return res.status(500).end()
+  }
+
+  const redirectTo = req.session?.redirectTo
+
+  res.cookie('accessToken', tokens?.accessToken)
+  res.cookie('refreshToken', tokens?.refreshToken)
+
+  req.session && req.session.destroy(() => null)
+
+  if (redirectTo && redirectTo !== '') {
+    return res.redirect(redirectTo)
+  }
+
+  res.json(tokens).end()
+}
+
+const onFailure = (req: Request, res: Response) => {
+  const redirectTo = req.session?.failureRedirection
+
+  if (redirectTo && redirectTo !== '') {
+    return res.redirect(redirectTo)
+  }
+
+  res.status(400).end()
+}
 
 passport.use(
   new GoogleStrategy(
@@ -117,23 +148,45 @@ export function initPassport(app: Express) {
 
   app.get(
     '/auth/google',
+    redirectTo,
     passport.authenticate('google', {
       scope: ['https://www.googleapis.com/auth/plus.login', 'https://www.googleapis.com/auth/userinfo.email'],
     }),
   )
 
-  app.get('/auth/google/callback', passport.authenticate('google'), async (req, res) =>
-    res.json(await authenticate(req.user as IUser)).end(),
-  )
+  app.get('/auth/google/callback', (req, res, next) => {
+    passport.authenticate('google', (err, user) => {
+      if (err) {
+        next(err)
+      }
+
+      if (!user) {
+        return onFailure(req, res)
+      }
+
+      return onSuccess(req, res)
+    })(req, res, next)
+  })
 
   app.get(
     '/auth/github',
+    redirectTo,
     passport.authenticate('github', {
       scope: ['user', 'user:email'],
     }),
   )
 
-  app.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/login' }), async (req, res) =>
-    res.json(await authenticate(req.user as IUser)).end(),
-  )
+  app.get('/auth/github/callback', (req, res, next) => {
+    passport.authenticate('github', (err, user) => {
+      if (err) {
+        next(err)
+      }
+
+      if (!user) {
+        return onFailure(req, res)
+      }
+
+      return onSuccess(req, res)
+    })(req, res, next)
+  })
 }

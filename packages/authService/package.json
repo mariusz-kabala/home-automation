@@ -15,8 +15,8 @@
   },
   "dependencies": {
     "body-parser": "^1.19.0",
-    "express": "^4.17.1",
     "@home/mongoose-client": "0.0.1",
+    "@home/redis": "0.2.0",
     "morgan": "^1.10.0",
     "passport": "^0.4.1",
     "passport-google-oauth": "^2.0.0",
@@ -24,17 +24,20 @@
     "mongoose-unique-validator": "^2.0.3",
     "mongoose": "^5.9.9",
     "mongoose-findorcreate": "^3.0.0",
-    "jsonwebtoken": "^8.5.1"
+    "jsonwebtoken": "^8.5.1",
+    "express-session": "^1.17.0",
+    "connect-redis": "^4.0.4"
   },
   "devDependencies": {
     "@types/body-parser": "^1.17.0",
-    "@types/express": "^4.16.1",
     "@types/morgan": "^1.9.0",
     "@types/mongoose-unique-validator": "^1.0.3",
     "@types/passport": "^1.0.3",
     "@types/passport-google-oauth": "^1.0.41",
     "@types/mongoose": "^5.7.10",
     "@types/passport-github": "^1.1.5",
-    "@types/jsonwebtoken": "^8.3.9"
+    "@types/jsonwebtoken": "^8.3.9",
+    "@types/express-session": "^1.17.0",
+    "@types/connect-redis": "^0.0.13"
   }
 }

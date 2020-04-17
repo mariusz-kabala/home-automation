@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/triple-slash-reference */
+/* eslint-disable import/exports-last */
 /// <reference path="./types.d.ts" />
 
 import { Promise } from 'bluebird'
@@ -19,5 +21,12 @@ redisClient.on('error', err =>
   logger.log({
     level: 'error',
     message: `Redis error ${err}`,
+  }),
+)
+
+redisClient.on('connect', () =>
+  logger.log({
+    level: 'info',
+    message: 'Connected to redis',
   }),
 )
