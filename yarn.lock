@@ -1749,10 +1749,10 @@
   resolved "https://registry.yarnpkg.com/@types/tz-offset/-/tz-offset-0.0.0.tgz#d58f1cebd794148d245420f8f0660305d320e565"
   integrity sha512-XLD/llTSB6EBe3thkN+/I0L+yCTB6sjrcVovQdx2Cnl6N6bTzHmwe/J8mWnsXFgxLrj/emzdv8IR4evKYG2qxQ==
 
-"@types/uuid@^7.0.0":
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-7.0.2.tgz#d680a9c596ef84abf5c4c07a32ffd66d582526f8"
-  integrity sha512-8Ly3zIPTnT0/8RCU6Kg/G3uTICf9sRwYOpUzSIM3503tLIKcnJPRuinHhXngJUy2MntrEf6dlpOHXJju90Qh5w==
+"@types/uuid@^8.0.1":
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-8.0.1.tgz#42958a1a880640b139eea97a1640e1a3f61016d2"
+  integrity sha512-2kE8rEFgJpbBAPw5JghccEevQb0XVU0tewF/8h7wPQTeCtoJ6h8qmBIwuzUVm2MutmzC/cpCkwxudixoNYDp1A==
 
 "@types/winston@^2.4.4":
   version "2.4.4"
