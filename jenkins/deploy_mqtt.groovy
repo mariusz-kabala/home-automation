@@ -1,7 +1,7 @@
 def branch = '';
 
 pipeline {
-    agent { docker { image 'docker-registry.kabala.tech/node12-with-git:latest' } }
+    agent { docker { image 'docker-registry.kabala.tech/alpine-terraform:latest' } }
 
     environment {
         app = ''
