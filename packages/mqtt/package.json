@@ -2,5 +2,10 @@
   "name": "@home/mqtt-server",
   "version": "0.1.0",
   "private": true,
-  "author": "Mariusz Kabala <mariusz@kabala.waw.pl>"
+  "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
+  "scripts": {
+    "prepare": "exit 0",
+    "build": "exit 0",
+    "start": "exit 0"
+  }
 }
