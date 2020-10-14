@@ -1,5 +1,5 @@
 {
-  "name": "@home/mqtt",
+  "name": "@home/mqtt-server",
   "version": "0.0.1",
   "private": true,
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>"
