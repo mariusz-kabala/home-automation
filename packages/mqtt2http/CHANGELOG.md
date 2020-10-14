@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.12](https://github.com/mariusz-kabala/homeAutomation/compare/@home/mqtt2http@0.1.11...@home/mqtt2http@0.1.12) (2020-10-14)
+
+
+### Bug Fixes
+
+* adjust terraform ([c5f4190](https://github.com/mariusz-kabala/homeAutomation/commit/c5f41908ebf9c00e28cd4916e75d8e4de9e0a2e1))
+
+
+
+
+
 ## [0.1.11](https://github.com/mariusz-kabala/homeAutomation/compare/@home/mqtt2http@0.1.10...@home/mqtt2http@0.1.11) (2020-04-17)
 
 **Note:** Version bump only for package @home/mqtt2http
