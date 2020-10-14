@@ -3,7 +3,7 @@ resource "docker_container" "mqtt" {
   image = "vernemq/vernemq"
   restart = "always"
   networks_advanced {
-      name = "global"
+      name = "homeAutomation"
   }
   env = [
       "DOCKER_VERNEMQ_ALLOW_ANONYMOUS=on",
