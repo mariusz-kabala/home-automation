@@ -46,7 +46,7 @@ pipeline {
             steps {
                 dir("packages/${env.package}/terraform") {
                     script {
-                        docker.withRegistry('https://rg.nl-ams.scw.cloud/kabalatech', 'docker-registry-scaleway') {
+                        docker.withRegistry('https://rg.nl-ams.scw.cloud/home', 'docker-registry-scaleway') {
                             sh "terraform init"
                             sh "terraform plan -out deploy.plan -var=\"tag=${version}\" -var=\"API_TOKEN=${DECONZ_API_TOKEN}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\"" 
                             sh "terraform apply -auto-approve deploy.plan"
@@ -62,7 +62,7 @@ pipeline {
             steps {
                 dir("packages/${env.package}/terraform") {
                     script {
-                        docker.withRegistry('https://rg.nl-ams.scw.cloud/kabalatech', 'docker-registry-scaleway') {
+                        docker.withRegistry('https://rg.nl-ams.scw.cloud/home', 'docker-registry-scaleway') {
                             sh "terraform init"
                             sh "terraform plan -out deploy.plan -var=\"tag=${version}\" -var=\"API_TOKEN=${DECONZ_API_TOKEN}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\"" 
                             sh "terraform apply -auto-approve deploy.plan"
@@ -78,7 +78,7 @@ pipeline {
             steps {
                 dir("packages/${env.package}/terraform") {
                     script {
-                        docker.withRegistry('https://rg.nl-ams.scw.cloud/kabalatech', 'docker-registry-scaleway') {
+                        docker.withRegistry('https://rg.nl-ams.scw.cloud/home', 'docker-registry-scaleway') {
                             sh "terraform init"
                             sh "terraform plan -out deploy.plan -var=\"tag=${version}\" -var=\"OPEN_WEATHER_API_KEY=${OPEN_WEATHER_API_KEY}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\"" 
                             sh "terraform apply -auto-approve deploy.plan"
@@ -94,7 +94,7 @@ pipeline {
             steps {
                 dir("packages/${env.package}/terraform") {
                     script {
-                        docker.withRegistry('https://rg.nl-ams.scw.cloud/kabalatech', 'docker-registry-scaleway') {
+                        docker.withRegistry('https://rg.nl-ams.scw.cloud/home', 'docker-registry-scaleway') {
                             sh "terraform init"
                             sh "terraform plan -out deploy.plan -var=\"tag=${version}\" -var=\"API_TOKEN=${DECONZ_API_TOKEN}\" -var=\"STATS_DB_USER=${STATS_DB_USER}\" -var=\"STATS_DB_PASS=${STATS_DB_PASS}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\"" 
                             sh "terraform apply -auto-approve deploy.plan"
@@ -110,7 +110,7 @@ pipeline {
             steps {
                 dir("packages/${env.package}/terraform") {
                     script {
-                        docker.withRegistry('https://rg.nl-ams.scw.cloud/kabalatech', 'docker-registry-scaleway') {
+                        docker.withRegistry('https://rg.nl-ams.scw.cloud/home', 'docker-registry-scaleway') {
                             sh "terraform init"
                             sh "terraform plan -out deploy.plan -var=\"tag=${version}\" -var=\"TELEGRAM_TOKEN=${HAL9000_TOKEN}\" -var=\"STATS_DB_USER=${STATS_DB_USER}\" -var=\"STATS_DB_PASS=${STATS_DB_PASS}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\"" 
                             sh "terraform apply -auto-approve deploy.plan"
@@ -126,7 +126,7 @@ pipeline {
             steps {
                 dir("packages/${env.package}/terraform") {
                     script {
-                        docker.withRegistry('https://rg.nl-ams.scw.cloud/kabalatech', 'docker-registry-scaleway') {
+                        docker.withRegistry('https://rg.nl-ams.scw.cloud/home', 'docker-registry-scaleway') {
                             sh "terraform init"
                             sh "terraform plan -out deploy.plan -var=\"tag=${version}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\"" 
                             sh "terraform apply -auto-approve deploy.plan"
@@ -142,7 +142,7 @@ pipeline {
             steps {
                 dir("packages/${env.package}/terraform") {
                     script {
-                        docker.withRegistry('https://rg.nl-ams.scw.cloud/kabalatech', 'docker-registry-scaleway') {
+                        docker.withRegistry('https://rg.nl-ams.scw.cloud/home', 'docker-registry-scaleway') {
                             sh "terraform init"
                             sh "terraform plan -out deploy.plan -var=\"tag=${version}\" -var=\"TV_KEYS=${TV_KEYS}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\"" 
                             sh "terraform apply -auto-approve deploy.plan"
@@ -158,7 +158,7 @@ pipeline {
             steps {
                 dir("packages/${env.package}/terraform") {
                     script {
-                        docker.withRegistry('https://rg.nl-ams.scw.cloud/kabalatech', 'docker-registry-scaleway') {
+                        docker.withRegistry('https://rg.nl-ams.scw.cloud/home', 'docker-registry-scaleway') {
                             sh "terraform init"
                             sh "terraform plan -out deploy.plan -var=\"tag=${version}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\"" 
                             sh "terraform apply -auto-approve deploy.plan"
@@ -174,7 +174,7 @@ pipeline {
             steps {
                 dir("packages/${env.package}/terraform") {
                     script {
-                        docker.withRegistry('https://rg.nl-ams.scw.cloud/kabalatech', 'docker-registry-scaleway') {
+                        docker.withRegistry('https://rg.nl-ams.scw.cloud/home', 'docker-registry-scaleway') {
                             sh "terraform init"
                             sh "terraform plan -out deploy.plan -var=\"tag=${version}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\" -var=\"AQICN_ORG_API_KEY=${AQICN_ORG_API_KEY}\" -var=\"AIR_VISUAL_API_KEY=${AIR_VISUAL_API_KEY}\"" 
                             sh "terraform apply -auto-approve deploy.plan"
@@ -190,7 +190,7 @@ pipeline {
             steps {
                 dir("packages/${env.package}/terraform") {
                     script {
-                        docker.withRegistry('https://rg.nl-ams.scw.cloud/kabalatech', 'docker-registry-scaleway') {
+                        docker.withRegistry('https://rg.nl-ams.scw.cloud/home', 'docker-registry-scaleway') {
                             sh "terraform init"
                             sh "terraform plan -out deploy.plan -var=\"tag=${version}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\"" 
                             sh "terraform apply -auto-approve deploy.plan"
@@ -206,7 +206,7 @@ pipeline {
             steps {
                 dir("packages/${env.package}/terraform") {
                     script {
-                        docker.withRegistry('https://rg.nl-ams.scw.cloud/kabalatech', 'docker-registry-scaleway') {
+                        docker.withRegistry('https://rg.nl-ams.scw.cloud/home', 'docker-registry-scaleway') {
                             sh "terraform init"
                             sh "terraform plan -out deploy.plan -var=\"tag=${version}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\" -var=\"GOOGLE_CONSUMER_KEY=${GOOGLE_CONSUMER_KEY}\" -var=\"GOOGLE_CONSUMER_SECRET=${GOOGLE_CONSUMER_SECRET}\" -var=\"GITHUB_CLIENT_ID=${GITHUB_CLIENT_ID}\" -var=\"GITHUB_CLIENT_SECRET=${GITHUB_CLIENT_SECRET}\" -var=\"JWT_SECRET=${JWT_SECRET}\" -var=\"JWT_REFRESH_TOKEN_SECRET=${JWT_REFRESH_TOKEN_SECRET}\" -var=\"SESSION_SECRET=${SESSION_SECRET}\"" 
                             sh "terraform apply -auto-approve deploy.plan"
