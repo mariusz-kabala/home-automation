@@ -1,14 +1,14 @@
 resource "docker_container" "mqtt2http" {
   name  = "mqtt2http"
-  image = "docker-registry.kabala.tech/home/mqtt2http:${var.tag}"
+  image = "${var.DOCKER_REGISTRY}/home/mqtt2http:${var.tag}"
   restart = "always"
   networks_advanced {
-      name = "global"
+      name = "homeAutomation"
   }
   env = [
-      "API_HOST=deconz.kabala.tech",
+      "API_HOST=192.168.0.34",
       "API_TOKEN=${var.API_TOKEN}",
-      "MQTT_HOST=mqtt.kabala.tech",
+      "MQTT_HOST=mqtt",
       "MQTT_PORT=1883"
   ]
   dns = [
