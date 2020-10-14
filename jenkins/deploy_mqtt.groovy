@@ -8,6 +8,8 @@ pipeline {
         CI = 'true'
         GIT_SSH_COMMAND = "ssh -o StrictHostKeyChecking=no"
         GH_TOKEN = credentials('jenkins-github-accesstoken')
+        AWS_ACCESS_KEY_ID = credentials('SCALEWAY_S3_ACCESS_KEY')
+        AWS_SECRET_ACCESS_KEY = credentials('SCALEWAY_S3_ACCESS_SECRET_KEY')
     }
 
     stages {
