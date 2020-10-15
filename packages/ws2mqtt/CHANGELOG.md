@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.14](https://github.com/mariusz-kabala/homeAutomation/compare/@home/ws2mqtt@0.6.13...@home/ws2mqtt@0.6.14) (2020-10-15)
+
+
+### Bug Fixes
+
+* migrate ws2mqtt to the new pipeline ([913046d](https://github.com/mariusz-kabala/homeAutomation/commit/913046d8427bf62fe3a3e8c903431b0fd7521caf))
+
+
+
+
+
 ## [0.6.13](https://github.com/mariusz-kabala/homeAutomation/compare/@home/ws2mqtt@0.6.12...@home/ws2mqtt@0.6.13) (2020-04-17)
 
 **Note:** Version bump only for package @home/ws2mqtt
