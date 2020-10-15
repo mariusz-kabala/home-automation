@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/mqtt-server@0.1.0...@home/mqtt-server@0.1.1) (2020-10-15)
+
+
+### Bug Fixes
+
+* add build scripts ([a463d36](https://github.com/mariusz-kabala/homeAutomation/commit/a463d36fdffb472db82442ba536a69b27164660c))
+
+
+
+
+
 # 0.1.0 (2020-10-14)
 
 
