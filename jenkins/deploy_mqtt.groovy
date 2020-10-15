@@ -62,7 +62,6 @@ pipeline {
             steps {
                 dir("packages/mqtt/terraform") {
                     script {
-                        
                         sh "terraform init"
                         sh "terraform plan -out deploy.plan" 
                         sh "terraform apply -auto-approve deploy.plan"
