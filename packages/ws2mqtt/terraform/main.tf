@@ -1,19 +1,20 @@
 resource "docker_container" "ws2mqtt" {
   name  = "ws2mqtt"
-  image = "docker-registry.kabala.tech/home/ws2mqtt:${var.tag}"
+  image = "${var.DOCKER_REGISTRY}/home/ws2mqtt:${var.tag}"
   restart = "always"
   networks_advanced {
-      name = "global"
+      name = "homeAutomation"
   }
   env = [
-      "WS_HOST=home.kabala.tech",
-      "API_HOST=home.kabala.tech",
+      "WS_HOST=192.168.0.34",
+      "API_HOST=192.168.0.34",
       "WS_PORT=8081",
       "API_TOKEN=${var.API_TOKEN}",
-      "MQTT_HOST=home.kabala.tech",
+      "MQTT_HOST=mqtt",
       "MQTT_PORT=1883"
   ]
   dns = [
-    "192.168.0.10"
+    "192.168.0.10",
+    "192.168.0.37"
   ]
 }
