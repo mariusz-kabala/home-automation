@@ -18,6 +18,10 @@ resource "docker_container" "mqtt" {
     external = 1883
   }
   ports {
+    internal = 8888
+    external = 8888
+  }
+  ports {
     internal = 4369
     external = 4369
   }
