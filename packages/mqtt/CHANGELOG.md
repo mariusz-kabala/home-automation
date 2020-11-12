@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.2](https://github.com/mariusz-kabala/homeAutomation/compare/@home/mqtt-server@0.1.1...@home/mqtt-server@0.1.2) (2020-11-12)
+
+
+### Bug Fixes
+
+* expose 8080 port for mqtt server ([729bae0](https://github.com/mariusz-kabala/homeAutomation/commit/729bae0df90784776776fedbb9d23e808b4eefd6))
+* expose 8888 port for mqtt server ([808ed22](https://github.com/mariusz-kabala/homeAutomation/commit/808ed228741990261bb03646dc3abb5b3e8f5c0e))
+
+
+
+
+
 ## [0.1.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/mqtt-server@0.1.0...@home/mqtt-server@0.1.1) (2020-10-15)
 
 

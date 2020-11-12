@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.15](https://github.com/mariusz-kabala/homeAutomation/compare/@home/ws2mqtt@0.6.14...@home/ws2mqtt@0.6.15) (2020-11-12)
+
+
+### Bug Fixes
+
+* adjust prod setup ([69cfbad](https://github.com/mariusz-kabala/homeAutomation/commit/69cfbadd280429269913678a2e14e85c8a124312))
+
+
+
+
+
 ## [0.6.14](https://github.com/mariusz-kabala/homeAutomation/compare/@home/ws2mqtt@0.6.13...@home/ws2mqtt@0.6.14) (2020-10-15)
 
 
