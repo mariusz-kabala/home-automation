@@ -1,15 +1,13 @@
 resource "docker_container" "statscollector" {
   name  = "statscollector"
-  image = "docker-registry.kabala.tech/home/statscollector:${var.tag}"
+  image = "${var.DOCKER_REGISTRY}/home/statscollector:${var.tag}"
   restart = "always"
   networks_advanced {
-      name = "global"
+      name = "homeAutomation"
   }
   env = [
-      "WS_HOST=deconz.kabala.tech",
-      "WS_PORT=8081",
       "API_TOKEN=${var.API_TOKEN}",
-      "MQTT_HOST=mqtt.kabala.tech",
+      "MQTT_HOST=mqtt",
       "MQTT_PORT=1883",
       "STATS_DB_HOST=home.kabala.tech",
       "STATS_DB_PORT=8086",

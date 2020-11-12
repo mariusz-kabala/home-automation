@@ -21,6 +21,25 @@ const oneTimePromises: {
 
 const mqttClient = mqtt.connect(`mqtt://${config.get<string>('mqttHost')}:${config.get<string>('mqttPort')}`)
 
+let reconnectCallback: NodeJS.Timeout | undefined
+
+const reconnect = () => {
+  if (!mqttClient.connected) {
+    mqttClient.reconnect()
+
+    reconnectCallback = undefined
+  }
+}
+
+const onError = () => {
+  if (!reconnectCallback) {
+    reconnectCallback = setTimeout(reconnect, 10000)
+  }
+}
+
+mqttClient.on('disconnect', onError)
+mqttClient.on('error', onError)
+
 const getLocalTopic = (topic: string) => {
   const topicArr = topic.split('/')
   topicArr.shift()

@@ -3,7 +3,16 @@ import { logger } from '@home/logger'
 
 import { influx } from '../clients/db'
 
-const SUPPORTED_TYPES = ['ZHALightLevel', 'ZHATemperature', 'ZHAPresence', 'ZHASwitch', 'ZHAHumidity', 'ZHAPressure']
+const SUPPORTED_TYPES = [
+  'ZHALightLevel',
+  'ZHATemperature',
+  'ZHAPresence',
+  'ZHASwitch',
+  'ZHAHumidity',
+  'ZHAPressure',
+  'ZHAPower',
+  'ZHAConsumption',
+]
 
 export function subscribeForZigbeeSensors() {
   subscribe(
