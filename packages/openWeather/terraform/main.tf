@@ -3,7 +3,7 @@ resource "docker_container" "openweather" {
   image = "${var.DOCKER_REGISTRY}/home/openweather:${var.tag}"
   restart = "always"
   networks_advanced {
-      name = "global"
+      name = "homeAutomation"
   }
   env = [
       "OPEN_WEATHER_API_KEY=${var.OPEN_WEATHER_API_KEY}",

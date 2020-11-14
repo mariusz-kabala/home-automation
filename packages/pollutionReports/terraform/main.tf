@@ -1,9 +1,9 @@
 resource "docker_container" "pollutionReports" {
   name  = "pollutionreports"
-  image = "docker-registry.kabala.tech/home/pollutionreports:${var.tag}"
+  image = "${var.DOCKER_REGISTRY}/home/pollutionreports:${var.tag}"
   restart = "always"
   networks_advanced {
-      name = "global"
+      name = "homeAutomation"
   }
   dns = [
     "192.168.0.37",
