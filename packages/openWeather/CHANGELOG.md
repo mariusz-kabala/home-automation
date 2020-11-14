@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.12](https://github.com/mariusz-kabala/homeAutomation/compare/@home/open-weather@0.3.11...@home/open-weather@0.3.12) (2020-11-14)
+
+
+### Bug Fixes
+
+* openWeather terraform fixes ([d4446dc](https://github.com/mariusz-kabala/homeAutomation/commit/d4446dcd88c840d9f04124e69d759ac1735b6acb))
+
+
+
+
+
 ## [0.3.11](https://github.com/mariusz-kabala/homeAutomation/compare/@home/open-weather@0.3.10...@home/open-weather@0.3.11) (2020-11-12)
 
 **Note:** Version bump only for package @home/open-weather
