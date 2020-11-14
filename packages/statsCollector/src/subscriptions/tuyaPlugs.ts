@@ -1,35 +1,48 @@
 import { subscribe } from '@home/mqtt'
 import { logger } from '@home/logger'
+import { Point } from '@influxdata/influxdb-client'
 
-import { influx } from '../clients/db'
+import { writeApi } from '../clients/db'
+
+interface ITuyaPlugMsg {
+  isOn?: boolean
+  electric?: number
+  power?: number
+  voltage?: number
+}
 
 export function subscribeForPlugReports() {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  subscribe('tuyaPlugs/+/status', async (msg: any, topic: string) => {
+  subscribe('tuyaPlugs/+/status', async (msg: ITuyaPlugMsg, topic: string) => {
     const [, device] = topic.split('/')
+    const { isOn, electric, power, voltage } = msg
+
+    const point = new Point('tuyaPlug').tag('device', device)
+
+    if (typeof isOn !== 'undefined') {
+      point.booleanField('isOn', isOn)
+    }
+
+    if (typeof electric !== 'undefined') {
+      point.intField('electric', electric)
+    }
+
+    if (typeof power !== 'undefined') {
+      point.intField('power', power)
+    }
+
+    if (typeof voltage !== 'undefined') {
+      point.intField('voltage', voltage)
+    }
+
+    writeApi.writePoint(point)
 
     try {
-      await influx.writePoints([
-        {
-          measurement: 'tuyaPlugs',
-          tags: { device },
-          fields: {
-            ...msg,
-          },
-        },
-      ])
+      await writeApi.flush()
     } catch (err) {
       logger.log({
         level: 'error',
         message: err,
       })
-      return
     }
-
-    logger.info({
-      level: 'info',
-      message: `Saving new tuyaPlugs report ${JSON.stringify(msg)}`,
-      device,
-    })
   })
 }

@@ -1,9 +1,6 @@
 variable "tag" {}
-variable "API_TOKEN" {}
 
-variable "STATS_DB_USER" {}
-
-variable "STATS_DB_PASS" {}
+variable "STATS_DB_TOKEN" {}
 
 variable "DOCKER_REGISTRY_USERNAME" {}
 

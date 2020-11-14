@@ -11,8 +11,9 @@ resource "docker_container" "statscollector" {
       "MQTT_PORT=1883",
       "STATS_DB_HOST=home.kabala.tech",
       "STATS_DB_PORT=8086",
-      "STATS_DB_USER=${var.STATS_DB_USER}",
-      "STATS_DB_PASS=${var.STATS_DB_PASS}"
+      "STATS_DB_ORGANISATION=home",
+      "STATS_DB_BUCKET=sensors",
+      "STATS_DB_USER=${var.STATS_DB_TOKEN}"
   ]
   dns = [
     "192.168.0.37",

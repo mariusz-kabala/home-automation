@@ -353,6 +353,11 @@
     unique-filename "^1.1.1"
     which "^1.3.1"
 
+"@influxdata/influxdb-client@^1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@influxdata/influxdb-client/-/influxdb-client-1.8.0.tgz#6ea82b07c950e896e07ec9f5d10c247dfcf8e999"
+  integrity sha512-fygvCHBUrcuduMRZf1oGhQzvIJG6gEA+0JX4ffxq5cxAeHKUGCYt30GafBc23QyrnCc50zc0IsPSG2Tw47aw+w==
+
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@istanbuljs/load-nyc-config/-/load-nyc-config-1.0.0.tgz#10602de5570baea82f8afbfa2630b24e7a8cfe5b"

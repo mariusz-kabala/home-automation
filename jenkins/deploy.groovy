@@ -7,8 +7,7 @@ pipeline {
         AWS_ACCESS_KEY_ID = credentials('SCALEWAY_S3_ACCESS_KEY')
         AWS_SECRET_ACCESS_KEY = credentials('SCALEWAY_S3_ACCESS_SECRET_KEY')
         DECONZ_API_TOKEN = credentials('deCONZ')
-        STATS_DB_USER = credentials('home-automation-stats-db-user')
-        STATS_DB_PASS = credentials('home-automation-stats-db-pass')
+        STATS_DB_TOKEN = credentials('home-automation-stats-db-token')
         DOCKER_REGISTRY_USERNAME = credentials('docker-registry-scaleway-username')
         DOCKER_REGISTRY_PASSWORD = credentials('docker-registry-scaleway-password')
         OPEN_WEATHER_API_KEY = credentials('open-weather-api-key')
@@ -96,7 +95,7 @@ pipeline {
                     script {
                         docker.withRegistry('https://rg.nl-ams.scw.cloud/home', 'docker-registry-scaleway') {
                             sh "terraform init"
-                            sh "terraform plan -out deploy.plan -var=\"tag=${version}\" -var=\"API_TOKEN=${DECONZ_API_TOKEN}\" -var=\"STATS_DB_USER=${STATS_DB_USER}\" -var=\"STATS_DB_PASS=${STATS_DB_PASS}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\"" 
+                            sh "terraform plan -out deploy.plan -var=\"tag=${version}\" -var=\"API_TOKEN=${DECONZ_API_TOKEN}\" -var=\"STATS_DB_TOKEN=${STATS_DB_TOKEN}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\"" 
                             sh "terraform apply -auto-approve deploy.plan"
                         }
                     }
@@ -112,7 +111,7 @@ pipeline {
                     script {
                         docker.withRegistry('https://rg.nl-ams.scw.cloud/home', 'docker-registry-scaleway') {
                             sh "terraform init"
-                            sh "terraform plan -out deploy.plan -var=\"tag=${version}\" -var=\"TELEGRAM_TOKEN=${HAL9000_TOKEN}\" -var=\"STATS_DB_USER=${STATS_DB_USER}\" -var=\"STATS_DB_PASS=${STATS_DB_PASS}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\"" 
+                            sh "terraform plan -out deploy.plan -var=\"tag=${version}\" -var=\"TELEGRAM_TOKEN=${HAL9000_TOKEN}\" -var=\"STATS_DB_TOKEN=${STATS_DB_TOKEN}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\"" 
                             sh "terraform apply -auto-approve deploy.plan"
                         }
                     }
