@@ -6,7 +6,6 @@ resource "docker_container" "statscollector" {
       name = "homeAutomation"
   }
   env = [
-      "API_TOKEN=${var.API_TOKEN}",
       "MQTT_HOST=mqtt",
       "MQTT_PORT=1883",
       "STATS_DB_HOST=home.kabala.tech",
