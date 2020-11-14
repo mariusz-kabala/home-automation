@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.8.7...@home/stats-collector@0.9.0) (2020-11-14)
+
+
+### Features
+
+* migrate to influxdb 2.0 ([1e54204](https://github.com/mariusz-kabala/homeAutomation/commit/1e5420400ead54376770cac7474d6464fc061b30))
+
+
+
+
+
 ## [0.8.7](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.8.6...@home/stats-collector@0.8.7) (2020-11-12)
 
 
