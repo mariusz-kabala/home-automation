@@ -2,7 +2,7 @@ import { subscribe } from '@home/mqtt'
 import { logger } from '@home/logger'
 import { Point } from '@influxdata/influxdb-client'
 
-import { writeApi } from '../clients/db'
+import { sensorsWriteApi } from '../clients/db'
 
 export function subscribeForPlantsReports() {
   subscribe(
@@ -23,10 +23,10 @@ export function subscribeForPlantsReports() {
         .intField('temperature', msg.temperature)
         .intField('moisture', msg.moisture)
 
-      writeApi.writePoint(point)
+      sensorsWriteApi.writePoint(point)
 
       try {
-        await writeApi.flush()
+        await sensorsWriteApi.flush()
       } catch (err) {
         logger.log({
           level: 'error',

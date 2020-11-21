@@ -3,7 +3,7 @@ import { logger } from '@home/logger'
 import { subscribeForPollutionReports } from './subscriptions/pollutionReports'
 import { subscribeForOpenWeatherReports } from './subscriptions/openweather'
 import { subscribeForPlugReports } from './subscriptions/tuyaPlugs'
-import { subscribeForZigbeeSensors } from './subscriptions/zigbee'
+import { subscribeForZigbeeSensors, subscribeForZigbeeLights, subscribeForZigbeeGroups } from './subscriptions/zigbee'
 import { subscribeForPlantsReports } from './subscriptions/esp32Plants'
 
 function start() {
@@ -17,6 +17,8 @@ function start() {
   subscribeForPlugReports()
   subscribeForZigbeeSensors()
   subscribeForPlantsReports()
+  subscribeForZigbeeLights()
+  subscribeForZigbeeGroups()
 }
 
 start()

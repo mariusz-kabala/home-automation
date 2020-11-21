@@ -2,7 +2,7 @@ import { subscribe } from '@home/mqtt'
 import { logger } from '@home/logger'
 import { Point } from '@influxdata/influxdb-client'
 
-import { writeApi } from '../clients/db'
+import { sensorsWriteApi } from '../clients/db'
 
 interface IAirvisualMsg {
   current: {
@@ -44,10 +44,10 @@ export function subscribeForPollutionReports() {
       .intField('mainus', mainus)
       .intField('maincn', maincn)
 
-    writeApi.writePoint(point)
+    sensorsWriteApi.writePoint(point)
 
     try {
-      await writeApi.flush()
+      await sensorsWriteApi.flush()
     } catch (err) {
       logger.log({
         level: 'error',
@@ -71,10 +71,10 @@ export function subscribeForPollutionReports() {
       .floatField('iaqiSO2', iaqiSO2)
       .intField('iaqiP', iaqiP)
 
-    writeApi.writePoint(point)
+    sensorsWriteApi.writePoint(point)
 
     try {
-      await writeApi.flush()
+      await sensorsWriteApi.flush()
     } catch (err) {
       logger.log({
         level: 'error',

@@ -3,7 +3,7 @@ import { subscribe } from '@home/mqtt'
 import { logger } from '@home/logger'
 import { Point } from '@influxdata/influxdb-client'
 
-import { writeApi } from '../clients/db'
+import { sensorsWriteApi } from '../clients/db'
 
 interface IForecastMsg {
   main: {
@@ -52,10 +52,10 @@ export function subscribeForOpenWeatherReports() {
       .intField('windDeg', deg)
       .intField('clouds', all)
 
-    writeApi.writePoint(point)
+    sensorsWriteApi.writePoint(point)
 
     try {
-      await writeApi.flush()
+      await sensorsWriteApi.flush()
     } catch (err) {
       logger.log({
         level: 'error',

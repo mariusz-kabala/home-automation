@@ -11,7 +11,6 @@ resource "docker_container" "statscollector" {
       "STATS_DB_HOST=home.kabala.tech",
       "STATS_DB_PORT=8086",
       "STATS_DB_ORGANISATION=home",
-      "STATS_DB_BUCKET=sensors",
       "STATS_DB_TOKEN=${var.STATS_DB_TOKEN}"
   ]
   dns = [

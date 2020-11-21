@@ -2,7 +2,7 @@ import { subscribe } from '@home/mqtt'
 import { logger } from '@home/logger'
 import { Point } from '@influxdata/influxdb-client'
 
-import { writeApi } from '../clients/db'
+import { sensorsWriteApi } from '../clients/db'
 
 interface ITuyaPlugMsg {
   isOn?: boolean
@@ -34,10 +34,10 @@ export function subscribeForPlugReports() {
       point.intField('voltage', voltage)
     }
 
-    writeApi.writePoint(point)
+    sensorsWriteApi.writePoint(point)
 
     try {
-      await writeApi.flush()
+      await sensorsWriteApi.flush()
     } catch (err) {
       logger.log({
         level: 'error',
