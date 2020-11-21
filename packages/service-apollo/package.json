@@ -1,0 +1,26 @@
+{
+    "name": "@home/service-apollo",
+    "version": "0.0.1",
+    "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
+    "main": "dist/index.js",
+    "module": "dist/index.esm.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+      "build": "rollup -c ../../rollup.config.js",
+      "build-declarations": "tsc --declaration --emitDeclarationOnly --out dist/index.d.ts && node ../../scripts/fixDeclaration.js",
+      "watch": "rollup -w -c ../../rollup.config.js",
+      "gen": "graphql-schema-typescript generate-ts src/schemas --output src/schemas.d.ts",
+      "dev": "concurrently \"yarn workspace @home/service-apollo watch\" \"nodemon dist/index.js\"",
+      "start": "node dist/index.js",
+      "prepare": "exit 0"
+    },
+    "dependencies": {
+      "apollo-server": "^2.19.0",
+      "graphql": "^15.4.0"
+    },
+    "devDependencies": {
+      "@types/compression": "^1.7.0",
+      "@types/express": "^4.17.9",
+    }
+  }
+  
