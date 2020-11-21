@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.16](https://github.com/mariusz-kabala/homeAutomation/compare/@home/pollution-reports@0.4.15...@home/pollution-reports@0.4.16) (2020-11-21)
+
+**Note:** Version bump only for package @home/pollution-reports
+
+
+
+
+
 ## [0.4.15](https://github.com/mariusz-kabala/homeAutomation/compare/@home/pollution-reports@0.4.14...@home/pollution-reports@0.4.15) (2020-11-14)
 
 

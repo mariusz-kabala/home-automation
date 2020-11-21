@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.9.1...@home/stats-collector@0.10.0) (2020-11-21)
+
+
+### Features
+
+* collect stats about lights ([26c6bef](https://github.com/mariusz-kabala/homeAutomation/commit/26c6befb58a9250e29976454e32823e4dcdb4f96))
+
+
+
+
+
 ## [0.9.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.9.0...@home/stats-collector@0.9.1) (2020-11-14)
 
 **Note:** Version bump only for package @home/stats-collector
