@@ -1,6 +1,5 @@
+import graphql from '@rollup/plugin-graphql'
 import commonjs from '@rollup/plugin-commonjs'
-import resolve from '@rollup/plugin-node-resolve'
-// import builtins from 'rollup-plugin-node-builtins'
 import typescript from 'rollup-plugin-typescript2'
 import autoExternal from 'rollup-plugin-auto-external'
 
@@ -24,9 +23,8 @@ export default {
       packagePath: `${process.cwd()}/../../package.json`,
     }),
     autoExternal(),
-    // builtins(),
     typescript(),
-    resolve(),
     commonjs(),
+    graphql(),
   ],
 }
