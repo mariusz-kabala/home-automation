@@ -25,6 +25,6 @@ export default {
     autoExternal(),
     typescript(),
     commonjs(),
-    graphql()
+    graphql(),
   ],
 }

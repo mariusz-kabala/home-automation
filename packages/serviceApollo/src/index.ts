@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import express from 'express'
 import depthLimit from 'graphql-depth-limit'
 import compression from 'compression'

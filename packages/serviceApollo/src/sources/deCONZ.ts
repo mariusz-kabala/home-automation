@@ -1,9 +1,10 @@
 import { RESTDataSource } from 'apollo-datasource-rest'
+import config from 'config'
 
 export class DeCONZLightsAPI extends RESTDataSource {
   constructor() {
     super()
-    this.baseURL = 'http://192.168.0.34/api/C1CC8C3DCC/'
+    this.baseURL = `http://${config.get<string>('apiHost')}/api/${config.get<string>('apiToken')}/`
   }
 
   public async getLights() {
