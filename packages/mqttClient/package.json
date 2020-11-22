@@ -1,16 +1,17 @@
 {
-    "name": "@home/mqtt",
-    "version": "0.7.1",
-    "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
-    "main": "dist/index.js",
-    "module": "dist/index.esm.js",
-    "types": "dist/index.d.ts",
-    "scripts": {
-        "build": "rollup -c ../../rollup.config.js",
-        "build-declarations": "tsc --declaration --emitDeclarationOnly --out dist/index.d.ts && node ../../scripts/fixDeclaration.js",
-        "prepare": "yarn build && yarn build-declarations"
-    },
-    "dependencies": {
-        "mqtt": "^3.0.0"
-    }
+  "name": "@home/mqtt",
+  "version": "0.7.1",
+  "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "license": "ISC",
+  "scripts": {
+    "build": "rollup -c ../../rollup.config.js",
+    "build-declarations": "tsc --declaration --emitDeclarationOnly --out dist/index.d.ts && node ../../scripts/fixDeclaration.js",
+    "prepare": "yarn build && yarn build-declarations"
+  },
+  "dependencies": {
+    "mqtt": "^3.0.0"
+  }
 }

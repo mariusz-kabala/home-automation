@@ -1,13 +1,14 @@
 {
-    "name": "@home/logger",
-    "version": "0.1.1",
-    "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
-    "main": "dist/index.js",
-    "module": "dist/index.esm.js",
-    "types": "dist/index.d.ts",
-    "scripts": {
-        "build": "rollup -c ../../rollup.config.js",
-        "build-declarations": "tsc --declaration --emitDeclarationOnly --out dist/index.d.ts && node ../../scripts/fixDeclaration.js",
-        "prepare": "yarn build && yarn build-declarations"
-    }
+  "name": "@home/logger",
+  "version": "0.1.1",
+  "license": "ISC",
+  "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rollup -c ../../rollup.config.js",
+    "build-declarations": "tsc --declaration --emitDeclarationOnly --out dist/index.d.ts && node ../../scripts/fixDeclaration.js",
+    "prepare": "yarn build && yarn build-declarations"
+  }
 }

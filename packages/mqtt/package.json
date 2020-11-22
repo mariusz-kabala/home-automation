@@ -1,6 +1,7 @@
 {
   "name": "@home/mqtt-server",
   "version": "0.1.2",
+  "license": "ISC",
   "private": true,
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
   "scripts": {

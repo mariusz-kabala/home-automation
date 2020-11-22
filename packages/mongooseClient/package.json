@@ -2,6 +2,7 @@
   "name": "@home/mongoose-client",
   "version": "0.1.0",
   "description": "",
+  "license": "ISC",
   "author": "Mariusz Kabała",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
