@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.14](https://github.com/mariusz-kabala/homeAutomation/compare/@home/mqtt2http@0.1.13...@home/mqtt2http@0.1.14) (2020-11-22)
+
+
+### Bug Fixes
+
+* fix deps ([6c1361f](https://github.com/mariusz-kabala/homeAutomation/commit/6c1361ff7b01bb85ab4521cb4a83e34429d6fbd6))
+
+
+
+
+
 ## [0.1.13](https://github.com/mariusz-kabala/homeAutomation/compare/@home/mqtt2http@0.1.12...@home/mqtt2http@0.1.13) (2020-11-12)
 
 **Note:** Version bump only for package @home/mqtt2http

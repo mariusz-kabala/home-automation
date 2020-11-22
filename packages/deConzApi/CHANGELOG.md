@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.6](https://github.com/mariusz-kabala/homeAutomation/compare/@home/deconz-api@0.1.5...@home/deconz-api@0.1.6) (2020-11-22)
+
+
+### Bug Fixes
+
+* fix deps ([6c1361f](https://github.com/mariusz-kabala/homeAutomation/commit/6c1361ff7b01bb85ab4521cb4a83e34429d6fbd6))
+
+
+
+
+
 ## [0.1.5](https://github.com/mariusz-kabala/homeAutomation/compare/@home/deconz-api@0.1.4...@home/deconz-api@0.1.5) (2020-02-10)
 
 **Note:** Version bump only for package @home/deconz-api

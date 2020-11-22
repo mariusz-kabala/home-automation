@@ -1,6 +1,6 @@
 {
   "name": "@home/ws2mqtt",
-  "version": "0.6.15",
+  "version": "0.6.16",
   "private": true,
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
   "main": "./dist/index.js",
@@ -18,9 +18,9 @@
     "@types/ws": "7.2.2"
   },
   "dependencies": {
-    "@home/deconz-api": "0.1.5",
-    "@home/logger": "0.1.1",
-    "@home/mqtt": "0.7.1",
+    "@home/deconz-api": "0.1.6",
+    "@home/logger": "0.1.2",
+    "@home/mqtt": "0.7.2",
     "node-cron": "^2.0.3",
     "ws": "^7.2.1"
   }

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/auth-service@0.2.0...@home/auth-service@0.2.1) (2020-11-22)
+
+
+### Bug Fixes
+
+* fix deps ([6c1361f](https://github.com/mariusz-kabala/homeAutomation/commit/6c1361ff7b01bb85ab4521cb4a83e34429d6fbd6))
+
+
+
+
+
 # [0.2.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/auth-service@0.1.1...@home/auth-service@0.2.0) (2020-04-17)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.16](https://github.com/mariusz-kabala/homeAutomation/compare/@home/ws2mqtt@0.6.15...@home/ws2mqtt@0.6.16) (2020-11-22)
+
+
+### Bug Fixes
+
+* fix deps ([6c1361f](https://github.com/mariusz-kabala/homeAutomation/commit/6c1361ff7b01bb85ab4521cb4a83e34429d6fbd6))
+
+
+
+
+
 ## [0.6.15](https://github.com/mariusz-kabala/homeAutomation/compare/@home/ws2mqtt@0.6.14...@home/ws2mqtt@0.6.15) (2020-11-12)
 
 

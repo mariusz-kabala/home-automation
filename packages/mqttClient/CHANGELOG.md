@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.2](https://github.com/mariusz-kabala/homeAutomation/compare/@home/mqtt@0.7.1...@home/mqtt@0.7.2) (2020-11-22)
+
+
+### Bug Fixes
+
+* fix deps ([6c1361f](https://github.com/mariusz-kabala/homeAutomation/commit/6c1361ff7b01bb85ab4521cb4a83e34429d6fbd6))
+
+
+
+
+
 ## [0.7.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/mqtt@0.7.0...@home/mqtt@0.7.1) (2020-11-12)
 
 

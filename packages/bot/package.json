@@ -1,6 +1,6 @@
 {
   "name": "@home/bot",
-  "version": "0.7.9",
+  "version": "0.7.10",
   "license": "ISC",
   "private": true,
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
@@ -17,10 +17,10 @@
     "@types/node-telegram-bot-api": "^0.40.1"
   },
   "dependencies": {
-    "@home/commons": "0.1.1",
-    "@home/logger": "0.1.1",
-    "@home/mqtt": "0.7.1",
-    "@home/redis": "0.3.0",
+    "@home/commons": "0.1.2",
+    "@home/logger": "0.1.2",
+    "@home/mqtt": "0.7.2",
+    "@home/redis": "0.3.1",
     "influx": "^5.5.1",
     "node-telegram-bot-api": "^0.40.0"
   }

@@ -1,6 +1,6 @@
 {
   "name": "@home/device-discovery",
-  "version": "0.2.13",
+  "version": "0.2.14",
   "license": "ISC",
   "private": true,
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
@@ -17,8 +17,8 @@
     "@types/ping": "^0.2.0"
   },
   "dependencies": {
-    "@home/logger": "0.1.1",
-    "@home/mqtt": "0.7.1",
+    "@home/logger": "0.1.2",
+    "@home/mqtt": "0.7.2",
     "ping": "^0.2.2"
   }
 }
