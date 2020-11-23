@@ -57,7 +57,7 @@
     "mermaid.cli": "^0.5.1",
     "nodemon": "^2.0.2",
     "prettier": "^1.19.1",
-    "replace-in-file": "^5.0.2",
+    "replace-in-file": "^6.1.0",
     "rimraf": "^3.0.0",
     "rollup": "^2.33.3",
     "rollup-plugin-auto-external": "^2.0.0",
