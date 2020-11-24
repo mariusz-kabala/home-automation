@@ -7,7 +7,7 @@ import cors from 'cors'
 import { ApolloServer } from 'apollo-server-express'
 import { createServer } from 'http'
 
-import { DeCONZLightsAPI } from './sources'
+import { DeCONZLightsAPI, DeCONZGroupsAPI } from './sources'
 
 import schema from './schema'
 
@@ -18,6 +18,7 @@ const server = new ApolloServer({
   playground: true,
   dataSources: () => ({
     deCONZLights: new DeCONZLightsAPI(),
+    deCONZGroups: new DeCONZGroupsAPI(),
   }),
 })
 app.use('*', cors())

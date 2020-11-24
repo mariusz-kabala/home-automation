@@ -1,1 +1,2 @@
-export * from './deCONZ'
+export * from './deCONZLights'
+export * from './deCONZGroups'

@@ -1,27 +1,9 @@
-type LightState {
-  bri: Int
-  colormode: String
-  ct: Int
-  effect: String
-  hue: Int
-  on: Boolean!
-  reachable: Boolean!
-  sat: Int
-  xy: [Int]
-}
-
-type Light {
-  id: String!
-  name: String!
-  type: String!
-  lastseen: String!
-  manufacturername: String!
-  modelid: String!
-  hascolor: Boolean!
-  state: LightState!
-}
+# import DeCONZLight from './deCONZLight.graphql'
+# import DeCONZGroup from './DeCONZGroup.graphql'
 
 type Query {
-    light(id: String): Light
-    lights: [Light]
+    deCONZLight(id: String): DeCONZLight
+    deCONZLights: [DeCONZLight]
+    deCONZGroup(id: String): DeCONZGroup
+    deCONZGroups: [DeCONZGroup]
 }

@@ -1,0 +1,20 @@
+#
+# import DeCONZLight from './deCONZLight.graphql'
+
+type DeCONZGroupState {
+    on: Boolean!
+    bri: Int
+    colormode: String
+    ct: Int
+    sat: Int
+    xy: [Int]
+    hue: Int
+    effect: String
+}
+
+type DeCONZGroup {
+    id: String
+    name: String
+    state: DeCONZGroupState
+    lights: [DeCONZLight]
+}
