@@ -7,3 +7,7 @@ type Query {
     deCONZGroup(id: String): DeCONZGroup
     deCONZGroups: [DeCONZGroup]
 }
+
+type Mutation {
+    updateDeCONZGroupState(input: DeCONZGroupStateUpdateInput): DeCONZGroup
+}

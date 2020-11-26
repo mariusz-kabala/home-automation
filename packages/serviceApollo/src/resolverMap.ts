@@ -19,6 +19,18 @@ export const resolverMap: IResolvers = {
       return dataSources.deCONZGroups.getGroups()
     },
   },
+  Mutation: {
+    updateDeCONZGroupState(
+      _source: void,
+      { input }: { input: any },
+      { dataSources }: Context,
+      _info: GraphQLResolveInfo,
+    ) {
+      const { id } = input
+
+      return dataSources.deCONZGroups.updateGroupState(id, input)
+    },
+  },
   DeCONZGroup: {
     state(parent) {
       return parent.action

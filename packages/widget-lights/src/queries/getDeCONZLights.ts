@@ -1,8 +1,8 @@
 import gql from 'graphql-tag'
 
-export const GET_LIGHTS_QUERY = gql`
-  query GetLights {
-    lights {
+export const GET_DECONZ_LIGHTS_QUERY = gql`
+  query getDeCONZLights {
+    deCONZLights {
       name
       manufacturername
       modelid

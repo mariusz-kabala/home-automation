@@ -1,25 +1,24 @@
 <script context="module" lang="ts">
   import { client } from '../lib/apollo'
-  import { GET_LIGHTS_QUERY } from '../queries'
+  import { GET_DECONZ_LIGHTS_QUERY } from '../queries'
 
   export async function preload() {
     return {
       cache: await client.query({
-        query: GET_LIGHTS_QUERY,
+        query: GET_DECONZ_LIGHTS_QUERY,
       }),
     }
   }
 </script>
 
 <script lang="ts">
-  import successkid from 'images/successkid.jpg'
   import { restore, query } from 'svelte-apollo'
 
   export let cache
 
-  restore(GET_LIGHTS_QUERY, { data: cache.data })
+  restore(GET_DECONZ_LIGHTS_QUERY, { data: cache.data })
 
-  const lights = query(GET_LIGHTS_QUERY, {
+  const lights = query(GET_DECONZ_LIGHTS_QUERY, {
     // variables, fetchPolicy, errorPolicy, and others
   });
 </script>
@@ -43,12 +42,6 @@
     margin: 0 0 1em 0;
   }
 
-  img {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 0 1em 0;
-  }
-
   p {
     margin: 1em auto;
   }
@@ -67,7 +60,6 @@
 <h1>Great success!</h1>
 
 <figure>
-  <img alt="Success Kid" src={successkid} />
   <figcaption>Have fun with Sapper!</figcaption>
 </figure>
 

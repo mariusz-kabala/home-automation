@@ -18,3 +18,18 @@ type DeCONZGroup {
     state: DeCONZGroupState
     lights: [DeCONZLight]
 }
+
+input DeCONZGroupStateUpdateInput {
+    id: String!
+    on: Boolean
+    toggle: Boolean
+    bri: Int
+    hue: Int
+    sat: Int
+    ct: Int
+    xy: [Int]
+    alert: String
+    effect: String
+    colorloopspeed: Int
+    transitiontime: Int
+}

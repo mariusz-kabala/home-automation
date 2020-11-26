@@ -19,4 +19,10 @@ export class DeCONZGroupsAPI extends RESTDataSource {
   public async getGroup(id: string) {
     return await this.get(`groups/${id}`)
   }
+
+  public async updateGroupState(id: string, state: any) {
+    await this.put(`groups/${id}/action`, JSON.stringify(state))
+
+    return await this.getGroup(id)
+  }
 }

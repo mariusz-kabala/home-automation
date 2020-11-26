@@ -1,2 +1,2 @@
-export * from './getLights'
+export * from './getDeCONZLights'
 export * from './getDeCONZGroup'
