@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.2](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.10.1...@home/stats-collector@0.10.2) (2020-12-08)
+
+
+### Bug Fixes
+
+* proper exit status; migrate to new docker registry ([2aa6e3b](https://github.com/mariusz-kabala/homeAutomation/commit/2aa6e3bc4886a813f60f911a779dd122d61899b3))
+
+
+
+
+
 ## [0.10.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.10.0...@home/stats-collector@0.10.1) (2020-11-22)
 
 
