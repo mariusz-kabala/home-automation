@@ -3032,36 +3032,25 @@ aedes-persistence@^8.1.1:
     from2 "^2.3.0"
     qlobber "^5.0.0"
 
-aedes-protocol-decoder@^1.0.0:
-  version "1.0.0"
-  resolved "https://npm.kabala.tech/aedes-protocol-decoder/-/aedes-protocol-decoder-1.0.0.tgz#dfc7d6f11bdf01de95820b855ac6655db96ea75a"
-  integrity sha512-nzWwSetptIFFk0gXtXBvmBPUD6HwuZKeVm/8mRJqEKfBJ4ZnvgpcO5CFwEDzTi884jOWTIBaJAWll3QLYsOCFQ==
-  dependencies:
-    forwarded "^0.1.2"
-    proxy-protocol-js "^4.0.3"
-
-aedes@^0.41.0:
-  version "0.41.0"
-  resolved "https://npm.kabala.tech/aedes/-/aedes-0.41.0.tgz#62386f4596e83e25b3540d815a887c514ff038f1"
-  integrity sha512-GuRiw4GhoaHUFdg1ZI+b2s9hBYf0yd1TV3HB9UPmN4C6PJNSeDcUbgYWEP+cnXmUaIszOBW1RbsW/Fkqb/c2tQ==
+aedes@^0.44.1:
+  version "0.44.1"
+  resolved "https://registry.yarnpkg.com/aedes/-/aedes-0.44.1.tgz#128b51e398e8fc05a9612fdd8e7b22503442d292"
+  integrity sha512-GyDzCPR/UJNpkrweyHQC8Vsjqu6b9H7SgKHox8/sUSqFwKIhSIYuf5f8hEL+rIec9ii93S7y7FEskjTp/qpYnA==
   dependencies:
     aedes-packet "^2.3.1"
     aedes-persistence "^8.1.1"
-    aedes-protocol-decoder "^1.0.0"
     bulk-write-stream "^2.0.1"
     end-of-stream "^1.4.4"
     fastfall "^1.5.1"
-    fastparallel "^2.3.0"
+    fastparallel "^2.4.0"
     fastseries "^2.0.0"
-    mqemitter "^4.1.2"
-    mqtt-packet "^6.3.2"
-    proxy-protocol-js "^4.0.4"
+    hyperid "^2.0.5"
+    mqemitter "^4.4.0"
+    mqtt-packet "^6.7.0"
     readable-stream "^3.6.0"
     retimer "^2.0.0"
     reusify "^1.0.4"
-    shortid "^2.2.15"
-    through2 "^3.0.1"
-    uuid "^7.0.2"
+    uuid "^8.3.1"
 
 agent-base@4, agent-base@^4.3.0:
   version "4.3.0"
@@ -5988,9 +5977,9 @@ fastfall@^1.5.1:
   dependencies:
     reusify "^1.0.0"
 
-fastparallel@^2.3.0:
+fastparallel@^2.3.0, fastparallel@^2.4.0:
   version "2.4.0"
-  resolved "https://npm.kabala.tech/fastparallel/-/fastparallel-2.4.0.tgz#65fbec1a5e5902494be772cf5765cbaaece08688"
+  resolved "https://registry.yarnpkg.com/fastparallel/-/fastparallel-2.4.0.tgz#65fbec1a5e5902494be772cf5765cbaaece08688"
   integrity sha512-sacwQ7wwKlQXsa7TN24UvMBLZNLmVcPhmxccC9riFqb3N+fSczJL8eWdnZodZ/KijGVgNBBfvF/NeXER08uXnQ==
   dependencies:
     reusify "^1.0.4"
@@ -6203,7 +6192,7 @@ form-data@~2.3.2:
     combined-stream "^1.0.6"
     mime-types "^2.1.12"
 
-forwarded@^0.1.2, forwarded@~0.1.2:
+forwarded@~0.1.2:
   version "0.1.2"
   resolved "https://npm.kabala.tech/forwarded/-/forwarded-0.1.2.tgz#98c23dab1175657b8c0573e8ceccd91b0ff18c84"
   integrity sha1-mMI9qxF1ZXuMBXPozszZGw/xjIQ=
@@ -6923,6 +6912,14 @@ husky@^4.2.1:
     please-upgrade-node "^3.2.0"
     slash "^3.0.0"
     which-pm-runs "^1.0.0"
+
+hyperid@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/hyperid/-/hyperid-2.0.5.tgz#fecedad4e9868d548c096482917c33090bccd2be"
+  integrity sha512-kg0+DOmWo3HSFvWWMCQJJhzEB4kg5z/83l4eFDaeAMJ5E2zbQzTEewAmVtOqdRElU9yRFJhCOuegUk0M6RZfiw==
+  dependencies:
+    uuid "^3.4.0"
+    uuid-parse "^1.1.0"
 
 iconv-lite@0.4.24, iconv-lite@^0.4.24:
   version "0.4.24"
@@ -9090,9 +9087,9 @@ mpath@0.7.0:
   resolved "https://npm.kabala.tech/mpath/-/mpath-0.7.0.tgz#20e8102e276b71709d6e07e9f8d4d0f641afbfb8"
   integrity sha512-Aiq04hILxhz1L+f7sjGyn7IxYzWm1zLNNXcfhDtx04kZ2Gk7uvFdgZ8ts1cWa/6d0TQmag2yR8zSGZUmp0tFNg==
 
-mqemitter@^4.1.2:
+mqemitter@^4.4.0:
   version "4.4.0"
-  resolved "https://npm.kabala.tech/mqemitter/-/mqemitter-4.4.0.tgz#4795945124989ec7dbd635e9c8f2aba0c25b1661"
+  resolved "https://registry.yarnpkg.com/mqemitter/-/mqemitter-4.4.0.tgz#4795945124989ec7dbd635e9c8f2aba0c25b1661"
   integrity sha512-XWoue2+i4wLWxtPCRdZk3bNJc2+FhomyA3QzxBM4+4Iui/+iGLeubeShtKa8MwZ0HXVLJqWTMznkCsYs7xjiQQ==
   dependencies:
     fastparallel "^2.3.0"
@@ -9103,10 +9100,10 @@ mqtt-match@^1.0.2:
   resolved "https://npm.kabala.tech/mqtt-match/-/mqtt-match-1.0.3.tgz#13e65197b0556e57c53633e5c0d757722094776f"
   integrity sha512-nfeAp+chyjVeIvvrgMhQCfDAIVp/zXX8rtxHQwuAWuapqAdFs1F0kIekG445ps3xs/qFPK6l2xRlAyiqqwbmrQ==
 
-mqtt-packet@^6.0.0, mqtt-packet@^6.3.0, mqtt-packet@^6.3.2:
-  version "6.6.0"
-  resolved "https://npm.kabala.tech/mqtt-packet/-/mqtt-packet-6.6.0.tgz#30126b6865992caaf223baae23c89e4061ad2e45"
-  integrity sha512-LvghnKMFC70hKWMVykmhJarlO5e7lT3t9s9A2qPCUx+lazL3Mq55U+eCV0eLi7/nRRQYvEUWo/2tTo89EjnCJQ==
+mqtt-packet@^6.0.0, mqtt-packet@^6.3.0, mqtt-packet@^6.7.0:
+  version "6.7.0"
+  resolved "https://registry.yarnpkg.com/mqtt-packet/-/mqtt-packet-6.7.0.tgz#0098f7f5d02f34b8dce35507befd6394e1109575"
+  integrity sha512-GzgeeCirQpB59FyhHvf8BLiIYgxctPSxuSyaF2vWnkt7paX7jtuQ8Gpl+DkHCxZmYuv7GQE6zcUAegpafd0MqQ==
   dependencies:
     bl "^4.0.2"
     debug "^4.1.1"
@@ -9194,11 +9191,6 @@ mz@^2.5.0:
     any-promise "^1.0.0"
     object-assign "^4.0.1"
     thenify-all "^1.0.0"
-
-nanoid@^2.1.0:
-  version "2.1.11"
-  resolved "https://npm.kabala.tech/nanoid/-/nanoid-2.1.11.tgz#ec24b8a758d591561531b4176a01e3ab4f0f0280"
-  integrity sha512-s/snB+WGm6uwi0WjsZdaVcuf3KJXlfGl2LcxgwkEwJF0D/BWzVWAZW/XY4bFaiR7s0Jk3FPvlnepg1H1b1UwlA==
 
 nanomatch@^1.2.9:
   version "1.2.13"
@@ -10348,11 +10340,6 @@ proxy-from-env@^1.0.0:
   resolved "https://npm.kabala.tech/proxy-from-env/-/proxy-from-env-1.1.0.tgz#e102f16ca355424865755d2c9e8ea4f24d58c3e2"
   integrity sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==
 
-proxy-protocol-js@^4.0.3, proxy-protocol-js@^4.0.4:
-  version "4.0.5"
-  resolved "https://npm.kabala.tech/proxy-protocol-js/-/proxy-protocol-js-4.0.5.tgz#e9793e17f8b31a858f958c117640ff225b8a0eb9"
-  integrity sha512-53BHGoSSquDJg7fyDrMKWa85jfF34LPKAeRSij+Eiktlh2YE4rAk5U9uba3mGRswE/grDiAi2mZWknbzbXiB9w==
-
 prr@~0.0.0:
   version "0.0.0"
   resolved "https://npm.kabala.tech/prr/-/prr-0.0.0.tgz#1a84b85908325501411853d0081ee3fa86e2926a"
@@ -11413,13 +11400,6 @@ shimport@^2.0.4:
   resolved "https://npm.kabala.tech/shimport/-/shimport-2.0.4.tgz#02a36fbe53b141c39732df54f8338f3c8b31146d"
   integrity sha512-5YOyQqYkOFSkPFnpS87De6BYzDiZBc8FS4/aTuGZiST+WmXSwWRoaNRHqyVOeEpSx9wlgYWg9WYfCuzD/11/qA==
 
-shortid@^2.2.15:
-  version "2.2.16"
-  resolved "https://npm.kabala.tech/shortid/-/shortid-2.2.16.tgz#b742b8f0cb96406fd391c76bfc18a67a57fe5608"
-  integrity sha512-Ugt+GIZqvGXCIItnsL+lvFJOiN7RYqlGy7QE41O3YC1xbNSeDGIRO7xg2JJXIAj1cAGnOeC1r7/T9pgrtQbv4g==
-  dependencies:
-    nanoid "^2.1.0"
-
 sift@7.0.1:
   version "7.0.1"
   resolved "https://npm.kabala.tech/sift/-/sift-7.0.1.tgz#47d62c50b159d316f1372f8b53f9c10cd21a4b08"
@@ -12136,7 +12116,7 @@ through2@^2.0.0, through2@^2.0.1, through2@^2.0.2, through2@~2.0.0:
     readable-stream "~2.3.6"
     xtend "~4.0.1"
 
-through2@^3.0.0, through2@^3.0.1:
+through2@^3.0.0:
   version "3.0.2"
   resolved "https://npm.kabala.tech/through2/-/through2-3.0.2.tgz#99f88931cfc761ec7678b41d5d7336b5b6a07bf4"
   integrity sha512-enaDQ4MUyP2W6ZyT6EsMzqBPZaM/avg8iuo+l2d3QCs0J+6RaqkHV/2/lOwDTueBHeJ/2LG9lrLW3d5rWPucuQ==
@@ -12702,7 +12682,12 @@ utils-merge@1.0.1, utils-merge@1.x.x:
   resolved "https://npm.kabala.tech/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
 
-uuid@^3.0.1, uuid@^3.1.0, uuid@^3.3.2, uuid@^3.3.3:
+uuid-parse@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/uuid-parse/-/uuid-parse-1.1.0.tgz#7061c5a1384ae0e1f943c538094597e1b5f3a65b"
+  integrity sha512-OdmXxA8rDsQ7YpNVbKSJkNzTw2I+S5WsbMDnCtIWSQaosNAcWtFuI/YK1TjzUI6nbkgiqEyh8gWngfcv8Asd9A==
+
+uuid@^3.0.1, uuid@^3.1.0, uuid@^3.3.2, uuid@^3.3.3, uuid@^3.4.0:
   version "3.4.0"
   resolved "https://npm.kabala.tech/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
@@ -12712,7 +12697,7 @@ uuid@^7.0.2:
   resolved "https://npm.kabala.tech/uuid/-/uuid-7.0.3.tgz#c5c9f2c8cf25dc0a372c4df1441c41f5bd0c680b"
   integrity sha512-DPSke0pXhTZgoF/d+WSt2QaKMCFSfx7QegxEWT+JOuHF5aWrKEn0G+ztjuJg/gG8/ItK+rbPCD/yNv8yyih6Cg==
 
-uuid@^8.0.0:
+uuid@^8.0.0, uuid@^8.3.1:
   version "8.3.1"
   resolved "https://npm.kabala.tech/uuid/-/uuid-8.3.1.tgz#2ba2e6ca000da60fce5a196954ab241131e05a31"
   integrity sha512-FOmRr+FmWEIG8uhZv6C2bTgEVXsHk08kE7mPlrBbEe+c3r9pjceVPgupIfNIhc4yx55H69OXANrUaSuu9eInKg==
