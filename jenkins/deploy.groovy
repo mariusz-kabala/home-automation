@@ -35,6 +35,8 @@ pipeline {
             steps {
                 script {
                     sh "printenv"
+                    manager.addShortText("${env.package}", "white", "green", "1px", "navy")
+                    manager.addShortText("${version}", "white", "navy", "1px", "navy")
                 }
             }
         }
