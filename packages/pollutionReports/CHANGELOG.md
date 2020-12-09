@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.18](https://github.com/mariusz-kabala/homeAutomation/compare/@home/pollution-reports@0.4.17...@home/pollution-reports@0.4.18) (2020-12-08)
+
+
+### Bug Fixes
+
+* proper exit status; migrate to new docker registry ([2aa6e3b](https://github.com/mariusz-kabala/homeAutomation/commit/2aa6e3bc4886a813f60f911a779dd122d61899b3))
+
+
+
+
+
 ## [0.4.17](https://github.com/mariusz-kabala/homeAutomation/compare/@home/pollution-reports@0.4.16...@home/pollution-reports@0.4.17) (2020-11-22)
 
 
