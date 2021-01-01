@@ -2701,10 +2701,10 @@
     "@types/node" "*"
     form-data "^3.0.0"
 
-"@types/node-telegram-bot-api@^0.40.1":
-  version "0.40.3"
-  resolved "https://npm.kabala.tech/@types%2fnode-telegram-bot-api/-/node-telegram-bot-api-0.40.3.tgz#6fc1fbd8728445426a8646a69cb62020675e9092"
-  integrity sha512-YJVoP4cMz5m/PG9VLKHTc0pvK6wGmIC5AYScOdlIhe5+vOzcLKuBYgrIIjRujcwCGs99fToE6jW80njXdMoU+A==
+"@types/node-telegram-bot-api@^0.51.0":
+  version "0.51.0"
+  resolved "https://registry.yarnpkg.com/@types/node-telegram-bot-api/-/node-telegram-bot-api-0.51.0.tgz#817f6e0fc5988ffdac763c37e062f7359ddf9dab"
+  integrity sha512-HtDIIYLezSl2EpezaIWKQ7Jn+y6agQKEUZ+BowtvkA+LdWkGwFRRu+cZorUcnnuR0R45KUidnak9qTrxtMyWeQ==
   dependencies:
     "@types/node" "*"
     "@types/request" "*"
