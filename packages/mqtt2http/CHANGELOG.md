@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.16](https://github.com/mariusz-kabala/homeAutomation/compare/@home/mqtt2http@0.1.15...@home/mqtt2http@0.1.16) (2021-02-21)
+
+**Note:** Version bump only for package @home/mqtt2http
+
+
+
+
+
 ## [0.1.15](https://github.com/mariusz-kabala/homeAutomation/compare/@home/mqtt2http@0.1.14...@home/mqtt2http@0.1.15) (2020-12-08)
 
 
