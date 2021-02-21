@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.19](https://github.com/mariusz-kabala/homeAutomation/compare/@home/ws2mqtt@0.6.18...@home/ws2mqtt@0.6.19) (2021-02-21)
+
+
+### Bug Fixes
+
+* add heartbeat to message handler ([6ddc7b3](https://github.com/mariusz-kabala/homeAutomation/commit/6ddc7b36a21a43f208408cb908a9cf06843105bf))
+
+
+
+
+
 ## [0.6.18](https://github.com/mariusz-kabala/homeAutomation/compare/@home/ws2mqtt@0.6.17...@home/ws2mqtt@0.6.18) (2021-02-21)
 
 
