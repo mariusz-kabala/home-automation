@@ -7,6 +7,21 @@ import { handleSensorMsg } from './handlers/sensors'
 import { handleLightMsg } from './handlers/lights'
 import { handleGroupMsg } from './handlers/groups'
 
+let pingTimeout: NodeJS.Timeout
+let ws: WebSocket
+
+function heartbeat() {
+  clearTimeout(pingTimeout)
+  pingTimeout = setTimeout(() => {
+    ws.terminate()
+    logger.log({
+      level: 'error',
+      message: 'Websocket connection has been closed',
+    })
+    process.exit(1)
+  }, 30000)
+}
+
 function start() {
   logger.log({
     level: 'info',
@@ -14,7 +29,10 @@ function start() {
   })
   const wsConnectionStr = `ws://${config.get<string>('wsHost')}:${config.get<string>('wsPort')}`
 
-  const ws = new WebSocket(wsConnectionStr)
+  ws = new WebSocket(wsConnectionStr)
+
+  ws.on('open', heartbeat)
+  ws.on('ping', heartbeat)
 
   ws.on('close', () => {
     logger.log({
