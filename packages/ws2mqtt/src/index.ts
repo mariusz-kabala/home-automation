@@ -32,7 +32,6 @@ function start() {
   ws = new WebSocket(wsConnectionStr)
 
   ws.on('open', heartbeat)
-  ws.on('ping', heartbeat)
 
   ws.on('close', () => {
     logger.log({
@@ -44,6 +43,8 @@ function start() {
 
   ws.onmessage = (wsMessage: { data: Data }) => {
     const msg: IWSSensorMsg | IWSGroupMsg = JSON.parse(wsMessage.data as string)
+
+    heartbeat()
 
     logger.log({
       level: 'info',
