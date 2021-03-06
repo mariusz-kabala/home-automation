@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/commons@0.1.2...@home/commons@0.2.0) (2021-03-06)
+
+
+### Features
+
+* enable consul for alerts package ([e245c44](https://github.com/mariusz-kabala/homeAutomation/commit/e245c44c21b9a140db017d628170df7a2930f44f))
+
+
+
+
+
 ## [0.1.2](https://github.com/mariusz-kabala/homeAutomation/compare/@home/commons@0.1.1...@home/commons@0.1.2) (2020-11-22)
 
 

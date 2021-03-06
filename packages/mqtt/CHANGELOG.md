@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.4](https://github.com/mariusz-kabala/homeAutomation/compare/@home/mqtt-server@0.1.3...@home/mqtt-server@0.1.4) (2021-03-06)
+
+
+### Bug Fixes
+
+* disable 8080 port bidning ([1bf292d](https://github.com/mariusz-kabala/homeAutomation/commit/1bf292d54315f56b5e354a20d759b71787ed2bc2))
+
+
+
+
+
 ## [0.1.3](https://github.com/mariusz-kabala/homeAutomation/compare/@home/mqtt-server@0.1.2...@home/mqtt-server@0.1.3) (2020-11-22)
 
 
