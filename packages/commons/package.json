@@ -6,6 +6,12 @@
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "dependencies": {
+    "consul": "^0.40.0"
+  },
+  "devDependencies": {
+    "@types/consul": "^0.23.34"
+  },
   "scripts": {
     "build": "rollup -c ../../rollup.config.js",
     "build-declarations": "tsc --declaration --emitDeclarationOnly --out dist/index.d.ts && node ../../scripts/fixDeclaration.js",
