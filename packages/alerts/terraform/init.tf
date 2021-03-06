@@ -1,5 +1,5 @@
 provider "docker" {
-    host = "tcp://192.168.0.185:2376/"
+    host = "tcp://192.168.0.195:2376/"
 
     registry_auth {
       address = "docker-registry.kabala.tech"
