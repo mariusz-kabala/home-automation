@@ -1,14 +1,14 @@
 {
   "name": "@home/commons",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "license": "ISC",
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "dependencies": {
-    "consul": "^0.40.0",
-    "@home/logger": "0.1.2"
+    "@home/logger": "0.1.2",
+    "consul": "^0.40.0"
   },
   "devDependencies": {
     "@types/consul": "^0.23.34"
