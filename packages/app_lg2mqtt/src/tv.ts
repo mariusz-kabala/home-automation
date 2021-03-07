@@ -40,7 +40,7 @@ export class TV {
   }
 
   public disconnect() {
-    return new Promise(resolve => {
+    return new Promise<void>(resolve => {
       this.device.disconnect()
       this.unsubscribe()
 

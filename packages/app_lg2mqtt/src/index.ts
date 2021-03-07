@@ -57,12 +57,12 @@ function sentRecentAlert(device: TV) {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function flushBuffer(device: string, resolve?: () => void): any {
+function flushBuffer(device: string, resolve?: (() => void) | undefined): any {
   if (!resolve) {
     const delay = config.get<{
       [device: string]: number
     }>('deviceStartUpDelay')
-    return new Promise(localResolve => setTimeout(() => flushBuffer(device, localResolve), delay[device]))
+    return new Promise<void>(localResolve => setTimeout(() => flushBuffer(device, localResolve), delay[device]))
   } else {
     const bmsg = buffor[device].shift()
 
