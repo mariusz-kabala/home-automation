@@ -1,7 +1,16 @@
 const dotenv = require('dotenv')
 dotenv.config()
 
-const { STATS_DB_HOST, STATS_DB_PORT, STATS_DB_TOKEN, STATS_DB_ORGANISATION, CONSUL_HOST, CONSUL_PORT } = process.env
+const {
+  STATS_DB_HOST,
+  STATS_DB_PORT,
+  STATS_DB_TOKEN,
+  STATS_DB_ORGANISATION,
+  CONSUL_HOST,
+  CONSUL_PORT,
+  MQTT_HOST,
+  MQTT_PORT,
+} = process.env
 
 module.exports = {
   dbHost: STATS_DB_HOST,
