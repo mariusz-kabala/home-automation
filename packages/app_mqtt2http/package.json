@@ -1,6 +1,6 @@
 {
   "name": "@home/mqtt2http",
-  "version": "0.1.19",
+  "version": "0.1.20",
   "private": true,
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
   "main": "./dist/index.js",
@@ -14,9 +14,9 @@
     "prepare": "exit 0"
   },
   "dependencies": {
+    "@home/commons": "*",
     "@home/deconz-api": "0.1.8",
     "@home/logger": "0.1.2",
-    "@home/mqtt": "0.7.4",
-    "@home/commons": "*"
+    "@home/mqtt": "0.7.4"
   }
 }
