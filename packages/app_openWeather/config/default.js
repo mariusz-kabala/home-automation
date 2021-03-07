@@ -1,10 +1,14 @@
 const dotenv = require('dotenv')
 dotenv.config()
 
+const { MQTT_HOST, MQTT_PORT, CONSUL_HOST, CONSUL_PORT, OPEN_WEATHER_API_KEY, CITIES } = process.env
+
 module.exports = {
-  openWeatherAPIKey: process.env.OPEN_WEATHER_API_KEY,
-  mqttHost: process.env.MQTT_HOST,
-  mqttPort: process.env.MQTT_PORT,
+  openWeatherAPIKey: OPEN_WEATHER_API_KEY,
+  mqttHost: MQTT_HOST,
+  mqttPort: MQTT_PORT,
+  consulHost: CONSUL_HOST,
+  consulPort: CONSUL_PORT,
   mqttPrefix: 'home',
-  cities: process.env.CITIES.split(' '),
+  cities: CITIES.split(' '),
 }

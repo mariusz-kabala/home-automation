@@ -4,6 +4,7 @@ import cron from 'node-cron'
 import { v4 as uuid4 } from 'uuid'
 import { publish } from '@home/mqtt'
 import { logger } from '@home/logger'
+import { registerInConsul } from '@home/commons'
 
 import { IForecast } from './types'
 
@@ -52,5 +53,6 @@ logger.log({
 })
 
 run()
+registerInConsul('openWeather')
 
 cron.schedule('*/5 * * * *', run)
