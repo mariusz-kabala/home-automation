@@ -218,7 +218,7 @@ pipeline {
         }
         stage ('Deploy Apollo Service') {
             when {
-                environment name: 'package', value: 'serviceApollo'
+                environment name: 'package', value: 'gateway'
             }
             steps {
                 dir("packages/app_${env.package}/terraform") {

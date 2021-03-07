@@ -1,9 +1,9 @@
 resource "docker_container" "alerts" {
   name  = "alerts"
-  image = "docker-registry.kabala.tech/home/alerts:${var.tag}"
+  image = "${var.DOCKER_REGISTRY}/home/alerts:${var.tag}"
   restart = "always"
   networks_advanced {
-      name = "global"
+      name = "homeAutomation"
   }
   env = [
       "MQTT_HOST=mqtt.kabala.tech",
