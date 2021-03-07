@@ -11,7 +11,9 @@ resource "docker_container" "ws2mqtt" {
       "WS_PORT=443",
       "API_TOKEN=${var.API_TOKEN}",
       "MQTT_HOST=mqtt.kabala.tech",
-      "MQTT_PORT=1883"
+      "MQTT_PORT=1883",
+      "CONSUL_HOST=${var.consul_host}",
+      "CONSUL_PORT=${var.consul_port}"
   ]
   dns = [
     "192.168.0.10",
