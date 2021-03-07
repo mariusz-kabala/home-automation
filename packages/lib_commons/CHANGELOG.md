@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.2](https://github.com/mariusz-kabala/homeAutomation/compare/@home/commons@0.2.1...@home/commons@0.2.2) (2021-03-07)
+
+
+### Bug Fixes
+
+* linter fixes ([1af64ca](https://github.com/mariusz-kabala/homeAutomation/commit/1af64cabb2e40797838c1a2337fb7c34ac9b4b54))
+
+
+
+
+
 ## [0.2.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/commons@0.2.0...@home/commons@0.2.1) (2021-03-06)
 
 
