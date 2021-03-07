@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.8](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.10.7...@home/stats-collector@0.10.8) (2021-03-07)
+
+
+### Bug Fixes
+
+* add missing vars ([9975f2c](https://github.com/mariusz-kabala/homeAutomation/commit/9975f2c677db8b50957c94b3eb2e1da4a5391ad0))
+
+
+
+
+
 ## [0.10.7](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.10.6...@home/stats-collector@0.10.7) (2021-03-07)
 
 
