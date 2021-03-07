@@ -11,7 +11,7 @@
   },
   "workspaces": {
     "packages": [
-      "packages/lib_logger",
+      "packages/logger",
       "packages/lib_*",
       "packages/app_*"
     ]
