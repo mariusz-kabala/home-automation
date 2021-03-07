@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/camelcase */
 import TelegramBot from 'node-telegram-bot-api'
 import { subscribe, publish } from '@home/mqtt'
 import { logger } from '@home/logger'
@@ -46,9 +47,14 @@ export function initLgTv(bot: TelegramBot): void {
     bot.sendMessage(
       chatId,
       Object.keys(devicesStatus)
-        .map(device => `<i>${device.charAt(0).toUpperCase() + device.substring(1)}'s</i> device is <b>${devicesStatus[device] ? 'on' : 'off'}</b>`)
+        .map(
+          device =>
+            `<i>${device.charAt(0).toUpperCase() + device.substring(1)}'s</i> device is <b>${
+              devicesStatus[device] ? 'on' : 'off'
+            }</b>`,
+        )
         .join('\n'),
-        { parse_mode: 'HTML' }
+      { parse_mode: 'HTML' },
     )
   })
 
@@ -99,7 +105,9 @@ export function initLgTv(bot: TelegramBot): void {
     }
 
     if (!devicesStatus[device]) {
-      bot.sendMessage(chatId, 'According to my best knowledge this <b>device is already off</b>', { parse_mode: 'HTML' })
+      bot.sendMessage(chatId, 'According to my best knowledge this <b>device is already off</b>', {
+        parse_mode: 'HTML',
+      })
       return
     }
 
@@ -198,7 +206,9 @@ export function initLgTv(bot: TelegramBot): void {
       }
 
       if (!devicesStatus[device]) {
-        bot.sendMessage(chatId, 'According to my best knowledge <b>device is off</b>, can not do it', { parse_mode: 'HTML' })
+        bot.sendMessage(chatId, 'According to my best knowledge <b>device is off</b>, can not do it', {
+          parse_mode: 'HTML',
+        })
         return
       }
 
@@ -229,7 +239,9 @@ export function initLgTv(bot: TelegramBot): void {
       }
 
       if (!devicesStatus[device]) {
-        bot.sendMessage(chatId, 'According to my best knowledge <b>device is off</b>, can not do it', { parse_mode: 'HTML' })
+        bot.sendMessage(chatId, 'According to my best knowledge <b>device is off</b>, can not do it', {
+          parse_mode: 'HTML',
+        })
         return
       }
 

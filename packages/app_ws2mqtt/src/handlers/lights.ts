@@ -29,7 +29,6 @@ export function handleLightMsg(msg: IWSSensorMsg) {
       return fetchLightDetails(msg.id)
         .then(light => publish(`${config.get<string>('namespace')}/lights/${msg.id}`, light, { retain: true, qos: 0 }))
         .catch(err => {
-          console.log(err)
           logger.log({
             level: 'error',
             message: `Can not fetch light ${msg.id} info ${err}`,

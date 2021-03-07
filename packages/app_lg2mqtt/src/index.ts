@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/default
 import isReachable from 'is-reachable'
 import config from 'config'
 import { subscribe, publish } from '@home/mqtt'

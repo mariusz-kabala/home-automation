@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/triple-slash-reference */
-/* eslint-disable import/exports-last */
 /// <reference path="./types.d.ts" />
 
 import { Promise } from 'bluebird'

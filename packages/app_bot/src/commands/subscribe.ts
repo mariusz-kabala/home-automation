@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/camelcase */
 import TelegramBot from 'node-telegram-bot-api'
 import { redisClient } from '@home/redis'
 import { alertTypes, alertLevels } from '@home/commons'
@@ -65,20 +66,20 @@ async function getSubscribers(params: { type?: alertTypes | string; level?: aler
 }
 
 async function getSubscribersByDBKeys(keys: string[]) {
-    const results: {
-        [dbKey: string]: string[]
-      } = {}
-      ;(await Promise.all(keys.map(key => redisClient.lrangeAsync<string[]>(key, 0, -1)))).forEach(
-        (subscribers: string[], key: number) => {
-          const dbKey = keys[key] + ''
-    
-          if (subscribers.length > 0) {
-            results[dbKey] = subscribers
-          }
-        },
-      )
-    
-      return results
+  const results: {
+    [dbKey: string]: string[]
+  } = {}
+  ;(await Promise.all(keys.map(key => redisClient.lrangeAsync<string[]>(key, 0, -1)))).forEach(
+    (subscribers: string[], key: number) => {
+      const dbKey = keys[key] + ''
+
+      if (subscribers.length > 0) {
+        results[dbKey] = subscribers
+      }
+    },
+  )
+
+  return results
 }
 
 async function hasSubscription(
@@ -100,16 +101,16 @@ async function hasSubscription(
 }
 
 async function deleteSubscriptionIfNeeded(type: alertTypes | string, level: alertLevels | string, chatId: number) {
-    const subscribers = await getSubscribers({type, level})
-    let status = false
+  const subscribers = await getSubscribers({ type, level })
+  let status = false
 
-    for (const dbKey of Object.keys(subscribers)) {
-        if (subscribers[dbKey].includes(chatId + '')) {
-            status = true
-            await redisClient.lremAsync(dbKey, 0, chatId)
-        }
+  for (const dbKey of Object.keys(subscribers)) {
+    if (subscribers[dbKey].includes(chatId + '')) {
+      status = true
+      await redisClient.lremAsync(dbKey, 0, chatId)
     }
-    return status
+  }
+  return status
 }
 
 async function saveSubscriptionIfNeeded(type: alertTypes | string, level: alertLevels | string, chatId: number) {
@@ -180,18 +181,15 @@ export function initSubscribe(bot: TelegramBot): void {
       return
     }
 
-    const keys= await redisClient.keysAsync(`${prefix}alerts/*`)
+    const keys = await redisClient.keysAsync(`${prefix}alerts/*`)
     const subscriptions = await getSubscribersByDBKeys(keys)
     const subscribed = Object.keys(subscriptions).filter(topic => {
-        return subscriptions[topic].includes(msg.chat.id + '')
+      return subscriptions[topic].includes(msg.chat.id + '')
     })
 
     if (subscribed.length === 0) {
-        bot.sendMessage(
-            msg.chat.id,
-            'You do not have any subscriptions'
-        )
-        return
+      bot.sendMessage(msg.chat.id, 'You do not have any subscriptions')
+      return
     }
 
     bot.sendMessage(
@@ -282,36 +280,36 @@ export function initSubscribe(bot: TelegramBot): void {
 
       for (const level of levels) {
         for (const type of types) {
-            if (await deleteSubscriptionIfNeeded(type, level, msg.chat.id)) {
-                bot.sendMessage(
-                    msg.chat.id, 
-                    `Subscription for <i>type:</i> <b>${type}</b>, <i>level:</i> <b>${level}</b> has been removed`,
-                    { parse_mode: 'HTML' },
-                )
-            } else {
-                bot.sendMessage(
-                    msg.chat.id, 
-                    `You do not subscribe <i>type:</i> <b>${type}</b>, <i>level:</i> <b>${level}</b>`,
-                    { parse_mode: 'HTML' },
-                )
-            }
+          if (await deleteSubscriptionIfNeeded(type, level, msg.chat.id)) {
+            bot.sendMessage(
+              msg.chat.id,
+              `Subscription for <i>type:</i> <b>${type}</b>, <i>level:</i> <b>${level}</b> has been removed`,
+              { parse_mode: 'HTML' },
+            )
+          } else {
+            bot.sendMessage(
+              msg.chat.id,
+              `You do not subscribe <i>type:</i> <b>${type}</b>, <i>level:</i> <b>${level}</b>`,
+              { parse_mode: 'HTML' },
+            )
+          }
         }
       }
     },
   )
 
-  subscribe('alerts/+/+', async (msg: {alert: string}, topic: string) => {
-      const [, type, level] = topic.split('/')
+  subscribe('alerts/+/+', async (msg: { alert: string }, topic: string) => {
+    const [, type, level] = topic.split('/')
 
-      const subscribers = await getSubscribers({
-          type,
-          level
-      })
+    const subscribers = await getSubscribers({
+      type,
+      level,
+    })
 
-      Object.keys(subscribers).forEach(topic => {
-        subscribers[topic].forEach(chatId => {
-            bot.sendMessage(chatId, msg.alert)
-        })
+    Object.keys(subscribers).forEach(topic => {
+      subscribers[topic].forEach(chatId => {
+        bot.sendMessage(chatId, msg.alert)
       })
+    })
   })
 }

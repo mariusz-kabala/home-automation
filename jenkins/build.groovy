@@ -63,8 +63,8 @@ pipeline {
                 script {
                     def packagesList = packages.split(',')
                     packagesList.each {
-                        def props = readJSON file: "packages/${it}/package.json"
-                        def currentApp = docker.build(props['name'].replace('@', '').replace('-', '').toLowerCase(), "-f packages/${it}/Dockerfile .")
+                        def props = readJSON file: "packages/app_${it}/package.json"
+                        def currentApp = docker.build(props['name'].replace('@', '').replace('-', '').toLowerCase(), "-f packages/app_${it}/Dockerfile .")
                         docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
                             currentApp.push("v${props['version']}")
                         }
@@ -80,7 +80,7 @@ pipeline {
                 script {
                         def packagesList = packages.split(',')
                         packagesList.each {
-                            def props = readJSON file: "packages/${it}/package.json"
+                            def props = readJSON file: "packages/app_${it}/package.json"
 
                             build job: 'home_automation/deploy', wait: false, parameters: [
                                 string(name: 'ghprbActualCommit', value: "${ghprbActualCommit}"),

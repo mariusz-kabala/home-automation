@@ -45,7 +45,7 @@ pipeline {
                 environment name: 'package', value: 'ws2mqtt'
             }
             steps {
-                dir("packages/${env.package}/terraform") {
+                dir("packages/app_${env.package}/terraform") {
                     script {
                         docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
                             sh "terraform init"
@@ -61,7 +61,7 @@ pipeline {
                 environment name: 'package', value: 'mqtt2http'
             }
             steps {
-                dir("packages/${env.package}/terraform") {
+                dir("packages/app_${env.package}/terraform") {
                     script {
                         docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
                             sh "terraform init"
@@ -77,7 +77,7 @@ pipeline {
                 environment name: 'package', value: 'openWeather'
             }
             steps {
-                dir("packages/${env.package}/terraform") {
+                dir("packages/app_${env.package}/terraform") {
                     script {
                         docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
                             sh "terraform init"
@@ -93,7 +93,7 @@ pipeline {
                 environment name: 'package', value: 'statsCollector'
             }
             steps {
-                dir("packages/${env.package}/terraform") {
+                dir("packages/app_${env.package}/terraform") {
                     script {
                         docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
                             sh "terraform init"
@@ -109,7 +109,7 @@ pipeline {
                 environment name: 'package', value: 'bot'
             }
             steps {
-                dir("packages/${env.package}/terraform") {
+                dir("packages/app_${env.package}/terraform") {
                     script {
                         docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
                             sh "terraform init"
@@ -125,7 +125,7 @@ pipeline {
                 environment name: 'package', value: 'alerts'
             }
             steps {
-                dir("packages/${env.package}/terraform") {
+                dir("packages/app_${env.package}/terraform") {
                     script {
                         docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
                             sh "terraform init"
@@ -141,7 +141,7 @@ pipeline {
                 environment name: 'package', value: 'lg2mqtt'
             }
             steps {
-                dir("packages/${env.package}/terraform") {
+                dir("packages/app_${env.package}/terraform") {
                     script {
                         docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
                             sh "terraform init"
@@ -157,7 +157,7 @@ pipeline {
                 environment name: 'package', value: 'deviceDiscovery'
             }
             steps {
-                dir("packages/${env.package}/terraform") {
+                dir("packages/app_${env.package}/terraform") {
                     script {
                         docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
                             sh "terraform init"
@@ -173,7 +173,7 @@ pipeline {
                 environment name: 'package', value: 'pollutionReports'
             }
             steps {
-                dir("packages/${env.package}/terraform") {
+                dir("packages/app_${env.package}/terraform") {
                     script {
                         docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
                             sh "terraform init"
@@ -189,7 +189,7 @@ pipeline {
                 environment name: 'package', value: 'smarterCoffeeMachine'
             }
             steps {
-                dir("packages/${env.package}/terraform") {
+                dir("packages/app_${env.package}/terraform") {
                     script {
                         docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
                             sh "terraform init"
@@ -205,7 +205,7 @@ pipeline {
                 environment name: 'package', value: 'authService'
             }
             steps {
-                dir("packages/${env.package}/terraform") {
+                dir("packages/app_${env.package}/terraform") {
                     script {
                         docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
                             sh "terraform init"
@@ -221,7 +221,7 @@ pipeline {
                 environment name: 'package', value: 'serviceApollo'
             }
             steps {
-                dir("packages/${env.package}/terraform") {
+                dir("packages/app_${env.package}/terraform") {
                     script {
                         docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
                             sh "terraform init"

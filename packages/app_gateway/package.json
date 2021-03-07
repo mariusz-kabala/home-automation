@@ -1,5 +1,5 @@
 {
-  "name": "@home/service-apollo",
+  "name": "@home/gateway",
   "version": "0.1.1",
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
   "main": "dist/index.js",
@@ -10,7 +10,7 @@
     "build": "rollup -c ./rollup.config.js",
     "build-declarations": "tsc --declaration --emitDeclarationOnly --out dist/index.d.ts && node ../../scripts/fixDeclaration.js",
     "watch": "rollup -w -c ./rollup.config.js",
-    "dev": "concurrently \"yarn workspace @home/service-apollo watch\" \"nodemon dist/index.js\"",
+    "dev": "concurrently \"yarn workspace @home/gateway watch\" \"nodemon dist/index.js\"",
     "start": "node dist/index.js",
     "prepare": "exit 0"
   },

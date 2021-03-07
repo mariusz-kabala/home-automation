@@ -1,6 +1,5 @@
 import { subscribe, publish } from '@home/mqtt'
 import { logger } from '@home/logger'
-// eslint-disable-next-line import/default
 import isReachable from 'is-reachable'
 import config from 'config'
 

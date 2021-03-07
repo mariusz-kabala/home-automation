@@ -11,11 +11,9 @@
   },
   "workspaces": {
     "packages": [
-      "packages/logger",
-      "packages/mqttClient",
-      "packages/deConzApi",
-      "packages/commons",
-      "packages/*"
+      "packages/lib_logger",
+      "packages/lib_*",
+      "packages/app_*"
     ]
   },
   "repository": {
