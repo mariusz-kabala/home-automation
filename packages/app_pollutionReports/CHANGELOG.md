@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.23](https://github.com/mariusz-kabala/homeAutomation/compare/@home/pollution-reports@0.4.22...@home/pollution-reports@0.4.23) (2021-03-07)
+
+
+### Bug Fixes
+
+* adjust pollutionReports app ([9ab538d](https://github.com/mariusz-kabala/homeAutomation/commit/9ab538dc175bc3df617f80071e3536401d5a6fa0))
+
+
+
+
+
 ## [0.4.22](https://github.com/mariusz-kabala/homeAutomation/compare/@home/pollution-reports@0.4.21...@home/pollution-reports@0.4.22) (2021-03-07)
 
 **Note:** Version bump only for package @home/pollution-reports
