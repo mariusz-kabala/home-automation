@@ -17,11 +17,11 @@ terraform {
 }
 
 provider "docker" {
-    host = "tcp://192.168.0.195:2376/"
+    host = var.docker_host
 
     registry_auth {
-      address = "docker-registry.kabala.tech"
-      username = "${var.DOCKER_REGISTRY_USERNAME}"
-      password = "${var.DOCKER_REGISTRY_PASSWORD}"
+      address = var.DOCKER_REGISTRY
+      username = var.DOCKER_REGISTRY_USERNAME
+      password = var.DOCKER_REGISTRY_PASSWORD
     }
 }
