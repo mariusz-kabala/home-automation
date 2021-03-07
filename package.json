@@ -11,6 +11,10 @@
   },
   "workspaces": {
     "packages": [
+      "packages/logger",
+      "packages/mqttClient",
+      "packages/deConzApi",
+      "packages/commons",
       "packages/*"
     ]
   },
