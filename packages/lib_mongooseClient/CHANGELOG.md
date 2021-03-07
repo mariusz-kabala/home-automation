@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.3](https://github.com/mariusz-kabala/homeAutomation/compare/@home/mongoose-client@0.1.2...@home/mongoose-client@0.1.3) (2021-03-07)
+
+**Note:** Version bump only for package @home/mongoose-client
+
+
+
+
+
 ## [0.1.2](https://github.com/mariusz-kabala/homeAutomation/compare/@home/mongoose-client@0.1.1...@home/mongoose-client@0.1.2) (2021-03-07)
 
 

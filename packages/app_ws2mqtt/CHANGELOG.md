@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.21](https://github.com/mariusz-kabala/homeAutomation/compare/@home/ws2mqtt@0.6.20...@home/ws2mqtt@0.6.21) (2021-03-07)
+
+**Note:** Version bump only for package @home/ws2mqtt
+
+
+
+
+
 ## [0.6.20](https://github.com/mariusz-kabala/homeAutomation/compare/@home/ws2mqtt@0.6.19...@home/ws2mqtt@0.6.20) (2021-03-07)
 
 

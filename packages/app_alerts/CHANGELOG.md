@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.3](https://github.com/mariusz-kabala/homeAutomation/compare/@home/alerts@0.3.2...@home/alerts@0.3.3) (2021-03-07)
+
+
+### Bug Fixes
+
+* add consul info ([e5b79b9](https://github.com/mariusz-kabala/homeAutomation/commit/e5b79b9602cf68ca5bf6f21cdd0eb1d8e8996c7a))
+
+
+
+
+
 ## [0.3.2](https://github.com/mariusz-kabala/homeAutomation/compare/@home/alerts@0.3.1...@home/alerts@0.3.2) (2021-03-07)
 
 

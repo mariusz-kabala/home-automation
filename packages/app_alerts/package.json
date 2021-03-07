@@ -1,6 +1,6 @@
 {
   "name": "@home/alerts",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "private": true,
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
   "main": "./dist/index.js",
@@ -14,8 +14,8 @@
     "prepare": "exit 0"
   },
   "dependencies": {
-    "@home/commons": "0.2.2",
+    "@home/commons": "0.2.3",
     "@home/logger": "0.1.2",
-    "@home/mqtt": "0.7.3"
+    "@home/mqtt": "0.7.4"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@home/stats-collector",
-  "version": "0.10.5",
+  "version": "0.10.6",
   "private": true,
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
   "main": "./dist/index.js",
@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@home/logger": "0.1.2",
-    "@home/mqtt": "0.7.3",
+    "@home/mqtt": "0.7.4",
     "@influxdata/influxdb-client": "^1.8.0"
   }
 }
