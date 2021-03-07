@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.17](https://github.com/mariusz-kabala/homeAutomation/compare/@home/lg2mqtt@0.5.16...@home/lg2mqtt@0.5.17) (2021-03-07)
+
+
+### Bug Fixes
+
+* typings ([677ff1b](https://github.com/mariusz-kabala/homeAutomation/commit/677ff1b22617ed6b2d27a629a29d7e9e6847cdf0))
+
+
+
+
+
 ## [0.5.16](https://github.com/mariusz-kabala/homeAutomation/compare/@home/lg2mqtt@0.5.15...@home/lg2mqtt@0.5.16) (2021-03-07)
 
 
