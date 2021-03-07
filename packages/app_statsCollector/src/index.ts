@@ -5,6 +5,7 @@ import { subscribeForOpenWeatherReports } from './subscriptions/openweather'
 import { subscribeForPlugReports } from './subscriptions/tuyaPlugs'
 import { subscribeForZigbeeSensors, subscribeForZigbeeLights, subscribeForZigbeeGroups } from './subscriptions/zigbee'
 import { subscribeForPlantsReports } from './subscriptions/esp32Plants'
+import { registerInConsul } from '@home/commons'
 
 function start() {
   logger.log({
@@ -21,4 +22,5 @@ function start() {
   subscribeForZigbeeGroups()
 }
 
+registerInConsul('statsCollector')
 start()
