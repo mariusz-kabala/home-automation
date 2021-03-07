@@ -1,22 +1,26 @@
 const dotenv = require('dotenv')
 dotenv.config()
 
+const { MQTT_HOST, MQTT_PORT, CONSUL_HOST, CONSUL_PORT, TV_KEYS } = process.env
+
 module.exports = {
-  tvKeys: process.env.TV_KEYS,
-  mqttHost: process.env.MQTT_HOST,
-  mqttPort: process.env.MQTT_PORT,
+  tvKeys: TV_KEYS,
+  mqttHost: MQTT_HOST,
+  mqttPort: MQTT_PORT,
+  consulHost: CONSUL_HOST,
+  consulPort: CONSUL_PORT,
   mqttPrefix: 'home',
   devices: {
-    bedroom: '192.168.0.143',
+    // bedroom: '192.168.0.143',
     livingroom: '192.168.0.151',
   },
   devicesMacAddresses: {
-    bedroom: '3C:CD:93:82:E1:F9',
+    // bedroom: '3C:CD:93:82:E1:F9',
     livingroom: 'A8:23:FE:0E:C0:1B',
   },
   deviceStartUpDelay: {
     bedroom: 5000, // 5 sec,
-    livingroom: 500 // 0.5 s
+    livingroom: 500, // 0.5 s
   },
   apps: {
     youtube: 'youtube.leanback.v4',

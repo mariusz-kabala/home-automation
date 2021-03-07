@@ -2,6 +2,7 @@ import isReachable from 'is-reachable'
 import config from 'config'
 import { subscribe, publish } from '@home/mqtt'
 import { logger } from '@home/logger'
+import { registerInConsul } from '@home/commons'
 
 import { TV } from './tv'
 
@@ -163,3 +164,5 @@ logger.log({
   level: 'info',
   message: 'Lg2mqtt started',
 })
+
+registerInConsul('lg2mqtt')
