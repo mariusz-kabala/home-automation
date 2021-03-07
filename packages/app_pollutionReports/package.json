@@ -14,6 +14,7 @@
     "prepare": "exit 0"
   },
   "dependencies": {
+    "@home/commons": "*",
     "@home/logger": "0.1.2",
     "@home/mqtt": "0.7.4",
     "node-cron": "^2.0.3"

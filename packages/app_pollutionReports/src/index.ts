@@ -1,6 +1,6 @@
 import cron from 'node-cron'
 import { logger } from '@home/logger'
-
+import { registerInConsul } from '@home/commons'
 import { runAirVisual } from './providers/airvisual'
 import { runAqicnorg } from './providers/aqicnorg'
 
@@ -20,3 +20,5 @@ logger.log({
   level: 'info',
   message: 'PollutionReports started',
 })
+
+registerInConsul('pollutionReports')
