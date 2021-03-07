@@ -10,8 +10,10 @@ resource "docker_container" "mqtt2http" {
   env = [
       "API_HOST=192.168.0.34",
       "API_TOKEN=${var.API_TOKEN}",
-      "MQTT_HOST=mqtt",
-      "MQTT_PORT=1883"
+      "MQTT_HOST=mqtt.kabala.tech",
+      "MQTT_PORT=1883",
+      "CONSUL_HOST=${var.consul_host}",
+      "CONSUL_PORT=${var.consul_port}"
   ]
   dns = [
     "192.168.0.10",

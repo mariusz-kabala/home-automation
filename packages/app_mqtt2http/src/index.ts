@@ -1,4 +1,5 @@
 import { logger } from '@home/logger'
+import { registerInConsul } from '@home/commons'
 
 import { subscribeForGroupsMessages } from './handlers/groups'
 
@@ -12,3 +13,4 @@ function start() {
 }
 
 start()
+registerInConsul('mqtt2http')
