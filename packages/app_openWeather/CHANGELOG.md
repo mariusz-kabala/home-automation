@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.21](https://github.com/mariusz-kabala/homeAutomation/compare/@home/open-weather@0.3.20...@home/open-weather@0.3.21) (2021-03-07)
+
+
+### Bug Fixes
+
+* adjust openWeather app ([744d8d3](https://github.com/mariusz-kabala/homeAutomation/commit/744d8d3c9086e9ef33218c11fc2bddece65daa8c))
+
+
+
+
+
 ## [0.3.20](https://github.com/mariusz-kabala/homeAutomation/compare/@home/open-weather@0.3.19...@home/open-weather@0.3.20) (2021-03-07)
 
 **Note:** Version bump only for package @home/open-weather
