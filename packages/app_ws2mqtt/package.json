@@ -18,6 +18,7 @@
     "@types/ws": "7.2.2"
   },
   "dependencies": {
+    "@home/commons": "*",
     "@home/deconz-api": "0.1.8",
     "@home/logger": "0.1.2",
     "@home/mqtt": "0.7.4",

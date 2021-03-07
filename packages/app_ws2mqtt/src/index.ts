@@ -1,7 +1,7 @@
 import WebSocket, { Data } from 'ws'
 import config from 'config'
 import { logger } from '@home/logger'
-
+import { registerInConsul } from '@home/commons'
 import { IWSSensorMsg, IWSGroupMsg } from './types'
 import { handleSensorMsg } from './handlers/sensors'
 import { handleLightMsg } from './handlers/lights'
@@ -80,3 +80,4 @@ function start() {
 }
 
 start()
+registerInConsul('ws2mqtt')
