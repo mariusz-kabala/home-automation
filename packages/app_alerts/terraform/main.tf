@@ -9,7 +9,9 @@ resource "docker_container" "alerts" {
 
   env = [
       "MQTT_HOST=mqtt.kabala.tech",
-      "MQTT_PORT=1883"
+      "MQTT_PORT=1883",
+      "CONSUL_HOST=${var.consul_host}",
+      "CONSUL_PORT=${var.consul_port}"
   ]
 
   dns = [
