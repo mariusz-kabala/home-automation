@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.16](https://github.com/mariusz-kabala/homeAutomation/compare/@home/lg2mqtt@0.5.15...@home/lg2mqtt@0.5.16) (2021-03-07)
+
+
+### Bug Fixes
+
+* deps ([d9a7f29](https://github.com/mariusz-kabala/homeAutomation/commit/d9a7f2965a1747513fdf94e75bc645125312c4dd))
+* update lg2mqtt ([d06b946](https://github.com/mariusz-kabala/homeAutomation/commit/d06b94666aa250f23639b811e8bf57a6c151e176))
+
+
+
+
+
 ## [0.5.15](https://github.com/mariusz-kabala/homeAutomation/compare/@home/lg2mqtt@0.5.14...@home/lg2mqtt@0.5.15) (2021-03-07)
 
 **Note:** Version bump only for package @home/lg2mqtt
