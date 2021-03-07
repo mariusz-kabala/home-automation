@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.5](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.10.4...@home/stats-collector@0.10.5) (2021-03-07)
+
+
+### Bug Fixes
+
+* linter fixes ([1af64ca](https://github.com/mariusz-kabala/homeAutomation/commit/1af64cabb2e40797838c1a2337fb7c34ac9b4b54))
+
+
+
+
+
 ## [0.10.4](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.10.3...@home/stats-collector@0.10.4) (2021-02-21)
 
 **Note:** Version bump only for package @home/stats-collector

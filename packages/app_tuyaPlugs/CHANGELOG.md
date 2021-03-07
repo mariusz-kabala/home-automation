@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.9](https://github.com/mariusz-kabala/homeAutomation/compare/@home/tuya-plugs@0.1.8...@home/tuya-plugs@0.1.9) (2021-03-07)
+
+
+### Bug Fixes
+
+* linter fixes ([1af64ca](https://github.com/mariusz-kabala/homeAutomation/commit/1af64cabb2e40797838c1a2337fb7c34ac9b4b54))
+
+
+
+
+
 ## [0.1.8](https://github.com/mariusz-kabala/homeAutomation/compare/@home/tuya-plugs@0.1.7...@home/tuya-plugs@0.1.8) (2020-11-22)
 
 

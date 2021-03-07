@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.13](https://github.com/mariusz-kabala/homeAutomation/compare/@home/bot@0.7.12...@home/bot@0.7.13) (2021-03-07)
+
+
+### Bug Fixes
+
+* linter fixes ([1af64ca](https://github.com/mariusz-kabala/homeAutomation/commit/1af64cabb2e40797838c1a2337fb7c34ac9b4b54))
+
+
+
+
+
 ## [0.7.12](https://github.com/mariusz-kabala/homeAutomation/compare/@home/bot@0.7.11...@home/bot@0.7.12) (2021-03-06)
 
 **Note:** Version bump only for package @home/bot
