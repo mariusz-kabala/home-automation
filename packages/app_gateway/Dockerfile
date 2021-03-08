@@ -4,6 +4,6 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-RUN yarn && yarn workspaces run prepare && yarn workspace @home/service-apollo build
+RUN yarn && yarn workspaces run prepare && yarn workspace @home/gateway build
 
-CMD [ "yarn", "workspace", "@home/service-apollo", "start" ]
+CMD [ "yarn", "workspace", "@home/gateway", "start" ]
