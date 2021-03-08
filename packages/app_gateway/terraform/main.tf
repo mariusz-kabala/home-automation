@@ -4,7 +4,7 @@ resource "docker_container" "apollo" {
   restart = "always"
 
   networks_advanced {
-      name = "homeAutomation"
+      name = "global"
   }
 
   labels {
