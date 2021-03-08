@@ -1,6 +1,6 @@
 resource "docker_container" "apollo" {
   name  = "apollo"
-  image = "${var.DOCKER_REGISTRY}/home/serviceapollo:${var.tag}"
+  image = "${var.DOCKER_REGISTRY}/home/gateway:${var.tag}"
   restart = "always"
 
   networks_advanced {
