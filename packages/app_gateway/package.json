@@ -1,6 +1,6 @@
 {
   "name": "@home/gateway",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -15,14 +15,14 @@
     "prepare": "exit 0"
   },
   "dependencies": {
+    "@home/commons": "*",
     "apollo-datasource-rest": "^0.9.5",
     "apollo-server-express": "^2.19.0",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "graphql": "^15.4.0",
-    "@home/commons": "*"
+    "graphql": "^15.4.0"
   },
   "devDependencies": {
     "@rollup/plugin-graphql": "^1.0.0",
