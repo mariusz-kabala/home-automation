@@ -7,28 +7,30 @@ resource "docker_container" "apollo" {
       name = "homeAutomation"
   }
 
-  labels = [
-    {
-        label = "traefik.enable"
-        value = "true"
-    },
-    {
-        label = "traefik.http.routers.homeGateway.rule"
-        value = "Host(`home.kabala.tech`) && PathPrefix(`/graphql`)"
-    },
-    {
-        label = "traefik.http.services.homeGateway.loadbalancer.server.port"
-        value = "3000"
-    },
-    {
-        label = "traefik.http.routers.homeGateway.middlewares"
-        value = "homeGateway-stripprefix"
-    },
-    {
-        label = "traefik.http.middlewares.homeGateway-stripprefix.stripprefix.prefixes"
-        value = "/graphql"
-    }
-]
+  labels {
+    label = "traefik.enable"
+    value = "true"
+  }
+
+  labels {
+    label = "traefik.http.routers.homeGateway.rule"
+    value = "Host(`home.kabala.tech`) && PathPrefix(`/graphql`)"
+  }
+
+  labels {
+    label = "traefik.http.services.homeGateway.loadbalancer.server.port"
+    value = "3000"
+  }
+
+  labels {
+    label = "traefik.http.routers.homeGateway.middlewares"
+    value = "homeGateway-stripprefix"
+  }
+
+  labels {
+    label = "traefik.http.middlewares.homeGateway-stripprefix.stripprefix.prefixes"
+    value = "/graphql"
+  }
 
   env = [
       "API_HOST=192.168.0.34",
