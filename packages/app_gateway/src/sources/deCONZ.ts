@@ -1,14 +1,16 @@
-import { RESTDataSource } from 'apollo-datasource-rest'
+import { Service } from 'typedi'
+import { API } from './API'
 import config from 'config'
 
-export class DeCONZLightsAPI extends RESTDataSource {
+@Service()
+export class DeCONZLightsAPI extends API {
   constructor() {
     super()
     this.baseURL = `http://${config.get<string>('apiHost')}/api/${config.get<string>('apiToken')}/`
   }
 
   public async getLights() {
-    const data = await this.get('lights')
+    const data = await this.get<any>('lights')
 
     return Object.keys(data)
       .map(id => ({
@@ -19,6 +21,17 @@ export class DeCONZLightsAPI extends RESTDataSource {
   }
 
   public async getLight(id: string) {
-    return await this.get(`lights/${id}`)
+    return await this.get<any>(`lights/${id}`)
+  }
+
+  public async getGroups() {
+    const data = await this.get<any>('groups')
+
+    return Object.keys(data).map(id => ({
+      id,
+      name: data[id].name,
+      state: data[id].action,
+      devices: data[id].lights,
+    }))
   }
 }

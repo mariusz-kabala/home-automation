@@ -16,13 +16,16 @@
   },
   "dependencies": {
     "@home/commons": "*",
-    "apollo-datasource-rest": "^0.9.5",
     "apollo-server-express": "^2.19.0",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "graphql": "^15.4.0"
+    "graphql": "^15.4.0",
+    "class-validator": "^0.13.1",
+    "type-graphql": "^1.1.1",
+    "reflect-metadata": "^0.1.13",
+    "typedi": "^0.10.0"
   },
   "devDependencies": {
     "@rollup/plugin-graphql": "^1.0.0",
