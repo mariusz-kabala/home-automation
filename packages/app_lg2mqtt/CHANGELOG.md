@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/lg2mqtt@0.5.17...@home/lg2mqtt@0.6.0) (2021-03-10)
+
+
+### Features
+
+* refactor apollo service ([4e2cbdc](https://github.com/mariusz-kabala/homeAutomation/commit/4e2cbdc5704f3bfaa629261c9e468b1e4cc51035))
+
+
+
+
+
 ## [0.5.17](https://github.com/mariusz-kabala/homeAutomation/compare/@home/lg2mqtt@0.5.16...@home/lg2mqtt@0.5.17) (2021-03-07)
 
 

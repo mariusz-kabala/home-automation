@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.1.5...@home/gateway@0.2.0) (2021-03-10)
+
+
+### Bug Fixes
+
+* proper labels in terraform ([f34a3ab](https://github.com/mariusz-kabala/homeAutomation/commit/f34a3ab7dd88c6848dac61daf33be89e4e819221))
+* rename docker container ([be8441b](https://github.com/mariusz-kabala/homeAutomation/commit/be8441b204f8d7a391a984838fefe521648656ba))
+* use global network ([4e5f089](https://github.com/mariusz-kabala/homeAutomation/commit/4e5f08965a0fe0f9e6f9bc937ca4bfb88108ff04))
+
+
+### Features
+
+* refactor apollo service ([4e2cbdc](https://github.com/mariusz-kabala/homeAutomation/commit/4e2cbdc5704f3bfaa629261c9e468b1e4cc51035))
+
+
+
+
+
 ## [0.1.5](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.1.4...@home/gateway@0.1.5) (2021-03-08)
 
 
