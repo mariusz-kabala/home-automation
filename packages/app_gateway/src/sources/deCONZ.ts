@@ -1,6 +1,11 @@
 import { Service } from 'typedi'
 import { API } from './API'
 import config from 'config'
+import { LightStateInput } from 'types/input/LightState'
+import { LightGroupParams } from 'types/input/LightGroupParams'
+import { LightsGroupStateInput } from 'types/input/LightsGroupState'
+import { Light } from 'types/Light'
+import { LightsGroup } from 'types/LightsGroup'
 import { LightState } from 'types/LightState'
 
 @Service()
@@ -10,8 +15,8 @@ export class DeCONZLightsAPI extends API {
     this.baseURL = `http://${config.get<string>('apiHost')}/api/${config.get<string>('apiToken')}/`
   }
 
-  public async getLights() {
-    const data = await this.get<any>('lights')
+  public async getLights(): Promise<Light[]> {
+    const data = await this.get<{ [id: string]: Omit<Light, 'id'> }>('lights')
 
     return Object.keys(data)
       .map(id => ({
@@ -21,12 +26,18 @@ export class DeCONZLightsAPI extends API {
       .filter(light => light.modelid !== 'RaspBee')
   }
 
-  public async getLight(id: string) {
-    return await this.get<any>(`lights/${id}`)
+  public async getLight(id: string): Promise<Light> {
+    return await this.get<Light>(`lights/${id}`)
   }
 
-  public async getGroups() {
-    const data = await this.get<any>('groups')
+  public async getGroups(): Promise<Partial<LightsGroup> & { devices: string[] }[]> {
+    const data = await this.get<{
+      [id: string]: {
+        name: string
+        action: LightState
+        lights: string[]
+      }
+    }>('groups')
 
     return Object.keys(data).map(id => ({
       id,
@@ -36,9 +47,31 @@ export class DeCONZLightsAPI extends API {
     }))
   }
 
-  public async updateLightState(id: string, state: LightState): Promise<any> {
-    await this.put<LightState>(`lights/${id}/state`, state)
+  public async getGroup(id: string): Promise<LightsGroup> {
+    return this.get<LightsGroup>(`groups/${id}`)
+  }
 
-    return await this.get<any>(`lights/${id}`)
+  public async updateLightState(id: string, state: LightStateInput): Promise<Light> {
+    await this.put<LightStateInput>(`lights/${id}/state`, state)
+
+    return this.getLight(id)
+  }
+
+  public async updateLightParams(id: string, params: { name: string }): Promise<Light> {
+    await this.put<{ name: string }>(`lights/${id}`, params)
+
+    return this.getLight(id)
+  }
+
+  public async updateGroupParams(id: string, params: LightGroupParams): Promise<LightsGroup> {
+    await this.put<LightGroupParams>(`groups/${id}`, params)
+
+    return this.getGroup(id)
+  }
+
+  public async updateGroupState(id: string, state: LightsGroupStateInput): Promise<LightsGroup> {
+    await this.put<LightsGroupStateInput>(`groups/${id}`, state)
+
+    return this.getGroup(id)
   }
 }
