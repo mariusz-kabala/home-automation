@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.2.0...@home/gateway@0.3.0) (2021-03-12)
+
+
+### Features
+
+* add first mutation ([f53e5ef](https://github.com/mariusz-kabala/homeAutomation/commit/f53e5efad1dbbfdb2e1f7dd3e2724476da81ad3e))
+* add main lights and groups mutations ([398843a](https://github.com/mariusz-kabala/homeAutomation/commit/398843aa6ec825596d2130e95f7c1efeb6dc91e4))
+
+
+
+
+
 # [0.2.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.1.5...@home/gateway@0.2.0) (2021-03-10)
 
 
