@@ -1,6 +1,7 @@
 import { Service } from 'typedi'
 import { API } from './API'
 import config from 'config'
+import { LightState } from 'types/LightState'
 
 @Service()
 export class DeCONZLightsAPI extends API {
@@ -33,5 +34,11 @@ export class DeCONZLightsAPI extends API {
       state: data[id].action,
       devices: data[id].lights,
     }))
+  }
+
+  public async updateLightState(id: string, state: LightState): Promise<any> {
+    await this.put<LightState>(`lights/${id}/state`, state)
+
+    return await this.get<any>(`lights/${id}`)
   }
 }
