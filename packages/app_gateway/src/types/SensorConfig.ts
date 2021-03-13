@@ -1,38 +1,38 @@
-import { ObjectType, Field } from 'type-graphql'
+import { ObjectType, Field, InterfaceType } from 'type-graphql'
 
-ObjectType()
-export class DaylightSensorConfig {
-  @Field()
+@InterfaceType()
+export abstract class DaylightSensorConfig {
+  @Field({ nullable: true })
   configured: boolean
 
-  @Field()
+  @Field({ nullable: true })
   on: boolean
 
-  @Field()
+  @Field({ nullable: true })
   sunriseoffset: number
 
-  @Field()
+  @Field({ nullable: true })
   sunsetoffset: number
 }
 
 ObjectType()
 export class MontionSensorConfig {
-  @Field()
+    @Field({ nullable: true })
   alert: string
 
-  @Field()
+  @Field({ nullable: true })
   battery: number
 
-  @Field()
+  @Field({ nullable: true })
   deplay: number
 
-  @Field()
+  @Field({ nullable: true })
   ledindication: boolean
 
-  @Field()
+  @Field({ nullable: true })
   on: boolean
 
-  @Field()
+  @Field({ nullable: true })
   reachable: boolean
 
   @Field({ nullable: true })
@@ -47,13 +47,13 @@ export class MontionSensorConfig {
   @Field({ nullable: true })
   tholdoffset: number
 
-  @Field()
+  @Field({ nullable: true })
   usertest: boolean
 }
 
 ObjectType()
 export class DoorSensorConfig {
-  @Field()
+    @Field({ nullable: true })
   battery: boolean
 
   @Field()
@@ -80,3 +80,5 @@ export class MultiSensorConfig {
   @Field({ nullable: true })
   offset: number
 }
+
+export type SensorConfig = DaylightSensorConfig | DoorSensorConfig | MultiSensorConfig

@@ -1,4 +1,6 @@
 import { ObjectType, Field, ID } from 'type-graphql'
+import { SensorConfig } from './SensorConfig'
+import { SensorState } from './SensorState'
 
 @ObjectType()
 export class Sensor {
@@ -22,4 +24,10 @@ export class Sensor {
 
   @Field()
   uniqueid: string
+
+  @Field()
+  state: SensorState
+
+  @Field()
+  config: SensorConfig
 }

@@ -12,10 +12,11 @@ import { createServer } from 'http'
 
 import { LightResolver } from 'resolvers/Light'
 import { LightsGroupResolver } from 'resolvers/LightsGroup'
+import { SensorResolver } from 'resolvers/Sensor'
 
 async function bootstrap() {
   const schema = await buildSchema({
-    resolvers: [LightResolver, LightsGroupResolver],
+    resolvers: [LightResolver, LightsGroupResolver, SensorResolver],
     container: Container,
   })
 

@@ -1,109 +1,127 @@
-import { ObjectType, Field } from 'type-graphql'
+import { ObjectType, Field, InterfaceType } from 'type-graphql'
 
-@ObjectType()
-export class DaylightSensorState {
-  @Field()
-  dark: boolean
+@InterfaceType()
+export abstract class DaylightSensorState {
+  @Field({ nullable: true })
+  dark?: boolean
 
-  @Field()
-  daylight: boolean
+  @Field({ nullable: true })
+  daylight?: boolean
 
-  @Field()
-  lastupdated: string
+  @Field({ nullable: true })
+  status?: number
 
-  @Field()
-  status: number
+  @Field({ nullable: true })
+  sunrise?: string
 
-  @Field()
-  sunrise: string
-
-  @Field()
-  sunset: string
+  @Field({ nullable: true })
+  sunset?: string
 }
 
-@ObjectType()
-export class PresenceSensorState {
-  @Field()
-  presence: boolean
-
-  @Field()
-  lastupdated: string
+@InterfaceType()
+export abstract class PresenceSensorState {
+  @Field({ nullable: true })
+  presence?: boolean
 }
 
-@ObjectType()
-export class TemperatureSensorState {
-  @Field()
-  temperature: number
-
-  @Field()
-  lastupdated: string
+@InterfaceType()
+export abstract class TemperatureSensorState {
+  @Field({ nullable: true })
+  temperature?: number
 }
 
-@ObjectType()
-export class LightSensorState {
-  @Field()
-  dark: boolean
+@InterfaceType()
+export abstract class LightSensorState {
+  @Field({ nullable: true })
+  dark?: boolean
 
-  @Field()
-  daylight: boolean
+  @Field({ nullable: true })
+  daylight?: boolean
 
-  @Field()
-  lastupdated: string
+  @Field({ nullable: true })
+  lightlevel?: number
 
-  @Field()
-  lightlevel: number
-
-  @Field()
-  lux: number
+  @Field({ nullable: true })
+  lux?: number
 }
 
-@ObjectType()
-export class DoorSensorState {
-  @Field()
-  open: boolean
-
-  @Field()
-  lastupdated: string
+@InterfaceType()
+export abstract class DoorSensorState {
+  @Field({ nullable: true })
+  open?: boolean
 }
 
-@ObjectType()
-export class HumiditySensorState {
-  @Field()
-  humidity: number
-
-  @Field()
-  lastupdated: string
+@InterfaceType()
+export abstract class HumiditySensorState {
+  @Field({ nullable: true })
+  humidity?: number
 }
 
-@ObjectType()
-export class PressureSensorState {
-  @Field()
-  pressure: number
-
-  @Field()
-  lastupdated: string
+@InterfaceType()
+export abstract class PressureSensorState {
+  @Field({ nullable: true })
+  pressure?: number
 }
 
-@ObjectType()
-export class EnergyConsumptionSensorState {
-  @Field()
-  consumption: number
-
-  @Field()
-  lastupdated: string
+@InterfaceType()
+export abstract class EnergyConsumptionSensorState {
+  @Field({ nullable: true })
+  consumption?: number
 }
 
-@ObjectType()
-export class PowerSensorState {
-  @Field()
-  current: number
+@InterfaceType()
+export abstract class PowerSensorState {
+  @Field({ nullable: true })
+  current?: number
 
-  @Field()
-  power: number
+  @Field({ nullable: true })
+  power?: number
 
-  @Field()
-  voltage: number
+  @Field({ nullable: true })
+  voltage?: number
+}
 
+@ObjectType({
+  implements: [
+    DaylightSensorState,
+    PresenceSensorState,
+    TemperatureSensorState,
+    LightSensorState,
+    DoorSensorState,
+    HumiditySensorState,
+    PressureSensorState,
+    EnergyConsumptionSensorState,
+    PowerSensorState,
+  ],
+})
+export class SensorState
+  implements
+    DaylightSensorState,
+    PresenceSensorState,
+    TemperatureSensorState,
+    LightSensorState,
+    DoorSensorState,
+    HumiditySensorState,
+    PressureSensorState,
+    EnergyConsumptionSensorState,
+    PowerSensorState {
   @Field()
   lastupdated: string
+
+  dark?: boolean
+  daylight?: boolean
+  status?: number
+  sunrise?: string
+  sunset?: string
+  presence?: boolean
+  temperature?: number
+  lightlevel?: number
+  lux?: number
+  open?: boolean
+  humidity?: number
+  pressure?: number
+  consumption?: number
+  current?: number
+  power?: number
+  voltage?: number
 }

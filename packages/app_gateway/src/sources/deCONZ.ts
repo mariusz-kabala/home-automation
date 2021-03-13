@@ -7,6 +7,7 @@ import { LightsGroupStateInput } from 'types/input/LightsGroupState'
 import { Light } from 'types/Light'
 import { LightsGroup } from 'types/LightsGroup'
 import { LightState } from 'types/LightState'
+import { Sensor } from 'types/Sensor'
 
 @Service()
 export class DeCONZLightsAPI extends API {
@@ -27,7 +28,12 @@ export class DeCONZLightsAPI extends API {
   }
 
   public async getLight(id: string): Promise<Light> {
-    return await this.get<Light>(`lights/${id}`)
+    const data = await this.get<Omit<Light, 'id'>>(`lights/${id}`)
+
+    return {
+      id,
+      ...data,
+    }
   }
 
   public async getGroups(): Promise<Partial<LightsGroup> & { devices: string[] }[]> {
@@ -48,7 +54,30 @@ export class DeCONZLightsAPI extends API {
   }
 
   public async getGroup(id: string): Promise<LightsGroup> {
-    return this.get<LightsGroup>(`groups/${id}`)
+    const data = await this.get<Omit<LightsGroup, 'id'>>(`groups/${id}`)
+
+    return {
+      id,
+      ...data,
+    }
+  }
+
+  public async getSensors(): Promise<Sensor[]> {
+    const data = await this.get<{ [id: string]: Omit<Sensor, 'id'> }>('sensors')
+
+    return Object.keys(data).map(id => ({
+      id,
+      ...data[id],
+    }))
+  }
+
+  public async getSensor(id: string): Promise<Sensor> {
+    const data = await this.get<Omit<Sensor, 'id'>>(`sensors/${id}`)
+
+    return {
+      id,
+      ...data,
+    }
   }
 
   public async updateLightState(id: string, state: LightStateInput): Promise<Light> {
