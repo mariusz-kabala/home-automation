@@ -26,4 +26,7 @@ export class Light {
 
   @Field(() => LightState)
   state: LightState
+
+  @Field()
+  uniqueid: string
 }

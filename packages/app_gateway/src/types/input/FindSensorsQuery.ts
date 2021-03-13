@@ -1,9 +1,9 @@
 import { InputType, Field } from 'type-graphql'
 import { SensorType } from 'enums/SensorType'
 
-InputType()
+@InputType()
 export class FindSensorsQuery {
-  @Field(() => SensorType, { nullable: true })
+  @Field(() => String, { nullable: true })
   type: SensorType
 
   @Field({ nullable: true })

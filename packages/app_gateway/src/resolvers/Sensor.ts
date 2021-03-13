@@ -3,6 +3,8 @@ import { Service } from 'typedi'
 import { Sensor } from 'types/Sensor'
 import { DeCONZLightsAPI } from 'sources/deCONZ'
 import { FindSensorsQuery } from 'types/input/FindSensorsQuery'
+import { isInRoom } from 'helpers/mappers'
+import { Room } from 'enums/Rooms'
 
 @Service()
 @Resolver(Sensor)
@@ -20,8 +22,17 @@ export class SensorResolver {
   }
 
   @Query(() => [Sensor])
-  findSensors(@Arg('query') query: FindSensorsQuery): Promise<Sensor[]> {
-    console.log(query)
-    return this.deCONZService.getSensors()
+  async findSensors(@Arg('query', () => FindSensorsQuery) query: FindSensorsQuery): Promise<Sensor[]> {
+    let sensors = await this.deCONZService.getSensors()
+
+    if (query.room) {
+      sensors = sensors.filter(sensor => isInRoom(sensor, query.room as Room, 'Sensor'))
+    }
+
+    if (query.type) {
+      sensors = sensors.filter(sensor => sensor.type === query.type)
+    }
+
+    return sensors
   }
 }
