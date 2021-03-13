@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.3.0...@home/gateway@0.4.0) (2021-03-13)
+
+
+### Bug Fixes
+
+* fixed queries ([50ce093](https://github.com/mariusz-kabala/homeAutomation/commit/50ce09392da6c0cdc76c13318a40687d64933333))
+
+
+### Features
+
+* expose sensors ([22792df](https://github.com/mariusz-kabala/homeAutomation/commit/22792df13744e583767c079db28ae2067c678fc9))
+* new, sensor typings ([b0b36e7](https://github.com/mariusz-kabala/homeAutomation/commit/b0b36e72e6c17e060fb43558f1f7f43ce71b1e14))
+
+
+
+
+
 # [0.3.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.2.0...@home/gateway@0.3.0) (2021-03-12)
 
 
