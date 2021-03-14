@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.4.2...@home/gateway@0.5.0) (2021-03-14)
+
+
+### Features
+
+* better consul integration ([7b31751](https://github.com/mariusz-kabala/homeAutomation/commit/7b317519e1f5d1b83466742ca7dfaf824a444251))
+
+
+
+
+
 ## [0.4.2](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.4.1...@home/gateway@0.4.2) (2021-03-14)
 
 **Note:** Version bump only for package @home/gateway
