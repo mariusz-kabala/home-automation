@@ -6,7 +6,8 @@ import depthLimit from 'graphql-depth-limit'
 import { buildSchema } from 'type-graphql'
 import compression from 'compression'
 import cors from 'cors'
-import { registerInConsul } from '@home/commons'
+import config from 'config'
+import { registerInConsul, ConsulServices } from '@home/commons'
 import { ApolloServer } from 'apollo-server-express'
 import { createServer } from 'http'
 
@@ -15,6 +16,10 @@ import { LightsGroupResolver } from 'resolvers/LightsGroup'
 import { SensorResolver } from 'resolvers/Sensor'
 
 async function bootstrap() {
+  const consulServices = new ConsulServices(config.get<string[]>('consulServices'))
+
+  Container.set({ id: 'consulServices', factory: () => consulServices })
+
   const schema = await buildSchema({
     resolvers: [LightResolver, LightsGroupResolver, SensorResolver],
     container: Container,

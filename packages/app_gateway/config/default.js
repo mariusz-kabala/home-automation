@@ -8,6 +8,7 @@ module.exports = {
   apiHost: API_HOST,
   consulHost: CONSUL_HOST,
   consulPort: CONSUL_PORT,
+  consulServices: ['pollutionReports', 'openWeather', 'statsCollector', 'lg2mqtt'],
   mappers: {
     sensorToRoom: {
       // mac address - room
