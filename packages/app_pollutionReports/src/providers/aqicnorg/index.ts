@@ -63,7 +63,7 @@ export function getRunAqicnorg(store: Store) {
         logger.log({
           level: 'error',
           provider: 'aqicnorg',
-          message: `Error while fetching pollution report for ${location}: ${err}`,
+          message: `Error while fetching pollution report for ${location}: ${JSON.stringify(err)}`,
         })
       }
     }

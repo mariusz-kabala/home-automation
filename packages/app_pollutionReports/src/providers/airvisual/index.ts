@@ -67,7 +67,7 @@ export function getRunAirVisual(store: Store) {
         logger.log({
           level: 'error',
           provider: 'airvisual',
-          message: `Error while fetching pollution report for ${location}: ${err}`,
+          message: `Error while fetching pollution report for ${JSON.stringify(location)}: ${JSON.stringify(err)}`,
         })
       }
     }
