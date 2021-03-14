@@ -1,6 +1,6 @@
 {
   "name": "@home/commons",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "license": "ISC",
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
   "main": "dist/index.js",
@@ -9,8 +9,8 @@
   "dependencies": {
     "@home/logger": "0.1.2",
     "consul": "^0.40.0",
-    "lodash.set": "^4.3.2",
-    "lodash.get": "^4.4.2"
+    "lodash.get": "^4.4.2",
+    "lodash.set": "^4.3.2"
   },
   "devDependencies": {
     "@types/consul": "^0.23.34",

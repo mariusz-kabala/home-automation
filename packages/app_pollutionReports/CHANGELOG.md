@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/pollution-reports@0.4.23...@home/pollution-reports@0.5.0) (2021-03-14)
+
+
+### Features
+
+* http server for pollution reports ([ae409b8](https://github.com/mariusz-kabala/homeAutomation/commit/ae409b8e93c82f5791931626da8e574052140d53))
+
+
+
+
+
 ## [0.4.23](https://github.com/mariusz-kabala/homeAutomation/compare/@home/pollution-reports@0.4.22...@home/pollution-reports@0.4.23) (2021-03-07)
 
 

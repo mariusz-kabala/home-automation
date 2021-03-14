@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/commons@0.2.3...@home/commons@0.3.0) (2021-03-14)
+
+
+### Features
+
+* http server for pollution reports ([ae409b8](https://github.com/mariusz-kabala/homeAutomation/commit/ae409b8e93c82f5791931626da8e574052140d53))
+* store class ([f9c076a](https://github.com/mariusz-kabala/homeAutomation/commit/f9c076ace70a4e59bb58a1bc69db05490ab43634))
+
+
+
+
+
 ## [0.2.3](https://github.com/mariusz-kabala/homeAutomation/compare/@home/commons@0.2.2...@home/commons@0.2.3) (2021-03-07)
 
 **Note:** Version bump only for package @home/commons

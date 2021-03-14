@@ -1,6 +1,6 @@
 {
   "name": "@home/gateway",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -15,7 +15,7 @@
     "prepare": "exit 0"
   },
   "dependencies": {
-    "@home/commons": "*",
+    "@home/commons": "0.3.0",
     "apollo-server-express": "^2.19.0",
     "body-parser": "^1.19.0",
     "class-validator": "^0.13.1",
