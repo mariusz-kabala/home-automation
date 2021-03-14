@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/pollution-reports@0.5.0...@home/pollution-reports@0.6.0) (2021-03-14)
+
+
+### Features
+
+* add consul service class ([f7a294a](https://github.com/mariusz-kabala/homeAutomation/commit/f7a294a297c07b7127099f438a5fa8c5152db132))
+
+
+
+
+
 # [0.5.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/pollution-reports@0.4.23...@home/pollution-reports@0.5.0) (2021-03-14)
 
 
