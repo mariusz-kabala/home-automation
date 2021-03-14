@@ -26,7 +26,7 @@ function getIPAddress(): string | undefined {
 export const registerInConsul = (serviceName: string, port?: number): Promise<void> =>
   new Promise((resolve, reject) => {
     const ip = getIPAddress()
-    const CONSUL_ID = `${serviceName}-${ip}-${port}-${uuid.v4()}`
+    const CONSUL_ID = `${serviceName}-${ip}-${port ?? 'no-port'}-${uuid.v4()}`
     const consulDetails = {
       name: serviceName,
       tags: ['home-automation'],

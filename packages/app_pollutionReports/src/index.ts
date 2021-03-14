@@ -25,7 +25,7 @@ async function start() {
 
 start()
 
-registerInConsul('pollutionReports')
+registerInConsul('pollutionReports', port)
 
 app.listen(port, () => {
   logger.log({
