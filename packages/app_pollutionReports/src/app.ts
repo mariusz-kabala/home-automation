@@ -1,6 +1,7 @@
 import express, { Request, Response, NextFunction } from 'express'
 import morgan from 'morgan'
 import { Store } from '@home/commons'
+import { logger } from '@home/logger'
 
 export function initApp(store: Store) {
   const app = express()
@@ -17,6 +18,10 @@ export function initApp(store: Store) {
     const { city } = req.params
 
     if (!store.has(city)) {
+      logger.log({
+        level: 'error',
+        message: `[HTTP] City ${city} is not supported. Not found returned`,
+      })
       return res.status(404).end()
     }
 
@@ -27,6 +32,10 @@ export function initApp(store: Store) {
     const { provider } = req.params
 
     if (!store.has(provider)) {
+      logger.log({
+        level: 'error',
+        message: `[HTTP] Provider ${provider} is not supported. Not found returned`,
+      })
       return res.status(404).end()
     }
 
