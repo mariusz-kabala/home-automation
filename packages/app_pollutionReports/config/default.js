@@ -19,4 +19,5 @@ module.exports = {
     },
   ],
   aqicnorgLocations: ['Szczecin'],
+  port: 3000,
 }

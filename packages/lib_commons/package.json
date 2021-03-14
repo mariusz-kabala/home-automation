@@ -8,10 +8,14 @@
   "types": "dist/index.d.ts",
   "dependencies": {
     "@home/logger": "0.1.2",
-    "consul": "^0.40.0"
+    "consul": "^0.40.0",
+    "lodash.set": "^4.3.2",
+    "lodash.get": "^4.4.2"
   },
   "devDependencies": {
-    "@types/consul": "^0.23.34"
+    "@types/consul": "^0.23.34",
+    "@types/lodash.get": "^4.4.6",
+    "@types/lodash.set": "^4.3.6"
   },
   "scripts": {
     "build": "rollup -c ../../rollup.config.js",

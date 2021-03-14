@@ -3,6 +3,7 @@ import config from 'config'
 import { v4 as uuid4 } from 'uuid'
 import { publish } from '@home/mqtt'
 import { logger } from '@home/logger'
+import { Store } from '@home/commons'
 
 import { IAirVisualResponse } from './types'
 
@@ -29,41 +30,46 @@ function publishAirVisual(response: IAirVisualResponse) {
   })
 }
 
-export async function runAirVisual() {
-  const locations = config.get<
-    {
-      city: string
-      state: string
-      country: string
-    }[]
-  >('airVisualLocations')
+export function getRunAirVisual(store: Store) {
+  return async () => {
+    const locations = config.get<
+      {
+        city: string
+        state: string
+        country: string
+      }[]
+    >('airVisualLocations')
 
-  for (const location of locations) {
-    try {
-      const results = await fetchAirVisualResults(location)
+    for (const location of locations) {
+      try {
+        const results = await fetchAirVisualResults(location)
 
-      if (results.status !== 'success') {
+        if (results.status !== 'success') {
+          logger.log({
+            level: 'error',
+            provider: 'airvisual',
+            message: `Invalid AirVisual response ${JSON.stringify(results)}`,
+          })
+          continue
+        }
+
+        logger.log({
+          level: 'info',
+          message: `New report: ${JSON.stringify(results)}`,
+          provider: 'airvisual',
+        })
+
+        publishAirVisual(results)
+
+        store.set(`airvisual.${results.data.city}`, results)
+        store.set(`${results.data.city}.airvisual`, results)
+      } catch (err) {
         logger.log({
           level: 'error',
           provider: 'airvisual',
-          message: `Invalid AirVisual response ${JSON.stringify(results)}`,
+          message: `Error while fetching pollution report for ${location}: ${err}`,
         })
-        continue
       }
-
-      logger.log({
-        level: 'info',
-        message: `New report: ${JSON.stringify(results)}`,
-        provider: 'airvisual',
-      })
-
-      publishAirVisual(results)
-    } catch (err) {
-      logger.log({
-        level: 'error',
-        provider: 'airvisual',
-        message: `Error while fetching pollution report for ${location}: ${err}`,
-      })
     }
   }
 }

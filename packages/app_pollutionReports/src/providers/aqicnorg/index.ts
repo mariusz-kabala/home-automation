@@ -3,6 +3,7 @@ import config from 'config'
 import { v4 as uuid4 } from 'uuid'
 import { publish } from '@home/mqtt'
 import { logger } from '@home/logger'
+import { Store } from '@home/commons'
 
 import { IAqicnorgResponse } from './types'
 
@@ -31,35 +32,40 @@ function publishResults(response: IAqicnorgResponse, location: string) {
   })
 }
 
-export async function runAqicnorg() {
-  const locations = config.get<string[]>('aqicnorgLocations')
+export function getRunAqicnorg(store: Store) {
+  return async () => {
+    const locations = config.get<string[]>('aqicnorgLocations')
 
-  for (const location of locations) {
-    try {
-      const results = await fetchResults(location)
+    for (const location of locations) {
+      try {
+        const results = await fetchResults(location)
 
-      if (results.status !== 'ok') {
+        if (results.status !== 'ok') {
+          logger.log({
+            level: 'error',
+            provider: 'aqicnorg',
+            message: `Invalid Aqicnorg response ${JSON.stringify(results)}`,
+          })
+          continue
+        }
+
+        logger.log({
+          level: 'info',
+          message: `New report: ${JSON.stringify(results)}`,
+          provider: 'aqicnorg',
+        })
+
+        publishResults(results, location)
+
+        store.set(`aqicnorg.${location}`, results)
+        store.set(`${location}.aqicnorg`, results)
+      } catch (err) {
         logger.log({
           level: 'error',
           provider: 'aqicnorg',
-          message: `Invalid Aqicnorg response ${JSON.stringify(results)}`,
+          message: `Error while fetching pollution report for ${location}: ${err}`,
         })
-        continue
       }
-
-      logger.log({
-        level: 'info',
-        message: `New report: ${JSON.stringify(results)}`,
-        provider: 'aqicnorg',
-      })
-
-      publishResults(results, location)
-    } catch (err) {
-      logger.log({
-        level: 'error',
-        provider: 'aqicnorg',
-        message: `Error while fetching pollution report for ${location}: ${err}`,
-      })
     }
   }
 }
