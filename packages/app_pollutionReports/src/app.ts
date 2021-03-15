@@ -22,7 +22,10 @@ export function initApp(store: Store) {
         level: 'error',
         message: `[HTTP] City ${city} is not supported. Not found returned`,
       })
-      return res.status(404).end()
+      return res
+        .status(404)
+        .json({ status: 'not found' })
+        .end()
     }
 
     res.status(200).json(store.get(city))
@@ -36,7 +39,10 @@ export function initApp(store: Store) {
         level: 'error',
         message: `[HTTP] Provider ${provider} is not supported. Not found returned`,
       })
-      return res.status(404).end()
+      return res
+        .status(404)
+        .json({ status: 'not found' })
+        .end()
     }
 
     res.status(200).json(store.get(provider))
