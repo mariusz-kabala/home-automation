@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.3](https://github.com/mariusz-kabala/homeAutomation/compare/@home/pollution-reports@0.7.2...@home/pollution-reports@0.7.3) (2021-03-15)
+
+
+### Bug Fixes
+
+* add json payload to 404 ([1fcfcad](https://github.com/mariusz-kabala/homeAutomation/commit/1fcfcadbfa9bc984ba944ba0609f82224c575f80))
+
+
+
+
+
 ## [0.7.2](https://github.com/mariusz-kabala/homeAutomation/compare/@home/pollution-reports@0.7.1...@home/pollution-reports@0.7.2) (2021-03-14)
 
 
