@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.4](https://github.com/mariusz-kabala/homeAutomation/compare/@home/pollution-reports@0.7.3...@home/pollution-reports@0.7.4) (2021-03-21)
+
+
+### Bug Fixes
+
+* adjust endpoints ([73ad410](https://github.com/mariusz-kabala/homeAutomation/commit/73ad410e7ed3cc9105a912bacd3f3265955384e2))
+
+
+
+
+
 ## [0.7.3](https://github.com/mariusz-kabala/homeAutomation/compare/@home/pollution-reports@0.7.2...@home/pollution-reports@0.7.3) (2021-03-15)
 
 

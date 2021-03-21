@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.27](https://github.com/mariusz-kabala/homeAutomation/compare/@home/ws2mqtt@0.6.26...@home/ws2mqtt@0.6.27) (2021-03-21)
+
+
+### Bug Fixes
+
+* api error handling ([f1b5a78](https://github.com/mariusz-kabala/homeAutomation/commit/f1b5a7826dbaf314a4ea632156014209fea3174d))
+* logs ([dc964de](https://github.com/mariusz-kabala/homeAutomation/commit/dc964de0cdd20f089a02bf67a1ea4aa51dcc9fdf))
+
+
+
+
+
 ## [0.6.26](https://github.com/mariusz-kabala/homeAutomation/compare/@home/ws2mqtt@0.6.25...@home/ws2mqtt@0.6.26) (2021-03-21)
 
 
