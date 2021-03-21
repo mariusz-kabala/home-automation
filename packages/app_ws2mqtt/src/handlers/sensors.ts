@@ -15,7 +15,7 @@ function publishSensorsInfo() {
     .catch(err => {
       logger.log({
         level: 'error',
-        message: `Can not fetch lights info ${err}`,
+        message: `Can not fetch sensor info ${err}`,
       })
     })
 }
