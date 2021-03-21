@@ -6,11 +6,18 @@ import config from 'config'
 import { IWSSensorMsg } from '../types'
 
 function publishSensorsInfo() {
-  fetchSensors().then(response => {
-    for (const id of Object.keys(response)) {
-      publish(`${config.get<string>('namespace')}/sensors/${id}`, response[id], { retain: true, qos: 0 })
-    }
-  })
+  fetchSensors()
+    .then(response => {
+      for (const id of Object.keys(response)) {
+        publish(`${config.get<string>('namespace')}/sensors/${id}`, response[id], { retain: true, qos: 0 })
+      }
+    })
+    .catch(err => {
+      logger.log({
+        level: 'error',
+        message: `Can not fetch lights info ${err}`,
+      })
+    })
 }
 
 function publishSensorDetails(id: string) {
