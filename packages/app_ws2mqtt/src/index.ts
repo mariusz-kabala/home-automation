@@ -10,15 +10,21 @@ import { handleGroupMsg } from './handlers/groups'
 let pingTimeout: NodeJS.Timeout
 let ws: WebSocket
 
+function exitProcess() {
+  setTimeout(() => {
+    process.exit(1)
+  }, 1000)
+}
+
 function heartbeat() {
   clearTimeout(pingTimeout)
   pingTimeout = setTimeout(() => {
-    ws.terminate()
     logger.log({
       level: 'error',
-      message: 'Websocket connection has been closed',
+      message: 'Ping timeout! Websocket connection has been closed',
     })
-    process.exit(1)
+    ws.terminate()
+    exitProcess()
   }, 30000)
 }
 
@@ -38,7 +44,7 @@ function start() {
       level: 'error',
       message: 'Websocket connection has been closed',
     })
-    process.exit(1)
+    exitProcess()
   })
 
   ws.onmessage = (wsMessage: { data: Data }) => {
@@ -75,7 +81,7 @@ function start() {
       message: `Websocket error: ${event.message} ${event.error}`,
     })
 
-    process.exit(1)
+    exitProcess()
   }
 }
 
