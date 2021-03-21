@@ -17,7 +17,7 @@ export function initApp(store: Store) {
   app.get('/city/:city', (req: Request, res: Response) => {
     const { city } = req.params
 
-    if (!store.has(city)) {
+    if (!store.has(city.toLocaleLowerCase())) {
       logger.log({
         level: 'error',
         message: `[HTTP] City ${city} is not supported. Not found returned`,
@@ -28,7 +28,7 @@ export function initApp(store: Store) {
         .end()
     }
 
-    res.status(200).json(store.get(city))
+    res.status(200).json(store.get(city.toLocaleLowerCase()))
   })
 
   app.get('/provider/:provider', (req: Request, res: Response) => {

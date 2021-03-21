@@ -57,8 +57,8 @@ export function getRunAqicnorg(store: Store) {
 
         publishResults(results, location)
 
-        store.set(`aqicnorg.${location}`, results)
-        store.set(`${location}.aqicnorg`, results)
+        store.set(`aqicnorg.${location.toLowerCase()}`, results)
+        store.set(`${location.toLowerCase()}.aqicnorg`, results)
       } catch (err) {
         logger.log({
           level: 'error',

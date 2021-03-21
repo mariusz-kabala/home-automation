@@ -61,8 +61,8 @@ export function getRunAirVisual(store: Store) {
 
         publishAirVisual(results)
 
-        store.set(`airvisual.${results.data.city}`, results)
-        store.set(`${results.data.city}.airvisual`, results)
+        store.set(`airvisual.${results.data.city.toLowerCase()}`, results)
+        store.set(`${results.data.city.toLowerCase()}.airvisual`, results)
       } catch (err) {
         logger.log({
           level: 'error',
