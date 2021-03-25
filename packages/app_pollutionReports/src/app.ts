@@ -1,5 +1,6 @@
 import express, { Request, Response, NextFunction } from 'express'
 import morgan from 'morgan'
+import config from 'config'
 import { Store } from '@home/commons'
 import { logger } from '@home/logger'
 
@@ -14,7 +15,7 @@ export function initApp(store: Store) {
   })
   app.use(express.json())
 
-  app.get('/city/:city', (req: Request, res: Response) => {
+  app.get('/cities/:city', (req: Request, res: Response) => {
     const { city } = req.params
 
     if (!store.has(city.toLocaleLowerCase())) {
@@ -31,7 +32,31 @@ export function initApp(store: Store) {
     res.status(200).json(store.get(city.toLocaleLowerCase()))
   })
 
-  app.get('/provider/:provider', (req: Request, res: Response) => {
+  app.get('/cities', (_: Request, res: Response) => {
+    const airVisualLocations = config.get<{ city: string }[]>('airVisualLocations')
+    const aqicnorgLocations = config.get<string[]>('airVisualLocations')
+
+    const cities: string[] = []
+
+    for (const record of airVisualLocations) {
+      if (!cities.includes(record.city)) {
+        cities.push(record.city)
+      }
+    }
+
+    for (const city of aqicnorgLocations) {
+      if (!cities.includes(city)) {
+        cities.push(city)
+      }
+    }
+
+    res
+      .status(200)
+      .json(cities)
+      .end()
+  })
+
+  app.get('/providers/:provider', (req: Request, res: Response) => {
     const { provider } = req.params
 
     if (!store.has(provider)) {
@@ -46,6 +71,10 @@ export function initApp(store: Store) {
     }
 
     res.status(200).json(store.get(provider))
+  })
+
+  app.get('/providers', (_: Request, res: Response) => {
+    res.status(200).json(['aqicnorg', 'airvisual'])
   })
 
   app.get('/managment/heath', (_: Request, res: Response) => {
