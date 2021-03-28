@@ -55,7 +55,7 @@ export function getRunAirVisual(store: Store) {
 
         logger.log({
           level: 'info',
-          message: `New report: ${JSON.stringify(results)}`,
+          message: `New report`,
           provider: 'airvisual',
         })
 

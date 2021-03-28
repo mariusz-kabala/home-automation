@@ -51,7 +51,7 @@ export function getRunAqicnorg(store: Store) {
 
         logger.log({
           level: 'info',
-          message: `New report: ${JSON.stringify(results)}`,
+          message: `New report`,
           provider: 'aqicnorg',
         })
 
