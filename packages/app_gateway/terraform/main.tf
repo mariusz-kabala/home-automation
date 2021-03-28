@@ -22,15 +22,15 @@ resource "docker_container" "apollo" {
     value = "3000"
   }
 
-  labels {
-    label = "traefik.http.routers.homeGateway.middlewares"
-    value = "homeGateway-stripprefix"
-  }
+  # labels {
+  #   label = "traefik.http.routers.homeGateway.middlewares"
+  #   value = "homeGateway-stripprefix"
+  # }
 
-  labels {
-    label = "traefik.http.middlewares.homeGateway-stripprefix.stripprefix.prefixes"
-    value = "/graphql"
-  }
+  # labels {
+  #   label = "traefik.http.middlewares.homeGateway-stripprefix.stripprefix.prefixes"
+  #   value = "/graphql"
+  # }
 
   env = [
       "API_HOST=192.168.0.34",
