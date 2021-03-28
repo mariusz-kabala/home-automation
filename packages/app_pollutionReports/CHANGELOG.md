@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/pollution-reports@0.7.4...@home/pollution-reports@0.8.0) (2021-03-25)
+
+
+### Features
+
+* expose additional endpoint in pollutionReports service ([3ebfe63](https://github.com/mariusz-kabala/homeAutomation/commit/3ebfe630602733e05a1b82a0fa805e29b5343128))
+
+
+
+
+
 ## [0.7.4](https://github.com/mariusz-kabala/homeAutomation/compare/@home/pollution-reports@0.7.3...@home/pollution-reports@0.7.4) (2021-03-21)
 
 
