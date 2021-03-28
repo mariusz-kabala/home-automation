@@ -106,12 +106,12 @@ export class PollutionReportsService extends ConsulService {
   }
 
   public getCity(city: string): Promise<ICityResponse> {
-    return this.get<ICityResponse>(`city/${city}`)
+    return this.get<ICityResponse>(`cities/${city}`)
   }
 
   public getProvider<T = IAirvisualAPIResponse | IAqicnorgAPIResponse>(
     provider: string,
   ): Promise<{ [city: string]: T }> {
-    return this.get<{ [city: string]: T }>(`provider/${provider}`)
+    return this.get<{ [city: string]: T }>(`providers/${provider}`)
   }
 }
