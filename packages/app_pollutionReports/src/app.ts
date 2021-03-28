@@ -34,7 +34,7 @@ export function initApp(store: Store) {
 
   app.get('/cities', (_: Request, res: Response) => {
     const airVisualLocations = config.get<{ city: string }[]>('airVisualLocations')
-    const aqicnorgLocations = config.get<string[]>('airVisualLocations')
+    const aqicnorgLocations = config.get<string[]>('aqicnorgLocations')
 
     const cities: string[] = []
 

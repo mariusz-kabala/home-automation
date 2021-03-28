@@ -14,6 +14,7 @@ import { createServer } from 'http'
 import { LightResolver } from 'resolvers/Light'
 import { LightsGroupResolver } from 'resolvers/LightsGroup'
 import { SensorResolver } from 'resolvers/Sensor'
+import { PollutionResolver } from 'resolvers/Pollution'
 
 async function bootstrap() {
   const consulServices = new ConsulServices(config.get<string[]>('consulServices'))
@@ -21,7 +22,7 @@ async function bootstrap() {
   Container.set({ id: 'consulServices', factory: () => consulServices })
 
   const schema = await buildSchema({
-    resolvers: [LightResolver, LightsGroupResolver, SensorResolver],
+    resolvers: [LightResolver, LightsGroupResolver, SensorResolver, PollutionResolver],
     container: Container,
   })
 

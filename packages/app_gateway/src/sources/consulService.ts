@@ -3,7 +3,7 @@ import { ConsulServices } from '@home/commons'
 import fetch from 'node-fetch'
 
 export abstract class ConsulService {
-  protected serviceName = 'pollutionReports'
+  protected serviceName: string
 
   constructor(@Inject('consulServices') private readonly consulServices: ConsulServices) {}
 
