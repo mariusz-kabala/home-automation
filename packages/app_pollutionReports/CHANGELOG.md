@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/pollution-reports@0.8.0...@home/pollution-reports@0.9.0) (2021-03-28)
+
+
+### Features
+
+* support pollution service in graphql gateway ([7bd83aa](https://github.com/mariusz-kabala/homeAutomation/commit/7bd83aa891ebebcaafe1fdad8308f9cd1bf68c4f))
+
+
+
+
+
 # [0.8.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/pollution-reports@0.7.4...@home/pollution-reports@0.8.0) (2021-03-25)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.5.0...@home/gateway@0.6.0) (2021-03-28)
+
+
+### Features
+
+* support pollution service in graphql gateway ([7bd83aa](https://github.com/mariusz-kabala/homeAutomation/commit/7bd83aa891ebebcaafe1fdad8308f9cd1bf68c4f))
+
+
+
+
+
 # [0.5.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.4.2...@home/gateway@0.5.0) (2021-03-14)
 
 
