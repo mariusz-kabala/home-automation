@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.3](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.6.2...@home/gateway@0.6.3) (2021-03-28)
+
+
+### Bug Fixes
+
+* proper urls to pollution service ([e47f28e](https://github.com/mariusz-kabala/homeAutomation/commit/e47f28e98e5658f731074fc9a0ebda2faa11da1f))
+
+
+
+
+
 ## [0.6.2](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.6.1...@home/gateway@0.6.2) (2021-03-28)
 
 **Note:** Version bump only for package @home/gateway
