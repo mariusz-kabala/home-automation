@@ -1,6 +1,7 @@
 import { Inject } from 'typedi'
 import { ConsulServices } from '@home/commons'
 import fetch from 'node-fetch'
+import { logger } from '@home/logger'
 
 export abstract class ConsulService {
   protected serviceName: string
@@ -9,12 +10,17 @@ export abstract class ConsulService {
 
   protected getNode() {
     const node = this.consulServices.pickNode(this.serviceName)
+    const url = `http://${node.ServiceAddress}:${node.ServicePort}`
 
-    return `http://${node.ServiceAddress}:${node.ServicePort}`
+    logger.info(`Picking a node for service: ${this.serviceName} - ${url}`)
+
+    return url
   }
 
   public get<T>(url: string): Promise<T> {
     const node = this.getNode()
+
+    logger.debug(`Making a GET request to ${node}/${url}`)
 
     return fetch(`${node}/${url}`).then(res => res.json())
   }
