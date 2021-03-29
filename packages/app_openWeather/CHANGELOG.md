@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/open-weather@0.3.23...@home/open-weather@0.4.0) (2021-03-29)
+
+
+### Features
+
+* add to openWeather HTTP server ([167d241](https://github.com/mariusz-kabala/homeAutomation/commit/167d241ed899a076c5c17fdab232f6f30d8ad5fe))
+
+
+
+
+
 ## [0.3.23](https://github.com/mariusz-kabala/homeAutomation/compare/@home/open-weather@0.3.22...@home/open-weather@0.3.23) (2021-03-14)
 
 **Note:** Version bump only for package @home/open-weather
