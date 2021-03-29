@@ -53,11 +53,11 @@ async function run() {
   }
 }
 
-run()
-registerInConsul('openWeather')
-
 const port = config.get<number>('port') || 3000
 const app = initApp(store)
+
+run()
+registerInConsul('openWeather', port)
 
 app.listen(port, () => {
   logger.log({
