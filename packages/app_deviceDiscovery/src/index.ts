@@ -4,11 +4,20 @@ import { logger } from '@home/logger'
 // eslint-disable-next-line
 import isReachable from 'is-reachable'
 import ping from 'ping'
+import { Store, registerInConsul } from '@home/commons'
+import { initApp } from './app'
 
 import { IDevice } from './types'
 
 const devices = config.get<IDevice[]>('devices')
+const store = new Store()
+const port = config.get<number>('port') || 3000
+const app = initApp(store)
 let connectedToRouter: string[] = []
+
+for (const device of devices) {
+  store.set(`devices.${device}`, false)
+}
 
 function isConnectedToRouter(device: IDevice) {
   if (!device.mac) {
@@ -40,6 +49,8 @@ async function checkDevice(device: IDevice) {
 function getCheckDeviceFunc(device: IDevice) {
   return async () => {
     const status: boolean = await checkDevice(device)
+
+    store.set(`devices.${device}`, status)
 
     logger.log({
       level: 'info',
@@ -93,7 +104,11 @@ initIntervals()
 initSubscriptions()
 start()
 
-logger.log({
-  level: 'info',
-  message: 'Device Discovery service started',
+registerInConsul('deviceDiscovery', port)
+
+app.listen(port, () => {
+  logger.log({
+    level: 'info',
+    message: `DeviceDiscovery started on port ${port}`,
+  })
 })

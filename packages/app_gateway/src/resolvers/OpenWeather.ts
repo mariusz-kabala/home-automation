@@ -30,6 +30,6 @@ export class OpenWeatherResolver {
       rain: {
         oneHour: response.rain['1h'],
       },
-    } as any
+    }
   }
 }
