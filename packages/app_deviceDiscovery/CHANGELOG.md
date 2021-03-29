@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.18](https://github.com/mariusz-kabala/homeAutomation/compare/@home/device-discovery@0.2.17...@home/device-discovery@0.2.18) (2021-03-29)
+
+
+### Bug Fixes
+
+* adjust release process ([6169056](https://github.com/mariusz-kabala/homeAutomation/commit/6169056c80fc96906074cff3d5b683404a2a9d73))
+
+
+
+
+
 ## [0.2.17](https://github.com/mariusz-kabala/homeAutomation/compare/@home/device-discovery@0.2.16...@home/device-discovery@0.2.17) (2021-03-29)
 
 
