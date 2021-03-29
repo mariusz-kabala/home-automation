@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.7.0...@home/gateway@0.8.0) (2021-03-29)
+
+
+### Features
+
+* integrate openWeather with gateway ([65cfaa1](https://github.com/mariusz-kabala/homeAutomation/commit/65cfaa199c3a56f5f156cf33a6d54c17396bdd46))
+
+
+
+
+
 # [0.7.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.6.3...@home/gateway@0.7.0) (2021-03-29)
 
 
