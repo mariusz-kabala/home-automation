@@ -16,7 +16,7 @@ const app = initApp(store)
 let connectedToRouter: string[] = []
 
 for (const device of devices) {
-  store.set(`devices.${device}`, false)
+  store.set(`devices.${device.name}`, false)
 }
 
 function isConnectedToRouter(device: IDevice) {
@@ -50,7 +50,7 @@ function getCheckDeviceFunc(device: IDevice) {
   return async () => {
     const status: boolean = await checkDevice(device)
 
-    store.set(`devices.${device}`, status)
+    store.set(`devices.${device.name}`, status)
 
     logger.log({
       level: 'info',

@@ -1,10 +1,13 @@
 import express, { Request, Response, NextFunction } from 'express'
 import morgan from 'morgan'
+import config from 'config'
 import { Store } from '@home/commons'
 import { logger } from '@home/logger'
+import { IDevice } from './types'
 
 export function initApp(store: Store) {
   const app = express()
+  const devices = config.get<IDevice[]>('devices')
 
   app.disable('x-powered-by')
   app.use(morgan('combined'))
@@ -13,13 +16,6 @@ export function initApp(store: Store) {
     next()
   })
   app.use(express.json())
-
-  app.get('/devices', (_: Request, res: Response) => {
-    res
-      .status(200)
-      .json(store.get('devices'))
-      .end()
-  })
 
   app.get('/devices/:name', (req: Request, res: Response) => {
     const { name } = req.params
@@ -32,9 +28,39 @@ export function initApp(store: Store) {
       return res.status(404).end()
     }
 
+    const device = devices.find(device => device.name === name) as IDevice
+
     res
       .status(200)
-      .json(store.get('devices'))
+      .json({
+        name: device.name,
+        address: device.address,
+        mac: device.mac,
+        port: device.port,
+        status: store.get(`devices.${device.name}`),
+      })
+      .end()
+  })
+
+  app.get('/devices', (req: Request, res: Response) => {
+    const { online, offline } = req.query
+    let result = devices.map(device => ({
+      name: device.name,
+      address: device.address,
+      mac: device.mac,
+      port: device.port,
+      status: store.get(`devices.${device.name}`),
+    }))
+
+    if (online) {
+      result = result.filter(device => device.status)
+    } else if (offline) {
+      result = result.filter(device => !device.status)
+    }
+
+    res
+      .status(200)
+      .json(result)
       .end()
   })
 
