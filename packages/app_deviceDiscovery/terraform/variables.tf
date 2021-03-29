@@ -14,3 +14,7 @@ variable "docker_host" {
 variable "consul_host" {
   default = "192.168.0.195"
 }
+
+variable "consul_port" {
+  default = "8500"
+}
