@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.17](https://github.com/mariusz-kabala/homeAutomation/compare/@home/device-discovery@0.2.16...@home/device-discovery@0.2.17) (2021-03-29)
+
+
+### Bug Fixes
+
+* enable http in device discovery service ([6963fe7](https://github.com/mariusz-kabala/homeAutomation/commit/6963fe70938cb30dd47539678dfd892d0d666e71))
+
+
+
+
+
 ## [0.2.16](https://github.com/mariusz-kabala/homeAutomation/compare/@home/device-discovery@0.2.15...@home/device-discovery@0.2.16) (2021-03-07)
 
 **Note:** Version bump only for package @home/device-discovery

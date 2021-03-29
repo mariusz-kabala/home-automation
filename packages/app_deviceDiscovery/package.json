@@ -1,6 +1,6 @@
 {
   "name": "@home/device-discovery",
-  "version": "0.2.16",
+  "version": "0.2.17",
   "license": "ISC",
   "private": true,
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",

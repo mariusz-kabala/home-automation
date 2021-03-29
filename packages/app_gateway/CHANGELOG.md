@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.2](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.8.1...@home/gateway@0.8.2) (2021-03-29)
+
+
+### Bug Fixes
+
+* enable http in device discovery service ([6963fe7](https://github.com/mariusz-kabala/homeAutomation/commit/6963fe70938cb30dd47539678dfd892d0d666e71))
+
+
+
+
+
 ## [0.8.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.8.0...@home/gateway@0.8.1) (2021-03-29)
 
 **Note:** Version bump only for package @home/gateway
