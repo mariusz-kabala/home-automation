@@ -72,6 +72,6 @@ module.exports = {
     },
   ],
   port: 3000,
-  consulHost: CONSUL_HOST,
-  consulPort: CONSUL_PORT,
+  consulHost: process.env.CONSUL_HOST,
+  consulPort: process.env.CONSUL_PORT,
 }
