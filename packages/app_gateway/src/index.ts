@@ -15,6 +15,9 @@ import { LightResolver } from 'resolvers/Light'
 import { LightsGroupResolver } from 'resolvers/LightsGroup'
 import { SensorResolver } from 'resolvers/Sensor'
 import { PollutionResolver } from 'resolvers/Pollution'
+import { ConsulNodeResolver } from 'resolvers/consul/Node'
+import { ConsulServiceResolver } from 'resolvers/consul/Service'
+import { ConsulDatacentersResolver } from 'resolvers/consul/Datacenter'
 
 async function bootstrap() {
   const consulServices = new ConsulServices(config.get<string[]>('consulServices'))
@@ -22,7 +25,15 @@ async function bootstrap() {
   Container.set({ id: 'consulServices', factory: () => consulServices })
 
   const schema = await buildSchema({
-    resolvers: [LightResolver, LightsGroupResolver, SensorResolver, PollutionResolver],
+    resolvers: [
+      LightResolver,
+      LightsGroupResolver,
+      SensorResolver,
+      PollutionResolver,
+      ConsulNodeResolver,
+      ConsulServiceResolver,
+      ConsulDatacentersResolver,
+    ],
     container: Container,
   })
 

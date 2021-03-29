@@ -13,13 +13,29 @@ export interface IServiceDetailsAPIResponse {
   Datacenter: string
   ServiceID: string
   ServiceName: string
-  ServiceTags: string
+  ServiceTags: string[]
   ServiceAddress: string
-  ServicePort: string
+  ServicePort: number
 }
 
-export interface INodesAPIResponse {
-    
+export interface INodeAPIResponse {
+  ID: string
+  Node: string
+  Address: string
+  Datacenter: string
+}
+
+export interface INodeDetailsAPIResponse {
+  Node: INodeAPIResponse
+  Services: {
+    [service: string]: {
+      ID: string
+      Service: string
+      Tags: string[]
+      Address: string
+      Port: number
+    }
+  }
 }
 
 @Service()
@@ -33,9 +49,19 @@ export class ConsulAPI extends API {
     return this.get<IServicesAPIResponse>('catalog/services')
   }
 
-  public getNodes()
+  public getNodes(): Promise<INodeAPIResponse[]> {
+    return this.get<INodeAPIResponse[]>('catalog/nodes')
+  }
 
   public getServiceDetails(serviceName: string): Promise<IServiceDetailsAPIResponse> {
-    return this.get<IServiceDetailsAPIResponse>(`catalog/service/${serviceName}`)
+    return this.get<[IServiceDetailsAPIResponse]>(`catalog/service/${serviceName}`).then(res => res[0])
+  }
+
+  public getNodeDetails(nodeName: string): Promise<INodeDetailsAPIResponse> {
+    return this.get<INodeDetailsAPIResponse>(`catalog/node/${nodeName}`)
+  }
+
+  public getDatacenters(): Promise<string[]> {
+    return this.get<string[]>('catalog/datacenters')
   }
 }
