@@ -11,4 +11,5 @@ module.exports = {
   consulPort: CONSUL_PORT,
   mqttPrefix: 'home',
   cities: CITIES.split(' '),
+  port: 3000,
 }

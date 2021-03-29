@@ -5,8 +5,12 @@ import { v4 as uuid4 } from 'uuid'
 import { publish } from '@home/mqtt'
 import { logger } from '@home/logger'
 import { registerInConsul } from '@home/commons'
+import { Store } from '@home/commons'
+import { initApp } from './app'
 
 import { IForecast } from './types'
+
+const store = new Store()
 
 async function fetchWeather(city: string): Promise<IForecast> {
   const request = await fetch(
@@ -32,7 +36,9 @@ async function run() {
   for (const city of config.get<string[]>('cities')) {
     try {
       const forecast = await fetchWeather(city)
+      store.set(city.toLocaleLowerCase(), forecast)
       publishForecast(city, forecast)
+
       logger.log({
         level: 'info',
         message: `Publishing a new forecast for ${city}`,
@@ -47,12 +53,17 @@ async function run() {
   }
 }
 
-logger.log({
-  level: 'info',
-  message: 'OpenWeather started',
-})
-
 run()
 registerInConsul('openWeather')
+
+const port = config.get<number>('port') || 3000
+const app = initApp(store)
+
+app.listen(port, () => {
+  logger.log({
+    level: 'info',
+    message: `OpenWeather started on port ${port}`,
+  })
+})
 
 cron.schedule('*/5 * * * *', run)
