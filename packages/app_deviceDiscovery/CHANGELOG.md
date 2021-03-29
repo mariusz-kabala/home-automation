@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.20](https://github.com/mariusz-kabala/homeAutomation/compare/@home/device-discovery@0.2.19...@home/device-discovery@0.2.20) (2021-03-29)
+
+
+### Bug Fixes
+
+* api adjustments ([97d242f](https://github.com/mariusz-kabala/homeAutomation/commit/97d242ff9fa850b37b33ad0880631690f055606b))
+
+
+
+
+
 ## [0.2.19](https://github.com/mariusz-kabala/homeAutomation/compare/@home/device-discovery@0.2.18...@home/device-discovery@0.2.19) (2021-03-29)
 
 
