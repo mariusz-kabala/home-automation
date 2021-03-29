@@ -11,17 +11,17 @@ export class PollutionResolver {
   constructor(private readonly service: PollutionReportsService) {}
 
   @Query(() => [String])
-  cities(): Promise<string[]> {
+  pollutionCities(): Promise<string[]> {
     return this.service.cities()
   }
 
   @Query(() => [String])
-  providers(): Promise<string[]> {
+  pollutionProviders(): Promise<string[]> {
     return this.service.providers()
   }
 
   @Query(() => City)
-  async city(@Arg('name') name: string): Promise<City> {
+  async pollutionCity(@Arg('name') name: string): Promise<City> {
     const { airvisual, aqicnorg } = await this.service.getCity(name)
 
     return {

@@ -18,6 +18,7 @@ import { PollutionResolver } from 'resolvers/Pollution'
 import { ConsulNodeResolver } from 'resolvers/consul/Node'
 import { ConsulServiceResolver } from 'resolvers/consul/Service'
 import { ConsulDatacentersResolver } from 'resolvers/consul/Datacenter'
+import { OpenWeatherResolver } from 'resolvers/OpenWeather'
 
 async function bootstrap() {
   const consulServices = new ConsulServices(config.get<string[]>('consulServices'))
@@ -33,6 +34,7 @@ async function bootstrap() {
       ConsulNodeResolver,
       ConsulServiceResolver,
       ConsulDatacentersResolver,
+      OpenWeatherResolver,
     ],
     container: Container,
   })
