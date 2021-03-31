@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.8.2...@home/gateway@0.9.0) (2021-03-31)
+
+
+### Features
+
+* gateway integration with deviceDiscovery service ([ea288de](https://github.com/mariusz-kabala/homeAutomation/commit/ea288de49e5d75f82f259eb7f50ce341fbe83e33))
+
+
+
+
+
 ## [0.8.2](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.8.1...@home/gateway@0.8.2) (2021-03-29)
 
 
