@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.9.0...@home/gateway@0.10.0) (2021-04-02)
+
+
+### Features
+
+* add vacuum integration ([899b297](https://github.com/mariusz-kabala/homeAutomation/commit/899b297c474b3a8e7c226a2fcecd56cf413ee47c))
+
+
+
+
+
 # [0.9.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.8.2...@home/gateway@0.9.0) (2021-03-31)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/lg2mqtt@0.6.2...@home/lg2mqtt@0.7.0) (2021-04-02)
+
+
+### Features
+
+* add vacuum integration ([899b297](https://github.com/mariusz-kabala/homeAutomation/commit/899b297c474b3a8e7c226a2fcecd56cf413ee47c))
+
+
+
+
+
 ## [0.6.2](https://github.com/mariusz-kabala/homeAutomation/compare/@home/lg2mqtt@0.6.1...@home/lg2mqtt@0.6.2) (2021-03-14)
 
 **Note:** Version bump only for package @home/lg2mqtt
