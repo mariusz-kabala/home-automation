@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/lg2mqtt@0.7.0...@home/lg2mqtt@0.8.0) (2021-04-02)
+
+
+### Features
+
+* expose http API for lg2mqtt ([5082abf](https://github.com/mariusz-kabala/homeAutomation/commit/5082abf72b47bc8eadda5b289751f01b301d1855))
+
+
+
+
+
 # [0.7.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/lg2mqtt@0.6.2...@home/lg2mqtt@0.7.0) (2021-04-02)
 
 
