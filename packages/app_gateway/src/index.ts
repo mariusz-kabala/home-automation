@@ -20,6 +20,7 @@ import { ConsulServiceResolver } from 'resolvers/consul/Service'
 import { ConsulDatacentersResolver } from 'resolvers/consul/Datacenter'
 import { OpenWeatherResolver } from 'resolvers/OpenWeather'
 import { DeviceDiscoveryResolver } from 'resolvers/DeviceDiscovery'
+import { ValetudoResolver } from 'resolvers/Valetudo'
 
 async function bootstrap() {
   const consulServices = new ConsulServices(config.get<string[]>('consulServices'))
@@ -37,6 +38,7 @@ async function bootstrap() {
       ConsulDatacentersResolver,
       OpenWeatherResolver,
       DeviceDiscoveryResolver,
+      ValetudoResolver,
     ],
     container: Container,
   })

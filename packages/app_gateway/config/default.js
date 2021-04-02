@@ -9,6 +9,9 @@ module.exports = {
   consulHost: CONSUL_HOST,
   consulPort: CONSUL_PORT,
   consulServices: ['pollutionReports', 'openWeather', 'statsCollector', 'lg2mqtt'],
+  valetudo: {
+    rockrobo: '192.168.0.25',
+  },
   mappers: {
     sensorToRoom: {
       // mac address - room
