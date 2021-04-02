@@ -10,6 +10,7 @@ module.exports = {
   consulHost: CONSUL_HOST,
   consulPort: CONSUL_PORT,
   mqttPrefix: 'home',
+  port: 3000,
   devices: {
     // bedroom: '192.168.0.143',
     livingroom: '192.168.0.151',

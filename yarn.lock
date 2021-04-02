@@ -7527,9 +7527,9 @@ levn@^0.3.0, levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
-lgtv2@^1.4.1:
+lgtv2@^1.6.3:
   version "1.6.3"
-  resolved "https://npm.kabala.tech/lgtv2/-/lgtv2-1.6.3.tgz#d9a903106b5a503ea656219a203dfe6062901b7b"
+  resolved "https://registry.yarnpkg.com/lgtv2/-/lgtv2-1.6.3.tgz#d9a903106b5a503ea656219a203dfe6062901b7b"
   integrity sha512-iinwKz9MzxS7H78tBycwCBV/Y8lD7hVWs8zGjEJoi4xRk05SLUU4Xct/Y1VaspfMOgDZ3c0VRF1gA8mLMorqZg==
   dependencies:
     mkdirp "^1.0.4"

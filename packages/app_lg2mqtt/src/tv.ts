@@ -2,7 +2,16 @@
 import lgtv2 from 'lgtv2'
 import { publish, subscribe, ICallbackFunc } from '@home/mqtt'
 import { logger } from '@home/logger'
+import { Store } from '@home/commons'
 import config from 'config'
+
+export interface ITvState {
+  on: boolean
+  volume?: number
+  muted?: boolean
+  app?: string
+  channel?: number
+}
 
 export class TV {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -10,7 +19,13 @@ export class TV {
   private deviceName: string
   private subscriptions: Array<() => void> = []
 
+  public state: Store<ITvState>
+
   constructor(ipAddress: string, name: string, clientKey: string) {
+    this.state = new Store<ITvState>()
+
+    this.state.set('on', false)
+
     this.device = lgtv2({
       url: `ws://${ipAddress}:3000`,
       clientKey,
@@ -20,6 +35,8 @@ export class TV {
 
     this.device.on('connect', () => {
       publish(`tv/${this.deviceName}/status`, { isOn: true })
+
+      this.state.set('on', true)
 
       this.subscribeToDeviceEvents()
       this.subscribeToMqttEvents()
@@ -43,6 +60,8 @@ export class TV {
     return new Promise<void>(resolve => {
       this.device.disconnect()
       this.unsubscribe()
+
+      this.state.set('on', false)
 
       publish(`tv/${this.deviceName}/status`, { isOn: false }, { retain: true, qos: 0 })
       resolve()
@@ -129,6 +148,8 @@ export class TV {
 
   private subscribeToDeviceEvents() {
     this.device.on('ssap://audio/getVolume', this.onVolumeChange)
+    this.device.on('ssap://com.webos.applicationManager/getForegroundAppInfo', this.onforegroundAppChange)
+    this.device.on('ssap://tv/getCurrentChannel', this.onChannelChange)
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -143,11 +164,43 @@ export class TV {
     }
 
     if (res.changed.indexOf('volume') !== -1) {
+      this.state.set('volume', res.volume)
       publish(`tv/${this.deviceName}/volume`, { volume: res.volume })
     }
 
     if (res.changed.indexOf('muted') !== -1) {
+      this.state.set('muted', res.muted)
       publish(`tv/${this.deviceName}/muted`, { muted: res.muted })
     }
+  }
+
+  private onforegroundAppChange(err: Error | null, res: { appId: string }) {
+    if (err) {
+      logger.log({
+        level: 'error',
+        message: `Error during foreground app reading, device: ${this.deviceName} ${err}`,
+        device: this.deviceName,
+      })
+      return
+    }
+
+    this.state.set('app', res.appId)
+
+    publish(`tv/${this.deviceName}/app`, { app: res.appId })
+  }
+
+  private onChannelChange(err: Error | null, res: { channelNumber: number }) {
+    if (err) {
+      logger.log({
+        level: 'error',
+        message: `Error during channel reading, device: ${this.deviceName} ${err}`,
+        device: this.deviceName,
+      })
+      return
+    }
+
+    this.state.set('channel', res.channelNumber)
+
+    publish(`tv/${this.deviceName}/channel`, { channel: res.channelNumber })
   }
 }

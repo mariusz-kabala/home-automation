@@ -3,7 +3,7 @@ import config from 'config'
 import { subscribe, publish } from '@home/mqtt'
 import { logger } from '@home/logger'
 import { registerInConsul } from '@home/commons'
-
+import { initApp } from './app'
 import { TV } from './tv'
 
 interface IBufforMsg {
@@ -20,6 +20,9 @@ const connected: {
 const devices = config.get<{
   [name: string]: string
 }>('devices')
+
+const app = initApp(connected)
+const port = config.get<number>('port') || 3000
 
 const buffor = Object.keys(devices).reduce((all: { [device: string]: IBufforMsg[] }, device: string) => {
   all[device] = []
@@ -160,9 +163,11 @@ initBuffor()
 
 setInterval(clearBuffer, 300000) // 5 min
 
-logger.log({
-  level: 'info',
-  message: 'Lg2mqtt started',
-})
+registerInConsul('lg2mqtt', port)
 
-registerInConsul('lg2mqtt')
+app.listen(port, () => {
+  logger.log({
+    level: 'info',
+    message: `Lg2mqtt started on port ${port}`,
+  })
+})

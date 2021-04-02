@@ -17,6 +17,6 @@
     "@home/commons": "0.4.0",
     "@home/logger": "*",
     "@home/mqtt": "*",
-    "lgtv2": "^1.4.1"
+    "lgtv2": "^1.6.3"
   }
 }
