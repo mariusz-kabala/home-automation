@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.3](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.10.2...@home/gateway@0.10.3) (2021-04-03)
+
+
+### Bug Fixes
+
+* add nullable to rain ([9ffe026](https://github.com/mariusz-kabala/homeAutomation/commit/9ffe0269da468cb2a700e780f6d08d45f8ea8e63))
+
+
+
+
+
 ## [0.10.2](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.10.1...@home/gateway@0.10.2) (2021-04-03)
 
 
