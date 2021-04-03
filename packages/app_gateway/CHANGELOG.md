@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.2](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.10.1...@home/gateway@0.10.2) (2021-04-03)
+
+
+### Bug Fixes
+
+* adjust openweather api ([3a70318](https://github.com/mariusz-kabala/homeAutomation/commit/3a703188d0f80cd5c0c5c829952f86c0d23ffa0b))
+
+
+
+
+
 ## [0.10.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.10.0...@home/gateway@0.10.1) (2021-04-02)
 
 **Note:** Version bump only for package @home/gateway
