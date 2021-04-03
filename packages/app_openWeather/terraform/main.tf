@@ -5,6 +5,32 @@ resource "docker_container" "openweather" {
   networks_advanced {
       name = "global"
   }
+
+  labels {
+    label = "traefik.enable"
+    value = "true"
+  }
+
+  labels {
+    label = "traefik.http.routers.openWeather.rule"
+    value = "Host(`home.kabala.tech`) && PathPrefix(`/api/open-weather`)"
+  }
+
+  labels {
+    label = "traefik.http.services.openWeather.loadbalancer.server.port"
+    value = "3000"
+  }
+
+  labels {
+    label = "traefik.http.routers.openWeather.middlewares"
+    value = "openWeather-stripprefix"
+  }
+
+  labels {
+    label = "traefik.http.middlewares.openWeather-stripprefix.stripprefix.prefixes"
+    value = "/api/open-weather"
+  }
+
   env = [
       "OPEN_WEATHER_API_KEY=${var.OPEN_WEATHER_API_KEY}",
       "MQTT_HOST=mqtt.kabala.tech",
