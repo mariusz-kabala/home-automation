@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.4](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.10.3...@home/gateway@0.10.4) (2021-04-03)
+
+
+### Bug Fixes
+
+* make wind gust nullable ([0f1b2ec](https://github.com/mariusz-kabala/homeAutomation/commit/0f1b2ec14b0b7710c7361fe96b683fd4d6c22e17))
+
+
+
+
+
 ## [0.10.3](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.10.2...@home/gateway@0.10.3) (2021-04-03)
 
 
