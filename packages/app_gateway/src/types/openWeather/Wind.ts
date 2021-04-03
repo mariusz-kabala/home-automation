@@ -8,6 +8,6 @@ export class OpenWeatherWind {
   @Field()
   deg: number
 
-  @Field()
-  gust: number
+  @Field({ nullable: true })
+  gust?: number
 }
