@@ -28,7 +28,7 @@ export class OpenWeatherResolver {
         humidity: response.main.humidity,
       },
       rain: {
-        oneHour: response.rain['1h'],
+        oneHour: response.rain ? response.rain['1h'] : undefined,
       },
     }
   }
