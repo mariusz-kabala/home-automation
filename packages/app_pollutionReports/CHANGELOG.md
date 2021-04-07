@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.4](https://github.com/mariusz-kabala/homeAutomation/compare/@home/pollution-reports@0.9.3...@home/pollution-reports@0.9.4) (2021-04-07)
+
+
+### Bug Fixes
+
+* use different weather station in pollution service ([c69eaea](https://github.com/mariusz-kabala/homeAutomation/commit/c69eaea589f9d6808cb75dce61c654adf081f77c))
+
+
+
+
+
 ## [0.9.3](https://github.com/mariusz-kabala/homeAutomation/compare/@home/pollution-reports@0.9.2...@home/pollution-reports@0.9.3) (2021-04-02)
 
 **Note:** Version bump only for package @home/pollution-reports

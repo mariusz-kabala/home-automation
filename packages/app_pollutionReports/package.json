@@ -1,6 +1,6 @@
 {
   "name": "@home/pollution-reports",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "private": true,
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
   "main": "./dist/index.js",
