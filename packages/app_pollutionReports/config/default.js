@@ -18,8 +18,8 @@ module.exports = {
       country: 'Poland',
     },
   ],
-  aqicnorgLocations: [
-    'geo:53.433;14.5495', // szczecin
-  ],
+  aqicnorgLocations: {
+    Szczecin: 'geo:53.433;14.5495',
+  },
   port: 3000,
 }

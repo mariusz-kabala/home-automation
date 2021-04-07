@@ -44,7 +44,7 @@ export function initApp(store: Store) {
       }
     }
 
-    for (const city of aqicnorgLocations) {
+    for (const city of Object.keys(aqicnorgLocations)) {
       if (!cities.includes(city)) {
         cities.push(city)
       }
