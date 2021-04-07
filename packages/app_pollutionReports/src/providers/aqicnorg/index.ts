@@ -23,22 +23,27 @@ function publishResults(response: IAqicnorgResponse, location: string) {
   publish(`aqicnorg/${location}`, {
     aqi: response.data.aqi,
     idx: response.data.idx,
-    iaqiCO: response.data.iaqi.co.v,
-    iaqiNO2: response.data.iaqi.no2.v,
-    iaqiPM25: response.data.iaqi.pm25.v,
-    iaqiSO2: response.data.iaqi.so2.v,
-    iaqiP: response.data.iaqi.p.v,
+    iaqiCO: response.data.iaqi.co?.v,
+    iaqiNO2: response.data.iaqi.no2?.v,
+    iaqiPM25: response.data.iaqi.pm25?.v,
+    iaqiSO2: response.data.iaqi.so2?.v,
+    iaqiP: response.data.iaqi.p?.v,
+    iaqiH: response.data.iaqi.h?.v,
+    iaqiT: response.data.iaqi.t?.v,
+    iaqiW: response.data.iaqi.w?.v,
+    iaqiWG: response.data.iaqi.wg?.v,
+    iaqiPM10: response.data.iaqi.pm10?.v,
     traceid: uuid4(),
   })
 }
 
 export function getRunAqicnorg(store: Store) {
   return async () => {
-    const locations = config.get<string[]>('aqicnorgLocations')
+    const locations = config.get<{ [city: string]: string }>('aqicnorgLocations')
 
-    for (const location of locations) {
+    for (const location of Object.keys(locations)) {
       try {
-        const results = await fetchResults(location)
+        const results = await fetchResults(locations[location])
 
         if (results.status !== 'ok') {
           logger.log({

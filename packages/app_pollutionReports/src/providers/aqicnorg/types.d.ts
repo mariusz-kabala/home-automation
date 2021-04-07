@@ -15,19 +15,37 @@ export interface IAqicnorgResponse {
     }
     dominentpol: string
     iaqi: {
-      co: {
+      co?: {
         v: number
       }
-      no2: {
+      no2?: {
         v: number
       }
-      pm25: {
+      pm25?: {
         v: number
       }
-      so2: {
+      pm10?: {
         v: number
       }
-      p: {
+      so2?: {
+        v: number
+      }
+      p?: {
+        v: number
+      }
+      h?: {
+        v: number
+      }
+      o3?: {
+        v: number
+      }
+      t?: {
+        v: number
+      }
+      w?: {
+        v: number
+      }
+      wg?: {
         v: number
       }
     }
