@@ -59,17 +59,19 @@ export interface IAqicnorgAPIResponse {
     }
     dominentpol: string
     iaqi: {
-      co: AqicnorgIaqiValue
-      dew: AqicnorgIaqiValue
-      h: AqicnorgIaqiValue
-      no2: AqicnorgIaqiValue
-      p: AqicnorgIaqiValue
-      pm10: AqicnorgIaqiValue
-      pm25: AqicnorgIaqiValue
-      r: AqicnorgIaqiValue
-      so2: AqicnorgIaqiValue
-      t: AqicnorgIaqiValue
-      w: AqicnorgIaqiValue
+      co?: AqicnorgIaqiValue
+      dew?: AqicnorgIaqiValue
+      h?: AqicnorgIaqiValue
+      no2?: AqicnorgIaqiValue
+      p?: AqicnorgIaqiValue
+      pm10?: AqicnorgIaqiValue
+      pm25?: AqicnorgIaqiValue
+      r?: AqicnorgIaqiValue
+      so2?: AqicnorgIaqiValue
+      o3?: AqicnorgIaqiValue
+      t?: AqicnorgIaqiValue
+      w?: AqicnorgIaqiValue
+      wg?: AqicnorgIaqiValue
     }
     time: {
       s: string

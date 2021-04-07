@@ -18,6 +18,9 @@ export interface IAqicnorgResponse {
       co?: {
         v: number
       }
+      dew?: {
+        v: number
+      }
       no2?: {
         v: number
       }

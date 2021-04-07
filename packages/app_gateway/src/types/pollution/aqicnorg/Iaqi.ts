@@ -2,36 +2,42 @@ import { ObjectType, Field } from 'type-graphql'
 
 @ObjectType()
 export class AqicnorgIaqi {
-  @Field()
-  co: number
+  @Field({ nullable: true })
+  co?: number
 
-  @Field()
-  dew: number
+  @Field({ nullable: true })
+  dew?: number
 
-  @Field()
-  h: number
+  @Field({ nullable: true })
+  h?: number
 
-  @Field()
-  no2: number
+  @Field({ nullable: true })
+  no2?: number
 
-  @Field()
-  p: number
+  @Field({ nullable: true })
+  p?: number
 
-  @Field()
-  pm10: number
+  @Field({ nullable: true })
+  pm10?: number
 
-  @Field()
-  pm25: number
+  @Field({ nullable: true })
+  pm25?: number
 
-  @Field()
-  r: number
+  @Field({ nullable: true })
+  r?: number
 
-  @Field()
-  so2: number
+  @Field({ nullable: true })
+  so2?: number
 
-  @Field()
-  t: number
+  @Field({ nullable: true })
+  o3?: number
 
-  @Field()
-  w: number
+  @Field({ nullable: true })
+  t?: number
+
+  @Field({ nullable: true })
+  w?: number
+
+  @Field({ nullable: true })
+  wg?: number
 }
