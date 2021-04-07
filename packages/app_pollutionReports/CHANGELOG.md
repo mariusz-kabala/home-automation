@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.7](https://github.com/mariusz-kabala/homeAutomation/compare/@home/pollution-reports@0.9.6...@home/pollution-reports@0.9.7) (2021-04-07)
+
+
+### Bug Fixes
+
+* adjust pollution response in gateway ([01cfdca](https://github.com/mariusz-kabala/homeAutomation/commit/01cfdca81ed454ce48bcbfc5b8b4ed04a9934fff))
+
+
+
+
+
 ## [0.9.6](https://github.com/mariusz-kabala/homeAutomation/compare/@home/pollution-reports@0.9.5...@home/pollution-reports@0.9.6) (2021-04-07)
 
 

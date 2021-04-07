@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.5](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.10.4...@home/gateway@0.10.5) (2021-04-07)
+
+
+### Bug Fixes
+
+* adjust pollution response in gateway ([01cfdca](https://github.com/mariusz-kabala/homeAutomation/commit/01cfdca81ed454ce48bcbfc5b8b4ed04a9934fff))
+
+
+
+
+
 ## [0.10.4](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.10.3...@home/gateway@0.10.4) (2021-04-03)
 
 
