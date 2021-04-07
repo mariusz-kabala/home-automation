@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.5](https://github.com/mariusz-kabala/homeAutomation/compare/@home/pollution-reports@0.9.4...@home/pollution-reports@0.9.5) (2021-04-07)
+
+
+### Bug Fixes
+
+* adjust aqicnorg response ([b4b50a7](https://github.com/mariusz-kabala/homeAutomation/commit/b4b50a734bc319caa88d685e80e242e27b689b65))
+
+
+
+
+
 ## [0.9.4](https://github.com/mariusz-kabala/homeAutomation/compare/@home/pollution-reports@0.9.3...@home/pollution-reports@0.9.4) (2021-04-07)
 
 
