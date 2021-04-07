@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.6](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.10.5...@home/gateway@0.10.6) (2021-04-07)
+
+
+### Bug Fixes
+
+* adjust query for aqicnorg ([3c3a0ce](https://github.com/mariusz-kabala/homeAutomation/commit/3c3a0ce6487b777ee6e2d96ccb72c4429becd1e0))
+
+
+
+
+
 ## [0.10.5](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.10.4...@home/gateway@0.10.5) (2021-04-07)
 
 
