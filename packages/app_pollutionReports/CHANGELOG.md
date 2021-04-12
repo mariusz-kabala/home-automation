@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.8](https://github.com/mariusz-kabala/homeAutomation/compare/@home/pollution-reports@0.9.7...@home/pollution-reports@0.9.8) (2021-04-12)
+
+
+### Bug Fixes
+
+* use one, standard for city name ([2ba676b](https://github.com/mariusz-kabala/homeAutomation/commit/2ba676b7272ef23c36db7875df804a8262aa04d8))
+
+
+
+
+
 ## [0.9.7](https://github.com/mariusz-kabala/homeAutomation/compare/@home/pollution-reports@0.9.6...@home/pollution-reports@0.9.7) (2021-04-07)
 
 
