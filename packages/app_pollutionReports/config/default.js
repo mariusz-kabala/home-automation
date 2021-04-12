@@ -11,15 +11,33 @@ module.exports = {
   consulHost: CONSUL_HOST,
   consulPort: CONSUL_PORT,
   mqttPrefix: 'home',
-  airVisualLocations: [
-    {
+  airVisualLocations: {
+    'Szczecin,PL': {
       city: 'Szczecin',
       state: 'West Pomerania',
       country: 'Poland',
     },
-  ],
+    'Katowice,PL': {
+      city: 'Sosnowiec',
+      state: 'Silesia',
+      country: 'Poland',
+    },
+    'Miechow,PL': {
+      city: 'Niepolomice',
+      state: 'Lesser Poland Voivodeship',
+      country: 'Poland',
+    },
+    'Berlin,DE': {
+      city: 'Mitte',
+      state: 'Berlin',
+      country: 'Germany',
+    },
+  },
   aqicnorgLocations: {
-    Szczecin: 'geo:53.433;14.5495',
+    'Szczecin,PL': 'geo:53.433;14.5495',
+    'Katowice,PL': 'geo:50.264893;19.023781',
+    'Miechow,PL': 'geo:50.359050;20.172040',
+    'Berlin,DE': 'geo:52.520008;13.404954',
   },
   port: 3000,
 }

@@ -16,11 +16,11 @@ async function start() {
 
   await runAirVisual()
   // 10000 calls per month
-  cron.schedule('*/5 * * * *', runAirVisual)
+  cron.schedule('*/30 * * * *', runAirVisual)
 
   await runAqicnorg()
   // 1000 per second
-  cron.schedule('* * * * *', runAqicnorg)
+  cron.schedule('*/5 * * * *', runAqicnorg)
 }
 
 start()

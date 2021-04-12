@@ -33,14 +33,14 @@ export function initApp(store: Store) {
   })
 
   app.get('/cities', (_: Request, res: Response) => {
-    const airVisualLocations = config.get<{ city: string }[]>('airVisualLocations')
-    const aqicnorgLocations = config.get<string[]>('aqicnorgLocations')
+    const airVisualLocations = config.get<{ [city: string]: any }>('airVisualLocations')
+    const aqicnorgLocations = config.get<{ [city: string]: string }>('aqicnorgLocations')
 
     const cities: string[] = []
 
-    for (const record of airVisualLocations) {
-      if (!cities.includes(record.city)) {
-        cities.push(record.city)
+    for (const city of Object.keys(airVisualLocations)) {
+      if (!cities.includes(city)) {
+        cities.push(city)
       }
     }
 

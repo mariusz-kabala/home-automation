@@ -23,8 +23,8 @@ async function fetchAirVisualResults({ city, state, country }: { city: string; s
   return data
 }
 
-function publishAirVisual(response: IAirVisualResponse) {
-  publish(`airvisual/${response.data.city}`, {
+function publishAirVisual(response: IAirVisualResponse, city: string) {
+  publish(`airvisual/${city}`, {
     ...response.data,
     traceid: uuid4(),
   })
@@ -32,15 +32,16 @@ function publishAirVisual(response: IAirVisualResponse) {
 
 export function getRunAirVisual(store: Store) {
   return async () => {
-    const locations = config.get<
-      {
+    const locations = config.get<{
+      [city: string]: {
         city: string
         state: string
         country: string
-      }[]
-    >('airVisualLocations')
+      }
+    }>('airVisualLocations')
 
-    for (const location of locations) {
+    for (const city of Object.keys(locations)) {
+      const location = locations[city]
       try {
         const results = await fetchAirVisualResults(location)
 
@@ -59,10 +60,10 @@ export function getRunAirVisual(store: Store) {
           provider: 'airvisual',
         })
 
-        publishAirVisual(results)
+        publishAirVisual(results, city)
 
-        store.set(`airvisual.${results.data.city.toLowerCase()}`, results)
-        store.set(`${results.data.city.toLowerCase()}.airvisual`, results)
+        store.set(`airvisual.${city.toLowerCase()}`, results)
+        store.set(`${city.toLowerCase()}.airvisual`, results)
       } catch (err) {
         logger.log({
           level: 'error',
