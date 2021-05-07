@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.7](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.10.6...@home/gateway@0.10.7) (2021-05-07)
+
+
+### Bug Fixes
+
+* add deviceDiscovery to consul services ([c556e4c](https://github.com/mariusz-kabala/homeAutomation/commit/c556e4c5b67078d945ca1504f032ca527b37e8f5))
+
+
+
+
+
 ## [0.10.6](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.10.5...@home/gateway@0.10.6) (2021-04-07)
 
 
