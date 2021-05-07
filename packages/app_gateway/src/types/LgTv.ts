@@ -8,15 +8,15 @@ export class LgTv {
   @Field()
   on: boolean
 
-  @Field()
+  @Field({ nullable: true })
   volume?: number
 
-  @Field()
+  @Field({ nullable: true })
   muted?: boolean
 
-  @Field()
+  @Field({ nullable: true })
   app?: string
 
-  @Field()
+  @Field({ nullable: true })
   channel?: number
 }

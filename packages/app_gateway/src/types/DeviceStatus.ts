@@ -11,9 +11,9 @@ export class DeviceStatus {
   @Field()
   status: boolean
 
-  @Field()
+  @Field({ nullable: true })
   port?: number
 
-  @Field()
+  @Field({ nullable: true })
   mac?: string
 }
