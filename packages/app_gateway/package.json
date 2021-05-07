@@ -1,6 +1,6 @@
 {
   "name": "@home/gateway",
-  "version": "0.10.7",
+  "version": "0.10.8",
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",

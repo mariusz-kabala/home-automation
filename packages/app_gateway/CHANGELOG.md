@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.8](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.10.7...@home/gateway@0.10.8) (2021-05-07)
+
+
+### Bug Fixes
+
+* adjust types ([176cd6f](https://github.com/mariusz-kabala/homeAutomation/commit/176cd6f76509a0e97c7e01fe2c67db8e76f0cfb3))
+
+
+
+
+
 ## [0.10.7](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.10.6...@home/gateway@0.10.7) (2021-05-07)
 
 
