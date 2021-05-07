@@ -8,7 +8,7 @@ module.exports = {
   apiHost: API_HOST,
   consulHost: CONSUL_HOST,
   consulPort: CONSUL_PORT,
-  consulServices: ['pollutionReports', 'openWeather', 'statsCollector', 'lg2mqtt'],
+  consulServices: ['pollutionReports', 'openWeather', 'statsCollector', 'lg2mqtt', 'deviceDiscovery'],
   valetudo: {
     rockrobo: '192.168.0.25',
   },
