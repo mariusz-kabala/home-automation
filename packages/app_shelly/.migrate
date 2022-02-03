@@ -1,0 +1,13 @@
+{
+  "lastRun": "1643899823009-feel-shelly-data.js",
+  "migrations": [
+    {
+      "title": "1643858708838-test.js",
+      "timestamp": 1643900773857
+    },
+    {
+      "title": "1643899823009-feel-shelly-data.js",
+      "timestamp": 1643900773876
+    }
+  ]
+}

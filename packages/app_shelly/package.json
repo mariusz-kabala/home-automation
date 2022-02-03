@@ -12,7 +12,8 @@
     "dev": "concurrently \"yarn workspace @home/stats-collector watch\" \"nodemon dist/index.js\"",
     "start": "node dist/index.js",
     "prepare": "exit 0",
-    "create-migration": "migrate create"
+    "create-migration": "migrate create",
+    "migrate": "migrate"
   },
   "dependencies": {
     "@home/commons": "0.5.0",
