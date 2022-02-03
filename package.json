@@ -81,7 +81,7 @@
     "config": "^3.2.4",
     "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
-    "is-reachable": "^4.0.0",
+    "is-reachable": "^5.0.0",
     "morgan": "^1.10.0",
     "mqtt": "^3.0.0",
     "mqtt-pattern": "^1.2.0",
