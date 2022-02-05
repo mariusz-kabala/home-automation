@@ -7,11 +7,11 @@ const {
   GITHUB_CLIENT_ID,
   GITHUB_CLIENT_SECRET,
   APP_DOMAIN,
-  DB_HOST,
   JWT_SECRET,
   JWT_REFRESH_TOKEN_SECRET,
   SESSION_SECRET,
   REDIS_HOST,
+  MONGO_CONNECTION_STR,
 } = process.env
 
 module.exports = {
@@ -21,8 +21,6 @@ module.exports = {
   githubClientId: GITHUB_CLIENT_ID,
   githubClientSecret: GITHUB_CLIENT_SECRET,
   appDomain: APP_DOMAIN,
-  dbHost: DB_HOST,
-  dbName: 'homeAuthService',
   redisHost: REDIS_HOST,
   redisPort: 6379,
   users: ['mariusz@kabala.waw.pl'],
@@ -32,4 +30,5 @@ module.exports = {
   tokenLife: 900,
   refreshTokenLife: 86400,
   sessionSecret: SESSION_SECRET,
+  mongoConnectionStr: MONGO_CONNECTION_STR,
 }

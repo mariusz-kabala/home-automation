@@ -14,9 +14,6 @@
   },
   "dependencies": {
     "@home/logger": "0.1.2",
-    "mongoose": "^5.9.9"
-  },
-  "devDependencies": {
-    "@types/mongoose": "^5.7.10"
+    "mongoose": "^6.2.0"
   }
 }

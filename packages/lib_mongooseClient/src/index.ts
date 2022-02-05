@@ -2,15 +2,8 @@ import mongoose from 'mongoose'
 import config from 'config'
 import { logger } from '@home/logger'
 
-mongoose.set('useCreateIndex', true)
-
-let dbCredentials = ''
-
-if (config.has('dbUser') && config.has('dbPassword')) {
-  dbCredentials = `${config.get<string>('dbUser')}:${config.get<string>('dbPassword')}@`
-}
-
 const db = mongoose.connection
+
 db.on('error', err => {
   logger.log({
     message: `Database error: ${err}`,
@@ -24,15 +17,8 @@ db.once('open', () => {
   })
 })
 
-const mongooseOpts = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}
-
-const mongoDbURL = `mongodb://${dbCredentials}${config.get<string>('dbHost')}/${config.get<string>('dbName')}`
-
-mongoose.connect(mongoDbURL, mongooseOpts)
+mongoose.connect(config.get('mongoConnectionStr'))
 
 mongoose.Promise = global.Promise
 
-export default mongoose
+export { mongoose }

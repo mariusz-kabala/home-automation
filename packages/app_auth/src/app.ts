@@ -1,7 +1,6 @@
 import express, { Request, Response, NextFunction } from 'express'
-import bodyParser from 'body-parser'
 import { logger } from '@home/logger'
-import mongoose from '@home/mongoose-client'
+import { mongoose } from '@home/mongoose-client'
 import session from 'express-session'
 import connectRedis from 'connect-redis'
 import { redisClient } from '@home/redis'
@@ -41,7 +40,7 @@ app.use((_: Request, res: Response, next: NextFunction) => {
   res.set('x-app', 'home-auth-service')
   next()
 })
-app.use(bodyParser.json())
+app.use(express.json())
 app.use(cookieParser(config.get<string>('sessionSecret')))
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 app.use(session(sessionConfiguration) as any)
