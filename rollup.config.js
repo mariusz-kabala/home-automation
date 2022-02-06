@@ -5,16 +5,13 @@ import typescript from 'rollup-plugin-typescript2'
 import autoExternal from 'rollup-plugin-auto-external'
 import json from '@rollup/plugin-json'
 
+const { RUN_DIR = process.cwd() } = process.env
+
 export default {
-  input: `${process.cwd()}/src/index.ts`,
+  input: `${RUN_DIR}/src/index.ts`,
   output: [
     {
-      file: `${process.cwd()}/dist/index.js`,
-      format: 'cjs',
-      sourcemap: false,
-    },
-    {
-      file: `${process.cwd()}/dist/index.esm.js`,
+      file: `${RUN_DIR}/dist/index.js`,
       format: 'esm',
       sourcemap: false,
     },
@@ -22,7 +19,7 @@ export default {
   external: [],
   plugins: [
     autoExternal({
-      packagePath: `${process.cwd()}/../../package.json`,
+      packagePath: `${RUN_DIR}/../../package.json`,
     }),
     autoExternal(),
     // builtins(),

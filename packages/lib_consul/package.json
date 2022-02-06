@@ -1,13 +1,17 @@
 {
-  "name": "@home/deconz-api",
-  "version": "0.1.8",
+  "name": "@home/consul",
+  "version": "0.0.1",
   "license": "ISC",
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "dependencies": {
-    "@home/commons": "0.5.0"
+    "@home/logger": "0.1.2",
+    "consul": "^0.40.0"
+  },
+  "devDependencies": {
+    "@types/consul": "^0.40.0"
   },
   "scripts": {
     "build": "rollup -c ../../rollup.config.js",

@@ -1,7 +1,24 @@
 import mongoose, { Document, Schema } from 'mongoose'
 
+export enum ShellyType {
+  shelly1 = 'shelly1',
+  shellyswitch25 = 'shellyswitch25',
+  shelly1pm = 'shelly1pm',
+}
+
+export enum MqttStatus {
+  unknown = 'unknown',
+  connected = 'connected',
+  disconnected = 'disconnected',
+}
+
 const ShellySchema = new Schema({
   label: {
+    type: String,
+    trim: true,
+    required: false,
+  },
+  type: {
     type: String,
     trim: true,
     required: false,
@@ -46,11 +63,16 @@ const ShellySchema = new Schema({
     required: false,
     default: 0,
   },
+  mqttStatus: {
+    type: String,
+    default: MqttStatus.unknown,
+  },
 })
 
 export interface IShelly extends Document {
   label: string
   name: string
+  type: ShellyType
   macAddress: string
   deviceId: string
   '@Home0IpAddress': string
@@ -58,6 +80,7 @@ export interface IShelly extends Document {
   category: string
   room: string
   level: number
+  mqttStatus: MqttStatus
 }
 
-export default mongoose.model<IShelly>('Shelly', ShellySchema)
+export const ShellyModel = mongoose.model<IShelly>('Shelly', ShellySchema)

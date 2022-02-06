@@ -1,11 +1,11 @@
 {
-  "name": "@home/deconz-api",
-  "version": "0.1.8",
+  "name": "@home/vernemq-api",
+  "version": "0.0.1",
   "license": "ISC",
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
+  "main": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "type": "module",
   "dependencies": {
     "@home/commons": "0.5.0"
   },

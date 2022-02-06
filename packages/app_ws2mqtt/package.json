@@ -14,7 +14,6 @@
     "prepare": "exit 0"
   },
   "devDependencies": {
-    "@types/node-cron": "^2.0.2",
     "@types/ws": "7.2.2"
   },
   "dependencies": {
@@ -22,7 +21,6 @@
     "@home/deconz-api": "0.1.8",
     "@home/logger": "0.1.2",
     "@home/mqtt": "0.7.4",
-    "node-cron": "^2.0.3",
     "ws": "^7.2.1"
   }
 }

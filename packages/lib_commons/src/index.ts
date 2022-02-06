@@ -1,5 +1,3 @@
 export * from './enums'
-export * from './consul'
-export * from './consul/service'
 export * from './store'
-export * from './RoundRobinEngine'
+export * from './fetch'

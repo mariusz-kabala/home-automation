@@ -1,17 +1,17 @@
 {
-  "name": "@home/deconz-api",
-  "version": "0.1.8",
-  "license": "ISC",
+  "name": "@home/models",
+  "version": "0.0.1",
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
-  "dependencies": {
-    "@home/commons": "0.5.0"
-  },
+  "license": "ISC",
   "scripts": {
     "build": "rollup -c ../../rollup.config.js",
     "build-declarations": "tsc --declaration --emitDeclarationOnly --out dist/index.d.ts && node ../../scripts/fixDeclaration.js",
     "prepare": "yarn build && yarn build-declarations"
+  },
+  "dependencies": {
+    "mongoose": "^6.2.0"
   }
 }
