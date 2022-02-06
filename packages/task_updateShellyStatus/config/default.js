@@ -1,4 +1,4 @@
-const dotenv = require('dotenv')
+const dotenv = import('dotenv')
 dotenv.config()
 
 const { MONGO_CONNECTION_STR, VERNE_MQ_URL = 'mqtt.kabala.tech', VERNE_MQ_API_KEY } = process.env
