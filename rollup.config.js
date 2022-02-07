@@ -11,19 +11,19 @@ export default {
   output: [
     {
       file: `${RUN_DIR}/dist/index.mjs`,
-      format: 'esm',
+      format: 'cjs',
       sourcemap: false,
     },
   ],
   external: [],
   plugins: [
-    commonjs(),
     autoExternal({
       packagePath: `${RUN_DIR}/../../package.json`,
     }),
     autoExternal(),
     typescript(),
     resolve(),
+    commonjs(),
     json(),
   ],
 }

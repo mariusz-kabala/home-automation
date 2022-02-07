@@ -1,4 +1,4 @@
-import mongoose, { Document, Schema } from 'mongoose'
+import mongoose, { Schema, Document } from 'mongoose'
 
 export enum ShellyType {
   shelly1 = 'shelly1',
