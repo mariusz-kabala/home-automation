@@ -9,7 +9,7 @@
   "scripts": {
     "build": "rollup -c ../../rollup.config.js",
     "build-declarations": "tsc --declaration --emitDeclarationOnly --out dist/index.d.ts",
-    "start": "node dist/index.esm.js",
+    "start": "node dist/index.js",
     "prepare": "exit 0"
   },
   "dependencies": {

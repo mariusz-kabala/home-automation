@@ -1,7 +1,7 @@
 import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
 // import builtins from 'rollup-plugin-node-builtins'
-import typescript from 'rollup-plugin-typescript2'
+import typescript from '@rollup/plugin-typescript'
 import autoExternal from 'rollup-plugin-auto-external'
 import json from '@rollup/plugin-json'
 
@@ -18,10 +18,10 @@ export default {
   ],
   external: [],
   plugins: [
-    autoExternal({
-      packagePath: `${RUN_DIR}/../../package.json`,
-    }),
-    autoExternal(),
+    // autoExternal({
+    //   packagePath: `${RUN_DIR}/../../package.json`,
+    // }),
+    // autoExternal(),
     // builtins(),
     typescript(),
     resolve(),
