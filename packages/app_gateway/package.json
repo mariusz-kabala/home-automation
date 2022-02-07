@@ -2,16 +2,14 @@
   "name": "@home/gateway",
   "version": "0.10.8",
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/index.mjs",
   "license": "ISC",
   "scripts": {
     "build": "rollup -c ./rollup.config.js",
     "build-declarations": "tsc --declaration --emitDeclarationOnly --out dist/index.d.ts && node ../../scripts/fixDeclaration.js",
     "watch": "rollup -w -c ./rollup.config.js",
-    "dev": "concurrently \"yarn workspace @home/gateway watch\" \"nodemon dist/index.js\"",
-    "start": "node dist/index.js",
+    "dev": "concurrently \"yarn workspace @home/gateway watch\" \"nodemon dist/index.mjs\"",
+    "start": "node dist/index.mjs",
     "prepare": "exit 0"
   },
   "dependencies": {

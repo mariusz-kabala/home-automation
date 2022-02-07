@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "license": "ISC",
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
+  "main": "dist/index.mjs",
+  "type": "module",
   "types": "dist/index.d.ts",
   "dependencies": {
     "@home/logger": "0.1.2",

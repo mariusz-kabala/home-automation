@@ -4,13 +4,13 @@
   "private": true,
   "license": "ISC",
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
-  "main": "./dist/index.js",
+  "main": "./dist/index.mjs",
   "scripts": {
     "build": "rollup -c ../../rollup.config.js",
     "build-declarations": "tsc --declaration --emitDeclarationOnly --out dist/index.d.ts",
     "watch": "rollup -w -c ../../rollup.config.js",
-    "dev": "concurrently \"yarn workspace @home/lg2mqtt watch\" \"nodemon dist/index.js\"",
-    "start": "node dist/index.js",
+    "dev": "concurrently \"yarn workspace @home/lg2mqtt watch\" \"nodemon dist/index.mjs\"",
+    "start": "node dist/index.mjs",
     "prepare": "exit 0"
   },
   "dependencies": {

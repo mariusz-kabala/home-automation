@@ -1,6 +1,5 @@
 import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
-// import builtins from 'rollup-plugin-node-builtins'
 import typescript from '@rollup/plugin-typescript'
 import autoExternal from 'rollup-plugin-auto-external'
 import json from '@rollup/plugin-json'
@@ -11,21 +10,20 @@ export default {
   input: `${RUN_DIR}/src/index.ts`,
   output: [
     {
-      file: `${RUN_DIR}/dist/index.js`,
+      file: `${RUN_DIR}/dist/index.mjs`,
       format: 'esm',
       sourcemap: false,
     },
   ],
   external: [],
   plugins: [
-    // autoExternal({
-    //   packagePath: `${RUN_DIR}/../../package.json`,
-    // }),
-    // autoExternal(),
-    // builtins(),
+    commonjs(),
+    autoExternal({
+      packagePath: `${RUN_DIR}/../../package.json`,
+    }),
+    autoExternal(),
     typescript(),
     resolve(),
-    commonjs(),
     json(),
   ],
 }
