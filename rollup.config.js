@@ -10,7 +10,7 @@ export default {
   input: `${RUN_DIR}/src/index.ts`,
   output: [
     {
-      file: `${RUN_DIR}/dist/index.mjs`,
+      file: `${RUN_DIR}/dist/index.js`,
       format: 'cjs',
       sourcemap: false,
     },

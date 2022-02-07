@@ -2,8 +2,7 @@
   "name": "@home/redis",
   "version": "0.3.3",
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
-  "main": "dist/index.mjs",
-  "type": "module",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "ISC",
   "scripts": {

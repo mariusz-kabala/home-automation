@@ -83,7 +83,7 @@
     "morgan": "^1.10.0",
     "mqtt": "^3.0.0",
     "mqtt-pattern": "^1.2.0",
-    "node-fetch": "^3.2.0",
+    "node-fetch": "2.6.7",
     "redis": "^3.0.2",
     "uuid": "^3.3.3",
     "winston": "^3.2.1"

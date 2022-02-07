@@ -2,9 +2,8 @@
   "name": "@home/mqtt",
   "version": "0.7.4",
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
-  "main": "dist/index.mjs",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "type": "module",
   "license": "ISC",
   "scripts": {
     "build": "rollup -c ../../rollup.config.js",

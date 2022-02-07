@@ -3,9 +3,8 @@
   "version": "0.0.1",
   "license": "ISC",
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
-  "main": "dist/index.mjs",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "type": "module",
   "dependencies": {
     "@home/commons": "0.5.0"
   },
