@@ -15,12 +15,13 @@ module.exports.up = next => {
       return client.db('home')
     })
     .then(db => {
-      const Collection = db.collection('shelly')
+      const Collection = db.collection('shellies')
 
       return Collection.insertMany([
         {
           label: 'Swiatło przed wejściem na schody',
           name: 'lights-before-stairs',
+          type: 'shelly1pm',
           macAddress: '8C:AA:B5:77:50:59',
           deviceId: '8CAAB5775059',
           '@Home0IpAddress': '192.168.50.109',
@@ -32,6 +33,7 @@ module.exports.up = next => {
         {
           label: 'Swiatło, schody dół',
           name: 'lights-downstairs',
+          type: 'shelly1pm',
           macAddress: 'E8:68:E7:87:12:F6',
           deviceId: 'E868E78712F6',
           '@Home0IpAddress': '192.168.50.12',
@@ -55,6 +57,7 @@ module.exports.up = next => {
           label: 'Swiatło, kinkiet salon',
           name: 'lights-sconce-living-room',
           macAddress: '40:F5:20:00:1C:A3',
+          type: 'shellyswitch25',
           deviceId: '40F520001CA3',
           '@Home0IpAddress': '192.168.50.144',
           '@Home1IpAddress': '192.168.1.144',
@@ -64,6 +67,7 @@ module.exports.up = next => {
         },
         {
           label: 'Swiatło, korytarz od gabinetu, głowne wejśce',
+          type: 'shelly1',
           name: 'lights-office-corridor',
           macAddress: 'E8:DB:84:D2:13:0C',
           deviceId: 'E8DB84D2130C',
@@ -76,6 +80,7 @@ module.exports.up = next => {
         {
           label: 'Swiatło, jadalnia',
           name: 'lights-dining-room',
+          type: 'shellyswitch25',
           macAddress: '40:F5:20:2A:2C:6E',
           deviceId: '40F5202A2C6E',
           '@Home0IpAddress': '192.168.50.15',
@@ -87,6 +92,7 @@ module.exports.up = next => {
         {
           label: 'Rolety, salon środek',
           name: 'roller-blinds-livingroom-center',
+          type: 'shellyswitch25',
           macAddress: '3C:61:05:E5:C2:EB',
           deviceId: '3C6105E5C2EB',
           '@Home0IpAddress': '192.168.50.153',
@@ -108,6 +114,7 @@ module.exports.up = next => {
         },
         {
           label: 'Rolety, gabinet',
+          type: 'shellyswitch25',
           name: 'roller-blinds-office',
           macAddress: '40:F5:20:05:01:89',
           deviceId: '40F520050189',
@@ -120,6 +127,7 @@ module.exports.up = next => {
         {
           label: 'Rolety, salon prawa',
           name: 'roller-blinds-living-room-right',
+          type: 'shellyswitch25',
           macAddress: '40:F5:20:00:C5:A8',
           deviceId: '40F52000C5A8',
           '@Home0IpAddress': '192.168.50.175',
@@ -133,6 +141,7 @@ module.exports.up = next => {
           name: 'roller-blinds-garage-right',
           macAddress: '40:F5:20:00:21:57',
           deviceId: '40F520002157',
+          type: 'shellyswitch25',
           '@Home0IpAddress': '192.168.50.177',
           '@Home1IpAddress': '192.168.1.177',
           category: 'blinds',
@@ -142,6 +151,7 @@ module.exports.up = next => {
         {
           label: 'Swiatło, głowne wejście',
           name: 'lights-main-entry',
+          type: 'shelly1',
           macAddress: 'E8:DB:84:D2:AC:31',
           deviceId: 'E8DB84D2AC31',
           '@Home0IpAddress': '192.168.50.178',
@@ -153,6 +163,7 @@ module.exports.up = next => {
         {
           label: 'Swiatło, sypialnia',
           name: 'lights-bedroom',
+          type: 'shellyswitch25',
           macAddress: '40:F5:20:2A:87:C0',
           deviceId: '40F5202A87C0',
           '@Home0IpAddress': '192.168.50.185',
@@ -164,6 +175,7 @@ module.exports.up = next => {
         {
           label: 'Rolety, kotłownia',
           name: 'roller-blinds-boiler-room',
+          type: 'shellyswitch25',
           macAddress: '40:F5:20:00:DB:0D',
           deviceId: '40F52000DB0D',
           '@Home0IpAddress': '192.168.50.214',
@@ -175,6 +187,7 @@ module.exports.up = next => {
         {
           label: 'Swiatło, toaleta na dole',
           name: 'lights-toilet-downstairs',
+          type: 'shelly1pm',
           macAddress: 'E8:68:E7:86:27:2F',
           deviceId: 'E868E786272F',
           '@Home0IpAddress': '192.168.50.22',
@@ -185,6 +198,7 @@ module.exports.up = next => {
         },
         {
           label: 'Rolety, salon lewa',
+          type: 'shellyswitch25',
           name: 'roller-blinds-livingroom-left',
           macAddress: '40:F5:20:01:62:E9',
           deviceId: '40F5200162E9',
@@ -197,6 +211,7 @@ module.exports.up = next => {
         {
           label: 'Swiatlo, nad schodami',
           name: 'lights-upstairs',
+          type: 'shelly1pm',
           macAddress: 'F4:CF:A2:E3:85:B8',
           deviceId: 'F4CFA2E385B8',
           '@Home0IpAddress': '192.168.50.31',
@@ -208,6 +223,7 @@ module.exports.up = next => {
         {
           label: 'Swiatło, sufit podwieszany, salon',
           name: 'lights-livingroom',
+          type: 'shellyswitch25',
           macAddress: '40:F5:20:01:8E:B5',
           deviceId: '40F520018EB5',
           '@Home0IpAddress': '192.168.50.32',
@@ -241,6 +257,7 @@ module.exports.up = next => {
         {
           label: 'Rolety, kuchnia',
           name: 'roller-blinds-kitchen',
+          type: 'shellyswitch25',
           macAddress: '40:F5:20:01:8E:78',
           deviceId: '40F520018E78',
           '@Home0IpAddress': '192.168.50.6',
@@ -252,6 +269,7 @@ module.exports.up = next => {
         {
           label: 'Swiatło, wejście od garażu',
           name: 'lights-garage-entry',
+          type: 'shelly1',
           macAddress: 'E8:DB:84:D2:45:05',
           deviceId: 'E8DB84D24505',
           '@Home0IpAddress': '192.168.50.61',
@@ -263,6 +281,7 @@ module.exports.up = next => {
         {
           label: 'Swiatlo, gabinet',
           name: 'lights-office',
+          type: 'shellyswitch25',
           macAddress: '40:F5:20:01:88:6E',
           deviceId: '40F52001886E',
           '@Home0IpAddress': '192.168.50.69',
@@ -274,6 +293,7 @@ module.exports.up = next => {
         {
           label: 'Swiatło, spiżarnia',
           name: 'lights-larder',
+          type: 'shelly1pm',
           macAddress: 'E8:DB:84:D7:A8:45',
           deviceId: 'E8DB84D7A845',
           '@Home0IpAddress': '192.168.50.71',
@@ -285,6 +305,7 @@ module.exports.up = next => {
         {
           label: 'Rolety, garaż lewa',
           name: 'roller-blinds-garage-left',
+          type: 'shellyswitch25',
           macAddress: '40:F5:20:2A:55:01',
           deviceId: '40F5202A5501',
           '@Home0IpAddress': '192.168.50.75',
@@ -296,6 +317,7 @@ module.exports.up = next => {
         {
           label: 'Swiatło, garaż',
           name: 'lights-garage',
+          type: 'shelly1',
           macAddress: 'E8:DB:84:D2:75:09',
           deviceId: 'E8DB84D27509',
           '@Home0IpAddress': '192.168.50.76',
@@ -307,6 +329,7 @@ module.exports.up = next => {
         {
           label: 'Swiatło pokój nad garażem 2',
           name: 'lights-above-garage-2',
+          type: 'shelly1pm',
           macAddress: '8C:AA:B5:77:2D:8F',
           deviceId: '8CAAB5772D8F',
           '@Home0IpAddress': '192.168.50.171',
@@ -318,6 +341,7 @@ module.exports.up = next => {
         {
           label: 'Swiatło, siłownia',
           name: 'lights-gym',
+          type: 'shellyswitch25',
           macAddress: '98:CD:AC:2B:B6:D8',
           deviceId: '98CDAC2BB6D8',
           '@Home0IpAddress': '192.168.50.126',
@@ -328,6 +352,7 @@ module.exports.up = next => {
         },
         {
           label: 'Gościnny, rolety',
+          type: 'shellyswitch25',
           name: 'blinds-guest-room',
           macAddress: '40:F5:20:2A:4F:51',
           deviceId: '40F5202A4F51',
@@ -340,6 +365,7 @@ module.exports.up = next => {
         {
           label: 'Sypialnia, rolety',
           name: 'blinds-bedroom',
+          type: 'shellyswitch25',
           macAddress: '40:F5:20:00:D2:8A',
           deviceId: '40F52000D28A',
           '@Home0IpAddress': '192.168.50.133',
@@ -351,6 +377,7 @@ module.exports.up = next => {
         {
           label: 'Swiatło, pokój gościnny',
           name: 'lights-guest-room',
+          type: 'shellyswitch25',
           macAddress: 'C4:5B:BE:6B:80:42',
           deviceId: 'C45BBE6B8042',
           '@Home0IpAddress': '192.168.50.249',
@@ -362,6 +389,7 @@ module.exports.up = next => {
         {
           label: 'Swiatło pokój nad garażem 1',
           name: 'lights-above-garage-1',
+          type: 'shelly1pm',
           macAddress: 'E0:98:06:AA:06:0E',
           deviceId: 'E09806AA060E',
           '@Home0IpAddress': '192.168.50.4',
@@ -391,7 +419,7 @@ module.exports.down = next => {
       return client.db()
     })
     .then(db => {
-      db.collection('shelly').drop()
+      db.collection('shellies').drop()
     })
     .then(() => {
       clientRef.close()

@@ -31,6 +31,7 @@ function updateDevicesStatus(devices: IShelly[]) {
         level: 'error',
         message: `Can not fetch connected devices status from VerneMQ API; error: ${err}`,
       })
+      process.exit(1)
     })
 }
 
@@ -39,6 +40,8 @@ function run() {
     const devices = await ShellyModel.find({})
 
     await updateDevicesStatus(devices)
+
+    process.exit(0)
   })
 }
 
