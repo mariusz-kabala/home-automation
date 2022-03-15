@@ -44,6 +44,7 @@ module.exports.up = next => {
         },
         {
           label: 'Swiatło, kotłownia',
+          type: 'shelly1pm',
           name: 'lights-boiler-room',
           macAddress: 'E8:DB:84:D3:40:21',
           deviceId: 'E8DB84D34021',
@@ -103,6 +104,7 @@ module.exports.up = next => {
         },
         {
           label: 'Swiatło, pralnia',
+          type: 'shelly1',
           name: 'lights-laundry-room',
           macAddress: '8C:AA:B5:77:3C:CE',
           deviceId: '8CAAB5773CCE',
@@ -235,6 +237,7 @@ module.exports.up = next => {
         {
           label: 'Swiatło, sypialnia + prysznic',
           name: 'lights-bedroom-shower',
+          type: 'shellyswitch25',
           macAddress: '40:F5:20:01:63:37',
           deviceId: '40F520016337',
           '@Home0IpAddress': '192.168.50.37',
@@ -246,6 +249,7 @@ module.exports.up = next => {
         {
           label: 'Garaż, przycisk',
           name: 'garage-button-1',
+          type: 'shellyix3',
           macAddress: '68:C6:3A:F9:F0:49',
           deviceId: '68C63AF9F049',
           '@Home0IpAddress': '192.168.50.52',
