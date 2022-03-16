@@ -2,8 +2,6 @@ import { IShelly, MqttStatus, ShellyModel } from '@home/models'
 import { fetchSessions } from '@home/vernemq-api'
 import { logger } from '@home/logger'
 import { mongoose } from '@home/mongoose-client'
-import request from 'request'
-import sshAgent from 'http-ssh-agent'
 
 function checkHttpStatus(devices: IShelly[]) {
 
