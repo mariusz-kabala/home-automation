@@ -11,7 +11,7 @@
     "moduleResolution": "Node",
     "esModuleInterop": true,
     "isolatedModules": false,
-    "target": "ES2020",
+    "target": "ES6",
     "experimentalDecorators": false,
     "emitDecoratorMetadata": false,
     "declaration": false,

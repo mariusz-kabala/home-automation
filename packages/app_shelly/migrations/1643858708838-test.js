@@ -15,7 +15,7 @@ module.exports.up = next => {
       return client.db('home')
     })
     .then(db => {
-      return db.createCollection('shelly')
+      return db.createCollection('shellies')
     })
     .then(() => {
       clientRef.close()
@@ -36,7 +36,7 @@ module.exports.down = next => {
       return client.db()
     })
     .then(db => {
-      db.collection('shelly').drop()
+      db.collection('shellies').drop()
     })
     .then(() => {
       clientRef.close()

@@ -4,9 +4,7 @@
   "license": "ISC",
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
   "main": "dist/index.js",
-  "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
-  "type": "module",
   "dependencies": {
     "@home/logger": "0.1.2",
     "lodash.get": "^4.4.2",

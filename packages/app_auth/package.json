@@ -3,8 +3,6 @@
   "version": "0.2.3",
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
   "main": "dist/index.js",
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
   "scripts": {
     "build": "rollup -c ../../rollup.config.js",
     "build-declarations": "tsc --declaration --emitDeclarationOnly --out dist/index.d.ts && node ../../scripts/fixDeclaration.js",

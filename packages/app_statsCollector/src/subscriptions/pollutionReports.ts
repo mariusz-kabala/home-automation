@@ -51,7 +51,7 @@ export function subscribeForPollutionReports() {
     } catch (err) {
       logger.log({
         level: 'error',
-        message: err,
+        message: `${err}`,
       })
     }
   })
@@ -78,7 +78,7 @@ export function subscribeForPollutionReports() {
     } catch (err) {
       logger.log({
         level: 'error',
-        message: err,
+        message: `${err}`,
       })
     }
   })

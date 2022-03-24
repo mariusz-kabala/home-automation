@@ -4,7 +4,6 @@
   "license": "ISC",
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
   "main": "dist/index.js",
-  "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "rollup -c ../../rollup.config.js",

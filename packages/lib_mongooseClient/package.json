@@ -5,7 +5,6 @@
   "license": "ISC",
   "author": "Mariusz Kabała",
   "main": "dist/index.js",
-  "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "rollup -c ../../rollup.config.js",
