@@ -1,10 +1,53 @@
-import { IShelly, MqttStatus, ShellyModel } from '@home/models'
+import { IShelly, ConnectionStatus, ShellyModel } from '@home/models'
 import { fetchSessions } from '@home/vernemq-api'
 import { logger } from '@home/logger'
 import { mongoose } from '@home/mongoose-client'
+import { fetchStatus } from '@home/shelly-api'
 
-function checkHttpStatus(devices: IShelly[]) {
+async function checkHttpStatus(devices: IShelly[]) {
+  for await (const device of devices) {
+    let status
+    try {
+      status = await fetchStatus(device['@Home1IpAddress'])
+    } catch (err) {
+      logger.log({
+        level: 'error',
+        message: `Can not fetch shelly ${device.name} status from ${device['@Home0IpAddress']} address. Error ${err}`,
+      })
+    }
 
+    if (!status) {
+      try {
+        status = await fetchStatus(device['@Home0IpAddress'])
+      } catch (err) {
+        logger.log({
+          level: 'error',
+          message: `Can not fetch shelly ${device.name} status from ${device['@Home0IpAddress']} address. Error ${err}`,
+        })
+      }
+    }
+
+    if (status) {
+      device.status = status
+      device.httpStatus = ConnectionStatus.connected
+    } else {
+      device.httpStatus = ConnectionStatus.disconnected
+    }
+
+    try {
+      await device.save()
+    } catch (err) {
+      logger.log({
+        level: 'error',
+        message: `Can not update shelly ${device.name} device status; error: ${err}`,
+      })
+    }
+  }
+
+  logger.log({
+    level: 'info',
+    message: 'HTTP devices status successfully updated',
+  })
 }
 
 function updateDevicesStatus(devices: IShelly[]) {
@@ -15,8 +58,8 @@ function updateDevicesStatus(devices: IShelly[]) {
       for (const device of devices) {
         const mqttStatus = table.find(session => session.client_id === `${device.type}-${device.deviceId}`)
 
-        console.log('device ->' + device.label, `${device.type}-${device.deviceId} --> ${mqttStatus?.is_online}`)
-        device.mqttStatus = mqttStatus && mqttStatus.is_online ? MqttStatus.connected : MqttStatus.disconnected
+        device.mqttStatus =
+          mqttStatus && mqttStatus.is_online ? ConnectionStatus.connected : ConnectionStatus.disconnected
 
         promises.push(
           device
@@ -28,7 +71,6 @@ function updateDevicesStatus(devices: IShelly[]) {
               })
             })
             .catch(err => {
-              console.log('error')
               logger.log({
                 level: 'error',
                 message: `Can not update shelly ${device.name} device status; error: ${err}`,
@@ -40,7 +82,10 @@ function updateDevicesStatus(devices: IShelly[]) {
       return Promise.all(promises)
     })
     .then(() => {
-      console.log('evenything is done')
+      logger.log({
+        level: 'info',
+        message: 'MQTT devices status successfully updated',
+      })
     })
     .catch(err => {
       logger.log({
@@ -55,10 +100,8 @@ function run() {
   mongoose.connection.once('open', async () => {
     const devices = await ShellyModel.find({})
 
-    console.log('devices -----')
-    console.log(devices)
-
     await updateDevicesStatus(devices)
+    await checkHttpStatus(devices)
 
     process.exit(0)
   })

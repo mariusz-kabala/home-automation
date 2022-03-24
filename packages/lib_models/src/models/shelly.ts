@@ -6,7 +6,7 @@ export enum ShellyType {
   shelly1pm = 'shelly1pm',
 }
 
-export enum MqttStatus {
+export enum ConnectionStatus {
   unknown = 'unknown',
   connected = 'connected',
   disconnected = 'disconnected',
@@ -65,7 +65,15 @@ const ShellySchema = new Schema({
   },
   mqttStatus: {
     type: String,
-    default: MqttStatus.unknown,
+    default: ConnectionStatus.unknown,
+  },
+  httpStatus: {
+    type: String,
+    default: ConnectionStatus.unknown,
+  },
+  status: {
+    type: Object,
+    default: undefined,
   },
 })
 
@@ -80,7 +88,9 @@ export interface IShelly extends Document {
   category: string
   room: string
   level: number
-  mqttStatus: MqttStatus
+  mqttStatus: ConnectionStatus
+  httpStatus: ConnectionStatus
+  status: any
 }
 
 export const ShellyModel = mongoose.model<IShelly>('Shelly', ShellySchema)

@@ -1,7 +1,9 @@
 import fetch, { RequestInit, Response } from 'node-fetch'
+import { AbortSignal } from 'node-fetch/externals'
 
 export interface IParams<T> {
-  values: T
+  values?: T
+  signal?: AbortSignal
   headers?: {
     [key: string]: string
   }
@@ -20,7 +22,9 @@ export const fetchJSON = <T, R>(url: string, params?: IParams<T>): Promise<R> =>
 
   options.headers = headers
 
-  options.timeout = 5000
+  if (params?.signal) {
+    options.signal = params.signal
+  }
 
   return fetch(url, options)
     .then((response: Response) => {
@@ -31,4 +35,28 @@ export const fetchJSON = <T, R>(url: string, params?: IParams<T>): Promise<R> =>
       throw response
     })
     .then(data => data as R)
+}
+
+export interface IWithTimeoutParams<T> extends IParams<T> {
+  timeout?: number
+}
+
+export const fetchJSONWithTimeout = async <T, R>(url: string, params?: IWithTimeoutParams<T>): Promise<R> => {
+  const controller = new AbortController()
+  const timeout = params?.timeout || 5000
+  const id = setTimeout(() => controller.abort(), timeout)
+
+  if (!params) {
+    params = {
+      signal: controller.signal as AbortSignal,
+      values: {} as T,
+    }
+  } else {
+    params.signal = controller.signal as AbortSignal
+  }
+
+  const response: R = await fetchJSON(url, params)
+  clearTimeout(id)
+
+  return response
 }

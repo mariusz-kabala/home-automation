@@ -16,6 +16,7 @@
     "@home/mongoose-client": "0.1.3",
     "@home/vernemq-api": "0.0.1",
     "@home/models": "0.0.1",
+    "@home/shelly-api": "0.0.1",
     "request": "^2.88.2"
   }
 }
