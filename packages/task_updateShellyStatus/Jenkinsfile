@@ -59,10 +59,12 @@ pipeline {
         stage ('Run shelly status update') {
             steps {
                 dir("packages/task_updateShellyStatus") {
-                script {
-                    sh "DOCKER_BUILDKIT=1 docker build -f Dockerfile ../../"
+                    script {
+                        sh "DOCKER_BUILDKIT=1 docker build -f Dockerfile ../../"
+                    }
                 }
             }
         }
     }
 }
+
