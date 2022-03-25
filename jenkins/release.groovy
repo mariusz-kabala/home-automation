@@ -81,7 +81,7 @@ pipeline {
             }
              steps {
                 script {
-                    build job: 'home_automation/build', wait: false, parameters: [
+                    build job: 'home/monorepo_build', wait: false, parameters: [
                         string(name: 'ghprbActualCommit', value: "${ghprbActualCommit}"),
                         string(name: 'packages', value: "${env.packages}"),
                         string(name: 'deploy', value: "${env.deploy}"),

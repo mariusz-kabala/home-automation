@@ -6,4 +6,4 @@ COPY . .
 
 RUN yarn && yarn workspaces run prepare && yarn workspace @home/task-update-shelly-status build
 
-RUN yarn workspace @home/task-update-shelly-status start
+CMD ["yarn", "workspace", "@home/task-update-shelly-status", "start"]

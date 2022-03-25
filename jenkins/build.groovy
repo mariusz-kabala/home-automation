@@ -58,7 +58,7 @@ pipeline {
                     ])
             }
         }
-        stage ('Build Containers') {
+        stage ('Build Apps') {
             steps {
                 script {
                     def packagesList = packages.split(',')
@@ -72,6 +72,23 @@ pipeline {
                 }
             }
         }
+        stage ('Build tasks') {
+            steps {
+                script {
+                    def tasksList = tasks.split(',')
+
+                    tasksList.each {
+                        def props = readJSON file: "packages/task_${it}/package.json"
+                        def currentApp = docker.build(props['name'].replace('@', '').replace('-', '').toLowerCase(), "-f packages/task_${it}/Dockerfile .")
+                        docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
+                            currentApp.push("v${props['version']}")
+                            currentApp.push("latest")
+                        }
+                    }
+                }
+            }
+        }
+
         stage ('Deploy') {
             when {
                 environment name: 'deploy', value: 'true'
@@ -82,7 +99,7 @@ pipeline {
                         packagesList.each {
                             def props = readJSON file: "packages/app_${it}/package.json"
 
-                            build job: 'home_automation/deploy', wait: false, parameters: [
+                            build job: 'home/monorepo_deploy', wait: false, parameters: [
                                 string(name: 'ghprbActualCommit', value: "${ghprbActualCommit}"),
                                 string(name: 'package', value: "${it}"),
                                 string(name: 'version', value: "v${props.version}"),
