@@ -61,7 +61,13 @@ pipeline {
         stage ('Build Apps') {
             steps {
                 script {
+                    if (packages == "") {
+                        return
+                    }
+
                     def packagesList = packages.split(',')
+
+                    println "packages: ${packages}"
 
                     println packagesList
 
