@@ -80,7 +80,7 @@ pipeline {
         stage ('Build tasks') {
             steps {
                 script {
-                    if (tasks === "") {
+                    if (tasks == "") {
                         return
                     }
 
