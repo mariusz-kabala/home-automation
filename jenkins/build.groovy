@@ -62,6 +62,11 @@ pipeline {
             steps {
                 script {
                     def packagesList = packages.split(',')
+
+                    if (packagesList.size == 0) {
+                        return
+                    }
+
                     packagesList.each {
                         def props = readJSON file: "packages/app_${it}/package.json"
                         def currentApp = docker.build(props['name'].replace('@', '').replace('-', '').toLowerCase(), "-f packages/app_${it}/Dockerfile .")
@@ -76,6 +81,10 @@ pipeline {
             steps {
                 script {
                     def tasksList = tasks.split(',')
+
+                    if (tasksList.size == 0) {
+                        return
+                    }
 
                     tasksList.each {
                         def props = readJSON file: "packages/task_${it}/package.json"
