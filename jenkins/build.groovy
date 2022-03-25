@@ -63,7 +63,7 @@ pipeline {
                 script {
                     def packagesList = packages.split(',')
 
-                    if (packagesList.size == 0) {
+                    if (packagesList.size() == 0) {
                         return
                     }
 
@@ -82,7 +82,7 @@ pipeline {
                 script {
                     def tasksList = tasks.split(',')
 
-                    if (tasksList.size == 0) {
+                    if (tasksList.size() == 0) {
                         return
                     }
 
