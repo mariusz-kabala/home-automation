@@ -1,5 +1,5 @@
 import fetch, { RequestInit, Response } from 'node-fetch'
-import { AbortSignal } from 'node-fetch/externals'
+import AbortController from 'abort-controller'
 
 export interface IParams<T> {
   values?: T
@@ -23,7 +23,7 @@ export const fetchJSON = <T, R>(url: string, params?: IParams<T>): Promise<R> =>
   options.headers = headers
 
   if (params?.signal) {
-    options.signal = params.signal
+    options.signal = params.signal as any
   }
 
   return fetch(url, options)
@@ -48,11 +48,11 @@ export const fetchJSONWithTimeout = async <T, R>(url: string, params?: IWithTime
 
   if (!params) {
     params = {
-      signal: controller.signal as AbortSignal,
+      signal: controller.signal as any,
       values: {} as T,
     }
   } else {
-    params.signal = controller.signal as AbortSignal
+    params.signal = controller.signal as any
   }
 
   const response: R = await fetchJSON(url, params)

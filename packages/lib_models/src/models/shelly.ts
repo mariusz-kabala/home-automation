@@ -12,70 +12,75 @@ export enum ConnectionStatus {
   disconnected = 'disconnected',
 }
 
-const ShellySchema = new Schema({
-  label: {
-    type: String,
-    trim: true,
-    required: false,
+const ShellySchema = new Schema(
+  {
+    label: {
+      type: String,
+      trim: true,
+      required: false,
+    },
+    type: {
+      type: String,
+      trim: true,
+      required: false,
+    },
+    name: {
+      type: String,
+      trim: true,
+      required: false,
+    },
+    macAddress: {
+      type: String,
+      trim: true,
+      required: false,
+    },
+    deviceId: {
+      type: String,
+      trim: true,
+      required: false,
+    },
+    '@Home0IpAddress': {
+      type: String,
+      trim: true,
+      required: false,
+    },
+    '@Home1IpAddress': {
+      type: String,
+      trim: true,
+      required: false,
+    },
+    category: {
+      type: String,
+      trim: true,
+      required: false,
+    },
+    room: {
+      type: String,
+      trim: true,
+      required: false,
+    },
+    level: {
+      type: Number,
+      required: false,
+      default: 0,
+    },
+    mqttStatus: {
+      type: String,
+      default: ConnectionStatus.unknown,
+    },
+    httpStatus: {
+      type: String,
+      default: ConnectionStatus.unknown,
+    },
+    status: {
+      type: Object,
+      default: undefined,
+    },
   },
-  type: {
-    type: String,
-    trim: true,
-    required: false,
+  {
+    timestamps: true,
   },
-  name: {
-    type: String,
-    trim: true,
-    required: false,
-  },
-  macAddress: {
-    type: String,
-    trim: true,
-    required: false,
-  },
-  deviceId: {
-    type: String,
-    trim: true,
-    required: false,
-  },
-  '@Home0IpAddress': {
-    type: String,
-    trim: true,
-    required: false,
-  },
-  '@Home1IpAddress': {
-    type: String,
-    trim: true,
-    required: false,
-  },
-  category: {
-    type: String,
-    trim: true,
-    required: false,
-  },
-  room: {
-    type: String,
-    trim: true,
-    required: false,
-  },
-  level: {
-    type: Number,
-    required: false,
-    default: 0,
-  },
-  mqttStatus: {
-    type: String,
-    default: ConnectionStatus.unknown,
-  },
-  httpStatus: {
-    type: String,
-    default: ConnectionStatus.unknown,
-  },
-  status: {
-    type: Object,
-    default: undefined,
-  },
-})
+)
 
 export interface IShelly extends Document {
   label: string

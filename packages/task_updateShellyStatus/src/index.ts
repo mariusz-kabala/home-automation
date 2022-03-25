@@ -12,7 +12,7 @@ async function checkHttpStatus(devices: IShelly[]) {
     } catch (err) {
       logger.log({
         level: 'error',
-        message: `Can not fetch shelly ${device.name} status from ${device['@Home0IpAddress']} address. Error ${err}`,
+        message: `Can not fetch shelly ${device.name} status from ${device['@Home1IpAddress']} address. Error ${err}`,
       })
     }
 
@@ -32,6 +32,7 @@ async function checkHttpStatus(devices: IShelly[]) {
       device.httpStatus = ConnectionStatus.connected
     } else {
       device.httpStatus = ConnectionStatus.disconnected
+      device.status = undefined
     }
 
     try {
