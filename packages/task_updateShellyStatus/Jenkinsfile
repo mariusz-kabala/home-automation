@@ -6,6 +6,8 @@ pipeline {
         CI = 'true'
         GIT_SSH_COMMAND = 'ssh -o StrictHostKeyChecking=no'
         GH_TOKEN = credentials('jenkins-github-accesstoken')
+        MONGO_PASS = credentials('mongo-home-user-pass')
+        VERNEMQ_API_KEY = credentials('vernemq-api-key')
     }
 
     stages {
@@ -59,7 +61,7 @@ pipeline {
             steps {
                 dir("packages/task_updateShellyStatus") {
                     script {
-                        sh "DOCKER_BUILDKIT=1 docker build -f Dockerfile ../../"
+                        sh "DOCKER_BUILDKIT=1 docker build --build-arg VERNE_MQ_API_KEY=${VERNEMQ_API_KEY} --build-arg VERNE_MQ_URL='mqtt.kabala.tech' --build-arg MONGO_CONNECTION_STR='mongodb://home:${MONGO_PASS}@192.168.50.30:27017,192.168.50.217:27017,192.168.50.119:27017/home?replicaSet=rs0' -f Dockerfile ../../"
                     }
                 }
             }
