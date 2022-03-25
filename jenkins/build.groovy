@@ -63,6 +63,10 @@ pipeline {
                 script {
                     def packagesList = packages.split(',')
 
+                    println packagesList
+
+                    println packagesList.size()
+
                     if (packagesList.size() == 0) {
                         return
                     }
