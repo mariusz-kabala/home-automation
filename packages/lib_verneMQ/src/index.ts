@@ -8,7 +8,7 @@ export function fetchSessions() {
   return fetchJSON<{}, IFetchSessionsResponse>(`${API_URL}/session/show`, {
     values: {},
     headers: {
-      Authorization: `Basic ${btoa(config.get<string>('verneMQApiKey') + ':')}`,
+      Authorization: `Basic ${Buffer.from(config.get<string>('verneMQApiKey') + ':').toString('base64')}`,
     },
   })
 }
