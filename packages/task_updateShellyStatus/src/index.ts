@@ -7,16 +7,30 @@ import { fetchStatus } from '@home/shelly-api'
 async function checkHttpStatus(devices: IShelly[]) {
   for await (const device of devices) {
     let status
-    try {
-      status = await fetchStatus(device['@Home1IpAddress'])
-    } catch (err) {
-      logger.log({
-        level: 'error',
-        message: `Can not fetch shelly ${device.name} status from ${device['@Home1IpAddress']} address. Error ${err}`,
-      })
+
+    if (device['@Home1IpAddress']) {
+      try {
+        status = await fetchStatus(device['@Home1IpAddress'])
+      } catch (err) {
+        logger.log({
+          level: 'error',
+          message: `Can not fetch shelly ${device.name} status from ${device['@Home1IpAddress']} address. Error ${err}`,
+        })
+      }
     }
 
-    if (!status) {
+    if (!status && device['@Home2IpAddress']) {
+      try {
+        status = await fetchStatus(device['@Home2IpAddress'])
+      } catch (err) {
+        logger.log({
+          level: 'error',
+          message: `Can not fetch shelly ${device.name} status from ${device['@Home2IpAddress']} address. Error ${err}`,
+        })
+      }
+    }
+
+    if (!status && device['@Home0IpAddress']) {
       try {
         status = await fetchStatus(device['@Home0IpAddress'])
       } catch (err) {
