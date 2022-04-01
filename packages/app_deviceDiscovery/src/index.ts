@@ -4,7 +4,8 @@ import { logger } from '@home/logger'
 // eslint-disable-next-line
 import isReachable from 'is-reachable'
 import ping from 'ping'
-import { Store, registerInConsul } from '@home/commons'
+import { Store } from '@home/commons'
+import { registerInConsul } from '@home/consul'
 import { initApp } from './app'
 
 import { IDevice } from './types'

@@ -9,7 +9,7 @@
     "build": "rollup -c ../../rollup.config.js",
     "build-declarations": "tsc --declaration --emitDeclarationOnly --out dist/index.d.ts",
     "watch": "rollup -w -c ../../rollup.config.js",
-    "dev": "concurrently \"yarn workspace @home/stats-collector watch\" \"nodemon dist/index.js\"",
+    "dev": "concurrently \"yarn workspace @home/shelly watch\" \"nodemon dist/index.js\"",
     "start": "node dist/index.js",
     "prepare": "exit 0",
     "create-migration": "migrate create",
@@ -21,7 +21,6 @@
     "@home/mongoose-client": "0.1.3",
     "@home/vernemq-api": "0.0.1",
     "migrate": "^1.7.0",
-    "mongodb": "^4.3.1",
-    "http-ssh-agent": "^1.0.4"
+    "mongodb": "^4.3.1"
   }
 }

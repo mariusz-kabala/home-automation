@@ -1,5 +1,5 @@
 {
-  "lastRun": "1643899823009-feel-shelly-data.js",
+  "lastRun": "1648470176921-add-more-devices.js",
   "migrations": [
     {
       "title": "1643858708838-test.js",
@@ -8,6 +8,10 @@
     {
       "title": "1643899823009-feel-shelly-data.js",
       "timestamp": 1646918503531
+    },
+    {
+      "title": "1648470176921-add-more-devices.js",
+      "timestamp": 1648559801933
     }
   ]
 }
