@@ -2,6 +2,7 @@ import express, { Request, Response, NextFunction } from 'express'
 import { logger } from '@home/logger'
 import { mongoose } from '@home/mongoose-client'
 import morgan from 'morgan'
+import { find } from './routes'
 
 const app = express()
 
@@ -24,6 +25,8 @@ app.get('/managment/heath', (_: Request, res: Response) => {
     status: 'up',
   })
 })
+
+app.get('/', find.list)
 
 app.all('*', (_: Request, res: Response) => {
   res.status(404).json({ status: 'not found' })
