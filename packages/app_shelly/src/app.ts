@@ -27,6 +27,7 @@ app.get('/managment/heath', (_: Request, res: Response) => {
 })
 
 app.get('/', find.list)
+app.get('/search', find.find)
 
 app.all('*', (_: Request, res: Response) => {
   res.status(404).json({ status: 'not found' })

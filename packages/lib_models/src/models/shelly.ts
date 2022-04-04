@@ -7,6 +7,12 @@ export enum ShellyType {
   shelly1pm = 'shelly1pm',
 }
 
+export enum ShellyCategory {
+  lights = 'lights',
+  blinds = 'blinds',
+  button = 'button',
+}
+
 export enum ConnectionStatus {
   unknown = 'unknown',
   connected = 'connected',

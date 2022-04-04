@@ -21,7 +21,7 @@ function validatePaginationParams(limit: any, offset: any): Pagination {
   }
 }
 
-interface IPaginationParams {
+export interface IPaginationParams {
   limit?: string
   offset?: string
 }
