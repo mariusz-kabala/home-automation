@@ -84,6 +84,7 @@ pipeline {
                     build job: 'home/monorepo_build', wait: false, parameters: [
                         string(name: 'ghprbActualCommit', value: "${ghprbActualCommit}"),
                         string(name: 'packages', value: "${env.packages}"),
+                        string(name: 'tasks', value: "${env.tasks}"),
                         string(name: 'deploy', value: "${env.deploy}"),
                     ]
                 }
