@@ -55,7 +55,7 @@ pipeline {
         stage ('Update devices') {
             steps {
                 script {
-                    sh "curl -s https://home.kabala.tech/api/shelly/update/all"
+                    sh "curl -s -o - -I https://home.kabala.tech/api/shelly/update/all"
                 }               
             }
         }
