@@ -34,8 +34,8 @@ app.get('/types/:type', find.type)
 app.get('/devices/:id/relay/:relay', actions.turn)
 app.get('/devices/:id/roller/:roller')
 app.get('/devices/:id', show.details)
-app.get('/update/:id', update.updateOne)
 app.get('/update/all', update.updateAll)
+app.get('/update/:id', update.updateOne)
 
 app.all('*', (_: Request, res: Response) => {
   res.status(404).json({ status: 'not found' })
