@@ -19,8 +19,8 @@ provider "docker" {
     host = var.docker_host
 
     registry_auth {
-    address = var.DOCKER_REGISTRY
-    username = "${var.DOCKER_REGISTRY_USERNAME}"
-    password = "${var.DOCKER_REGISTRY_PASSWORD}"
-  }
+      address = var.DOCKER_REGISTRY
+      username = var.DOCKER_REGISTRY_USERNAME
+      password = var.DOCKER_REGISTRY_PASSWORD
+    }
 }
