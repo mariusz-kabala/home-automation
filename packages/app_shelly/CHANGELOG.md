@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/shelly@0.1.0...@home/shelly@0.1.1) (2022-04-05)
+
+
+### Bug Fixes
+
+* add missing network_name var ([049be62](https://github.com/mariusz-kabala/homeAutomation/commit/049be62a89317d49bef40800623fe852ae2605ba))
+* add tls ([9d048ab](https://github.com/mariusz-kabala/homeAutomation/commit/9d048ab2c07f2133385b7ac6f5dea527a14613f6))
+* adjust route order ([cb3aa15](https://github.com/mariusz-kabala/homeAutomation/commit/cb3aa15ffa8a9f85871652ed43c25f8c1ca7154f))
+
+
+
+
+
 # 0.1.0 (2022-04-05)
 
 
