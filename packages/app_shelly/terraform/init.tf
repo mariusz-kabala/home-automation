@@ -7,7 +7,7 @@ terraform {
   }
   backend "s3" {
     bucket = "kabalatech-terraform"
-    key    = "home_device_discovery.tfstate"
+    key    = "home_shelly.tfstate"
     region = "nl-ams"
     endpoint = "s3.nl-ams.scw.cloud"
     skip_credentials_validation = true

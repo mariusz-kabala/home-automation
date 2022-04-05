@@ -1,21 +1,21 @@
 resource "docker_container" "devicediscovery" {
-  name  = "devicediscovery"
-  image = "docker-registry.kabala.tech/home/devicediscovery:${var.tag}"
+  name  = "shelly"
+  image = "docker-registry.kabala.tech/home/shelly:${var.tag}"
   restart = "always"
   networks_advanced {
-      name = "global"
+      name = var.network_name
   }
 
   env = [
-      "MQTT_HOST=mqtt.kabala.tech",
-      "MQTT_PORT=1883",
       "CONSUL_HOST=${var.consul_host}",
-      "CONSUL_PORT=${var.consul_port}"
+      "CONSUL_PORT=${var.consul_port}",
+      "MONGO_CONNECTION_STR=${var.mongo_connection_str}",
+      "VERNE_MQ_URL=${var.verne_url}",
+      "VERNE_MQ_API_KEY=${var.verne_api_key}"
   ]
 
   dns = [
-    "192.168.0.10",
-    "192.168.0.37"
+    "192.168.50.160",
   ]
 
   labels {
@@ -24,22 +24,22 @@ resource "docker_container" "devicediscovery" {
   }
 
   labels {
-    label = "traefik.http.routers.deviceDiscovery.rule"
-    value = "Host(`home.kabala.tech`) && PathPrefix(`/api/device-discovery`)"
+    label = "traefik.http.routers.shelly.rule"
+    value = "Host(`${var.app_domain}`) && PathPrefix(`${var.app_prefix}`)"
   }
 
   labels {
-    label = "traefik.http.services.deviceDiscovery.loadbalancer.server.port"
-    value = "3000"
+    label = "traefik.http.services.shelly.loadbalancer.server.port"
+    value = var.http_port
   }
 
   labels {
-    label = "traefik.http.routers.deviceDiscovery.middlewares"
-    value = "deviceDiscovery-stripprefix"
+    label = "traefik.http.routers.shelly.middlewares"
+    value = "shelly-stripprefix"
   }
 
   labels {
-    label = "traefik.http.middlewares.deviceDiscovery-stripprefix.stripprefix.prefixes"
-    value = "/api/device-discovery"
+    label = "traefik.http.middlewares.shelly-stripprefix.stripprefix.prefixes"
+    value = var.app_prefix
   }
 }

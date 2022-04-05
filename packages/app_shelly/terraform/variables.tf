@@ -7,14 +7,26 @@ variable "DOCKER_REGISTRY_USERNAME" {}
 
 variable "DOCKER_REGISTRY_PASSWORD" {}
 
+variable "mongo_connection_str" {}
+
+variable "verne_url" {}
+
+variable "verne_api_key" {}
+
+variable "app_domain" {}
+
+variable "app_prefix" {
+  default = "/api/shelly"
+}
 variable "docker_host" {
-    default = "tcp://192.168.0.195:2376/"
 }
 
-variable "consul_host" {
-  default = "192.168.0.195"
-}
+variable "consul_host" {}
 
 variable "consul_port" {
   default = "8500"
+}
+
+variable "http_port" {
+  default = "3000"
 }
