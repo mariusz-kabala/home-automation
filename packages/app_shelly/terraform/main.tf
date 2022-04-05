@@ -1,4 +1,4 @@
-resource "docker_container" "devicediscovery" {
+resource "docker_container" "shelly" {
   name  = "shelly"
   image = "docker-registry.kabala.tech/home/shelly:${var.tag}"
   restart = "always"

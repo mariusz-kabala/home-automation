@@ -21,6 +21,10 @@ variable "app_prefix" {
 variable "docker_host" {
 }
 
+variable "network_name" {
+  
+}
+
 variable "consul_host" {}
 
 variable "consul_port" {
