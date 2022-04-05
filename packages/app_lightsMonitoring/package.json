@@ -1,26 +1,21 @@
 {
-  "name": "@home/bot",
-  "version": "0.7.17",
-  "license": "ISC",
+  "name": "@home/lights-monitoring",
+  "version": "0.10.11",
   "private": true,
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
   "main": "./dist/index.js",
+  "license": "ISC",
   "scripts": {
     "build": "rollup -c ../../rollup.config.js",
     "build-declarations": "tsc --declaration --emitDeclarationOnly --out dist/index.d.ts",
     "watch": "rollup -w -c ../../rollup.config.js",
-    "dev": "concurrently \"yarn workspace @home/bot watch\" \"nodemon dist/index.js\"",
+    "dev": "concurrently \"yarn workspace @home/stats-collector watch\" \"nodemon dist/index.js\"",
     "start": "node dist/index.js",
     "prepare": "exit 0"
-  },
-  "devDependencies": {
-    "@types/node-telegram-bot-api": "^0.40.1"
   },
   "dependencies": {
     "@home/commons": "0.5.0",
     "@home/logger": "0.1.2",
-    "@home/mqtt": "0.7.4",
-    "influx": "^5.5.1",
-    "node-telegram-bot-api": "^0.40.0"
+    "@home/consul": "0.0.1"
   }
 }

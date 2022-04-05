@@ -1,9 +1,16 @@
 import mongoose, { Schema, Document } from 'mongoose'
+import mongoosePaginate from 'mongoose-paginate'
 
 export enum ShellyType {
   shelly1 = 'shelly1',
   shellyswitch25 = 'shellyswitch25',
   shelly1pm = 'shelly1pm',
+}
+
+export enum ShellyCategory {
+  lights = 'lights',
+  blinds = 'blinds',
+  button = 'button',
 }
 
 export enum ConnectionStatus {
@@ -86,6 +93,8 @@ const ShellySchema = new Schema(
     timestamps: true,
   },
 )
+
+ShellySchema.plugin(mongoosePaginate)
 
 export interface IShelly extends Document {
   label: string

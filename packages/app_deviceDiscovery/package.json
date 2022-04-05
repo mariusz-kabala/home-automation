@@ -19,6 +19,7 @@
   "dependencies": {
     "@home/logger": "0.1.2",
     "@home/mqtt": "0.7.4",
+    "@home/consul": "0.0.1",
     "ping": "^0.2.2"
   }
 }

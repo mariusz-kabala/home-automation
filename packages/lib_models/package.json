@@ -9,8 +9,5 @@
     "build": "rollup -c ../../rollup.config.js",
     "build-declarations": "tsc --declaration --emitDeclarationOnly --out dist/index.d.ts && node ../../scripts/fixDeclaration.js",
     "prepare": "yarn build && yarn build-declarations"
-  },
-  "dependencies": {
-    "mongoose": "^6.2.0"
   }
 }
