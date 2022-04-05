@@ -1,17 +1,16 @@
 {
-    "name": "@home/shelly-api",
-    "version": "0.0.1",
-    "license": "ISC",
-    "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
-    "main": "dist/index.js",
-    "types": "dist/index.d.ts",
-    "dependencies": {
-      "@home/commons": "0.5.0"
-    },
-    "scripts": {
-      "build": "rollup -c ../../rollup.config.js",
-      "build-declarations": "tsc --declaration --emitDeclarationOnly --out dist/index.d.ts && node ../../scripts/fixDeclaration.js",
-      "prepare": "yarn build && yarn build-declarations"
-    }
+  "name": "@home/shelly-api",
+  "version": "0.1.0",
+  "license": "ISC",
+  "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@home/commons": "0.6.0"
+  },
+  "scripts": {
+    "build": "rollup -c ../../rollup.config.js",
+    "build-declarations": "tsc --declaration --emitDeclarationOnly --out dist/index.d.ts && node ../../scripts/fixDeclaration.js",
+    "prepare": "yarn build && yarn build-declarations"
   }
-  
+}

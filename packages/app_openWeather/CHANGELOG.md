@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/open-weather@0.4.4...@home/open-weather@0.5.0) (2022-04-05)
+
+
+### Features
+
+* migration to modules ([4c896c7](https://github.com/mariusz-kabala/homeAutomation/commit/4c896c717bf0123a59caf3e89f96043be72594c2))
+
+
+
+
+
 ## [0.4.4](https://github.com/mariusz-kabala/homeAutomation/compare/@home/open-weather@0.4.3...@home/open-weather@0.4.4) (2021-04-03)
 
 **Note:** Version bump only for package @home/open-weather

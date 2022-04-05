@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/mqtt@0.7.4...@home/mqtt@0.8.0) (2022-04-05)
+
+
+### Features
+
+* migration to modules ([4c896c7](https://github.com/mariusz-kabala/homeAutomation/commit/4c896c717bf0123a59caf3e89f96043be72594c2))
+
+
+
+
+
 ## [0.7.4](https://github.com/mariusz-kabala/homeAutomation/compare/@home/mqtt@0.7.3...@home/mqtt@0.7.4) (2021-03-07)
 
 **Note:** Version bump only for package @home/mqtt

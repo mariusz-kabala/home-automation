@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/device-discovery@0.2.20...@home/device-discovery@0.3.0) (2022-04-05)
+
+
+### Features
+
+* add app lights monitoring ([#392](https://github.com/mariusz-kabala/homeAutomation/issues/392)) ([9a34bbe](https://github.com/mariusz-kabala/homeAutomation/commit/9a34bbe76f2896bf5de009d2d419bd258aecfb6a))
+
+
+
+
+
 ## [0.2.20](https://github.com/mariusz-kabala/homeAutomation/compare/@home/device-discovery@0.2.19...@home/device-discovery@0.2.20) (2021-03-29)
 
 

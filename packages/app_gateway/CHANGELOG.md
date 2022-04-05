@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.9](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.10.8...@home/gateway@0.10.9) (2022-04-05)
+
+**Note:** Version bump only for package @home/gateway
+
+
+
+
+
 ## [0.10.8](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.10.7...@home/gateway@0.10.8) (2021-05-07)
 
 

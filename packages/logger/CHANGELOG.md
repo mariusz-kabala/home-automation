@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.3](https://github.com/mariusz-kabala/homeAutomation/compare/@home/logger@0.1.2...@home/logger@0.1.3) (2022-04-05)
+
+
+### Bug Fixes
+
+* linter fixes ([1af64ca](https://github.com/mariusz-kabala/homeAutomation/commit/1af64cabb2e40797838c1a2337fb7c34ac9b4b54))
+* rename logger ([e70c0ae](https://github.com/mariusz-kabala/homeAutomation/commit/e70c0ae22ed39ec1a77f0756eefc6a2fd2b3bc61))
+
+
+
+
+
 ## [0.1.2](https://github.com/mariusz-kabala/homeAutomation/compare/@home/logger@0.1.1...@home/logger@0.1.2) (2020-11-22)
 
 

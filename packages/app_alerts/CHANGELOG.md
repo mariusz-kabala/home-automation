@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.7](https://github.com/mariusz-kabala/homeAutomation/compare/@home/alerts@0.3.6...@home/alerts@0.3.7) (2022-04-05)
+
+**Note:** Version bump only for package @home/alerts
+
+
+
+
+
 ## [0.3.6](https://github.com/mariusz-kabala/homeAutomation/compare/@home/alerts@0.3.5...@home/alerts@0.3.6) (2021-04-02)
 
 **Note:** Version bump only for package @home/alerts
