@@ -2,7 +2,7 @@ import express, { Request, Response, NextFunction } from 'express'
 import { logger } from '@home/logger'
 import { mongoose } from '@home/mongoose-client'
 import morgan from 'morgan'
-import { find, show, actions } from './routes'
+import { find, show, actions, update } from './routes'
 
 const app = express()
 
@@ -34,6 +34,8 @@ app.get('/types/:type', find.type)
 app.get('/devices/:id/relay/:relay', actions.turn)
 app.get('/devices/:id/roller/:roller')
 app.get('/devices/:id', show.details)
+app.get('/update/:id', update.updateOne)
+app.get('/update/all', update.updateAll)
 
 app.all('*', (_: Request, res: Response) => {
   res.status(404).json({ status: 'not found' })

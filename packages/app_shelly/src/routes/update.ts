@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/camelcase */
 import { Request, Response } from 'express'
-import { ShellyModel, ConnectionStatus } from '@home/models'
+import { ShellyModel, ConnectionStatus, IShelly } from '@home/models'
 import { logger } from '@home/logger'
 import { fetchStatus, updateFirmware } from '@home/shelly-api'
 
@@ -76,7 +76,41 @@ export const update = {
     return res.status(200).end()
   },
 
-  async updateAll(req: Request, res: Response) {
-    //
+  async updateAll(_: Request, res: Response) {
+    ShellyModel.find({
+      httpStatus: ConnectionStatus.connected,
+    })
+      .then(async (devices: IShelly[]) => {
+        for await (const device of devices) {
+          const {
+            update: { has_update },
+          } = device.status
+
+          if (!has_update) {
+            continue
+          }
+
+          try {
+            await updateFirmware(device.status.wifi_sta.ip)
+          } catch (err) {
+            logger.log({
+              level: 'error',
+              message: `Can not update device ${device.id} (${device.name}) - ${err}`,
+            })
+
+            continue
+          }
+        }
+
+        return res.status(200).end()
+      })
+      .catch(err => {
+        logger.log({
+          level: 'error',
+          message: `Database error: ${err}`,
+        })
+
+        res.status(200).end()
+      })
   },
 }
