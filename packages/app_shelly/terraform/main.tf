@@ -29,6 +29,17 @@ resource "docker_container" "shelly" {
   }
 
   labels {
+    label = "traefik.http.routers.shelly.tls"
+    value = "true"
+  }
+
+  labels {
+    label = "traefik.http.routers.shelly.tls.certresolver"
+    value = "myresolver"
+  }
+
+
+  labels {
     label = "traefik.http.services.shelly.loadbalancer.server.port"
     value = var.http_port
   }
