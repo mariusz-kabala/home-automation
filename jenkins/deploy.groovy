@@ -26,6 +26,8 @@ pipeline {
         JWT_SECRET = credentials('HOME_JWT_SECRET')
         JWT_REFRESH_TOKEN_SECRET = credentials('HOME_JWT_REFRESH_TOKEN_SECRET')
         SESSION_SECRET = credentials('HOME_SESSION_SECRET')
+        MONGO_CONNECTION_STR = credentials('mongo-home-db-connection-str')
+        VERNE_API_KEY = credentials('vernemq-api-key')
         CI = 'true'
         GIT_SSH_COMMAND = "ssh -o StrictHostKeyChecking=no"
     }
@@ -242,7 +244,7 @@ pipeline {
                         docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
                             sh "terraform init"
                             sh "terraform workspace select ${env.DEPLOY_ENVIRONMENT} || terraform workspace new ${env.DEPLOY_ENVIRONMENT}"
-                            sh "terraform plan -out deploy.plan -var=\"tag=${version}\" -var=\"mongo_connection_str=${MONGO_CONNECTION_STR}\" -var=\"verne_api_key=${VERNE_API_KEY}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\"" 
+                            sh "terraform plan -out deploy.plan -var=\"tag=${version}\" -var=\"mongo_connection_str=${env.MONGO_CONNECTION_STR}\" -var=\"verne_api_key=${env.VERNE_API_KEY}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\"" 
                             sh "terraform apply -auto-approve deploy.plan"
                         }
                     }
