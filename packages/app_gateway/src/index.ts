@@ -8,28 +8,36 @@ import compression from 'compression'
 import cors from 'cors'
 import config from 'config'
 import { ApolloServer } from 'apollo-server-express'
+import { ApolloServerPluginLandingPageGraphQLPlayground, ApolloServerPluginDrainHttpServer } from 'apollo-server-core'
 import { createServer } from 'http'
+
+import { DashboardResolver } from 'resolvers/Dashboard'
 
 async function bootstrap() {
   const schema = await buildSchema({
-    resolvers: [],
+    resolvers: [DashboardResolver],
     container: Container,
   })
 
   const app = express()
+  const httpServer = createServer(app)
+
   const server = new ApolloServer({
     schema,
     validationRules: [depthLimit(7)],
-    playground: true,
+    cache: 'bounded',
+    plugins: [ApolloServerPluginDrainHttpServer({ httpServer }), ApolloServerPluginLandingPageGraphQLPlayground()],
   })
+
+  await server.start()
 
   app.use(cors())
   app.use(compression())
   server.applyMiddleware({ app, path: '/graphql' })
 
-  const httpServer = createServer(app)
+  await new Promise<void>(resolve => httpServer.listen({ port: 4000 }, resolve))
   // eslint-disable-next-line no-console
-  httpServer.listen({ port: 3000 }, (): void => console.log(`\n🚀      Gateway is now running`))
+  console.log(`\n🚀      Gateway is now running`)
 }
 
 bootstrap()

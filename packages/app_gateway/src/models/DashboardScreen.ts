@@ -1,24 +1,27 @@
-import { DocumentType, getModelForClass, prop as Property } from '@typegoose/typegoose'
-import { Field as GqlField, ObjectType as GqlType } from 'type-graphql'
+import { prop as Property, getModelForClass } from '@typegoose/typegoose'
+import { Field, ObjectType } from 'type-graphql'
+import { ObjectId } from 'mongodb'
 
-@GqlType()
+@ObjectType()
 export class DashboardScreen {
-  @GqlField(() => String)
-  readonly _id: string
+  @Field(() => String)
+  readonly _id: ObjectId
 
-  @GqlField(() => String)
+  @Field(() => String)
   @Property({ required: true })
   name: string
 
-  @GqlField(() => String)
+  @Field(() => String)
   @Property({ required: true })
   icon: string
 
-  @GqlField(() => String)
+  @Field(() => String)
   @Property({ required: true })
   section: string
 
-  @GqlField(() => String)
+  @Field(() => String)
   @Property({ required: true })
   setup: string
 }
+
+export const DashboardScreenModel = getModelForClass(DashboardScreen)
