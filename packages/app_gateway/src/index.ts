@@ -1,5 +1,5 @@
-/* eslint-disable no-console */
 import 'reflect-metadata'
+
 import express from 'express'
 import { Container } from 'typedi'
 import depthLimit from 'graphql-depth-limit'
@@ -7,39 +7,12 @@ import { buildSchema } from 'type-graphql'
 import compression from 'compression'
 import cors from 'cors'
 import config from 'config'
-import { registerInConsul, ConsulServices } from '@home/commons'
 import { ApolloServer } from 'apollo-server-express'
 import { createServer } from 'http'
 
-import { LightResolver } from 'resolvers/Light'
-import { LightsGroupResolver } from 'resolvers/LightsGroup'
-import { SensorResolver } from 'resolvers/Sensor'
-import { PollutionResolver } from 'resolvers/Pollution'
-import { ConsulNodeResolver } from 'resolvers/consul/Node'
-import { ConsulServiceResolver } from 'resolvers/consul/Service'
-import { ConsulDatacentersResolver } from 'resolvers/consul/Datacenter'
-import { OpenWeatherResolver } from 'resolvers/OpenWeather'
-import { DeviceDiscoveryResolver } from 'resolvers/DeviceDiscovery'
-import { ValetudoResolver } from 'resolvers/Valetudo'
-
 async function bootstrap() {
-  const consulServices = new ConsulServices(config.get<string[]>('consulServices'))
-
-  Container.set({ id: 'consulServices', factory: () => consulServices })
-
   const schema = await buildSchema({
-    resolvers: [
-      LightResolver,
-      LightsGroupResolver,
-      SensorResolver,
-      PollutionResolver,
-      ConsulNodeResolver,
-      ConsulServiceResolver,
-      ConsulDatacentersResolver,
-      OpenWeatherResolver,
-      DeviceDiscoveryResolver,
-      ValetudoResolver,
-    ],
+    resolvers: [],
     container: Container,
   })
 
@@ -49,14 +22,14 @@ async function bootstrap() {
     validationRules: [depthLimit(7)],
     playground: true,
   })
-  app.use('*', cors())
+
+  app.use(cors())
   app.use(compression())
   server.applyMiddleware({ app, path: '/graphql' })
 
   const httpServer = createServer(app)
+  // eslint-disable-next-line no-console
   httpServer.listen({ port: 3000 }, (): void => console.log(`\n🚀      Gateway is now running`))
-
-  registerInConsul('gateway')
 }
 
 bootstrap()

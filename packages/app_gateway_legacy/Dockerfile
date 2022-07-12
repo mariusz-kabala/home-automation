@@ -6,4 +6,4 @@ COPY . .
 
 RUN yarn && yarn workspaces run prepare && yarn workspace @home/gateway build
 
-CMD [ "yarn", "workspace", "@home/gateway", "start" ]
+CMD [ "yarn", "workspace", "@home/gateway_legacy", "start" ]
