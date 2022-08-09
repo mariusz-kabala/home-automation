@@ -7,6 +7,7 @@ import { buildSchema } from 'type-graphql'
 import compression from 'compression'
 import cors from 'cors'
 import config from 'config'
+import { mongoose } from '@home/mongoose-client'
 import { ApolloServer } from 'apollo-server-express'
 import { ApolloServerPluginLandingPageGraphQLPlayground, ApolloServerPluginDrainHttpServer } from 'apollo-server-core'
 import { createServer } from 'http'
@@ -14,6 +15,10 @@ import { createServer } from 'http'
 import { DashboardResolver } from 'resolvers/Dashboard'
 
 async function bootstrap() {
+  mongoose.connection.once('open', () => {
+    // eslint-disable-next-line no-console
+    console.log('Database connection established')
+  })
   const schema = await buildSchema({
     resolvers: [DashboardResolver],
     container: Container,

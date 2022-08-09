@@ -10,13 +10,16 @@
     "watch": "rollup -w -c ./rollup.config.js",
     "dev": "concurrently \"yarn workspace @home/gateway watch\" \"nodemon dist/index.js\"",
     "start": "node dist/index.js",
-    "prepare": "exit 0"
+    "prepare": "exit 0",
+    "create-migration": "migrate create",
+    "migrate": "migrate"
   },
   "peerDependencies": {
     "graphql": "^15.5.0"
   },
   "dependencies": {
     "@home/commons": "0.6.0",
+    "@home/mongoose-client": "0.2.0",
     "typedi": "^0.10.0",
     "reflect-metadata": "^0.1.13",
     "apollo-server-core": "^3.10.0",

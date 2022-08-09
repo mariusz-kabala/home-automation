@@ -1,9 +1,10 @@
 const dotenv = require('dotenv')
 dotenv.config()
 
-const { CONSUL_HOST, CONSUL_PORT } = process.env
+const { CONSUL_HOST, CONSUL_PORT, MONGO_CONNECTION_STR } = process.env
 
 module.exports = {
-    consulHost: CONSUL_HOST,
-    consulPort: CONSUL_PORT,
+  mongoConnectionStr: MONGO_CONNECTION_STR,
+  consulHost: CONSUL_HOST,
+  consulPort: CONSUL_PORT,
 }
