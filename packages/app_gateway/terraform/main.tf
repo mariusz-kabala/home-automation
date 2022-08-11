@@ -23,7 +23,7 @@ resource "docker_container" "apollo" {
   }
 
   env = [
-      "MONGO_CONNECTION_STR=${var.MONGO_CONNECTION_STR}",
+      "MONGO_CONNECTION_STR=${var.mongo_connection_str}",
       "CONSUL_HOST=${var.consul_host}",
       "CONSUL_PORT=${var.consul_port}"
   ]
