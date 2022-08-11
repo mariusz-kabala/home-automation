@@ -19,3 +19,5 @@ variable "consul_host" {}
 variable "consul_port" {
   default = "8500"
 }
+
+variable "network_name" {}

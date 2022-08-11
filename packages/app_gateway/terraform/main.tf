@@ -1,10 +1,10 @@
 resource "docker_container" "apollo" {
-  name  = "apollo"
+  name  = "gateway"
   image = "${var.DOCKER_REGISTRY}/home/gateway:${var.tag}"
   restart = "always"
 
   networks_advanced {
-      name = "global"
+      name = var.network_name
   }
 
   labels {
