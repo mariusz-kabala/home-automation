@@ -1,12 +1,18 @@
 import { Resolver, Query, Arg, Mutation } from 'type-graphql'
 import { Service } from 'typedi'
-import { DashboardScreen } from 'models/DashboardScreen'
+import { DashboardScreen, DashboardScreenModel } from 'models/DashboardScreen'
 
 @Service()
 @Resolver(() => DashboardScreen)
 export class DashboardResolver {
   @Query(() => [DashboardScreen])
-  screens(): DashboardScreen[] {
-    return []
+  async screens(@Arg('section', { nullable: true }) section?: string): Promise<DashboardScreen[]> {
+    const query: { section?: string } = {}
+
+    if (section) {
+      query.section = section
+    }
+
+    return await DashboardScreenModel.find(query)
   }
 }

@@ -20,7 +20,7 @@ module.exports.up = function(next) {
       return client.db('home')
     })
     .then(db => {
-      const Collection = db.collection('dashboardScreens')
+      const Collection = db.collection('dashboardscreens')
 
       return Collection.insertMany([
         {
