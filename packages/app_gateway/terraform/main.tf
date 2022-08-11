@@ -19,7 +19,7 @@ resource "docker_container" "apollo" {
 
   labels {
     label = "traefik.http.services.homeGateway.loadbalancer.server.port"
-    value = "3000"
+    value = "4000"
   }
 
   env = [
