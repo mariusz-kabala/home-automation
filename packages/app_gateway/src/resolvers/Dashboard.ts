@@ -15,4 +15,9 @@ export class DashboardResolver {
 
     return await DashboardScreenModel.find(query)
   }
+
+  @Query(() => [String])
+  async screenSections(): Promise<string[]> {
+    return await DashboardScreenModel.distinct('section')
+  }
 }
