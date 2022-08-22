@@ -20,4 +20,27 @@ export class DashboardResolver {
   async screenSections(): Promise<string[]> {
     return await DashboardScreenModel.distinct('section')
   }
+
+  @Mutation(() => DashboardScreen)
+  async saveScreenSetup(
+    @Arg('section') section: string,
+    @Arg('name') name: string,
+    @Arg('setup') setup: string,
+  ): Promise<DashboardScreen | null> {
+    console.log('saveScreenSetup', {section, name, setup})
+    const dashboard = await DashboardScreenModel.findOne({
+      section,
+      name,
+    })
+
+    if (!dashboard) {
+      return null
+    }
+
+    dashboard.setup = setup
+
+    await dashboard.save()
+
+    return dashboard
+  }
 }
