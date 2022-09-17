@@ -41,6 +41,10 @@ mqttClient.on('disconnect', onError)
 mqttClient.on('error', onError)
 
 const getLocalTopic = (topic: string) => {
+  if (!config.get<string>('mqttPrefix')) {
+    return topic
+  }
+
   const topicArr = topic.split('/')
   topicArr.shift()
 
@@ -94,7 +98,6 @@ const getTimeout = (id: string) => {
 mqttClient.on('message', (topic: string, payload: string, mqttPackage: mqtt.IPacket): void => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let msg: any
-
   try {
     msg = JSON.parse(payload)
   } catch (err) {
@@ -157,7 +160,8 @@ export const get = <T>(params: {
 }
 
 export const subscribe = (topic: string, callback: ICallbackFunc): (() => void) => {
-  const subscriptionTopic = `${config.get<string>('mqttPrefix')}/${topic}`
+  const prefix = config.get<string>('mqttPrefix')
+  const subscriptionTopic = `${prefix ? prefix + '/' : ''}${topic}`
 
   mqttClient.subscribe(subscriptionTopic)
 

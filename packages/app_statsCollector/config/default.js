@@ -25,5 +25,62 @@ module.exports = {
   },
   mqttHost: MQTT_HOST,
   mqttPort: MQTT_PORT,
-  mqttPrefix: 'home',
+  mqttPrefix: '',
+  topics: [
+    {
+      topic: 'zigbee2mqtt/office-temp-sensor',
+      device: 'office-sensor',
+      bucket: 'sensors',
+    },
+    // lights-livingroom
+    {
+      topic: 'shellies/lights-livingroom/relay/0/power',
+      device: 'lights-livingroom-relay-0',
+      field: 'power',
+      bucket: 'lights',
+    },
+    {
+      topic: 'shellies/lights-livingroom/relay/0/energy',
+      device: 'lights-livingroom-relay-0',
+      field: 'energy',
+      bucket: 'lights',
+    },
+    {
+      topic: 'shellies/lights-livingroom/relay/1/power',
+      device: 'lights-livingroom-relay-1',
+      field: 'power',
+      bucket: 'lights',
+    },
+    {
+      topic: 'shellies/lights-livingroom/relay/1/energy',
+      device: 'lights-livingroom-relay-1',
+      field: 'energy',
+      bucket: 'lights',
+    },
+    // lights-sconce-living-room
+    {
+      topic: 'shellies/lights-sconce-living-room/relay/0/power',
+      device: 'lights-sconce-living-room-relay-0',
+      field: 'power',
+      bucket: 'lights',
+    },
+    {
+      topic: 'shellies/lights-sconce-living-room/relay/0/energy',
+      device: 'lights-sconce-living-room-relay-0',
+      field: 'energy',
+      bucket: 'lights',
+    },
+    {
+      topic: 'shellies/lights-sconce-living-room/relay/1/power',
+      device: 'lights-sconce-living-room-relay-1',
+      field: 'power',
+      bucket: 'lights',
+    },
+    {
+      topic: 'shellies/lights-sconce-living-room/relay/1/energy',
+      device: 'lights-sconce-living-room-relay-1',
+      field: 'energy',
+      bucket: 'lights',
+    },
+  ],
 }
