@@ -7,7 +7,8 @@ pipeline {
         GIT_SSH_COMMAND = 'ssh -o StrictHostKeyChecking=no'
         GH_TOKEN = credentials('jenkins-github-accesstoken')
         MONGO_PASS = credentials('mongo-home-user-pass')
-        VERNEMQ_API_KEY = credentials('vernemq-api-key')
+        EMQX_API_KEY = credentials('EMQX_API_KEY')
+        EMQX_SECURITY_KEY = credentials('EMQX_SECURITY_KEY')
     }
 
     stages {

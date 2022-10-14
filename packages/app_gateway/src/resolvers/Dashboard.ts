@@ -27,7 +27,6 @@ export class DashboardResolver {
     @Arg('name') name: string,
     @Arg('setup') setup: string,
   ): Promise<DashboardScreen | null> {
-    console.log('saveScreenSetup', {section, name, setup})
     const dashboard = await DashboardScreenModel.findOne({
       section,
       name,

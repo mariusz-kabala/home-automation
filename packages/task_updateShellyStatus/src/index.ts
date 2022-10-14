@@ -1,5 +1,5 @@
 import { IShelly, ConnectionStatus, ShellyModel } from '@home/models'
-import { fetchSessions } from '@home/vernemq-api'
+import { fetchClients } from '@home/emqx-api'
 import { logger } from '@home/logger'
 import { mongoose } from '@home/mongoose-client'
 import { fetchStatus } from '@home/shelly-api'
@@ -66,15 +66,15 @@ async function checkHttpStatus(devices: IShelly[]) {
 }
 
 function updateDevicesStatus(devices: IShelly[]) {
-  return fetchSessions()
-    .then(({ table }) => {
+  return fetchClients()
+    .then(({ data }) => {
       const promises = []
 
       for (const device of devices) {
-        const mqttStatus = table.find(session => session.client_id === `${device.type}-${device.deviceId}`)
+        const mqttStatus = data.find(session => session.clientid === `${device.type}-${device.deviceId}`)
 
         device.mqttStatus =
-          mqttStatus && mqttStatus.is_online ? ConnectionStatus.connected : ConnectionStatus.disconnected
+          mqttStatus && mqttStatus.connected ? ConnectionStatus.connected : ConnectionStatus.disconnected
 
         promises.push(
           device

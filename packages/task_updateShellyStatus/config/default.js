@@ -1,11 +1,12 @@
 const dotenv = require('dotenv')
 dotenv.config()
 
-const { MONGO_CONNECTION_STR, VERNE_MQ_URL = 'mqtt.kabala.tech', VERNE_MQ_API_KEY } = process.env
+const { MONGO_CONNECTION_STR, EMQX_URL = 'http://192.168.50.30:18083', EMQX_API_KEY, EMQX_SECURITY_KEY } = process.env
 
 module.exports = {
   port: 3000,
   mongoConnectionStr: MONGO_CONNECTION_STR,
-  verneMQUrl: VERNE_MQ_URL,
-  verneMQApiKey: VERNE_MQ_API_KEY,
+  emqxUrl: EMQX_URL,
+  emqxApiKey: EMQX_API_KEY,
+  emqxSecurityKey: EMQX_SECURITY_KEY,
 }
