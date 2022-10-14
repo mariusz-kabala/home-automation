@@ -3,7 +3,7 @@ resource "docker_container" "statscollector" {
   image = "${var.DOCKER_REGISTRY}/home/statscollector:${var.tag}"
   restart = "always"
   networks_advanced {
-      name = var.app_network
+      name = var.network_name
   }
 
   env = [
