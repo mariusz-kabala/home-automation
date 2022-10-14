@@ -1,9 +1,5 @@
 variable "tag" {}
 
-variable "PORT" {
-  default = 8086
-}
-
 variable "STATS_DB_HOST" {}
 
 variable "STATS_DB_PORT" {
