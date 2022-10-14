@@ -39,4 +39,4 @@ variable "dns_list" {
   default = [ "8.8.8.8", "8.8.4.4" ]
 }
 
-variable "app_network" {}
+variable "network_name" {}
