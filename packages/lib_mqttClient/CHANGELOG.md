@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/mqtt@0.8.0...@home/mqtt@0.8.1) (2022-10-15)
+
+
+### Bug Fixes
+
+* new version of statsCollector ([6bb7483](https://github.com/mariusz-kabala/homeAutomation/commit/6bb74839439ab561c61befbd9f56e04fe1b5a294))
+
+
+
+
+
 # [0.8.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/mqtt@0.7.4...@home/mqtt@0.8.0) (2022-04-05)
 
 

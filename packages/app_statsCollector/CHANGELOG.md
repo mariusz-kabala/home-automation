@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.13](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.10.12...@home/stats-collector@0.10.13) (2022-10-15)
+
+
+### Bug Fixes
+
+* add more shelly devices ([5e9b632](https://github.com/mariusz-kabala/homeAutomation/commit/5e9b6325bf7311fac8f63d70dc83176672889fb6))
+* new version of statsCollector ([6bb7483](https://github.com/mariusz-kabala/homeAutomation/commit/6bb74839439ab561c61befbd9f56e04fe1b5a294))
+* terraform fixes ([224b6fc](https://github.com/mariusz-kabala/homeAutomation/commit/224b6fc0d892349ca8a3452ccd3c8ed39fd66df5))
+
+
+
+
+
 ## [0.10.12](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.10.11...@home/stats-collector@0.10.12) (2022-04-05)
 
 **Note:** Version bump only for package @home/stats-collector

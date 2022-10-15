@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.12](https://github.com/mariusz-kabala/homeAutomation/compare/@home/tuya-plugs@0.1.11...@home/tuya-plugs@0.1.12) (2022-10-15)
+
+**Note:** Version bump only for package @home/tuya-plugs
+
+
+
+
+
 ## [0.1.11](https://github.com/mariusz-kabala/homeAutomation/compare/@home/tuya-plugs@0.1.10...@home/tuya-plugs@0.1.11) (2022-04-05)
 
 **Note:** Version bump only for package @home/tuya-plugs
