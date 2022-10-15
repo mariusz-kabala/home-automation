@@ -39,6 +39,7 @@ pipeline {
                     sh "printenv"
                     manager.addShortText("${env.package}", "white", "green", "1px", "navy")
                     manager.addShortText("${version}", "white", "navy", "1px", "navy")
+                    manager.addShortText("${env.DEPLOY_ENVIRONMENT}", "white", "blue", "1px", "navy")
                 }
             }
         }

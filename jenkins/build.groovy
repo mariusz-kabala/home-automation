@@ -39,7 +39,6 @@ pipeline {
 
                     println "GIT branch to process: ${branch}"
                     manager.addShortText(branch, 'white', 'navy', '1px', 'navy')
-                    manager.addShortText("${packages}", "white", "green", "1px", "navy")
                 }
             }
         }
@@ -69,7 +68,11 @@ pipeline {
 
                     packagesList.each {
                         def props = readJSON file: "packages/app_${it}/package.json"
-                        def currentApp = docker.build(props['name'].replace('@', '').replace('-', '').toLowerCase(), "-f packages/app_${it}/Dockerfile .")
+                        def packageName = props['name'].replace('@', '').replace('-', '').toLowerCase()
+                        def currentApp = docker.build(packageName, "-f packages/app_${it}/Dockerfile .")
+
+                        manager.addShortText("${packageName}-${props['version']}", "white", "green", "1px", "navy")
+
                         docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
                             currentApp.push("v${props['version']}")
                         }
@@ -88,7 +91,11 @@ pipeline {
 
                     tasksList.each {
                         def props = readJSON file: "packages/task_${it}/package.json"
-                        def currentApp = docker.build(props['name'].replace('@', '').replace('-', '').toLowerCase(), "-f packages/task_${it}/Dockerfile .")
+                        def taskName = props['name'].replace('@', '').replace('-', '').toLowerCase()
+
+                        manager.addShortText("${taskName}-${props['version']}", "white", "green", "1px", "navy")
+
+                        def currentApp = docker.build(taskName, "-f packages/task_${it}/Dockerfile .")
                         docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
                             currentApp.push("v${props['version']}")
                             currentApp.push("latest")
