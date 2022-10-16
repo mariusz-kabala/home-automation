@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.3](https://github.com/mariusz-kabala/homeAutomation/compare/@home/task-update-shelly-status@0.1.2...@home/task-update-shelly-status@0.1.3) (2022-10-16)
+
+
+### Bug Fixes
+
+* adjust error msg ([f6e10b1](https://github.com/mariusz-kabala/homeAutomation/commit/f6e10b113b41d9fb1d000963a13216aa13812d4e))
+
+
+
+
+
 ## [0.1.2](https://github.com/mariusz-kabala/homeAutomation/compare/@home/task-update-shelly-status@0.1.1...@home/task-update-shelly-status@0.1.2) (2022-10-16)
 
 
