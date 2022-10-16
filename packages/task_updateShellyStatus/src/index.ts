@@ -12,7 +12,7 @@ async function checkHttpStatus(devices: IShelly[]) {
       try {
         status = await fetchStatus(network.address)
 
-        break;
+        break
       } catch (err) {
         logger.log({
           level: 'error',
@@ -85,7 +85,7 @@ function updateDevicesStatus(devices: IShelly[]) {
     .catch(err => {
       logger.log({
         level: 'error',
-        message: `Can not fetch connected devices status from VerneMQ API; error: ${err}`,
+        message: `Can not fetch connected devices status from EMQX API; error: ${JSON.stringify(err)}`,
       })
       process.exit(1)
     })
