@@ -1,0 +1,18 @@
+{
+    "name": "@home/task-read-shelly-status",
+    "version": "0.0.1",
+    "private": true,
+    "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
+    "main": "./src/index.js",
+    "license": "ISC",
+    "scripts": {
+      "build": "exit 0",
+      "build-declarations": "exit 0",
+      "start": "node src/index.js",
+      "prepare": "exit 0"
+    },
+    "dependencies": {
+      "node-fetch": "2.6.7"
+    }
+  }
+  

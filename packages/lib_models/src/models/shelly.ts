@@ -46,21 +46,20 @@ const ShellySchema = new Schema(
       trim: true,
       required: false,
     },
-    '@Home0IpAddress': {
-      type: String,
-      trim: true,
-      required: false,
-    },
-    '@Home1IpAddress': {
-      type: String,
-      trim: true,
-      required: false,
-    },
-    '@Home2IpAddress': {
-      type: String,
-      trim: true,
-      required: false,
-    },
+    networks: [
+      {
+        wifi: {
+          type: String,
+          trim: true,
+          required: true,
+        },
+        address: {
+          type: String,
+          trim: true,
+          required: true,
+        },
+      },
+    ],
     category: {
       type: String,
       trim: true,
@@ -102,9 +101,10 @@ export interface IShelly extends Document {
   type: ShellyType
   macAddress: string
   deviceId: string
-  '@Home0IpAddress'?: string
-  '@Home1IpAddress'?: string
-  '@Home2IpAddress'?: string
+  networks: {
+    wifi: string
+    address: string
+  }[]
   category: string
   room: string
   level: number
