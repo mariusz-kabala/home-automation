@@ -49,9 +49,9 @@ function updateDevicesStatus(devices: IShelly[]) {
   return fetchClients()
     .then(({ data }) => {
       const promises = []
-
+console.log(data.map(session => session.clientid))
       for (const device of devices) {
-        const mqttStatus = data.find(session => session.clientid === `${device.type}-${device.deviceId}`)
+        const mqttStatus = data.find(session => session.clientid === device.hostname)
 
         device.mqttStatus =
           mqttStatus && mqttStatus.connected ? ConnectionStatus.connected : ConnectionStatus.disconnected

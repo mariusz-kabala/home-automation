@@ -26,6 +26,11 @@ const ShellySchema = new Schema(
       trim: true,
       required: false,
     },
+    hostname: {
+      type: String,
+      trim: true,
+      required: false,
+    },
     type: {
       type: String,
       trim: true,
@@ -97,6 +102,7 @@ ShellySchema.plugin(mongoosePaginate)
 
 export interface IShelly extends Document {
   label: string
+  hostname: string
   name: string
   type: ShellyType
   macAddress: string
