@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.4](https://github.com/mariusz-kabala/homeAutomation/compare/@home/task-update-shelly-status@0.1.3...@home/task-update-shelly-status@0.1.4) (2022-10-17)
+
+
+### Bug Fixes
+
+* proper mqtt connection update ([9d9f39f](https://github.com/mariusz-kabala/homeAutomation/commit/9d9f39fc1c9ff1249d4c0b90d6b2d91930c59462))
+
+
+
+
+
 ## [0.1.3](https://github.com/mariusz-kabala/homeAutomation/compare/@home/task-update-shelly-status@0.1.2...@home/task-update-shelly-status@0.1.3) (2022-10-16)
 
 
