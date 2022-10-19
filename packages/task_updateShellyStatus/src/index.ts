@@ -49,7 +49,7 @@ function updateDevicesStatus(devices: IShelly[]) {
   return fetchClients()
     .then(({ data }) => {
       const promises = []
-console.log(data.map(session => session.clientid))
+
       for (const device of devices) {
         const mqttStatus = data.find(session => session.clientid === device.hostname)
 

@@ -1,0 +1,56 @@
+pipeline {
+    agent any
+
+    environment {
+        app = ''
+        CI = 'true'
+        GIT_SSH_COMMAND = 'ssh -o StrictHostKeyChecking=no'
+        GH_TOKEN = credentials('jenkins-github-accesstoken')
+        MONGO_PASS = credentials('mongo-home-user-pass')
+    }
+
+    stages {
+        stage ('prepare') {
+            steps {
+                script {
+                    sh 'printenv'
+                    try {
+                        branch = env.GIT_LOCAL_BRANCH
+                        branch = branch ?: env.GIT_BRANCH
+                        if (branch == 'detached') {
+                            branch = ''
+                        }
+                        branch = branch ?: env.ghprbActualCommit
+                    } catch (e) {
+                        println 'GIT BRANCH not detected'
+                    }
+
+                    sh 'git config user.name "jenkins-kabala.tech"'
+                    sh 'git config user.email "jenkins@kabala.tech"'
+
+                    if (!branch) {
+                        error 'GIT branch to process not found'
+                    }
+
+                    if (branch.startsWith('origin/')) {
+                        branch = branch.replaceAll('origin/', '')
+                    }
+
+                    println "GIT branch to process: ${branch}"
+                    manager.addShortText(branch, 'white', 'navy', '1px', 'navy')
+                }
+            }
+        }
+        
+        stage ('Run shelly settings update') {
+            steps {
+                script {
+                    docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
+                        sh "docker run --dns=192.168.50.160 -e MONGO_CONNECTION_STR='mongodb://home:${MONGO_PASS}@192.168.50.30:27017,192.168.50.217:27017,192.168.50.119:27017/home?replicaSet=rs0' docker-registry.kabala.tech/home/taskupdateshellysettings:latest"
+                    }
+                }
+            }
+        }
+    }
+}
+

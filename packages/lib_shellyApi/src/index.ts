@@ -20,3 +20,6 @@ export const moveRoller = (
 
 export const updateFirmware = (deviceIp: string) =>
   fetchJSONWithTimeout<void, unknown>(`http://${deviceIp}/ota?update=1`, { timeout: 1000 })
+
+export const fetchSettings = <T = any>(deviceIp: string) =>
+  fetchJSONWithTimeout<void, T>(`http://${deviceIp}/settings`, { timeout: 1500 })

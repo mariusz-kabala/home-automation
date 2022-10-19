@@ -2,9 +2,9 @@ import mongoose, { Schema, Document } from 'mongoose'
 import mongoosePaginate from 'mongoose-paginate'
 
 export enum ShellyType {
-  shelly1 = 'shelly1',
-  shellyswitch25 = 'shellyswitch25',
-  shelly1pm = 'shelly1pm',
+  shelly1 = 'SHSW-1',
+  shellyswitch25 = 'SHSW-25',
+  shelly1pm = 'SHSW-PM',
 }
 
 export enum ShellyCategory {
@@ -92,6 +92,10 @@ const ShellySchema = new Schema(
       type: Object,
       default: undefined,
     },
+    settings: {
+      type: Object,
+      default: undefined,
+    },
   },
   {
     timestamps: true,
@@ -117,6 +121,7 @@ export interface IShelly extends Document {
   mqttStatus: ConnectionStatus
   httpStatus: ConnectionStatus
   status: any
+  settings: any
 }
 
 export const ShellyModel = mongoose.model<IShelly>('Shelly', ShellySchema)
