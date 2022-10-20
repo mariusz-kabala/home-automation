@@ -10,6 +10,7 @@ const {
   CONSUL_PORT,
   MQTT_HOST,
   MQTT_PORT,
+  MONGO_CONNECTION_STR,
 } = process.env
 
 module.exports = {
@@ -23,4 +24,5 @@ module.exports = {
   mqttPort: MQTT_PORT,
   mqttPrefix: '',
   tasmota: ['tasmota_88F92B'],
+  mongoConnectionStr: MONGO_CONNECTION_STR,
 }

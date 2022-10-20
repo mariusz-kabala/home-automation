@@ -26,6 +26,8 @@ variable "DOCKER_REGISTRY" {
     default = "docker-registry.kabala.tech"
 }
 
+variable "mongo_connection_str" {}
+
 variable "docker_host" {}
 
 variable "consul_host" {}
