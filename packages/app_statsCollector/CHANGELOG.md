@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.15](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.10.14...@home/stats-collector@0.10.15) (2022-10-20)
+
+
+### Bug Fixes
+
+* add mongo setup ([536fa98](https://github.com/mariusz-kabala/homeAutomation/commit/536fa98dbb50cee488d8afabf9f4adc70efc6d51))
+
+
+
+
+
 ## [0.10.14](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.10.13...@home/stats-collector@0.10.14) (2022-10-20)
 
 
