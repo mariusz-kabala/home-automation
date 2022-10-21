@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.16](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.10.15...@home/stats-collector@0.10.16) (2022-10-21)
+
+
+### Bug Fixes
+
+* restore buckets config ([269abc3](https://github.com/mariusz-kabala/homeAutomation/commit/269abc3695b04e7a9532b6b206e12314446bda1a))
+
+
+
+
+
 ## [0.10.15](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.10.14...@home/stats-collector@0.10.15) (2022-10-20)
 
 
