@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.17](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.10.16...@home/stats-collector@0.10.17) (2022-10-21)
+
+
+### Bug Fixes
+
+* monogo db related adjustments ([90ea384](https://github.com/mariusz-kabala/homeAutomation/commit/90ea38480ebab24f1233dffdd1d5a53cba57295b))
+
+
+
+
+
 ## [0.10.16](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.10.15...@home/stats-collector@0.10.16) (2022-10-21)
 
 
