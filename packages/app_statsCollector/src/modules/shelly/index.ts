@@ -46,6 +46,11 @@ async function fetchDevicesList() {
 export async function run() {
   await fetchDevicesList()
 
+  logger.log({
+    level: 'info',
+    message: `${devices.length} shelly devices found in DB`,
+  })
+
   for (const device of devices) {
     const id = device.settings?.mqtt?.deviceId
 

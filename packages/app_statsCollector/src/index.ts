@@ -9,8 +9,13 @@ mongoose.connection.on('error', err => {
   process.exit(1)
 })
 
-function start() {
+mongoose.connection.on('open', () => {
+  // modules which require DB connection
   runShellyModule()
+})
+
+function start() {
+  // no db needed modules
   runTasmotaMoudle()
 
   logger.log({
