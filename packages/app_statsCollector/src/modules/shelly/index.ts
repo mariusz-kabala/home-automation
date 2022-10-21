@@ -52,7 +52,7 @@ export async function run() {
   })
 
   for (const device of devices) {
-    const id = device.settings?.mqtt?.deviceId
+    const id = device.settings?.mqtt?.id
 
     if (!id || device.settings?.mode !== 'relay') {
       continue
