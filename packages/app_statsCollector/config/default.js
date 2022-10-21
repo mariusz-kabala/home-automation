@@ -25,4 +25,8 @@ module.exports = {
   mqttPrefix: '',
   tasmota: ['tasmota_88F92B'],
   mongoConnectionStr: MONGO_CONNECTION_STR,
+  buckets: {
+    sensors: 'sensors',
+    lights: 'lights',
+  },
 }
