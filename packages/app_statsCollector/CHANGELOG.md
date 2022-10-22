@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.18](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.10.17...@home/stats-collector@0.10.18) (2022-10-21)
+
+
+### Bug Fixes
+
+* adjust place from where device id is taken ([6a111cf](https://github.com/mariusz-kabala/homeAutomation/commit/6a111cf7daed3a15c16bac48567e5fda6ca291a4))
+
+
+
+
+
 ## [0.10.17](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.10.16...@home/stats-collector@0.10.17) (2022-10-21)
 
 
