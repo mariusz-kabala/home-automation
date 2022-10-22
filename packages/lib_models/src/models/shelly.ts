@@ -51,6 +51,10 @@ const ShellySchema = new Schema(
       trim: true,
       required: false,
     },
+    usage: {
+      isOn: Boolean,
+      lastUpdate: Date,
+    },
     networks: [
       {
         wifi: {
@@ -115,6 +119,10 @@ export interface IShelly extends Document {
     wifi: string
     address: string
   }[]
+  usage: {
+    isOn: boolean
+    lastUpdate: Date
+  }
   category: string
   room: string
   level: number

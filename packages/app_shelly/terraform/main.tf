@@ -10,8 +10,8 @@ resource "docker_container" "shelly" {
       "CONSUL_HOST=${var.consul_host}",
       "CONSUL_PORT=${var.consul_port}",
       "MONGO_CONNECTION_STR=${var.mongo_connection_str}",
-      "VERNE_MQ_URL=${var.verne_url}",
-      "VERNE_MQ_API_KEY=${var.verne_api_key}"
+      "MQTT_HOST=${var.mqtt_host}",
+      "MQTT_PORT=${var.mqtt_port}"
   ]
 
   dns = [

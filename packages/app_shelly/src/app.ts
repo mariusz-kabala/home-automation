@@ -3,6 +3,7 @@ import { logger } from '@home/logger'
 import { mongoose } from '@home/mongoose-client'
 import morgan from 'morgan'
 import { find, show, actions, update } from './routes'
+import { start as mqttStart } from './mqttClient'
 
 const app = express()
 
@@ -10,6 +11,8 @@ mongoose.connection.on('error', err => {
   logger.error(`${err}`)
   process.exit(1)
 })
+
+mongoose.connection.on('open', mqttStart)
 
 app.disable('x-powered-by')
 app.use(morgan('combined'))

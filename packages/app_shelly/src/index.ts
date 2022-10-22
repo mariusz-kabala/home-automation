@@ -3,7 +3,7 @@ import config from 'config'
 import { logger } from '@home/logger'
 import { registerInConsul } from '@home/consul'
 
-const SERVICE_NAME = 'LightsMonitoring'
+const SERVICE_NAME = 'ShellyMonitoring'
 
 const port = config.get<number>('port') || 3000
 

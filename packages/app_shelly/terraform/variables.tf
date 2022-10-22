@@ -9,9 +9,9 @@ variable "DOCKER_REGISTRY_PASSWORD" {}
 
 variable "mongo_connection_str" {}
 
-variable "verne_url" {}
+variable "mqtt_host" {}
 
-variable "verne_api_key" {}
+variable "mqtt_port" {}
 
 variable "app_domain" {}
 
