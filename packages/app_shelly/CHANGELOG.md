@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/shelly@0.1.4...@home/shelly@0.2.0) (2022-10-22)
+
+
+### Features
+
+* add shelly devices monitoring ([edd9bd5](https://github.com/mariusz-kabala/homeAutomation/commit/edd9bd53c6df377c30fd5a58b6ba4c039d29dcec))
+
+
+
+
+
 ## [0.1.4](https://github.com/mariusz-kabala/homeAutomation/compare/@home/shelly@0.1.3...@home/shelly@0.1.4) (2022-10-19)
 
 **Note:** Version bump only for package @home/shelly
