@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/models@0.3.0...@home/models@0.4.0) (2022-10-26)
+
+
+### Features
+
+* heat pump - db and influx ([9e73dc3](https://github.com/mariusz-kabala/homeAutomation/commit/9e73dc36ac5ad200ff2d3d4a6a20cdcaab195de5))
+* working heat pump service ([8390b29](https://github.com/mariusz-kabala/homeAutomation/commit/8390b295e74c3b63ca44224d0cbb3894fb27462b))
+
+
+
+
+
 # [0.3.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/models@0.2.0...@home/models@0.3.0) (2022-10-22)
 
 

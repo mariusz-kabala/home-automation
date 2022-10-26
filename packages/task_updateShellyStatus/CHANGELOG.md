@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.4](https://github.com/mariusz-kabala/homeAutomation/compare/@home/task-update-shelly-status@0.2.3...@home/task-update-shelly-status@0.2.4) (2022-10-26)
+
+**Note:** Version bump only for package @home/task-update-shelly-status
+
+
+
+
+
 ## [0.2.3](https://github.com/mariusz-kabala/homeAutomation/compare/@home/task-update-shelly-status@0.2.2...@home/task-update-shelly-status@0.2.3) (2022-10-22)
 
 **Note:** Version bump only for package @home/task-update-shelly-status

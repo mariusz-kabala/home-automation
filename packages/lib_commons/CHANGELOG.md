@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/commons@0.6.0...@home/commons@0.7.0) (2022-10-26)
+
+
+### Features
+
+* working heat pump service ([8390b29](https://github.com/mariusz-kabala/homeAutomation/commit/8390b295e74c3b63ca44224d0cbb3894fb27462b))
+
+
+
+
+
 # [0.6.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/commons@0.5.0...@home/commons@0.6.0) (2022-04-05)
 
 

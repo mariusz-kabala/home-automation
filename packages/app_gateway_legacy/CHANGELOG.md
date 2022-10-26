@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway_legacy@0.11.0...@home/gateway_legacy@0.11.1) (2022-10-26)
+
+**Note:** Version bump only for package @home/gateway_legacy
+
+
+
+
+
 # 0.11.0 (2022-10-15)
 
 
