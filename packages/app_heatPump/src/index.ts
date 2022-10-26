@@ -5,6 +5,7 @@ import { mongoose } from '@home/mongoose-client'
 import { parseStatus, IParsedStatus } from './lib/pump/parser'
 import { logger } from '@home/logger'
 import { publish } from '@home/mqtt'
+import { registerInConsul } from '@home/consul'
 
 const UPDATE_INTERVAL = 60000
 
@@ -109,4 +110,5 @@ async function run() {
   setInterval(update, UPDATE_INTERVAL)
 }
 
+registerInConsul('HeatPump')
 run()
