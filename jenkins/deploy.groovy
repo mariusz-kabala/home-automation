@@ -26,6 +26,8 @@ pipeline {
         JWT_SECRET = credentials('HOME_JWT_SECRET')
         JWT_REFRESH_TOKEN_SECRET = credentials('HOME_JWT_REFRESH_TOKEN_SECRET')
         SESSION_SECRET = credentials('HOME_SESSION_SECRET')
+        HEAT_PUMP_USERNAME = credentials('HEAT_PUMP_USERNAME')
+        HEAT_PUMP_PASSWORD = credentials('HEAT_PUMP_PASSWORD')
         MONGO_CONNECTION_STR = credentials('mongo-home-db-connection-str')
         VERNE_API_KEY = credentials('vernemq-api-key')
         CI = 'true'
@@ -248,6 +250,23 @@ pipeline {
                             sh "terraform init"
                             sh "terraform workspace select ${env.DEPLOY_ENVIRONMENT} || terraform workspace new ${env.DEPLOY_ENVIRONMENT}"
                             sh "terraform plan -out deploy.plan -var-file=${env.DEPLOY_ENVIRONMENT}.tfvars -var=\"tag=${version}\" -var=\"mongo_connection_str=${env.MONGO_CONNECTION_STR}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\"" 
+                            sh "terraform apply -auto-approve deploy.plan"
+                        }
+                    }
+                }
+            }
+        }
+        stage ('Deploy Heat Pump Service') {
+            when {
+                environment name: 'package', value: 'heatPump'
+            }
+            steps {
+                dir("packages/app_${env.package}/terraform") {
+                    script {
+                        docker.withRegistry('https://docker-registry.kabala.tech', 'docker-registry-credentials') {
+                            sh "terraform init"
+                            sh "terraform workspace select ${env.DEPLOY_ENVIRONMENT} || terraform workspace new ${env.DEPLOY_ENVIRONMENT}"
+                            sh "terraform plan -out deploy.plan -var-file=${env.DEPLOY_ENVIRONMENT}.tfvars -var=\"tag=${version}\" -var=\"mongo_connection_str=${env.MONGO_CONNECTION_STR}\" -var=\"STATS_DB_TOKEN=${STATS_DB_TOKEN}\" -var=\"DOCKER_REGISTRY_USERNAME=${DOCKER_REGISTRY_USERNAME}\" -var=\"DOCKER_REGISTRY_PASSWORD=${DOCKER_REGISTRY_PASSWORD}\"" 
                             sh "terraform apply -auto-approve deploy.plan"
                         }
                     }

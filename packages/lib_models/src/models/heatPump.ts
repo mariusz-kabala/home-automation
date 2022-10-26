@@ -2,6 +2,7 @@ import mongoose, { Schema, Document } from 'mongoose'
 
 export interface IHeatPump extends Document {
   deviceId: number
+  operationMode: number
   buildingId: number
   ecoHotWater: boolean
   forcedHotWaterMode: boolean
@@ -11,7 +12,7 @@ export interface IHeatPump extends Document {
   power: boolean
   offline: boolean
   zones: {
-    name: string
+    name: string | null
     idle: boolean
     prohibit: boolean
     operationMode: number
@@ -28,6 +29,9 @@ export interface IHeatPump extends Document {
 }
 
 const HeatPumpSchema = new Schema({
+  operationMode: {
+    type: Number,
+  },
   deviceId: {
     type: Number,
     required: true,

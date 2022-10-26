@@ -1,8 +1,10 @@
 import fetch from 'node-fetch'
-import { IHeatPump, HeatPumpModel } from '@home/models'
+import { HeatPumpModel } from '@home/models'
 import { logger } from '@home/logger'
 import { sensorsWriteApi } from '../influxDb/client'
 import { Point } from '@influxdata/influxdb-client'
+import { IHeatPumpStatusResponse } from './interfaces'
+import { parseStatus, IParsedStatus } from './parser'
 
 const CLOUD_URL = 'https://app.melcloud.com/Mitsubishi.Wifi.Client'
 
@@ -11,51 +13,6 @@ const APP_VERSION = '1.25.0.1'
 const DEVICE_ID = 28328216
 
 const BUILDING_ID = 343859
-
-export interface IHeatPumpStatusResponse {
-  DemandPercentage: number
-  DeviceID: number
-  DeviceType: number
-  EcoHotWater: boolean
-  EffectiveFlags: number
-  ErrorCode: number
-  ErrorMessage: string | null
-  ForcedHotWaterMode: boolean
-  HCControlType: number
-  HasPendingCommand: boolean
-  HolidayMode: boolean
-  IdleZone1: boolean
-  IdleZone2: boolean
-  LastCommunication: string
-  LocalIPAddress: null | string
-  NextCommunication: string
-  Offline: boolean
-  OperationMode: number
-  OperationModeZone1: number
-  OperationModeZone2: number
-  OutdoorTemperature: number
-  Power: boolean
-  ProhibitHotWater: boolean
-  ProhibitZone1: boolean
-  ProhibitZone2: boolean
-  RoomTemperatureZone1: number
-  RoomTemperatureZone2: number
-  Scene: null | string
-  SceneOwner: null | string
-  SetCoolFlowTemperatureZone1: number
-  SetCoolFlowTemperatureZone2: number
-  SetHeatFlowTemperatureZone1: number
-  SetHeatFlowTemperatureZone2: number
-  SetTankWaterTemperature: number
-  SetTemperatureZone1: number
-  SetTemperatureZone2: number
-  TankWaterTemperature: number
-  TemperatureIncrementOverride: number
-  UnitStatus: number
-  Zone1Name: string | null
-  Zone2Name: string | null
-}
-
 export class HeatPump {
   private username: string
   private password: string
@@ -131,50 +88,22 @@ export class HeatPump {
       status = await this.getStatus()
     }
 
-    await HeatPumpModel.findOneAndUpdate(
+    let device = await HeatPumpModel.findOneAndUpdate(
       {
         deviceId: DEVICE_ID,
         buildingId: BUILDING_ID,
       },
-      {
-        ecoHotWater: status.EcoHotWater,
-        forcedHotWaterMode: status.ForcedHotWaterMode,
-        holidayMode: status.HolidayMode,
-        lastCommunication: status.LastCommunication,
-        outdoorTemperature: status.OutdoorTemperature,
-        power: status.Power,
-        offline: status.Offline,
-        zones: [
-          {
-            name: status.Zone1Name,
-            ide: status.IdleZone1,
-            prohibit: status.ProhibitZone1,
-            operationMode: status.OperationModeZone1,
-            temperature: status.RoomTemperatureZone1,
-            setCoolFlow: status.SetCoolFlowTemperatureZone1,
-            setHeatFlow: status.SetHeatFlowTemperatureZone1,
-            setTemperature: status.SetTemperatureZone1,
-          },
-          {
-            name: status.Zone2Name,
-            ide: status.IdleZone2,
-            prohibit: status.ProhibitZone2,
-            operationMode: status.OperationModeZone2,
-            temperature: status.RoomTemperatureZone2,
-            setCoolFlow: status.SetCoolFlowTemperatureZone2,
-            setHeatFlow: status.SetHeatFlowTemperatureZone2,
-            setTemperature: status.SetTemperatureZone2,
-          },
-        ],
-        water: {
-          prohibit: status.ProhibitHotWater,
-          temperature: status.TankWaterTemperature,
-          setTemperature: status.SetTankWaterTemperature,
-        },
-      },
-      {
-        new: true,
-      },
+      parseStatus(status),
     )
+
+    if (!device) {
+      device = await HeatPumpModel.create({
+        ...parseStatus(status),
+        deviceId: DEVICE_ID,
+        buildingId: BUILDING_ID,
+      })
+    }
+
+    return device?.toObject() as IParsedStatus
   }
 }

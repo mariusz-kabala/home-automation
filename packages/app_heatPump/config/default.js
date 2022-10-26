@@ -27,7 +27,7 @@ module.exports = {
   consulPort: CONSUL_PORT,
   heatPumpUsername: HEAT_PUMP_USERNAME,
   heatPumpPassword: HEAT_PUMP_PASSWORD,
-  stats: {
+  statsDb: {
     host: STATS_DB_HOST,
     port: STATS_DB_PORT,
     token: STATS_DB_TOKEN,
