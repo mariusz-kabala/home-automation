@@ -7,7 +7,6 @@ const {
   MQTT_PORT,
   CONSUL_HOST,
   CONSUL_PORT,
-  HTTP_PORT = 3000,
   HEAT_PUMP_USERNAME,
   HEAT_PUMP_PASSWORD,
   STATS_DB_HOST,
@@ -18,7 +17,6 @@ const {
 } = process.env
 
 module.exports = {
-  port: HTTP_PORT,
   mqttHost: MQTT_HOST,
   mqttPort: MQTT_PORT,
   mqttPrefix: '',
