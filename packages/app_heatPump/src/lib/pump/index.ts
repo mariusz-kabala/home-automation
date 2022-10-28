@@ -34,7 +34,7 @@ export class HeatPump {
         Password: this.password,
         Language: 0,
         AppVersion: APP_VERSION,
-        Persist: true,
+        Persist: false,
         CaptchaResponse: null,
       }),
     }).then(res => res.json())
@@ -105,5 +105,47 @@ export class HeatPump {
     }
 
     return device?.toObject() as IParsedStatus
+  }
+
+  public async updateEnergyReport(day: number, month: number, year: number) {
+    const date = `${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}T00:00:00`
+    const report = await fetch(`${CLOUD_URL}/EnergyCost/Report`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-mitscontextkey': this.contextKey,
+      },
+      body: JSON.stringify({
+        DeviceId: DEVICE_ID,
+        FromDate: date,
+        ToDate: date,
+        UseCurrency: false,
+      }),
+    }).then(res => res.json())
+
+    const water = report.HotWater[0]
+    const heating = report.Heating[0]
+    const producedWater = report.ProducedHotWater[0]
+    const producedHeating = report.ProducedHeating[0]
+    const responseDay = report.Labels[0]
+
+    const point = new Point('energy')
+      .tag('deviceName', 'heatPump')
+      .floatField('water', water)
+      .floatField('heating', heating)
+      .floatField('producedWater', producedWater)
+      .floatField('producedHeating', producedHeating)
+      .timestamp(new Date(`${month} ${responseDay} ${year}`)) // to keep the same format as in jenkins task
+
+    sensorsWriteApi.writePoint(point)
+
+    try {
+      await sensorsWriteApi.flush()
+    } catch (err) {
+      logger.log({
+        level: 'error',
+        message: `Stats database error ${err}`,
+      })
+    }
   }
 }

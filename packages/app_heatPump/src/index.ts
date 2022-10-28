@@ -5,6 +5,7 @@ import { mongoose } from '@home/mongoose-client'
 import { parseStatus, IParsedStatus } from './lib/pump/parser'
 import { logger } from '@home/logger'
 import { publish } from '@home/mqtt'
+import cron from 'node-cron'
 import { registerInConsul } from '@home/consul'
 
 const UPDATE_INTERVAL = 60000
@@ -110,5 +111,14 @@ async function run() {
   setInterval(update, UPDATE_INTERVAL)
 }
 
+async function saveEnergyReport() {
+  const time = new Date()
+  time.setDate(time.getDate() - 1); // yesterday
+
+  await pump.updateEnergyReport(time.getDate(), time.getMonth() + 1, time.getFullYear())
+}
+
 registerInConsul('HeatPump')
 run()
+
+cron.schedule('30 3 * * *', saveEnergyReport) // every day at 3:30am
