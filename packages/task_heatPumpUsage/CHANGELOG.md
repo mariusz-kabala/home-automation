@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/task-heat-pump-usage@0.1.0...@home/task-heat-pump-usage@0.1.1) (2022-10-28)
+
+
+### Bug Fixes
+
+* hardcode bucket name ([a297d28](https://github.com/mariusz-kabala/homeAutomation/commit/a297d288771e7f51a258195c47746681caed0105))
+
+
+
+
+
 # 0.1.0 (2022-10-28)
 
 
