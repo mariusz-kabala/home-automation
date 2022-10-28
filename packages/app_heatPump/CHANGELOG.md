@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/heatpump@0.2.0...@home/heatpump@0.2.1) (2022-10-28)
+
+
+### Bug Fixes
+
+* add energy report read every day at 3:30am ([0c81cef](https://github.com/mariusz-kabala/homeAutomation/commit/0c81cef1e9ed6745b36e80049645004e967ce82e))
+
+
+
+
+
 # [0.2.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/heatpump@0.1.1...@home/heatpump@0.2.0) (2022-10-28)
 
 
