@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/heatpump@0.1.1...@home/heatpump@0.2.0) (2022-10-28)
+
+
+### Features
+
+* heat pump usage task ([dafa469](https://github.com/mariusz-kabala/homeAutomation/commit/dafa46909403ea77b5018b28a457ba1eb55ed8f2))
+
+
+
+
+
 ## [0.1.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/heatpump@0.1.0...@home/heatpump@0.1.1) (2022-10-26)
 
 

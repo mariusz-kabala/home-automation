@@ -1,6 +1,6 @@
 {
   "name": "@home/task-heat-pump-usage",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
   "main": "./dist/index.js",
@@ -10,6 +10,5 @@
     "build-declarations": "tsc --declaration --emitDeclarationOnly --out dist/index.d.ts",
     "start": "node dist/index.js",
     "prepare": "exit 0"
-  },
-  "dependencies": {}
+  }
 }
