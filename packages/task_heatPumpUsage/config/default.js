@@ -6,7 +6,6 @@ const {
   STATS_DB_PORT,
   STATS_DB_TOKEN,
   STATS_DB_ORGANISATION,
-  STATS_DB_BUCKET,
   HEAT_PUMP_USERNAME,
   HEAT_PUMP_PASSWORD,
 } = process.env
@@ -19,6 +18,6 @@ module.exports = {
     port: STATS_DB_PORT,
     token: STATS_DB_TOKEN,
     organisation: STATS_DB_ORGANISATION,
-    bucket: STATS_DB_BUCKET,
+    bucket: 'home',
   },
 }
