@@ -67,4 +67,13 @@ export const find = {
 
     return searchDB({ query, offset, limit }, res)
   },
+  level(req: Request<{ level: number }, {}, {}, IFindParams>, res: Response) {
+    const { level } = req.params
+    const query = parseSearchQuery(req)
+    const { limit, offset } = getPaginationParams(req)
+
+    query.level = level
+
+    return searchDB({ query, offset, limit }, res)
+  }
 }
