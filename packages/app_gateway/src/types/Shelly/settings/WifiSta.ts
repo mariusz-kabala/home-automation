@@ -1,7 +1,7 @@
 import { ObjectType, Field } from 'type-graphql'
 
 @ObjectType()
-export class SettingsWifiSTA {
+export class WifiSTA {
   @Field()
   enabled: boolean
 

@@ -1,13 +1,13 @@
 import { ObjectType, Field } from 'type-graphql'
 
 @ObjectType()
-export class WifiAP {
+export class Input {
   @Field()
-  enabled: boolean
+  input: number
 
   @Field()
-  ssid: string
+  event: string
 
   @Field()
-  key: string
+  event_cnt: number
 }

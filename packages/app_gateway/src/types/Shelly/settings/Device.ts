@@ -1,7 +1,7 @@
 import { ObjectType, Field } from 'type-graphql'
 
 @ObjectType()
-export class SettingsDevice {
+export class Device {
   @Field()
   type: string
 
