@@ -2,6 +2,8 @@ import { Service } from 'typedi'
 import type { IShelly } from '@home/models'
 import { ConnectionStatus, ShellyCategory, ShellyType, Room } from '@home/models'
 import { API } from './API'
+import { Response } from 'types/Shelly/Response'
+import { FindSensorsQuery } from 'types/input/FindShellyQuery'
 
 export interface IShelliesResponse {
     docs: IShelly[],
@@ -17,17 +19,10 @@ export class ShellyAPI extends API {
     this.baseURL = `https://home.kabala.tech/api/shelly`
   }
 
-  public find(query: {
-  level?: string
-  category?: ShellyCategory
-  room?: Room
-  type?: ShellyType
-  mqttStatus?: ConnectionStatus
-  httpStatus?: ConnectionStatus
-}): Promise<IShelliesResponse> {
+  public find(query: FindSensorsQuery): Promise<Response> {
     const searchParams = new URLSearchParams(query).toString()
 
-    return this.get<IShelliesResponse>(`/search?${searchParams}`)
+    return this.get<Response>(`/search?${searchParams}`)
   }
 
   public room(room: Room): Promise<IShelliesResponse> {
