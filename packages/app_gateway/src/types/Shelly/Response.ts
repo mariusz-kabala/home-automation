@@ -2,7 +2,7 @@ import { ObjectType, Field } from 'type-graphql'
 import { ShellyDevice } from './Device'
 
 @ObjectType()
-export class Response {
+export class ShellyResponse {
   @Field(() => [ShellyDevice])
   docs: ShellyDevice[]
 
