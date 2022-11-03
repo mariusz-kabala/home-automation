@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.3](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.2.2...@home/gateway@0.2.3) (2022-11-03)
+
+
+### Bug Fixes
+
+* mark some fields as nullable ([fc40fd1](https://github.com/mariusz-kabala/homeAutomation/commit/fc40fd1f29c12cd424916159f2a8cd6495c12274))
+
+
+
+
+
 ## [0.2.2](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.2.1...@home/gateway@0.2.2) (2022-11-03)
 
 
