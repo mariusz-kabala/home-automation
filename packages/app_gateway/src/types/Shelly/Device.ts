@@ -8,7 +8,7 @@ export class ShellyDevice {
   @Field()
   label: string
 
-  @Field()
+  @Field({ nullable: true })
   hostname: string
 
   @Field()
@@ -26,7 +26,7 @@ export class ShellyDevice {
   @Field(() => [Network])
   networks: Network[]
 
-  @Field(() => Usage)
+  @Field(() => Usage, { nullable: true })
   usage: Usage
 
   @Field()
