@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.2.0...@home/gateway@0.2.1) (2022-11-03)
+
+
+### Bug Fixes
+
+* renaming ([24dcffb](https://github.com/mariusz-kabala/homeAutomation/commit/24dcffbc27f4a33c18a5ac186393b6aa4debaa16))
+* renaming ([eccf119](https://github.com/mariusz-kabala/homeAutomation/commit/eccf119d3a08c96e2700b9848a27ba13d17405dc))
+
+
+
+
+
 # 0.2.0 (2022-11-03)
 
 
