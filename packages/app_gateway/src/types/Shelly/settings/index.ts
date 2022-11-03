@@ -3,16 +3,16 @@ import { Device } from './Device'
 import { WifiAP } from './WifiAp'
 import { WifiSTA } from './WifiSta'
 import { ApRoaming } from './ApRoaming'
-import { Mqtt } from './Mqtt'
+import { MqttSettings } from './Mqtt'
 import { Coiot } from './Coiot'
 import { Sntp } from './Sntp'
 import { Login } from './Login'
 import { BuildInfo } from './BuildInfo'
-import { Cloud } from './Cloud'
+import { CloudSettings } from './Cloud'
 import { Actions } from './Actions'
 import { Hwinfo } from './Hwinfo'
-import { Relay } from './Relay'
-import { Roller } from './Roller'
+import { RelaySettings } from './Relay'
+import { RollerSettings } from './Roller'
 import { Fav } from './Fav'
 
 @ObjectType()
@@ -32,8 +32,8 @@ export class Settings {
   @Field(() => ApRoaming)
   ap_roaming: ApRoaming
 
-  @Field(() => Mqtt)
-  mqtt: Mqtt
+  @Field(() => MqttSettings)
+  mqtt: MqttSettings
 
   @Field(() => Coiot)
   coiot: Coiot
@@ -62,8 +62,8 @@ export class Settings {
   @Field(() => BuildInfo)
   build_info: BuildInfo
 
-  @Field(() => Cloud)
-  cloud: Cloud
+  @Field(() => CloudSettings)
+  cloud: CloudSettings
 
   @Field()
   timezone: string
@@ -116,11 +116,11 @@ export class Settings {
   @Field()
   longpush_time: number
 
-  @Field(() => [Relay])
-  relays: Relay[]
+  @Field(() => [RelaySettings])
+  relays: RelaySettings[]
 
-  @Field(() => [Roller])
-  rollers: Roller[]
+  @Field(() => [RollerSettings])
+  rollers: RollerSettings[]
 
   @Field()
   favorites_enabled: boolean

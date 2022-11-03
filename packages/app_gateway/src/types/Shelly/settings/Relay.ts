@@ -1,7 +1,7 @@
 import { ObjectType, Field } from 'type-graphql'
 
 @ObjectType()
-export class Relay {
+export class RelaySettings {
   @Field(() => String, { nullable: true })
   name: string | null
 
@@ -35,6 +35,6 @@ export class Relay {
   @Field()
   schedule: false
 
-  @Field()
+  @Field(() => [String], {nullable: true})
   schedule_rules: [] // no idea how it looks like
 }

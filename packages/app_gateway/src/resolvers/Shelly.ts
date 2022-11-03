@@ -18,22 +18,23 @@ export class ShellyResolver {
   }
 
   @Query(() => Response)
-  room(@Arg('room', () => Room) room: Room): Promise<IShelliesResponse> {
+  room(@Arg('room', () => String) room: Room): Promise<IShelliesResponse> {
     return this.shellyService.room(room)
   }
 
   @Query(() => Response)
-  category(@Arg('category', () => ShellyCategory) category: ShellyCategory): Promise<IShelliesResponse> {
+  category(@Arg('category', () => String) category: ShellyCategory): Promise<IShelliesResponse> {
     return this.shellyService.category(category)
   }
 
   @Query(() => Response)
-  type(@Arg('type', () => ShellyType) type: ShellyType): Promise<IShelliesResponse> {
+  type(@Arg('type', () => String) type: ShellyType): Promise<IShelliesResponse> {
     return this.shellyService.type(type)
   }
 
   @Query(() => Response)
-  level(@Arg('level', () => Number) level: number): Promise<IShelliesResponse> {
+  async level(@Arg('level', () => Number) level: number): Promise<IShelliesResponse> {
+    const response = await this.shellyService.level(level)
     return this.shellyService.level(level)
   }
 

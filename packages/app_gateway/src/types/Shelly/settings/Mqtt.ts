@@ -1,7 +1,7 @@
 import { ObjectType, Field } from 'type-graphql'
 
 @ObjectType()
-export class Mqtt {
+export class MqttSettings {
   @Field()
   enable: boolean
 

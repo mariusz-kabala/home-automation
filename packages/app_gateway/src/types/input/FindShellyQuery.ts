@@ -6,18 +6,18 @@ export class FindSensorsQuery {
   @Field(() => String, { nullable: true })
   level: string
 
-  @Field(() => ShellyCategory, { nullable: true })
+  @Field(() => String, { nullable: true })
   category: ShellyCategory
 
-  @Field(() => Room, { nullable: true })
+  @Field(() => String, { nullable: true })
   room: Room
 
-  @Field(() => ShellyType, { nullable: true })
+  @Field(() => String, { nullable: true })
   type: ShellyType
 
-  @Field(() => ConnectionStatus, { nullable: true })
+  @Field(() => String, { nullable: true })
   mqttStatus: ConnectionStatus
 
-  @Field(() => ConnectionStatus, { nullable: true })
+  @Field(() => String, { nullable: true })
   httpStatus: ConnectionStatus
 }

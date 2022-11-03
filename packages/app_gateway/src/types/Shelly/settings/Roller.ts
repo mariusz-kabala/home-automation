@@ -1,7 +1,7 @@
 import { ObjectType, Field } from 'type-graphql'
 
 @ObjectType()
-export class Roller {
+export class RollerSettings {
     @Field()
     maxtime: number
 
@@ -44,7 +44,7 @@ export class Roller {
     @Field()
     schedule: boolean
     
-    @Field()
+    @Field(() => [String], {nullable: true})
     schedule_rules: [] // no idea how it looks like, to check later
     
     @Field()

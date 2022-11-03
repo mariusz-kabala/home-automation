@@ -12,6 +12,7 @@ import { ApolloServerPluginLandingPageGraphQLPlayground, ApolloServerPluginDrain
 import { createServer } from 'http'
 
 import { DashboardResolver } from 'resolvers/Dashboard'
+import { ShellyResolver } from 'resolvers/Shelly'
 
 async function bootstrap() {
   mongoose.connection.once('open', () => {
@@ -19,7 +20,7 @@ async function bootstrap() {
     console.log('Database connection established')
   })
   const schema = await buildSchema({
-    resolvers: [DashboardResolver],
+    resolvers: [DashboardResolver, ShellyResolver],
     container: Container,
   })
 

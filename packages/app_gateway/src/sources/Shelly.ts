@@ -33,7 +33,7 @@ export class ShellyAPI extends API {
   }
 
   public room(room: Room): Promise<IShelliesResponse> {
-    return this.get<IShelliesResponse>(`/room/${room}`)
+    return this.get<IShelliesResponse>(`/rooms/${room}`)
   }
 
   public category(category: ShellyCategory): Promise<IShelliesResponse> {
