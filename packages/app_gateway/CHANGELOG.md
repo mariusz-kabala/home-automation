@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.7](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.2.6...@home/gateway@0.2.7) (2022-11-04)
+
+
+### Bug Fixes
+
+* make relays and rollers in settings nullable ([68faa8b](https://github.com/mariusz-kabala/homeAutomation/commit/68faa8b185fba0ef294a4a3aca964f7cf3369387))
+
+
+
+
+
 ## [0.2.6](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.2.5...@home/gateway@0.2.6) (2022-11-04)
 
 
