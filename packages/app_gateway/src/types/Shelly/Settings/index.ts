@@ -116,10 +116,10 @@ export class Settings {
   @Field()
   longpush_time: number
 
-  @Field(() => [RelaySettings])
+  @Field(() => [RelaySettings], { nullable: true })
   relays: RelaySettings[]
 
-  @Field(() => [RollerSettings])
+  @Field(() => [RollerSettings], { nullable: true })
   rollers: RollerSettings[]
 
   @Field()
