@@ -3,8 +3,11 @@ import { ObjectType, Field } from 'type-graphql'
 @ObjectType()
 export class Network {
   @Field()
-  isOn: boolean
+  wifi: string
 
   @Field()
-  lastUpdate: Date
+  address: string
+
+  @Field()
+  isConnected: boolean
 }
