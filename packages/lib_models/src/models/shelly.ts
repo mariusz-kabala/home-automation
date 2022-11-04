@@ -57,6 +57,10 @@ const ShellySchema = new Schema(
     },
     networks: [
       {
+        isConnected: {
+          type: Boolean,
+          default: false,
+        },
         wifi: {
           type: String,
           trim: true,
@@ -116,6 +120,7 @@ export interface IShelly extends Document {
   macAddress: string
   deviceId: string
   networks: {
+    isConnected: boolean
     wifi: string
     address: string
   }[]

@@ -6,20 +6,31 @@ import { fetchStatus } from '@home/shelly-api'
 
 async function checkHttpStatus(devices: IShelly[]) {
   for await (const device of devices) {
-    let status
+    let status, connected
+    const networks = [...device.networks]
 
-    for (const network of device.networks) {
+    for (const network of networks) {
+      if (connected && network.wifi !== connected) {
+        network.isConnected = false
+
+        continue
+      }
+
       try {
         status = await fetchStatus(network.address)
 
-        break
+        network.isConnected = true
+        connected = network.wifi
       } catch (err) {
+        network.isConnected = false
         logger.log({
           level: 'error',
           message: `Can not fetch shelly ${device.name} status from ${network.address} address. Error ${err}`,
         })
       }
     }
+
+    device.networks = networks
 
     if (status) {
       device.status = status
