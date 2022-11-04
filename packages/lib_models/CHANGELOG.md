@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/models@0.4.0...@home/models@0.5.0) (2022-11-04)
+
+
+### Features
+
+* mark wifi network connection status ([827b729](https://github.com/mariusz-kabala/homeAutomation/commit/827b729c6152397b770b12c3277e09a2f17713d6))
+
+
+
+
+
 # [0.4.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/models@0.3.0...@home/models@0.4.0) (2022-10-26)
 
 

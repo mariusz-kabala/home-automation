@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/task-update-shelly-status@0.2.4...@home/task-update-shelly-status@0.3.0) (2022-11-04)
+
+
+### Features
+
+* mark wifi network connection status ([827b729](https://github.com/mariusz-kabala/homeAutomation/commit/827b729c6152397b770b12c3277e09a2f17713d6))
+
+
+
+
+
 ## [0.2.4](https://github.com/mariusz-kabala/homeAutomation/compare/@home/task-update-shelly-status@0.2.3...@home/task-update-shelly-status@0.2.4) (2022-10-26)
 
 **Note:** Version bump only for package @home/task-update-shelly-status
