@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.5](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.2.4...@home/gateway@0.2.5) (2022-11-04)
+
+
+### Bug Fixes
+
+* expose rollers info ([e104cb7](https://github.com/mariusz-kabala/homeAutomation/commit/e104cb7700bfd013930cb78eb042d0ce9c4d4393))
+
+
+
+
+
 ## [0.2.4](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.2.3...@home/gateway@0.2.4) (2022-11-04)
 
 
