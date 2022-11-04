@@ -1,6 +1,6 @@
 {
   "name": "@home/gateway",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
   "main": "dist/index.js",
   "license": "ISC",

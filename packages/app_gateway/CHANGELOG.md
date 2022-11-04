@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.6](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.2.5...@home/gateway@0.2.6) (2022-11-04)
+
+
+### Bug Fixes
+
+* make settings mode nullable ([20de93b](https://github.com/mariusz-kabala/homeAutomation/commit/20de93b74733330a889e1b60f5eb0ad837fa99ed))
+
+
+
+
+
 ## [0.2.5](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.2.4...@home/gateway@0.2.5) (2022-11-04)
 
 
