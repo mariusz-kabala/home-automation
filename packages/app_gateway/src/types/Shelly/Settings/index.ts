@@ -107,7 +107,7 @@ export class Settings {
   @Field(() => Hwinfo)
   hwinfo: Hwinfo
 
-  @Field()
+  @Field({ nullable: true })
   mode: string
 
   @Field()
