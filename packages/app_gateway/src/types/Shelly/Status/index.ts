@@ -4,6 +4,7 @@ import { Cloud } from './Cloud'
 import { Mqtt } from './Mqtt'
 import { ActionsStats } from './ActionsStats'
 import { Relay } from './Relay'
+import { Roller } from './Roller'
 import { Meter } from './Meter'
 import { Input } from './Input'
 import { Tmp } from './Tmp'
@@ -44,8 +45,11 @@ export class Status {
   @Field(() => ActionsStats)
   actions_stats: ActionsStats
 
-  @Field(() => [Relay])
+  @Field(() => [Relay], { nullable: true })
   relays: Relay[]
+
+  @Field(() => [Roller], { nullable: true })
+  rollers: Roller[]
 
   @Field(() => [Meter])
   meters: Meter[]
