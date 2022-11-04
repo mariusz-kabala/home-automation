@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.4](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.2.3...@home/gateway@0.2.4) (2022-11-04)
+
+
+### Bug Fixes
+
+* adjust shelly network object ([895d1ac](https://github.com/mariusz-kabala/homeAutomation/commit/895d1ac50c998cd0e3ff8cda4d67767285fcb237))
+
+
+
+
+
 ## [0.2.3](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway@0.2.2...@home/gateway@0.2.3) (2022-11-03)
 
 
