@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.22](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.10.21...@home/stats-collector@0.10.22) (2022-11-17)
+
+
+### Bug Fixes
+
+* add one more tasmota device ([2ecb6fe](https://github.com/mariusz-kabala/homeAutomation/commit/2ecb6fe18ff4467909c1ddc285bf1889ff36de49))
+
+
+
+
+
 ## [0.10.21](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.10.20...@home/stats-collector@0.10.21) (2022-11-04)
 
 **Note:** Version bump only for package @home/stats-collector
