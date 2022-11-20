@@ -76,7 +76,7 @@ function mqttUpdate(diff: Diff, status: IParsedStatus) {
   })
 }
 
-async function update() {
+async function update(retry = false) {
   try {
     const status = await pump.getStatus()
 
@@ -89,6 +89,13 @@ async function update() {
       level: 'error',
       message: `Can not fetch update from melcloud, error: ${err}`,
     })
+
+    if (retry) {
+      process.exit(1)
+    }
+
+    await pump.login()
+    update(true)
   }
 }
 
