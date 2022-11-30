@@ -106,6 +106,59 @@ export class HeatPump {
     }
   }
 
+  private async off(retry = 0, status?: IHeatPumpStatusResponse): Promise<void> {
+    if (retry > 4) {
+      throw new Error('Can not power off heat pump')
+    }
+
+    if (!status) {
+      status = await this.getStatus()
+    }
+
+    if (status.Power === false) {
+      return
+    }
+
+    status.Power = false
+
+    await this.sendCommand(status)
+
+    const newStatus = await this.getStatus()
+
+    if (newStatus.Power !== false) {
+      return this.off(retry + 1, newStatus)
+    }
+  }
+
+  private async on(retry = 0, status?: IHeatPumpStatusResponse): Promise<void> {
+    if (retry > 4) {
+      throw new Error('Can not power on heat pump')
+    }
+
+    if (!status) {
+      status = await this.getStatus()
+    }
+
+    if (status.Power === true) {
+      return
+    }
+
+    status.Power = true
+
+    await this.sendCommand(status)
+
+    const newStatus = await this.getStatus()
+
+    if (newStatus.Power !== true) {
+      return this.on(retry + 1, newStatus)
+    }
+  }
+
+  private async offOn() {
+    await this.off()
+    await this.on()
+  }
+
   public async reset(retry = false) {
     logger.log({
       level: 'info',
@@ -113,21 +166,9 @@ export class HeatPump {
     })
 
     try {
-      const status = await this.getStatus()
-
-      status.Power = false
-
-      await this.sendCommand(status)
-      await this.refreshStatus()
-
-      const newStatus = await this.getStatus()
-
-      if (newStatus.Power === true) {
-        logger.log({
-          level: 'info',
-          message: 'Heat pump has been restarted',
-        })
-      } else if (retry === false) {
+      await this.offOn()
+    } catch (err) {
+      if (retry === false) {
         logger.log({
           level: 'error',
           message: 'Heat pump restart failed, retry in 15sec',
@@ -139,15 +180,6 @@ export class HeatPump {
           level: 'error',
           message: 'Second attempt to restart heat pump failed',
         })
-      }
-    } catch (err) {
-      logger.log({
-        level: 'error',
-        message: `Error while restarting heat pump: ${err}`,
-      })
-
-      if (retry === false) {
-        setTimeout(() => this.reset(true), 5000) // 5sec
       }
     }
   }
