@@ -26,6 +26,11 @@ export interface IParsedStatus {
   }
 }
 
+export interface IParsedError {
+  error: number
+  message: string
+}
+
 export function parseStatus(status: IHeatPumpStatusResponse): IParsedStatus {
   return {
     operationMode: status.OperationMode,
@@ -64,4 +69,15 @@ export function parseStatus(status: IHeatPumpStatusResponse): IParsedStatus {
       setTemperature: status.SetTankWaterTemperature,
     },
   }
+}
+
+export function getError(status: IHeatPumpStatusResponse): IParsedError | null {
+  if (status.ErrorCode && status.ErrorMessage) {
+    return {
+      error: status.ErrorCode,
+      message: status.ErrorMessage,
+    }
+  }
+
+  return null
 }

@@ -8,7 +8,7 @@ import { publish } from '@home/mqtt'
 import cron from 'node-cron'
 import { registerInConsul } from '@home/consul'
 
-const UPDATE_INTERVAL = 60000
+const UPDATE_INTERVAL = 60000 // 1min
 
 const MQTT_TOPIC = 'heatpump'
 
@@ -84,6 +84,8 @@ async function update(retry = false) {
     const diff: Diff = difference(dbStatus, parseStatus(status))
 
     mqttUpdate(diff, dbStatus)
+
+    await pump.checkForErrors(status)
   } catch (err) {
     logger.log({
       level: 'error',

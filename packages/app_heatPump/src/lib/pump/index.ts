@@ -1,10 +1,10 @@
 import fetch from 'node-fetch'
-import { HeatPumpModel } from '@home/models'
+import { HeatPumpModel, HeatPumpErrorModel } from '@home/models'
 import { logger } from '@home/logger'
 import { sensorsWriteApi } from '../influxDb/client'
 import { Point } from '@influxdata/influxdb-client'
 import { IHeatPumpStatusResponse } from './interfaces'
-import { parseStatus, IParsedStatus } from './parser'
+import { parseStatus, IParsedStatus, getError } from './parser'
 
 const CLOUD_URL = 'https://app.melcloud.com/Mitsubishi.Wifi.Client'
 
@@ -56,6 +56,29 @@ export class HeatPump {
     }).then(res => res.json())
   }
 
+  public async sendCommand(status: IHeatPumpStatusResponse): Promise<IHeatPumpStatusResponse> {
+    return await fetch(`${CLOUD_URL}/Device/SetAtw`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-mitscontextkey': this.contextKey,
+      },
+      body: JSON.stringify(status),
+    }).then(res => res.json())
+  }
+
+  public async refreshStatus(): Promise<boolean> {
+    return await fetch(`${CLOUD_URL}/Device/RequestRefresh?id=${DEVICE_ID}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-mitscontextkey': this.contextKey,
+      },
+    })
+      .then(res => res.text())
+      .then(result => (result === 'true' ? true : false))
+  }
+
   public async updateStatsDB(status?: IHeatPumpStatusResponse) {
     if (!status) {
       status = await this.getStatus()
@@ -81,6 +104,80 @@ export class HeatPump {
         message: `Stats database error ${err}`,
       })
     }
+  }
+
+  public async reset(retry = false) {
+    logger.log({
+      level: 'info',
+      message: 'Starting heat pump reset procedure',
+    })
+
+    try {
+      const status = await this.getStatus()
+
+      status.Power = false
+
+      await this.sendCommand(status)
+      await this.refreshStatus()
+
+      const newStatus = await this.getStatus()
+
+      if (newStatus.Power === true) {
+        logger.log({
+          level: 'info',
+          message: 'Heat pump has been restarted',
+        })
+      } else if (retry === false) {
+        logger.log({
+          level: 'error',
+          message: 'Heat pump restart failed, retry in 15sec',
+        })
+
+        setTimeout(() => this.reset(true), 15000) // 15sec
+      } else {
+        logger.log({
+          level: 'error',
+          message: 'Second attempt to restart heat pump failed',
+        })
+      }
+    } catch (err) {
+      logger.log({
+        level: 'error',
+        message: `Error while restarting heat pump: ${err}`,
+      })
+
+      if (retry === false) {
+        setTimeout(() => this.reset(true), 5000) // 5sec
+      }
+    }
+  }
+
+  public async checkForErrors(status?: IHeatPumpStatusResponse) {
+    if (!status) {
+      status = await this.getStatus()
+    }
+
+    const parsedError = getError(status)
+
+    if (!parsedError) {
+      return
+    }
+
+    const error = new HeatPumpErrorModel()
+
+    error.error = parsedError.error
+    error.message = parsedError.message
+
+    try {
+      await error.save()
+    } catch (err) {
+      logger.log({
+        level: 'error',
+        message: `Error saving to database failed, error: ${err}`,
+      })
+    }
+
+    this.reset()
   }
 
   public async updateDB(status?: IHeatPumpStatusResponse) {
