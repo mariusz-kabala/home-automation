@@ -126,7 +126,7 @@ export class HeatPump {
     const newStatus = await this.getStatus()
 
     if (newStatus.Power !== false) {
-      return this.off(retry + 1, newStatus)
+      setTimeout(() => this.off(retry + 1, newStatus), 5000) // 5s
     }
   }
 
@@ -150,7 +150,7 @@ export class HeatPump {
     const newStatus = await this.getStatus()
 
     if (newStatus.Power !== true) {
-      return this.on(retry + 1, newStatus)
+      setTimeout(() => this.on(retry + 1, newStatus), 5000) // 5s
     }
   }
 
