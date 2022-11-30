@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.2](https://github.com/mariusz-kabala/homeAutomation/compare/@home/heatpump@0.3.1...@home/heatpump@0.3.2) (2022-11-30)
+
+
+### Bug Fixes
+
+* better reset process ([afd120b](https://github.com/mariusz-kabala/homeAutomation/commit/afd120b2375e7b2e83605c26b94251e0db569838))
+
+
+
+
+
 ## [0.3.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/heatpump@0.3.0...@home/heatpump@0.3.1) (2022-11-30)
 
 
