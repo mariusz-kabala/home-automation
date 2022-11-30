@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/heatpump@0.2.3...@home/heatpump@0.3.0) (2022-11-30)
+
+
+### Features
+
+* heat pump error monitoring ([db6e54b](https://github.com/mariusz-kabala/homeAutomation/commit/db6e54b5a3468ff60b06efbbc9e100d77b4e6335))
+
+
+
+
+
 ## [0.2.3](https://github.com/mariusz-kabala/homeAutomation/compare/@home/heatpump@0.2.2...@home/heatpump@0.2.3) (2022-11-20)
 
 

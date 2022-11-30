@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.23](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.10.22...@home/stats-collector@0.10.23) (2022-11-30)
+
+**Note:** Version bump only for package @home/stats-collector
+
+
+
+
+
 ## [0.10.22](https://github.com/mariusz-kabala/homeAutomation/compare/@home/stats-collector@0.10.21...@home/stats-collector@0.10.22) (2022-11-17)
 
 
