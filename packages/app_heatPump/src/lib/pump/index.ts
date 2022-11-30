@@ -106,7 +106,21 @@ export class HeatPump {
     }
   }
 
-  private async off(retry = 0, status?: IHeatPumpStatusResponse): Promise<void> {
+  private getStatusWithDelay(delay: number): Promise<IHeatPumpStatusResponse> {
+    return new Promise((resolve, reject) => {
+      setTimeout(async () => {
+        try {
+          const status = await this.getStatus()
+
+          resolve(status)
+        } catch (err) {
+          reject(err)
+        }
+      }, delay)
+    })
+  }
+
+  public async off(retry = 0, status?: IHeatPumpStatusResponse): Promise<void> {
     if (retry > 4) {
       throw new Error('Can not power off heat pump')
     }
@@ -120,17 +134,18 @@ export class HeatPump {
     }
 
     status.Power = false
+    status.EffectiveFlags = 1
 
     await this.sendCommand(status)
 
-    const newStatus = await this.getStatus()
+    const newStatus = await this.getStatusWithDelay(7000) // 7s
 
     if (newStatus.Power !== false) {
       setTimeout(() => this.off(retry + 1, newStatus), 5000) // 5s
     }
   }
 
-  private async on(retry = 0, status?: IHeatPumpStatusResponse): Promise<void> {
+  public async on(retry = 0, status?: IHeatPumpStatusResponse): Promise<void> {
     if (retry > 4) {
       throw new Error('Can not power on heat pump')
     }
@@ -144,10 +159,11 @@ export class HeatPump {
     }
 
     status.Power = true
+    status.EffectiveFlags = 1
 
     await this.sendCommand(status)
 
-    const newStatus = await this.getStatus()
+    const newStatus = await this.getStatusWithDelay(7000) // 7s
 
     if (newStatus.Power !== true) {
       setTimeout(() => this.on(retry + 1, newStatus), 5000) // 5s
