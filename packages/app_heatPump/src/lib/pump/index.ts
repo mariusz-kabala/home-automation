@@ -3,7 +3,7 @@ import { HeatPumpModel, HeatPumpErrorModel } from '@home/models'
 import { logger } from '@home/logger'
 import { sensorsWriteApi } from '../influxDb/client'
 import { Point } from '@influxdata/influxdb-client'
-import { IHeatPumpStatusResponse } from './interfaces'
+import { IHeatPumpStatusResponse, IPumpError } from './interfaces'
 import { parseStatus, IParsedStatus, getError } from './parser'
 
 const CLOUD_URL = 'https://app.melcloud.com/Mitsubishi.Wifi.Client'
@@ -145,6 +145,15 @@ export class HeatPump {
     }
   }
 
+  public async forcedHotWaterMode(force: boolean): Promise<void> {
+    const status = await this.getStatus()
+
+    status.ForcedHotWaterMode = force
+    status.EffectiveFlags = 1
+
+    await this.sendCommand(status)
+  }
+
   public async on(retry = 0, status?: IHeatPumpStatusResponse): Promise<void> {
     if (retry > 4) {
       throw new Error('Can not power on heat pump')
@@ -200,7 +209,7 @@ export class HeatPump {
     }
   }
 
-  public async checkForErrors(status?: IHeatPumpStatusResponse) {
+  public async checkForErrors(status?: IHeatPumpStatusResponse): Promise<IPumpError | undefined> {
     if (!status) {
       status = await this.getStatus()
     }
@@ -226,9 +235,11 @@ export class HeatPump {
     }
 
     this.reset()
+
+    return error.toObject()
   }
 
-  public async updateDB(status?: IHeatPumpStatusResponse) {
+  public async updateDB(status?: IHeatPumpStatusResponse): Promise<IParsedStatus> {
     if (!status) {
       status = await this.getStatus()
     }

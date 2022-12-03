@@ -4,7 +4,7 @@ import { difference } from '@home/commons'
 import { mongoose } from '@home/mongoose-client'
 import { parseStatus, IParsedStatus } from './lib/pump/parser'
 import { logger } from '@home/logger'
-import { publish } from '@home/mqtt'
+import { publish, subscribe } from '@home/mqtt'
 import cron from 'node-cron'
 import { registerInConsul } from '@home/consul'
 
@@ -37,21 +37,21 @@ mongoose.connection.on('error', err => {
 
 function mqttUpdate(diff: Diff, status: IParsedStatus) {
   if (diff.water) {
-    publish(`${MQTT_TOPIC}/water`, status.water, {
+    publish('water', status.water, {
       retain: true,
       qos: 0,
     })
   }
 
   if (Object.keys(diff.zones[0]).length > 0) {
-    publish(`${MQTT_TOPIC}/zone0`, status.zones[0], {
+    publish('zone0', status.zones[0], {
       retain: true,
       qos: 0,
     })
   }
 
   if (Object.keys(diff.zones[1]).length > 0) {
-    publish(`${MQTT_TOPIC}/zone1`, status.zones[1], {
+    publish('zone1', status.zones[1], {
       retain: true,
       qos: 0,
     })
@@ -83,9 +83,19 @@ async function update(retry = false) {
     const [dbStatus] = await Promise.all([pump.updateDB(status), pump.updateStatsDB(status)])
     const diff: Diff = difference(dbStatus, parseStatus(status))
 
+    logger.log({
+      level: 'info',
+      message: `Diff result: ${JSON.stringify(diff)}`,
+    })
+
     mqttUpdate(diff, dbStatus)
 
-    await pump.checkForErrors(status)
+    const error = await pump.checkForErrors(status)
+
+    publish('error', error ?? null, {
+      retain: true,
+      qos: 0,
+    })
   } catch (err) {
     logger.log({
       level: 'error',
@@ -103,6 +113,8 @@ async function update(retry = false) {
 
 async function run() {
   pump = new HeatPump(config.get<string>('heatPumpUsername'), config.get<string>('heatPumpPassword'))
+
+  subscribeToMqttTopic()
 
   try {
     await pump.login()
@@ -122,9 +134,31 @@ async function run() {
 
 async function saveEnergyReport() {
   const time = new Date()
-  time.setDate(time.getDate() - 1); // yesterday
+  time.setDate(time.getDate() - 1) // yesterday
 
   await pump.updateEnergyReport(time.getDate(), time.getMonth() + 1, time.getFullYear())
+}
+
+function subscribeToMqttTopic() {
+  subscribe('on', async () => {
+    await pump.on()
+    update()
+  })
+
+  subscribe('off', async () => {
+    await pump.off()
+    update()
+  })
+
+  subscribe('forcedHotWaterMode', async (payload) => {
+    const value = payload === 'true' ? true : false
+
+    await pump.forcedHotWaterMode(value)
+
+    update()
+  })
+
+
 }
 
 registerInConsul('HeatPump')

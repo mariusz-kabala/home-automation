@@ -122,8 +122,10 @@ export const publish = <T>(
   options: IClientPublishOptions = { qos: 0, retain: false },
 ): void => {
   const message = typeof payload !== 'string' ? JSON.stringify(payload) : payload
+  const prefix = config.get<string>('mqttPrefix')
+  const publishTopic = prefix && prefix !== '' ? `${prefix}/${topic}` : topic
 
-  mqttClient.publish(`${config.get<string>('mqttPrefix')}/${topic}`, message, options)
+  mqttClient.publish(publishTopic, message, options)
 }
 
 export const get = <T>(params: {

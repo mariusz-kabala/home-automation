@@ -49,3 +49,8 @@ interface IReportResponse {
   ProducedHeating: number[]
   Labels: number[]
 }
+
+interface IPumpError {
+  message: string
+  error: number
+}

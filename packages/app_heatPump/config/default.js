@@ -19,7 +19,7 @@ const {
 module.exports = {
   mqttHost: MQTT_HOST,
   mqttPort: MQTT_PORT,
-  mqttPrefix: '',
+  mqttPrefix: 'heatpump',
   mongoConnectionStr: MONGO_CONNECTION_STR,
   consulHost: CONSUL_HOST,
   consulPort: CONSUL_PORT,
