@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.14](https://github.com/mariusz-kabala/homeAutomation/compare/@home/smarter-coffee-machine@0.2.13...@home/smarter-coffee-machine@0.2.14) (2022-12-03)
+
+**Note:** Version bump only for package @home/smarter-coffee-machine
+
+
+
+
+
 ## [0.2.13](https://github.com/mariusz-kabala/homeAutomation/compare/@home/smarter-coffee-machine@0.2.12...@home/smarter-coffee-machine@0.2.13) (2022-10-15)
 
 **Note:** Version bump only for package @home/smarter-coffee-machine

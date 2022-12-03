@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.2](https://github.com/mariusz-kabala/homeAutomation/compare/@home/mqtt@0.8.1...@home/mqtt@0.8.2) (2022-12-03)
+
+
+### Bug Fixes
+
+* extra commands for heatpump, fix for mqtt topics ([a22d921](https://github.com/mariusz-kabala/homeAutomation/commit/a22d921d3e7c8016e07b5d0344a3b4bb9f328e79))
+
+
+
+
+
 ## [0.8.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/mqtt@0.8.0...@home/mqtt@0.8.1) (2022-10-15)
 
 
