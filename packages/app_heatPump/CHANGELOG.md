@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.6](https://github.com/mariusz-kabala/homeAutomation/compare/@home/heatpump@0.3.5...@home/heatpump@0.3.6) (2022-12-03)
+
+
+### Bug Fixes
+
+* mqtt topics ([24e8532](https://github.com/mariusz-kabala/homeAutomation/commit/24e8532772f43dddbf97fc3e33fa4ae428f67b6f))
+
+
+
+
+
 ## [0.3.5](https://github.com/mariusz-kabala/homeAutomation/compare/@home/heatpump@0.3.4...@home/heatpump@0.3.5) (2022-12-03)
 
 
