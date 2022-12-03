@@ -83,11 +83,6 @@ async function update(retry = false) {
     const [dbStatus] = await Promise.all([pump.updateDB(status), pump.updateStatsDB(status)])
     const diff: Diff = difference(dbStatus, parseStatus(status))
 
-    logger.log({
-      level: 'info',
-      message: `Diff result: ${JSON.stringify(diff)}`,
-    })
-
     mqttUpdate(diff, dbStatus)
 
     const error = await pump.checkForErrors(status)
