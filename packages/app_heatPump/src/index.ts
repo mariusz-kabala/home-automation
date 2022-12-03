@@ -10,8 +10,6 @@ import { registerInConsul } from '@home/consul'
 
 const UPDATE_INTERVAL = 60000 // 1min
 
-const MQTT_TOPIC = 'heatpump'
-
 let pump: HeatPump
 
 interface Diff {
@@ -68,7 +66,7 @@ function mqttUpdate(diff: Diff, status: IParsedStatus) {
 
   fields.forEach(field => {
     if (typeof diff[field] !== 'undefined') {
-      publish(`${MQTT_TOPIC}/${field}`, diff[field], {
+      publish(field, diff[field], {
         retain: true,
         qos: 0,
       })
