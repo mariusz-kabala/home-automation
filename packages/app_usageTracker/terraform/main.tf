@@ -9,6 +9,7 @@ resource "docker_container" "usagetracker" {
   env = [
       "CONSUL_HOST=${var.consul_host}",
       "CONSUL_PORT=${var.consul_port}",
+      "HTTP_PORT=${var.http_port}",
       "MONGO_CONNECTION_STR=${var.mongo_connection_str}",
       "MQTT_HOST=${var.mqtt_host}",
       "MQTT_PORT=${var.mqtt_port}"

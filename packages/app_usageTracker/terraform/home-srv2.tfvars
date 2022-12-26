@@ -5,3 +5,4 @@ consul_host = "192.168.50.30"
 consul_port = 8500
 network_name = "global"
 docker_host = "tcp://192.168.50.30:2376/"
+app_domain = "home.kabala.tech"
