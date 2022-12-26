@@ -4,7 +4,7 @@ import { logger } from '@home/logger'
 import { registerInConsul } from '@home/consul'
 import config from 'config'
 
-const SERVICE_NAME = 'UsageTracker'
+const SERVICE_NAME = 'usage-tracker'
 
 function onMongooseStart() {
   logger.info('MongoDB connection established')
@@ -17,12 +17,17 @@ mongoose.connection.on('error', err => {
 
 mongoose.connection.on('open', onMongooseStart)
 
-function start() {
+async function start() {
   const app = initApp()
 
-  const port = config.get<number>('port') || 3000
+  const port = parseInt(config.get<string>('port'), 10) || 3000
 
-  registerInConsul(SERVICE_NAME, port)
+  try {
+    await registerInConsul(SERVICE_NAME, port)
+  } catch (err) {
+    logger.error(`Consul registration error ${err}`)
+    process.exit(1)
+  }
 
   app.listen(port, () => {
     logger.log({
