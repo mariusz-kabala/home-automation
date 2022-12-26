@@ -8,4 +8,17 @@ module.exports = {
   queueConnectionStr: QUEUE_CONNECTION_STR,
   consulHost: CONSUL_HOST,
   consulPort: CONSUL_PORT,
+  devices: {
+    'lights-before-stairs': [
+      {
+        max: 10, //10min
+      },
+      {
+        after: 'sunset',
+        before: 'sunraise',
+        max: 25,
+      },
+      {},
+    ],
+  },
 }
