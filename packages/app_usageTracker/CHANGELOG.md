@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.3](https://github.com/mariusz-kabala/homeAutomation/compare/@home/usage-tracker@0.1.2...@home/usage-tracker@0.1.3) (2022-12-26)
+
+
+### Bug Fixes
+
+* consul connection ([c953ce2](https://github.com/mariusz-kabala/homeAutomation/commit/c953ce27b8858d4f4e740486fa519404a13427f3))
+
+
+
+
+
 ## [0.1.2](https://github.com/mariusz-kabala/homeAutomation/compare/@home/usage-tracker@0.1.1...@home/usage-tracker@0.1.2) (2022-12-26)
 
 
