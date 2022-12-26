@@ -34,3 +34,8 @@ variable "consul_port" {
 variable "http_port" {
   default = "3000"
 }
+
+variable "dns_list" {
+  type = list(string)
+  default = [ "8.8.8.8", "8.8.4.4" ]
+}
