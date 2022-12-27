@@ -22,20 +22,23 @@ const UsageSchema = new Schema(
       type: String,
       required: true,
     },
+    relay: {
+      type: Number,
+    },
     room: {
       type: String,
       trim: true,
-      required: false,
+      required: true,
     },
     level: {
       type: Number,
-      required: false,
+      required: true,
       default: 0,
     },
     category: {
       type: String,
       trim: true,
-      required: false,
+      required: true,
     },
   },
   {
@@ -47,9 +50,10 @@ export interface IUsage extends Document {
   type: string
   name: string
   id: string
-  room?: string
+  relay?: number
+  room: string
   level: number
-  category?: UsageCategory
+  category: UsageCategory
   createdAt: Date
   updatedAt: Date
 }

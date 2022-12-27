@@ -40,6 +40,9 @@ const UsageRuleSchema = new Schema(
       type: Number,
       required: true,
     },
+    relay: {
+      type: Number,
+    },
     lux: LuxSchema,
     movement: MovementSchema,
   },
@@ -50,15 +53,16 @@ const UsageRuleSchema = new Schema(
 
 export interface IUsageRule extends Document {
   id: string
-  before: string
-  after: string
+  before?: string
+  after?: string
   max: number
-  lux: {
+  relay?: number
+  lux?: {
     device: string
     min?: number
     max?: number
   }
-  movement: {
+  movement?: {
     device: string
     value: number
   }

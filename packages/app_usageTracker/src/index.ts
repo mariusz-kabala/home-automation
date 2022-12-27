@@ -4,7 +4,7 @@ import { logger } from '@home/logger'
 import { registerInConsul } from '@home/consul'
 import config from 'config'
 
-const SERVICE_NAME = 'usage-tracker'
+const SERVICE_NAME = 'usageTracker'
 
 function onMongooseStart() {
   logger.info('MongoDB connection established')

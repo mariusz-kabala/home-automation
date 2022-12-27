@@ -1,0 +1,25 @@
+{
+  "lastRun": "1672126929171-laundry-room-rules.js",
+  "migrations": [
+    {
+      "title": "1672124821960-larder-rules.js",
+      "timestamp": 1672125225891
+    },
+    {
+      "title": "1672125989297-boiler-room-rules.js",
+      "timestamp": 1672126159946
+    },
+    {
+      "title": "1672126227268-office-corridor-rules.js",
+      "timestamp": 1672126335798
+    },
+    {
+      "title": "1672126664948-sconce-living-room-rules.js",
+      "timestamp": 1672126804947
+    },
+    {
+      "title": "1672126929171-laundry-room-rules.js",
+      "timestamp": 1672127061506
+    }
+  ]
+}

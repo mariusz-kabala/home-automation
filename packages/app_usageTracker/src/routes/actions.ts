@@ -55,7 +55,7 @@ async function turnOnPost(req: Request, res: Response) {
 }
 
 async function turnOnGet(req: Request, res: Response) {
-  const { id } = req.query
+  const { id, relay } = req.query
 
   if (!id || typeof id !== 'string') {
     return res.status(400).end()
@@ -81,6 +81,12 @@ async function turnOnGet(req: Request, res: Response) {
   usage.room = shelly.room
   usage.level = shelly.level
   usage.category = UsageCategory.lights
+
+  if (relay && relay !== '') {
+    const parsedRelay = parseInt(`${relay}`, 10)
+
+    usage.relay = isNaN(parsedRelay) ? undefined : parsedRelay
+  }
 
   try {
     usage.save()
