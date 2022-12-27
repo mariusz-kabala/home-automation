@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.4](https://github.com/mariusz-kabala/homeAutomation/compare/@home/usage-tracker@0.1.3...@home/usage-tracker@0.1.4) (2022-12-27)
+
+
+### Bug Fixes
+
+* add relay support, and migrations ([e210423](https://github.com/mariusz-kabala/homeAutomation/commit/e2104232a351de383342c7ff8ccd09c078da8b77))
+
+
+
+
+
 ## [0.1.3](https://github.com/mariusz-kabala/homeAutomation/compare/@home/usage-tracker@0.1.2...@home/usage-tracker@0.1.3) (2022-12-26)
 
 
