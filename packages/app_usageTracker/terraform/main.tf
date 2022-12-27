@@ -27,16 +27,15 @@ resource "docker_container" "usagetracker" {
     value = "Host(`${var.app_domain}`) && PathPrefix(`${var.app_prefix}`)"
   }
 
-  labels {
-    label = "traefik.http.routers.usagetracker.tls"
-    value = "true"
-  }
+  # labels {
+  #   label = "traefik.http.routers.usagetracker.tls"
+  #   value = "true"
+  # }
 
-  labels {
-    label = "traefik.http.routers.usagetracker.tls.certresolver"
-    value = "myresolver"
-  }
-
+  # labels {
+  #   label = "traefik.http.routers.usagetracker.tls.certresolver"
+  #   value = "myresolver"
+  # }
 
   labels {
     label = "traefik.http.services.usagetracker.loadbalancer.server.port"

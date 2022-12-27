@@ -11,7 +11,7 @@ export function initApp() {
   app.disable('x-powered-by')
   app.use(morgan('combined'))
   app.use((_: Request, res: Response, next: NextFunction) => {
-    res.set('x-app', 'home-lights-monitoring-service')
+    res.set('x-app', 'home-usage-tracker-service')
     next()
   })
   app.use(express.json())
