@@ -107,9 +107,18 @@ start()
 
 registerInConsul('deviceDiscovery', port)
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
   logger.log({
     level: 'info',
     message: `DeviceDiscovery started on port ${port}`,
   })
 })
+
+// needed for unit tests
+export function closeApp() {
+  server.close()
+
+  for (const interval of Object.values(timeIntervals)) {
+    clearInterval(interval)
+  }
+}

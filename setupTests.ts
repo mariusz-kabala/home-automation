@@ -10,7 +10,12 @@ jest.mock('config', () => ({
 jest.mock('@home/logger', () => ({
   logger: {
     log: jest.fn(),
+    info: jest.fn(),
   },
+}))
+
+jest.mock('@home/consul', () => ({
+  registerInConsul: jest.fn(),
 }))
 
 let subscriptions: { [key: string]: Function[] }

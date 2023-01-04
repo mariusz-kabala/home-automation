@@ -40,6 +40,10 @@ const UsageRuleSchema = new Schema(
       type: Number,
       required: true,
     },
+    threshold: {
+      type: Number,
+      default: 2,
+    },
     relay: {
       type: Number,
     },
@@ -56,6 +60,7 @@ export interface IUsageRule extends Document {
   before?: string
   after?: string
   max: number
+  threshold: number
   relay?: number
   lux?: {
     device: string

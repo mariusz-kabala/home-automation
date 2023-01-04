@@ -27,6 +27,8 @@ jest.mock('node-cron', () => ({
   },
 }))
 
+let closeApp = () => null
+
 describe('OpenWeather service', () => {
   beforeAll(() => {
     ;(fetch as FetchMock).mockResponse(
@@ -35,7 +37,11 @@ describe('OpenWeather service', () => {
       }),
     )
 
-    require('./index')
+    closeApp = require('./index').closeApp
+  })
+
+  afterAll(() => {
+    closeApp()
   })
 
   it('Should fetch forecast from openweather API', async () => {

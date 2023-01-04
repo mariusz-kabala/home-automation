@@ -2,6 +2,8 @@ import { initApp } from './app'
 import { mongoose } from '@home/mongoose-client'
 import { logger } from '@home/logger'
 import { registerInConsul } from '@home/consul'
+import { start as startTracking } from './tracker'
+import { connectRedis } from './redis'
 import config from 'config'
 
 const SERVICE_NAME = 'usageTracker'
@@ -18,8 +20,9 @@ mongoose.connection.on('error', err => {
 mongoose.connection.on('open', onMongooseStart)
 
 async function start() {
-  const app = initApp()
+  await connectRedis()
 
+  const app = initApp()
   const port = parseInt(config.get<string>('port'), 10) || 3000
 
   try {
@@ -35,6 +38,8 @@ async function start() {
       message: `${SERVICE_NAME} started on port ${port}`,
     })
   })
+
+  startTracking()
 }
 
 start()

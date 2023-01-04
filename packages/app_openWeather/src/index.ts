@@ -4,7 +4,7 @@ import cron from 'node-cron'
 import { v4 as uuid4 } from 'uuid'
 import { publish } from '@home/mqtt'
 import { logger } from '@home/logger'
-import { registerInConsul } from '@home/commons'
+import { registerInConsul } from '@home/consul'
 import { Store } from '@home/commons'
 import { initApp } from './app'
 
@@ -59,11 +59,16 @@ const app = initApp(store)
 run()
 registerInConsul('openWeather', port)
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
   logger.log({
     level: 'info',
     message: `OpenWeather started on port ${port}`,
   })
 })
+
+// tested for unit test
+export function closeApp() {
+  server.close()
+}
 
 cron.schedule('*/5 * * * *', run)

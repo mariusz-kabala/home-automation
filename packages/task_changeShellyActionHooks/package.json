@@ -1,0 +1,14 @@
+{
+  "name": "@home/task-change-shelly-action-hooks",
+  "version": "0.0.1",
+  "private": true,
+  "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
+  "main": "./dist/index.js",
+  "license": "ISC",
+  "scripts": {
+    "build": "rollup -c ../../rollup.config.js",
+    "build-declarations": "tsc --declaration --emitDeclarationOnly --out dist/index.d.ts",
+    "start": "node dist/index.js",
+    "prepare": "exit 0"
+  }
+}

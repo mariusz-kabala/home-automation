@@ -23,3 +23,19 @@ export const updateFirmware = (deviceIp: string) =>
 
 export const fetchSettings = <T = any>(deviceIp: string) =>
   fetchJSONWithTimeout<void, T>(`http://${deviceIp}/settings`, { timeout: 1500 })
+
+export const updateActionHook = (
+  deviceIp: string,
+  payload: { index: string; enabled: string; name: string; urls: string[] },
+) => {
+  const { urls, ...rest } = payload
+  const query = new URLSearchParams(rest)
+
+  for (const url of urls) {
+    query.append('urls[]', url)
+  }
+
+  return fetchJSONWithTimeout<void, unknown>(`http://${deviceIp}/settings/actions/?${query.toString()}`, {
+    timeout: 1000,
+  })
+}
