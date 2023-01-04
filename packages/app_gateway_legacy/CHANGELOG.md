@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.12.0 (2023-01-04)
+
+
+### Features
+
+* gateway v2 ([b4331fb](https://github.com/mariusz-kabala/homeAutomation/commit/b4331fb207df33ff48bc737bad03c708aae02da8))
+
+
+
+
+
 ## [0.11.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/gateway_legacy@0.11.0...@home/gateway_legacy@0.11.1) (2022-10-26)
 
 **Note:** Version bump only for package @home/gateway_legacy

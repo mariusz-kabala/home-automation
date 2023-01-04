@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.4](https://github.com/mariusz-kabala/homeAutomation/compare/@home/logger@0.1.3...@home/logger@0.1.4) (2023-01-04)
+
+
+### Bug Fixes
+
+* adjust mongoose and logger ([ae21ec0](https://github.com/mariusz-kabala/homeAutomation/commit/ae21ec09f0a9675be882602e75180970cc8bbe59))
+
+
+
+
+
 ## [0.1.3](https://github.com/mariusz-kabala/homeAutomation/compare/@home/logger@0.1.2...@home/logger@0.1.3) (2022-04-05)
 
 

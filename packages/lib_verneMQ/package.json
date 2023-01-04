@@ -1,12 +1,12 @@
 {
   "name": "@home/vernemq-api",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "ISC",
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "dependencies": {
-    "@home/commons": "0.7.0"
+    "@home/commons": "0.7.1"
   },
   "scripts": {
     "build": "rollup -c ../../rollup.config.js",

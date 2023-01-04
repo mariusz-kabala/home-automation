@@ -1,6 +1,6 @@
 {
   "name": "@home/gateway",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
   "main": "dist/index.js",
   "license": "ISC",
@@ -18,8 +18,8 @@
     "graphql": "^15.5.0"
   },
   "dependencies": {
-    "@home/commons": "0.7.0",
-    "@home/mongoose-client": "0.2.0",
+    "@home/commons": "0.7.1",
+    "@home/mongoose-client": "0.2.1",
     "@typegoose/typegoose": "^9.10.1",
     "apollo-server-core": "^3.10.0",
     "apollo-server-express": "^3.9.0",
