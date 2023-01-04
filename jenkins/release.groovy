@@ -1,7 +1,7 @@
 def branch = '';
 
 pipeline {
-    agent { docker { image 'docker-registry.kabala.tech/node17-with-git:latest' } }
+    agent { docker { image 'docker-registry.kabala.tech/node18-with-git:latest' } }
 
     environment {
         app = ''
