@@ -1,6 +1,6 @@
 {
   "name": "@home/shelly",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "private": true,
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
   "main": "./dist/index.js",
@@ -19,6 +19,6 @@
     "@home/commons": "0.7.1",
     "@home/logger": "0.1.4",
     "@home/mongoose-client": "0.2.1",
-    "@home/shelly-api": "0.3.1"
+    "@home/shelly-api": "0.3.2"
   }
 }
