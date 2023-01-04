@@ -36,6 +36,6 @@ export const updateActionHook = (
   }
 
   return fetchJSONWithTimeout<void, unknown>(`http://${deviceIp}/settings/actions/?${query}`, {
-    timeout: 1000,
+    timeout: 3000,
   })
 }

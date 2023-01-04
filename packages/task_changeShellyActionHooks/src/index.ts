@@ -77,12 +77,16 @@ function run() {
       logger.info(`Updating action hook for ${shelly.label} (${shelly.name}) -> ${shelly.status.wifi_sta.ip}`)
 
       for (let index = 0; index < relays; index += 1) {
-        await updateActionHook(shelly.status.wifi_sta.ip, {
-          index: `${index}`,
-          enabled: ENABLED ? 'true' : 'false',
-          name: HOOK,
-          urls: urls.map(url => url.replace(':name', shelly.name).replace(':relay', `${index}`)),
-        })
+        try {
+          await updateActionHook(shelly.status.wifi_sta.ip, {
+            index: `${index}`,
+            enabled: ENABLED ? 'true' : 'false',
+            name: HOOK,
+            urls: urls.map(url => url.replace(':name', shelly.name).replace(':relay', `${index}`)),
+          })
+        } catch (err) {
+          logger.error(`Update failed ${err}`)
+        }
       }
     }
 
