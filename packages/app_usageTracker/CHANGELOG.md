@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/usage-tracker@0.1.4...@home/usage-tracker@0.2.0) (2023-01-04)
+
+
+### Features
+
+* add new shelly task ([93938e9](https://github.com/mariusz-kabala/homeAutomation/commit/93938e919a242ca205061a396b57f109b4b464b4))
+
+
+
+
+
 ## [0.1.4](https://github.com/mariusz-kabala/homeAutomation/compare/@home/usage-tracker@0.1.3...@home/usage-tracker@0.1.4) (2022-12-27)
 
 
