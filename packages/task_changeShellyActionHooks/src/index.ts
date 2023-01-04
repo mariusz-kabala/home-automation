@@ -60,6 +60,7 @@ function run() {
     for (const shelly of shellies) {
       if (shelly.status.wifi_sta.connected) {
         logger.error(`Device ${shelly.label} (${shelly.name}) not connected to Wifi, skipping`)
+        logger.info(shelly.toObject())
         continue
       }
       const relays = shelly.status.relays.length
@@ -74,6 +75,9 @@ function run() {
         })
       }
     }
+
+    logger.info(`Finished, updated: ${shellies.length} devices`)
+    process.exit(0)
   })
 }
 
