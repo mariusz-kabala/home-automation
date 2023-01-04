@@ -66,7 +66,8 @@ function run() {
 
       for (let index = 0; index < relays; index += 1) {
         logger.info(`Updating action hook for ${shelly.label} (${shelly.name})`)
-        updateActionHook(shelly.status.wifi_sta.ip, {
+
+        await updateActionHook(shelly.status.wifi_sta.ip, {
           index: `${index}`,
           enabled: ENABLED ? 'true' : 'false',
           name: HOOK,

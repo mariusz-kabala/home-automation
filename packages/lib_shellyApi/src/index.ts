@@ -29,13 +29,13 @@ export const updateActionHook = (
   payload: { index: string; enabled: string; name: string; urls: string[] },
 ) => {
   const { urls, ...rest } = payload
-  const query = new URLSearchParams(rest)
+  let query = new URLSearchParams(rest).toString()
 
   for (const url of urls) {
-    query.append('urls[]', url)
+    query += `&urls[]=${encodeURIComponent(url)}`
   }
 
-  return fetchJSONWithTimeout<void, unknown>(`http://${deviceIp}/settings/actions/?${query.toString()}`, {
+  return fetchJSONWithTimeout<void, unknown>(`http://${deviceIp}/settings/actions/?${query}`, {
     timeout: 1000,
   })
 }
