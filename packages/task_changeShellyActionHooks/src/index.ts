@@ -6,10 +6,12 @@ import { updateActionHook } from '@home/shelly-api'
 const VALID_HOOKS = ['btn_on_url', 'btn_off_url', 'longpush_url', 'shortpush_url', 'out_on_url', 'out_off_url']
 
 function run() {
-  const { DEVICES, HOOK, URLS, ENABLED } = process.env
+  const { DEVICES, HOOK, URLS, ENABLED, CATEGORY, LEVEL } = process.env
 
-  if (!DEVICES || DEVICES === '') {
-    logger.error(`Please specify list of devices to updates, separate devices names with a comma`)
+  if ((!DEVICES || DEVICES === '') && (!CATEGORY || CATEGORY === '') && (!LEVEL || LEVEL === '')) {
+    logger.error(
+      `Please specify list of devices to updates, separate devices names with a comma, or provide device category or level`,
+    )
     process.exit(1)
   }
 
@@ -23,17 +25,13 @@ function run() {
     process.exit(1)
   }
 
-  const devices = DEVICES.split(',')
+  const devices = (DEVICES ?? '')
+    .split(',')
     .map(d => d.trim())
     .filter(d => d)
   const urls = URLS.split(',')
     .map(d => d.trim())
     .filter(d => d)
-
-  if (devices.length === 0) {
-    logger.error('No valid devices provided')
-    process.exit(1)
-  }
 
   if (urls.length === 0) {
     logger.error('No valid urls provided')
@@ -46,11 +44,23 @@ function run() {
   })
 
   mongoose.connection.on('open', async () => {
-    const shellies = await ShellyModel.find({
-      name: {
+    const query: any = {}
+
+    if (devices.length > 0) {
+      query.name = {
         $in: devices,
-      },
-    })
+      }
+    }
+
+    if (CATEGORY && CATEGORY !== '') {
+      query.category = CATEGORY
+    }
+
+    if (LEVEL && LEVEL !== '') {
+      query.level = parseInt(LEVEL, 10)
+    }
+
+    const shellies = await ShellyModel.find(query)
 
     if (shellies.length === 0) {
       logger.error('No devices found in DB')
@@ -65,7 +75,7 @@ function run() {
       const relays = shelly.status.relays.length
 
       for (let index = 0; index < relays; index += 1) {
-        logger.info(`Updating action hook for ${shelly.label} (${shelly.name})`)
+        logger.info(`Updating action hook for ${shelly.label} (${shelly.name}) -> ${shelly.status.wifi_sta.ip}`)
 
         await updateActionHook(shelly.status.wifi_sta.ip, {
           index: `${index}`,
