@@ -40,7 +40,12 @@ function run() {
     process.exit(1)
   }
 
-  mongoose.connection.once('open', async () => {
+  mongoose.connection.on('error', err => {
+    logger.error(`${err}`)
+    process.exit(1)
+  })
+
+  mongoose.connection.on('open', async () => {
     const shellies = await ShellyModel.find({
       name: {
         $in: devices,

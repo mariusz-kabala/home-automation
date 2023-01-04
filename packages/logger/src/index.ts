@@ -1,12 +1,23 @@
-import * as winston from 'winston'
-
 const { NODE_ENV } = process.env
 
-export const logger = winston.createLogger({
-  format: winston.format.json(),
-  level: 'debug',
-  transports: [new winston.transports.Console()],
-})
+export const logger = {
+  log({ level, message }: { level: string; message: string }) {
+    // eslint-disable-next-line no-console
+    console.log(JSON.stringify({ level, message }))
+  },
+
+  info(message: string) {
+    this.log({ level: 'info', message })
+  },
+
+  error(message: string) {
+    this.log({ level: 'error', message })
+  },
+
+  warn(message: string) {
+    this.log({ level: 'warn', message })
+  },
+}
 
 export const stream = {
   write: (message: string) => {

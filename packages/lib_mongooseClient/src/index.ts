@@ -2,23 +2,21 @@ import mongoose from 'mongoose'
 import config from 'config'
 import { logger } from '@home/logger'
 
-const db = mongoose.connection
+mongoose.set('strictQuery', false)
 
-db.on('error', err => {
-  logger.log({
-    message: `Database error: ${err}`,
-    level: 'error',
+mongoose
+  .connect(config.get('mongoConnectionStr'))
+  .then(() => {
+    logger.log({
+      message: 'Connection with mongoDB established',
+      level: 'info',
+    })
   })
-})
-db.once('open', () => {
-  logger.log({
-    message: 'Connection with mongoDB established',
-    level: 'info',
+  .catch(err => {
+    logger.log({
+      message: `Database error: ${err}`,
+      level: 'error',
+    })
   })
-})
-
-mongoose.connect(config.get('mongoConnectionStr'))
-
-mongoose.Promise = global.Promise
 
 export { mongoose }
