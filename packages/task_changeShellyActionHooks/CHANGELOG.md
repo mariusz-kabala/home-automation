@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/mariusz-kabala/homeAutomation/compare/@home/task-change-shelly-action-hooks@0.2.0...@home/task-change-shelly-action-hooks@0.2.1) (2023-01-04)
+
+
+### Bug Fixes
+
+* skip broken devices ([9feedff](https://github.com/mariusz-kabala/homeAutomation/commit/9feedff8916b1f1c2a98f5f7e989ead260c48e0f))
+
+
+
+
+
 # [0.2.0](https://github.com/mariusz-kabala/homeAutomation/compare/@home/task-change-shelly-action-hooks@0.1.5...@home/task-change-shelly-action-hooks@0.2.0) (2023-01-04)
 
 
