@@ -68,15 +68,15 @@ function run() {
     }
 
     for (const shelly of shellies) {
-      if (!shelly.status.wifi_sta.connected) {
+      if (!shelly.status?.wifi_sta?.connected) {
         logger.error(`Device ${shelly.label} (${shelly.name}) not connected to Wifi, skipping`)
         continue
       }
       const relays = shelly.status.relays.length
 
-      for (let index = 0; index < relays; index += 1) {
-        logger.info(`Updating action hook for ${shelly.label} (${shelly.name}) -> ${shelly.status.wifi_sta.ip}`)
+      logger.info(`Updating action hook for ${shelly.label} (${shelly.name}) -> ${shelly.status.wifi_sta.ip}`)
 
+      for (let index = 0; index < relays; index += 1) {
         await updateActionHook(shelly.status.wifi_sta.ip, {
           index: `${index}`,
           enabled: ENABLED ? 'true' : 'false',
