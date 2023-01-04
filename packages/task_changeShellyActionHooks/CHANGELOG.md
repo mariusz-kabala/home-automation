@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.5](https://github.com/mariusz-kabala/homeAutomation/compare/@home/task-change-shelly-action-hooks@0.1.4...@home/task-change-shelly-action-hooks@0.1.5) (2023-01-04)
+
+
+### Bug Fixes
+
+* api fixes ([fbfb798](https://github.com/mariusz-kabala/homeAutomation/commit/fbfb798f85871f8faebf1ab57717651d99d2bd05))
+
+
+
+
+
 ## [0.1.4](https://github.com/mariusz-kabala/homeAutomation/compare/@home/task-change-shelly-action-hooks@0.1.3...@home/task-change-shelly-action-hooks@0.1.4) (2023-01-04)
 
 
