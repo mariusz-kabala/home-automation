@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.10](https://github.com/mariusz-kabala/homeAutomation/compare/@home/task-update-shelly-settings@0.1.9...@home/task-update-shelly-settings@0.1.10) (2023-01-04)
+
+**Note:** Version bump only for package @home/task-update-shelly-settings
+
+
+
+
+
 ## [0.1.9](https://github.com/mariusz-kabala/homeAutomation/compare/@home/task-update-shelly-settings@0.1.8...@home/task-update-shelly-settings@0.1.9) (2023-01-04)
 
 **Note:** Version bump only for package @home/task-update-shelly-settings

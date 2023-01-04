@@ -1,6 +1,6 @@
 {
   "name": "@home/task-update-shelly-settings",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "private": true,
   "author": "Mariusz Kabala <mariusz@kabala.waw.pl>",
   "main": "./dist/index.js",
@@ -15,7 +15,7 @@
     "@home/logger": "0.1.4",
     "@home/models": "0.8.0",
     "@home/mongoose-client": "0.2.1",
-    "@home/shelly-api": "0.3.2",
+    "@home/shelly-api": "0.3.3",
     "request": "^2.88.2"
   }
 }
