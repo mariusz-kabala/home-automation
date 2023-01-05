@@ -1,9 +1,21 @@
 {
-  "lastRun": "1643899823009-feel-shelly-data.js",
+  "lastRun": "1672866211788-add-gym-blinds.js",
   "migrations": [
     {
       "title": "1643899823009-feel-shelly-data.js",
       "timestamp": 1665941258367
+    },
+    {
+      "title": "1672859431700-add-lights-bedroom-shower.js",
+      "timestamp": 1672865664922
+    },
+    {
+      "title": "1672865737820-add-lights-terrace.js",
+      "timestamp": 1672866089509
+    },
+    {
+      "title": "1672866211788-add-gym-blinds.js",
+      "timestamp": 1672866455335
     }
   ]
 }
